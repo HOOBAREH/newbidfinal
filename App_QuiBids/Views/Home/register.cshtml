@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login">
+
+
+
+    <form method="post" action="login.php">
+        <input type="text" name="FirstName" value="نام">
+        <span>نام </span><br><br>
+
+        <input type="text" name="LastName" value="نام خانوادگی">
+        <span>نام خانوادگی</span><br><br>
+
+        <input type="text" name="EmailAdress" value="ایمیل شما">
+        <span>ایمیل</span><br><br>
+
+        <input type="text" name="Mobile" value="شماره">
+        <span>تلفن تماس</span><br><br>
+
+        <input type="password" name="password" minlength="4" maxlength="12" value="رمز عبور">
+        <span>رمز عبور</span><br><br>
+
+        <input type="password" name="repassword" minlength="4" maxlength="12" value="تکرار رمز عبور">
+        <span>تکرار رمز عبور</span><br><br>
+
+        <input dir="rtl" type="submit" value="آماده شروع به برنده شدن هستم">
+
+
+    </form>
+
+
+</div>
+

@@ -1,0 +1,695 @@
+﻿@using DataLayer;
+@{
+    var user = (User)Session["Admin"];
+}
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Farsi.Quibids</title>
+
+    <link rel="stylesheet" href="~/fontawesome/css/all.css">
+
+    <title>QuiBidsFarsi</title>
+
+    <meta http-equiv="Content-Language" content="fa" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="keywords" content="" />
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!--[if IE]>
+    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+    <![endif]-->
+
+    <script>
+        pageID = 1; mm = 100; isNewUser = true;
+        try {
+            Homepage.featuredFilterText = 'Select Features';
+            Homepage.valuePriceFilterText = 'Select Price';
+            Homepage.category0FilterText = 'Select Categories';
+            Homepage.category1FilterText = 'Select Electronics';
+            Homepage.category2FilterText = 'Select Lifestyle';
+            Homepage.category3FilterText = 'Select Fashion';
+            Homepage.category4FilterText = 'Select Gift Cards';
+            Homepage.sortOptionText = 'Sort Option';
+            Homepage.addFilter = 'Add Filters';
+            Homepage.remFilter = 'Clear Filters';
+        } catch (e) { }
+        var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '20', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + ""; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+    </script>
+    @*-----------------------------------------------------------------*@
+    <link rel="stylesheet" href="~/fontawesome/css/all.css">
+
+    <link rel="stylesheet" href="~/Content/Style.css">
+    <link rel="stylesheet" href="~/Content/BODYStyleSheet.css">
+    <link rel="stylesheet" href="~/Content/BODYStyleSheet2.css">
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css">
+
+
+
+    @*-----------------------------------------------------------------*@
+
+
+</head>
+
+<body>
+
+
+
+    <div class="gloss">
+        <div id="topbar">
+            <div class="wrapper">
+
+                <div class="login">
+                    @if (Session["Admin"] != null)
+                    {
+                        <ul class="show">
+                            <li>@user.Fname @user.Lname</li>
+                            <span>|</span>
+
+                            <li class="tooltip-bottom" title="0 Real / 0 Voucher" id="template_bidsavailable_full">
+                                <img src="~/Content/img/coins.png"
+                                     class="bids-icon">
+                                <a href="" class="bids"
+                                   id="template_bidsavailable_click">
+                                    <span id="template_bidsavailable"
+                                          style="width:25px">@user.RealBid</span>
+                                        Bids
+                                    </a>
+                                </li>
+                                <span>|</span>
+                                <li>
+                                    <a href="">خروج</a>
+                                </li>
+
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="show">
+                                <li>
+                                    ورود /عضویت <a href="/Home/register">عضو شوید</a>
+                                </li>
+                                <span>|</span>
+                                <li><a href="/home/login">ورود</a></li>
+                                <span>|</span>
+                                <li>
+                                    <a href="">خروج</a>
+                                </li>
+
+                            </ul>
+                        }
+
+
+                    <!--cart-panel-->
+                    <!--cart-panel-->
+
+                </div>
+
+                <!--login-->
+
+
+            </div>
+            <!--wrapper-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div><!--topbar-->
+        <div class="wrapper">
+            <header>
+                <div id="logo" class="logoads">
+                    <h1><a href="">QuiBidsFarsi</a></h1>
+                </div>
+                <!--logo-->
+
+
+                <div class="bannerad">
+                    @*<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>*@
+                    <!-- 2015 - QB ROS -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:780px;height:90px"
+                         data-ad-client="ca-pub-4560135486422930"
+                         data-ad-slot="8876535802"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </header>
+            <!--header--><!--منوی تیتر صفحه-->
+            <div id='nav'>
+                <ul id="mainnav">
+                    <li id='browse-menu-btn'><a class='active' href="/en/">Browse	<img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/icons/down-arrow.png" /></a></li>
+
+                    <li> <a href="">بازی ها</a> </li>
+
+                    <li> <a href="">مدال ها</a> </li>
+
+                    <li> <a href="">درباره ی FarsiQuibids</a> </li>
+
+                    <li> <a href="">راهنما</a> </li>
+
+                    <li> <a href="/Home/register">عضویت</a> </li>
+                </ul>
+
+                @*<script>
+                        $(document).ready(function () {
+                            var BrowseMenu = new Class_BrowseMenu();
+                            BrowseMenu.init();
+                        });
+                    </script>*@
+
+                <style>
+                    #browse-menu {
+                        width: 190px;
+                        height: 350px;
+                        /* box-shadow: 2px 2px 3px #bbbbbb; */
+                    }
+
+                        #browse-menu .browse-links .nav {
+                            width: 190px;
+                            background: white left bottom repeat-x;
+                            border: solid 1px #D1D1D1;
+                            -webkit-border-radius: 0px 0px 8px 8px;
+                            border-radius: 0px 0px 8px 8px;
+                            -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            padding: 10px 0;
+                            position: relative;
+                            z-index: 3002;
+                            margin-left: 10px;
+                        }
+
+                            #browse-menu .browse-links .nav:after {
+                                content: ".";
+                                display: block;
+                                clear: both;
+                                visibility: hidden;
+                                height: 0;
+                                line-height: 0;
+                            }
+
+                            #browse-menu .browse-links .nav h2 {
+                                padding: 0 15px;
+                                margin: 0;
+                                color: #FF7400;
+                                font-family: Myriad, "Myriad Pro", Arial;
+                                font-size: 20px;
+                                font-weight: bold;
+                                letter-spacing: .02em;
+                            }
+
+                            #browse-menu .browse-links .nav .store-header {
+                                float: left;
+                                margin-top: 20px;
+                            }
+
+                        #browse-menu a {
+                            cursor: pointer;
+                        }
+
+                        #browse-menu h2, #browse-menu h3 {
+                            cursor: default;
+                        }
+
+                        /* popout menu*/
+                        #browse-menu .browse-links .menu-data > * {
+                            position: absolute;
+                            top: 5px;
+                            left: 190px;
+                            width: 340px;
+                            background: white left bottom repeat-x;
+                            border: 1px solid #dddddd;
+                            padding: 15px 0 10px 25px;
+                            border: solid 1px #D1D1D1;
+                            -webkit-border-radius: 0px 8px 8px 0px;
+                            border-radius: 0px 8px 8px 0px;
+                            -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            box-shadow: 0px 1px 6px 0px #CDCDCD;
+                            z-index: 3001;
+                        }
+
+                    .menu_sub_browse {
+                        top: auto !important;
+                        bottom: 5px;
+                    }
+
+                    #browse-menu .browse-links .menu-data h3 {
+                        padding: 0;
+                        margin: 0;
+                        font-weight: bold;
+                    }
+
+                    #browse-menu .browse-links .menu_sub_auctions {
+                        height: 275px;
+                    }
+
+                    #browse-menu .browse-links .menu_sub_browse {
+                        height: 290px;
+                        margin-top: 148px
+                    }
+
+                    .megamenu-image {
+                        position: absolute;
+                        bottom: 0;
+                        right: 45px;
+                        top: 160px;
+                    }
+
+
+                    .megamenu-sub-2 {
+                        padding-bottom: 170px;
+                    }
+
+                    #menu-auctions, #menu-store {
+                        width: 190px;
+                        padding: 10px 15px;
+                    }
+
+                        #menu-auctions li, #menu-store li {
+                            background: no-repeat 90% 50%;
+                            padding: 0 15px;
+                            margin: 0;
+                        }
+
+                            #menu-auctions li:hover, #menu-store li:hover {
+                                background: no-repeat 90% 50%;
+                            }
+
+                    #browse-menu ul li a:hover, #browse-menu ul li a:hover {
+                        color: #4f4f4f;
+                        font-weight: bold;
+                    }
+
+                    #browse-menu .browse-links .nav #menu-auctions li a, #browse-menu .browse-links .nav #menu-store li a {
+                        width: 170px;
+                        margin-left: 15px;
+                    }
+
+                    #brand_browse {
+                        font-family: Myriad, "Myriad Pro", Arial, Helvetica;
+                        height: 30px;
+                        font-size: 14px;
+                    }
+
+                    #category_browse {
+                        font-family: Myriad, "Myriad Pro", Arial, Helvetica;
+                        height: 30px;
+                        font-size: 14px;
+                    }
+
+                    #menu-list-items {
+                        overflow: hidden;
+                        width: 155px;
+                    }
+
+                        #menu-list-items li {
+                            line-height: 23px;
+                            margin: 0;
+                            padding: 0;
+                        }
+                </style>
+                <div id="browse-menu">
+                    <div class="browse-links">
+
+                        <div class="nav">
+                            <h2>فعالیت های حال حاضر</h2>
+                            <ul id='menu-auctions' style="overflow:hidden;padding-bottom:20px;">
+
+                                <li class="no-children"><span class="menu_link" id="menu_1"><a href="/en/">تمام فعالیت های زنده</a></span></li>
+                                <li class="no-children"><span class="menu_link" id="menu_2"><a href="/en/auctions-watch-list/">Watchlist</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_3"><a href="/category-2352-electronics/">الکترونیکی ها</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_4"><a href="/category-4087-home-and-garden/">خانه و باغچه</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_5"><a href="/category-8932-jewelry-and-fashion/">مد و جواهرات</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_6"><a href="/category-5492-sports-and-recreation/">ورزش و سرگرمی</a></span></li>
+                                <li class="no-children"><span class="menu_link" id="menu_7"><a href="/category-9886-specialty-shops/">کالاهای ویژه</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_8"><a href="/category-17-gift-cards/">کارت های هدیه</a></span></li>
+                                <li class="no-children"><span class="menu_link" id="menu_9"><a href="/category-12-vouchers-and-limit-busters/">اسناد و Limit Busters</a></span></li>
+                                <li class="no-children"><span class="menu_link" id="menu_10"><a href="/en/auctions-completed/">تکمیل شده های اخیر</a></span></li>
+                            </ul>
+
+                            <p style="width:85%;border-bottom:1px solid #d2d2d2;margin:0 15px;padding:0;"></p>
+                            <h2 class="store-header">انبار</h2>
+                            <ul id='menu-store'>
+                                <li><span class="menu_link" id="menu_11"><a href="/browse-2352-electronics/">الکترونیکی ها</a></span></li>
+                                <li><span class="menu_link" id="menu_12"><a href="/browse-4087-home-and-garden/">خانه و باغچه </a></span></li>
+                                <li><span class="menu_link" id="menu_13"><a href="/browse-8932-jewelry-and-fashion/">مد و جواهرات</a></span></li>
+                                <li><span class="menu_link" id="menu_14"><a href="/browse-5492-sports-and-recreation/">ورزش و سرگرمی</a></span></li>
+                                <li class="no-children"><span class="menu_link" id="menu_15"><a href="/browse-9886-specialty-shops/">کالا های ویژه</a></span></li>
+                                <li><span class="menu_link" id="menu_16"><a href="/browse-17-gift-cards/">کارت های هدیه</a></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="menu-data" id="menu_wrap">
+
+                            <div id="menu_3_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-2387-electronics/computers-and-tablets/">Computers & Tablets</a></li><li><a href="/category-2367-electronics/camera-and-photo/">Camera & Photo</a></li><li><a href="/category-2357-electronics/tv-and-video/">TV & Video</a></li><li><a href="/category-2377-electronics/portable-electronics/">Portable Electronics</a></li><li><a href="/category-2362-electronics/home-audio/">Home Audio</a></li><li><a href="/category-2382-electronics/video-games/">Video Games</a></li><li><a href="/category-2402-electronics/musical-instruments/">Musical Instruments</a></li><li><a href="/category-2397-electronics/office-equipment/">Office Equipment</a></li><li><a href="/category-2372-electronics/car-electronics/">Car Electronics</a></li><li><a href="/category-2392-electronics/cell-phones/">Cell Phones</a></li><li><a href="/category-2352-electronics/">All Electronics</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-2352-electronics/?b=2">Apple</a></li><li><a href="/category-2352-electronics/?b=1">Sony</a></li><li><a href="/category-2352-electronics/?b=134">Canon</a></li><li><a href="/category-2352-electronics/?b=728">Samsung</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-electronics-001.jpg" /></div></div><div id="menu_4_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-10396-home-and-garden/fragrance/">Fragrance</a></li><li><a href="/category-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li><li><a href="/category-4097-home-and-garden/housewares/">Housewares</a></li><li><a href="/category-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li><li><a href="/category-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li><li><a href="/category-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li><li><a href="/category-4107-home-and-garden/health-and-personal/">Health & Personal</a></li><li><a href="/category-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li><li><a href="/category-4087-home-and-garden/">All Home & Garden</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-4087-home-and-garden/?b=189">Cuisinart</a></li><li><a href="/category-4087-home-and-garden/?b=230">Dyson</a></li><li><a href="/category-4087-home-and-garden/?b=109">Breville</a></li><li><a href="/category-4087-home-and-garden/?b=434">KitchenAid</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-home-001.png" /></div></div><div id="menu_5_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-9561-jewelry-and-fashion/apparel-and-accessories/">Apparel & Accessories</a></li><li><a href="/category-8987-jewelry-and-fashion/handbags-and-wallets/">Handbags & Wallets</a></li><li><a href="/category-9506-jewelry-and-fashion/jewelry-and-watches/">Jewelry & Watches</a></li><li><a href="/category-8932-jewelry-and-fashion/">All Jewelry & Fashion</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-8932-jewelry-and-fashion/?b=3101">Citizen</a></li><li><a href="/category-8932-jewelry-and-fashion/?b=574">Nike</a></li><li><a href="/category-8932-jewelry-and-fashion/?b=533">Michael Kors</a></li><li><a href="/category-8932-jewelry-and-fashion/?b=152">Coach</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-jewelry-001.jpg" /></div></div><div id="menu_6_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-5632-sports-and-recreation/golf/">Golf</a></li><li><a href="/category-5502-sports-and-recreation/recreation/">Recreation</a></li><li><a href="/category-6352-sports-and-recreation/remote-control/">Remote Control</a></li><li><a href="/category-5507-sports-and-recreation/sports-gear/">Sports Gear</a></li><li><a href="/category-5497-sports-and-recreation/games-and-toys/">Games & Toys</a></li><li><a href="/category-5492-sports-and-recreation/">All Sports & Recreation</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-5492-sports-and-recreation/?b=123">Bushnell</a></li><li><a href="/category-5492-sports-and-recreation/?b=128">Callaway</a></li><li><a href="/category-5492-sports-and-recreation/?b=574">Nike</a></li><li><a href="/category-5492-sports-and-recreation/?b=826">TaylorMade</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-sports-001.jpg" /></div></div><div id="menu_8_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-212-gift-cards/10-gift-cards/">$10 Gift Cards</a></li><li><a href="/category-213-gift-cards/15-gift-cards/">$15 Gift Cards</a></li><li><a href="/category-214-gift-cards/25-gift-cards/">$25 Gift Cards</a></li><li><a href="/category-216-gift-cards/50-gift-cards/">$50 Gift Cards</a></li><li><a href="/category-17-gift-cards/">All Gift Cards</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-17-gift-cards/?b=6282">The Home Depot</a></li><li><a href="/category-17-gift-cards/?b=6456">Shell</a></li><li><a href="/category-17-gift-cards/?b=6387">Outback</a></li><li><a href="/category-17-gift-cards/?b=6522">Walmart</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-cards-001.png" /></div></div><div id="menu_11_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-2387-electronics/computers-and-tablets/">Computers & Tablets</a></li><li><a href="/browse-2367-electronics/camera-and-photo/">Camera & Photo</a></li><li><a href="/browse-2357-electronics/tv-and-video/">TV & Video</a></li><li><a href="/browse-2377-electronics/portable-electronics/">Portable Electronics</a></li><li><a href="/browse-2362-electronics/home-audio/">Home Audio</a></li><li><a href="/browse-2382-electronics/video-games/">Video Games</a></li><li><a href="/browse-2402-electronics/musical-instruments/">Musical Instruments</a></li><li><a href="/browse-2397-electronics/office-equipment/">Office Equipment</a></li><li><a href="/browse-2372-electronics/car-electronics/">Car Electronics</a></li><li><a href="/browse-2392-electronics/cell-phones/">Cell Phones</a></li><li><a href="/browse-2352-electronics/">All Electronics</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-2352-electronics/?b=2">Apple</a></li><li><a href="/browse-2352-electronics/?b=1">Sony</a></li><li><a href="/browse-2352-electronics/?b=134">Canon</a></li><li><a href="/browse-2352-electronics/?b=728">Samsung</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-electronics-001.jpg" /></div></div><div id="menu_12_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-10396-home-and-garden/fragrance/">Fragrance</a></li><li><a href="/browse-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li><li><a href="/browse-4097-home-and-garden/housewares/">Housewares</a></li><li><a href="/browse-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li><li><a href="/browse-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li><li><a href="/browse-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li><li><a href="/browse-4107-home-and-garden/health-and-personal/">Health & Personal</a></li><li><a href="/browse-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li><li><a href="/browse-4087-home-and-garden/">All Home & Garden</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-4087-home-and-garden/?b=189">Cuisinart</a></li><li><a href="/browse-4087-home-and-garden/?b=230">Dyson</a></li><li><a href="/browse-4087-home-and-garden/?b=109">Breville</a></li><li><a href="/browse-4087-home-and-garden/?b=434">KitchenAid</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-home-001.png" /></div></div><div id="menu_13_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-9561-jewelry-and-fashion/apparel-and-accessories/">Apparel & Accessories</a></li><li><a href="/browse-8987-jewelry-and-fashion/handbags-and-wallets/">Handbags & Wallets</a></li><li><a href="/browse-9506-jewelry-and-fashion/jewelry-and-watches/">Jewelry & Watches</a></li><li><a href="/browse-8932-jewelry-and-fashion/">All Jewelry & Fashion</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-8932-jewelry-and-fashion/?b=3101">Citizen</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=574">Nike</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=533">Michael Kors</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=152">Coach</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-jewelry-001.jpg" /></div></div><div id="menu_14_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5632-sports-and-recreation/golf/">Golf</a></li><li><a href="/browse-5502-sports-and-recreation/recreation/">Recreation</a></li><li><a href="/browse-6352-sports-and-recreation/remote-control/">Remote Control</a></li><li><a href="/browse-5507-sports-and-recreation/sports-gear/">Sports Gear</a></li><li><a href="/browse-5497-sports-and-recreation/games-and-toys/">Games & Toys</a></li><li><a href="/browse-5492-sports-and-recreation/">All Sports & Recreation</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5492-sports-and-recreation/?b=123">Bushnell</a></li><li><a href="/browse-5492-sports-and-recreation/?b=128">Callaway</a></li><li><a href="/browse-5492-sports-and-recreation/?b=574">Nike</a></li><li><a href="/browse-5492-sports-and-recreation/?b=826">TaylorMade</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-sports-001.jpg" /></div></div><div id="menu_16_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-212-gift-cards/10-gift-cards/">$10 Gift Cards</a></li><li><a href="/browse-213-gift-cards/15-gift-cards/">$15 Gift Cards</a></li><li><a href="/browse-214-gift-cards/25-gift-cards/">$25 Gift Cards</a></li><li><a href="/browse-216-gift-cards/50-gift-cards/">$50 Gift Cards</a></li><li><a href="/browse-17-gift-cards/">All Gift Cards</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-17-gift-cards/?b=6282">The Home Depot</a></li><li><a href="/browse-17-gift-cards/?b=6456">Shell</a></li><li><a href="/browse-17-gift-cards/?b=6387">Outback</a></li><li><a href="/browse-17-gift-cards/?b=6522">Walmart</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-cards-001.png" /></div></div>
+                        </div>
+                    </div> <!--browse-links-->
+                </div> <!--auction-menu-->
+            </div>
+            <!--nav -->
+            <!--منوی تیتر صفحه-->
+
+            <div class="search-auctions-large" style="z-index:20">
+                <form id='qbSearchForm' action="/en/">
+                    <div id="search-options">
+                        <div class="text" id="search_category_title">تمام فعالیت ها</div>
+                        <ul class="options" id="search_category_options">
+                            <li id="search_cat" url='/en/browse/'>تمام محصولات</li>
+                            <li id="search_cat" url='/browse-2352-electronics/'>الکترونیکی ها</li>
+                            <li id="search_cat" url='/browse-4087-home-and-garden/'>خانه و باغچه</li>
+                            <li id="search_cat" url='/browse-8932-jewelry-and-fashion/'>مد و جواهرات</li>
+                            <li id="search_cat" url='/browse-5492-sports-and-recreation/'>ورزش و سرگرمی</li>
+                            <li id="search_cat" url='/browse-9886-specialty-shops/'>کالا های ویژه</li>
+                            <li id="search_cat" url='/browse-17-gift-cards/'>کارت های هدیه</li>
+                            <li id="search_cat" url='/en/'>تمام فعالیت ها</li>
+                            <li id="search_cat" url='/en/help/search.php'>راهنما</li>
+                        </ul>
+                    </div>
+                    <input type="text" id='qbSearch' name="q"
+                           placeholder="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..."
+                           class="txt defaultText  defaultTextActive" value="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..." style="width:700px;">
+
+                    <input id='qbSearchButton' type="button"
+                           value="Go"
+                           class="buttons medium green" />
+                </form>
+
+                @*<script>
+                        $("#search_category_title").live('click', function (e) {
+                            $('#search_category_options').show();
+                        });
+
+                        $("#search_category_options li").live('click', function (e) {
+                            $('#qbSearchForm').attr("action", $(this).attr('url'));
+                            $('#search_category_title').html($(this).html());
+
+                            $('#search_category_options').hide();
+                        });
+
+                        $("#search_category_options").hover(function () {
+                        }, function (e) {
+                            $('#search_category_options').fadeOut(100);
+                        });
+
+                    </script>*@
+            </div>
+            <!--search-auctions-->
+
+
+
+            <div id="slider_container">
+                <div id="featured_carousel">
+
+                    <div class="content lockedAuctions lockedAuctions_en">
+                        <a target="_blank" href="http://blog.quibids.com/locked-auctions-winning-just-got-easier/" class="buttons green large"> بیشتر بدانید! </a>
+                    </div>
+                    <div class="content promoFreeShippingForever"></div>
+                    <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
+                    <div class="content howItWorks">
+                        <div class="title bold"><span class="orange">کویی بیدز چطور کار میکند؟</span></div>
+                        <div class="box box-1">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/pencil.gif" alt="pencil" width="63" height="62" /></div>
+                            <div class="title"> عضو شوید و پیشنهاد خریداری کنید</div>
+                            <div class="body">پیشناهدات فقط <span class="bold"><span class="green">$0.40</span></span> برای هر شخص هستند.  موجودی دریافت کنید و شروع به پیدا کردن محصولات جدید کنید.	</div>
+                        </div>
+                        <div class="box box-2">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/cart.gif" alt="cart" width="63" height="54" /></div>
+                            <div class="title">محصولات را انتخاب کنید .</div>
+                            <div class="body">
+                                هرچیزی که میخواهید انتخاب کنید <span class="bold"><span class="green">HDTV, یک لپ تاپ جدید , و پیشنهادات دیگر.</span></span>
+                            </div>
+                        </div>
+                        <div class="box box-3">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/gift.gif" alt="gift" width="64" height="64" /></div>
+                            <div class="title">	پیشنهاد و برنده شدن		</div>
+
+                            <div class="body">	,به کلیک کردن کردن ادامه دهید - اگر شما اخرین نفری باشید که وقتی تایمر صفر میشود پیشنهاد داده <span class="bold green">شما برنده اید </span>	</div>
+                        </div>
+                        <div class="box box-4">
+                            <div class="title">عضو شوید و <span class="orange">شروع به برنده شدن کنید</span> همین امروز!</div>
+                            <div class="body"><a href="/en/landing/" class="buttons green large">	همین الان عضو شوید!		</a></div>
+                        </div>
+                    </div>
+                    <div class="content winners">
+                        <div class="title">
+                            <span>اعضای</span> QuiBidsFarsi  <span>هر روز</span> برنده ی <span>هزاران محصول جدید </span> میشوند .
+                        </div>
+                        <div class="body">
+                            <div> پیشینهاد را روی موارد اخر برند های بزرگ بگذارید</div>
+                            <div>95%بهترین محصولات الکترونیکی را داشته باشید</div>
+                            <div>Never pay retail again!</div>
+                        </div>
+                        <a href="" class="buttons orange large"> همین امروز عضو شوید!	</a>
+                    </div>
+                    <div class="content tips">
+                        <div class="title">Find Out How to Win Big!</div>
+                        <div class="body">
+                            See <span>tips</span> and <span>tricks</span> from our staff on best practices for <span>Winning Big</span> on <span>QuiBids!</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    سه اشتباه بزرگ که نبتدی ها مرتکب میشوند
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    به دنبال " بزرگترین " بودن
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    و خیلی چیز های دیگر
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content badges">
+                        <div class="title">
+                            <span class="bold">
+                                Cash in with <span class="green">QuiBids Badges!</span>
+                            </span>
+                        </div>
+                        <div class="body">
+                            Badges are the best way to earn <span class="bold"><span class="green">FREE BIDS, achieve goals,</span></span> and  <span class="bold"><span class="green">gain experience</span></span> for shopping with QuiBids.
+                        </div>
+                        <a href="/en/badges/" class="buttons green large"> بیشتر بدانید		</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            @*<script type="text/javascript">
+                    if (jQuery.browser.mobile) {
+                        $('#slider_container').hide();
+                    } else {
+                        $('#featured_carousel').orbit({
+                            animationSpeed: 800,             // how fast animtions are
+                            timer: true, 			 // true or false to have the timer
+                            advanceSpeed: 4000, 		 // if timer is enabled, time between transitions
+                            pauseOnHover: true, 		 // if you hover pauses the slider
+                            startClockOnMouseOut: true, 	 // if clock should start on MouseOut
+                            startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
+                        });
+                    }
+                </script>*@
+
+            <div id="auctions">
+
+
+
+                @RenderBody()
+
+
+
+            </div>
+            <script>
+                var options = {
+                    "brand_id": 0,
+                    "search_term": '',
+                    "category_filters": [],
+                    "category_filters": [],
+                    "uri": "\/en",
+                    "page": 1
+                }
+
+                //Homepage.initialize(options);
+            </script>
+
+            @*<iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>*@
+
+
+            <footer>
+                <div id="footer-left">
+
+                    <div class="content">
+                        <h5>پشتیبانی</h5>
+                        <ul>
+                            <li><a href="">راهنما</a></li>
+
+                            <li><a href="">این برنامه چطور کار میکند</a></li>
+                            <li><a href="">پشتیبانی مشتریان</a></li>
+
+                            <li><a href="">قوانین سایت</a></li>
+                            <li><a href="">شرایط و مقرارت</a></li>
+                            <li><a href="">قوانین بازی </a></li>
+                        </ul>
+                    </div><!--content-->
+
+                </div><!--footer-left-->
+
+                <div id="footer-right">
+
+                    <div class="content">
+                        <h5 onclick="document.location=''">لینک های سریع</h5>
+                        <ul>
+                            <li><a href="/Home/register">همین الان عضو شوید!</a></li>
+                            <li><a href="">چیست؟ QuiBids</a></li>
+                            <li><a href="">فعالیت های حال حاضر</a></li>
+                            <li><a href="">سفارشات</a></li>
+                            <li><a href="javascript:return false;" onclick="$('#siteMap').toggle()">نقشه ی سایت</a></li>
+                        </ul>
+                    </div><!--content-->
+
+
+                    <div class="content">
+                        <h5>درباره ما</h5>
+                        <ul>
+                            <li><a href="">درباره ما</a></li>
+                            <li><a href="">اخبار رسانه ها</a></li>
+                            <li><a href="">مشاغل</a></li>
+
+                            <li><a href="">سیاست های اختصاصی</a></li>
+                        </ul>
+                    </div><!--content-->
+
+
+
+
+
+                </div><!--footer-right-->
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#siteMap').toggle();
+                    });
+                </script>
+                <div id="siteMap">
+
+                    <ul class="last-column">
+                        <li><a href="http://www.quibids.com/categories/Electronics/">الکترونیکی ها</a></li>
+                        <li><a href="http://www.quibids.com/categories/Home-and-Garden/">خانه و باغچه</a></li>
+                        <li><a href="http://www.quibids.com/categories/Jewelry-and-Fashion/">مد و جواهرات</a></li>
+
+                        <li><a href="http://www.quibids.com/categories/Sports-and-Recreation/">ورزش و سرگرمی</a></li>
+                        <li><a href="http://www.quibids.com/categories/Vouchers-and-Limit-Busters/">Vouchers & Limit Busters</a></li>
+                        <li><a href="http://www.quibids.com/categories/New-Products/">محصولات جدید</a></li>
+                        <li><a href="http://www.quibids.com/categories/Gift-Cards/">کارت های هدیه</a></li>
+                    </ul>
+                </div>
+            </footer><!--footer-->
+            <div id="copyright">
+                <p>
+                    <span title="145">&copy;</span>
+                    <span title="0.031">QuiBidsfarsi</span>
+                    <span title="120">تمامی حقوق سایت رزرو  شده میباشد</span>
+                </p>
+
+            </div><!--copyright-->
+        </div><!--wrapper-->
+    </div><!--gloss-->
+
+
+
+    <div id="popupModal" title="Basic dialog" style="display:none;width:450"></div>
+    <div id="popupImage" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
+    <div id="popupIFrame" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
+    <div id="popupShowUrl" title="QuiBids" style="display:none">
+        <div id="popupShowUrl_contents"></div>
+        <div id="popupShowUrl_closebutton"><input type='button' value='Close' onclick="$('#popupShowUrl').dialog('close');"></div>
+    </div><!--end popup-->
+
+
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var anchor = $('#languageSelector').find('a');
+            anchor.click(function () {
+                var dialog = $('#languageSelectorPopup').dialog({
+                    modal: true,
+                    title: _t.display('select_your_language', 'Select Your Language'),
+                    width: 400,
+                    height: 200,
+                    resizable: false
+                });
+            });
+        });
+    </script>
+
+    @*<script>
+            $(function () {
+                window.fbAsyncInit = function () {
+                    FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
+                };
+
+                $('body').append('<div id="fb-root"></div>');
+
+                $.getScript(document.location.protocol + '');
+            })
+        </script>*@
+
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = ""; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿a {
+    outline: 0
+}
+
+#slider {
+    border-bottom: solid 1px #d1d1d1
+}
+
+#container .auction-type ul.types li a {
+    background-color: #fff;
+    background-image: none
+}

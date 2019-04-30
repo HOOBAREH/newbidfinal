@@ -1,0 +1,353 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="auctions">
+    <div id="container" class="home">
+        <div id="featured">
+
+            <div id="breadcrumbs">
+                <ul>
+                    <li class="featured bold">فعالیت های حال حاضر</li>
+                </ul>
+            </div>
+
+            <div id="category-panel" class="expand">
+                <h4>محصول را نشانه گذاری کنید <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/home/filter-arrow.png" class="filter-arrow-dropdown" /></h4>
+
+                <ul>
+                    <li class="active"><a tab="0" class="id-0" href="/en/auctions-live-auctions">فعالیت های حال حاضر</a></li>
+                    <li class=""><a tab="2352" class="id-2352" href="/en/auctions-electronics">الکترونیکی ها</a></li>
+                    <li class=""><a tab="4087" class="id-4087" href="/en/auctions-home-and-garden">خانه و باغچه</a></li>
+                    <li class=""><a tab="8932" class="id-8932" href="/en/auctions-jewelry-and-fashion">مد و جواهرات</a></li>
+                    <li class=""><a tab="5492" class="id-5492" href="/en/auctions-sports-and-recreation">ورزش و سرگرمی</a></li>
+                    <li class=""><a tab="9886" class="id-9886" href="/en/auctions-specialty-shops">فروش های ویژه</a></li>
+                    <li class=""><a tab="17" class="id-17" href="/en/auctions-gift-cards">کارت های هدیه</a></li>
+                    <li class=""><a tab="12" class="id-12" href="/en/auctions-vouchers-and-limit-busters">اسناد Limit Busters</a></li>
+                    <li class=""><a tab="9816" class="id-9816" href="/en/auctions-events">وقایع</a></li>
+                    <li class=""><a tab="c" class="id-c" href="/en/auctions-completed">کامل شده های اخیر</a></li>
+                    <li class=""><a tab="n" class="id-n" href="/en/auctions-new-products">محصولات جدید</a></li>
+                    <li class=""><a tab="w" class="id-w" href="/en/auctions-watchlist">Watchlist</a></li>
+                </ul>
+            </div>
+
+
+            <div id="display-sort">
+                <ul>
+                    <li class="sort"><h4 class="light-grey"><a href="#" id="sort-button" class="">دسته بندی: <span id='sort-title'>درحال اتمام</span> <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/home/filter-arrow.png" class="filter-arrow-dropdown" /></a></h4></li>
+                </ul>
+
+                <div id="sort-panel">
+                    <ul>
+                        <li><h4 class="light-grey">دسته بندی بر اساس</h4></li>
+                        <li><label><input checked='checked' value='sortby_endingsoon' type='radio' name='sort' title='درحال اتمام'>درحال اتمام</label></li>
+                        <li><label><input value='sortby_valuehigh' type='radio' name='sort' title='گران ترین'>گران ترین</label></li>
+                        <li><label><input value='sortby_valuelow' type='radio' name='sort' title='ارزان ترین'>ارزان ترین</label></li>
+                        <li><label><input value='sortby_popular' type='radio' name='sort' title='مشهور ترین'>مشهور ترین</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="auction-type">
+
+                <ul class="types"></ul>
+
+                <div id="options">
+                    <div style="float:left">
+
+                        <a href="#" id="filtersbutton" class="buttons small white filter">مرتب سازی بر اساس </a>
+                        <div id="filter-panel">
+                            <div class="left-column">
+                                <h5 class="bold">قیمت:</h5>
+                                <ul>
+
+                                    <li><label><input value="value_0-50" data-label='$0-50' name="$0-50" type='checkbox' />$0-50</label></li>
+                                    <li><label><input value="value_50-100" data-label='$50-100' name="$50-100" type='checkbox' />$50-100</label></li>
+                                    <li><label><input value="value_100-300" data-label='$100-300' name="$100-300" type='checkbox' />$100-300</label></li>
+                                    <li><label><input value="value_300-500" data-label='$300-500' name="$300-500" type='checkbox' />$300-500</label></li>
+                                    <li><label><input value="value_500+" data-label='$500+' name="$500+" type='checkbox' />$500+</label></li>
+                                </ul>
+                            </div>
+
+                            <div class="right-column">
+                                <h5 class="bold">به صورت:</h5>
+                                <ul>
+                                    <li><label><input value="feature_bidomatic" data-label='Bid-O-Matic' name="Bid-O-Matic" type='checkbox' />Bid-O-Matic</label></li>
+                                    <li><label><input value="feature_nobidomatic" data-label='No Bid-O-Matic' name="No Bid-O-Matic" type='checkbox' />No Bid-O-Matic</label></li>
+                                    <li><label><input value="feature_plusbids" data-label='Hybrid Auctions' name="Hybrid Auctions" type='checkbox' />فعالیت های چندگانه</label></li>
+                                </ul>
+                            </div>
+                            <div style='clear:both;'></div>
+                            <div><a style='display:none' id='filter-panel-apply' class='buttons blue small right'>Apply</a></div>
+                        </div>
+
+                        <!--<a href="#" id="sortbutton" class="buttons small white filter">Sort By <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/down-arrow.gif" class="filters-icon"/></a>
+                        <div id="sort-panel">
+                        <ul>
+                        <li><label><input checked='checked'  value='sortby_endingsoon' type='radio' name='sort'>درحال اتمام</label></li><li><label><input value='sortby_valuehigh' type='radio' name='sort'>گران ترین</label></li><li><label><input value='sortby_valuelow' type='radio' name='sort'>ارزان ترین</label></li><li><label><input value='sortby_popular' type='radio' name='sort'>مشهور ترین</label></li>									</ul>
+                        </div>	-->
+                    </div>
+
+                    <ul id='filter-breadcrumb'></ul>
+
+                    <div class="pagination" style="display:none"></div>
+                </div><!--options-->
+
+                <div id="no_results_container">
+                    <div id="no_results">
+                        <h4>موردی یافت نشد</h4>
+                        <a href="">تمام فعالیت های حال حاضر نمایش داده شوند؟</a>
+                    </div>
+                    <div class="bannerad">
+                        @*<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>*@
+                        <!-- 2015 - QB No Search Results -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="ca-pub-4560135486422930"
+                             data-ad-slot="1353269009"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+
+
+                <div id="spots" class="content">
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                    <div class="auction-item-wrapper">
+                        <div>
+                            <h5 class="auction-item-title">
+                                <a href="">$50 Home Depot Gift Card</a>
+                            </h5>
+                        </div>
+                        <div class="auction-item-img">
+                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+
+                                <img src="~/Content/img/e.jpg" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <h2 class="time bold  red">00:00:06</h2>
+                        <h3 class="price green">$2.39</h3>
+                        <h5 class="winning grey">rio68</h5>
+                        <p>
+                            <a href="#" class="buttons bid medium orange">Bid Now</a>
+                        </p>
+                    </div>
+                </div><!--ending-->
+
+                <div class="module legend">
+                    <div class="content">
+
+                        <ul class='auction-legend'>
+                            <li class="title">فهرست</li>
+                            <li class='tooltip-bottom voucher-on' title="Hybrid auctions include a specified number of Voucher Bids, so you can keep on winning! فعالیت های چندگانه که شامل یک سری از اعداد مشخص">گواهی نامه بیدز</li>
+                            <li class='tooltip-bottom bidomatic-on' title="!فعالیت های bid-o-matic به شما اجازه میدهد تا حتی زمانی که ار کاپیوترتان دور هستید در مزایده شرکت کنید">Bid-O-Matic</li>
+                            <li class="tooltip-bottom locked" title="به علت فعالیت بالای مزایده کننده گان این بخش قفل است.<br/>
+شرکت کننده گان جدید نمیتوانند وارد این قسمت از فعالیت ها شوند.">فعالیت های قفل شده</li>
+                            <li class="tooltip-bottom unlocked" title="به علت فعالیت بالای مزایده کننده گان این بخش قفل است.<br/>
+.شما میتوانید به مزایده ادامه دهید ولی شرکت کننده گان جدید نمیتوانند وارد این بخش از فعالیت ها شوند.">فعالیت های مجاز</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+                <div id="show_more_auctions">
+                    <div class="pagination" style="display:none"></div><div class="pagination" style="display:none"></div>
+                </div>
+
+            </div><!--auction-type-->
+
+        </div><!--container-->
+
+
+
+
+
+    </div><!--auctions-->
+</div>
+
+
+
