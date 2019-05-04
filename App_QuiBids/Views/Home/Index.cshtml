@@ -1,4 +1,6 @@
-﻿@{
+﻿@using DataLayer;
+@model List<DataLayer.Auction>
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,13 +13,13 @@
                 <ul>
                     <li class="featured bold">فعالیت های حال حاضر</li>
                 </ul>
-            </div>  
-         
+            </div>
+
             <div id="category-panel" class="expand">
                 <h4>محصول را نشانه گذاری کنید <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/home/filter-arrow.png" class="filter-arrow-dropdown" /></h4>
 
                 <ul>
-                    <li class="active"><a tab="0" class="id-0" href="/en/auctions-live-auctions">فعالیت های حال حاضر</a></li>
+                    <li class="active"><a tab="0" class="id-0" href="/en/auctions-live-auctions">فعالیت های حال حاظر</a></li>
                     <li class=""><a tab="2352" class="id-2352" href="/en/auctions-electronics">الکترونیکی ها</a></li>
                     <li class=""><a tab="4087" class="id-4087" href="/en/auctions-home-and-garden">خانه و باغچه</a></li>
                     <li class=""><a tab="8932" class="id-8932" href="/en/auctions-jewelry-and-fashion">مد و جواهرات</a></li>
@@ -114,206 +116,35 @@
 
 
                 <div id="spots" class="content">
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+                    @foreach (var item in Model)
+                    {
+                        <div class="auction-item-wrapper">
+                            <div>
+                                <h5 class="auction-item-title">
+                                    <a class="title" href="">$@item.Product.Price  @item.Product.Name</a>
+                                </h5>
+                            </div>
+                            <div class="auction-item-img">
+                                <p style="width: 168px; height: 110px; padding-bottom: 5px;">
 
-                                <img src="~/Content/img/e.jpg" />
+                                    <img src="~/Content/img/e.jpg" />
+                                </p>
+                            </div>
+                            <div class="clear"></div>
+                            <h2 id="time" class="time bold  red">@item.Auction_Time</h2>
+                            <input type="hidden" id="close" class="closeTime" name="closeTime" value="@item.Close_Time" />
+                            <input type="hidden" class="reset" name="resetTime" value="0" />
+                            <input type="hidden" class="statusClick" name="status" value="0" />
+                            <h3 id="Reserve_Price" class="price green Reserve-Price">@item.Reserve_Price</h3>
+                            <h5 class="winning grey">@item.Current_UserId</h5>
+                            <p class="p">
+                                <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
+                                @*<a class="buttons bid medium  btntest"  style="background-image:Url('~/Content/img/Pishnehad.png');" onclick=""></a>*@
                             </p>
                         </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+                    }
 
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
 
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
-                    <div class="auction-item-wrapper">
-                        <div>
-                            <h5 class="auction-item-title">
-                                <a href="">$50 Home Depot Gift Card</a>
-                            </h5>
-                        </div>
-                        <div class="auction-item-img">
-                            <p style="width: 168px; height: 110px; padding-bottom: 5px;">
-
-                                <img src="~/Content/img/e.jpg" />
-                            </p>
-                        </div>
-                        <div class="clear"></div>
-                        <h2 class="time bold  red">00:00:06</h2>
-                        <h3 class="price green">$2.39</h3>
-                        <h5 class="winning grey">rio68</h5>
-                        <p>
-                            <a href="#" class="buttons bid medium orange">Bid Now</a>
-                        </p>
-                    </div>
                 </div><!--ending-->
 
                 <div class="module legend">
@@ -349,5 +180,65 @@
     </div><!--auctions-->
 </div>
 
+<script>
 
+
+
+    $(".btntest").click(function () {
+        var reset = $(this).parent().siblings(".reset");
+        if (reset.val() == "1") {
+            var revPrice = $(this).parent().siblings('.Reserve-Price');
+            revPrice.html(parseInt(revPrice.html()) + 1);
+            $(this).parent().siblings(".statusClick").val("1");
+        }
+    });
+
+    function startTimer(duration, display) {
+
+        var minutes, seconds;
+        var timer = duration;
+        setInterval(function () {
+            var closeTime = $(display).siblings(".closeTime").val();
+            var resetTime = $(display).siblings(".reset");
+            var status = $(display).siblings(".statusClick");
+            if (status.val() == "1") {
+                timer = closeTime;
+                status.val("0");
+            }
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+            if (--timer == -1) {
+                timer = closeTime;
+                resetTime.val("1");
+            }
+            if (resetTime.val() == "1" && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadad dar mozaede sherkat nakard.
+            {
+
+                var img = $(display).parent().children(".p").children(".btntest");
+                $(img).attr("src", "~/Content/img/Sold.png");
+            }
+
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var everyChild = document.getElementById("spots").querySelectorAll("#time");
+
+        for (var i = 0; i < everyChild.length; i++) {
+            const time = everyChild[i].innerText;
+            var a = time.split(':'); // split it at the colons
+            // minutes are worth 60 seconds. Hours are worth 60 minutes.
+            var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+            //var fiveMinutes = 60 * 5,
+            var display = everyChild[i];
+            startTimer(seconds, display);
+        }
+    };
+</script>
 

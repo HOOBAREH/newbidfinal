@@ -15,8 +15,6 @@ namespace App_QuiBids.Controllers
     {
         private readonly IUserRepo _userRepo;
         private readonly IAuctionRepo _auctionRepo;
-        private UserRepo userRepo;
-        private AuctionRepo auctionRepo;
 
         public HomeController() : this(new UserRepo(), new AuctionRepo())
         {
@@ -32,28 +30,28 @@ namespace App_QuiBids.Controllers
         // GET: Home
         public ActionResult Index(int id = 0)
         {
-            Session["Admin"] = _userRepo.GetUserById(2);
-            //if (Session["Admin"] != null)
-            //{
-            var auctions = _auctionRepo.GetAuctions();
-            if (id != 0)
+            //Session["Admin"] = _userRepo.GetUserById(2);
+            if (Session["Admin"] != null)
             {
-
-                var price = auctions.FirstOrDefault().Reserve_Price + 1;
-                return Json(new
+                var auctions = _auctionRepo.GetAuctions();
+                if (id != 0)
                 {
-                    currentPrice = price
-                });
+
+                    var price = auctions.FirstOrDefault().Reserve_Price + 1;
+                    return Json(new
+                    {
+                        currentPrice = price
+                    });
+                }
+                else
+                    return View(auctions);
             }
             else
-                return View(auctions);
-            //}
-            //else
-            //return RedirectToAction("Login");
+                return RedirectToAction("Login");
         }
         public ActionResult Login()
         {
-            return View();
+            return View("Register");
         }
         [HttpPost]
         public ActionResult Login(LoginModel model)
@@ -62,7 +60,7 @@ namespace App_QuiBids.Controllers
             {
                 var hash = new Helpers().Encryption(model.Password);
                 var res = _userRepo.Login(model.UserName, hash);
-                if (res!=null)
+                if (res != null)
                 {
                     Session["Admin"] = res;
                     return RedirectToAction("Index");
@@ -76,7 +74,11 @@ namespace App_QuiBids.Controllers
 
             return View();
         }
-
+        public ActionResult Logout()
+        {
+            Session["Admin"] = "";
+            return RedirectToAction("Index");
+        }
         public ActionResult Register()
         {
             return View();
@@ -102,7 +104,7 @@ namespace App_QuiBids.Controllers
                     var register = _userRepo.Register(user);
                     if (register)
                     {
-                        Session["Admin"] = model.Email;
+                        Session["Admin"] = user;
                         return RedirectToAction("Index");
                     }
                     ViewBag.Error = "ثبت اطلاعات شما با مشکل مواجه شد. لطفا از صحت اطلاعات اطمینان حاصل کنید و مجددا تلاش نمایید.";
@@ -143,6 +145,11 @@ namespace App_QuiBids.Controllers
             //}
             //else
             //return View();
+        }
+        [HttpPost]
+        public ActionResult lid()
+        {
+            return View();
         }
     }
 }

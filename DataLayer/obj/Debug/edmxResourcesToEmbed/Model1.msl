@@ -4,25 +4,26 @@
     <EntitySetMapping Name="Auction">
       <EntityTypeMapping TypeName="QuiBidsModel.Auction">
         <MappingFragment StoreEntitySet="Auction">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="Open_Time" ColumnName="Open_Time" />
-          <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
-          <ScalarProperty Name="Reserve_Price" ColumnName="Reserve_Price" />
-          <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
-          <ScalarProperty Name="CurrentBid_Id" ColumnName="CurrentBid_Id" />
           <ScalarProperty Name="Current_UserId" ColumnName="Current_UserId" />
+          <ScalarProperty Name="CurrentBid_Id" ColumnName="CurrentBid_Id" />
+          <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
+          <ScalarProperty Name="Reserve_Price" ColumnName="Reserve_Price" />
+          <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
+          <ScalarProperty Name="Auction_Time" ColumnName="Auction_Time" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="QuiBidsModel.Product">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Brand" ColumnName="Brand" />
-          <ScalarProperty Name="Model_Year" ColumnName="Model_Year" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Model_Year" ColumnName="Model_Year" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
