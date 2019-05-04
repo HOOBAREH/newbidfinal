@@ -1,0 +1,151 @@
+﻿body {
+    font-family: lato;
+}
+
+
+.button {
+    width: 100%;
+    background-color: #00ff21;
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 3px;
+    cursor: pointer;
+}
+
+.login {
+    width: 40%;
+    display: block;
+    margin: auto;
+}
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(61, 255, 86, 0.4);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.Modal-content {
+    width: 35%;
+    background-color: #555;
+    margin: 20% auto 15% auto;
+    border-radius: 3px;
+    box-shadow: 0 0 15px #555;
+    padding: 20px;
+    animation: zoom 0.7s;
+}
+
+.Modal-img {
+    text-align: center;
+    position: relative;
+    margin: 20px 0 10px 0;
+    margin-bottom: 20px;
+}
+
+    .Modal-img img {
+        width: 50%;
+        box-shadow: 0 0 15px #555;
+        border-radius: 50%;
+    }
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    font-size: 35px;
+    background: #00ff21;
+    color: chartreuse;
+    padding: 15px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+   .input[type=text].input[type=password] {
+    width: 100%;
+    padding: 20px;
+    font-family: lato;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+    @keyframes zooming {
+        form {
+            transform: scale(0)
+        }
+        to {
+          transform: scale(1)
+        }
+    }
+.auction-item-wrapper h5.auction-item-title {
+    height: 43px;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    line-height: 44px;
+    background: url(/site/images/layout/moduleheaders.jpg) left bottom repeat-x;
+    border-bottom: solid 1px #bfbfbf;
+    line-height: 22px;
+    overflow: hidden;
+    width: 158px;
+}
+.bold{
+    font-weight:bold;
+}
+h2.red {
+    color: #df0000;
+}
+h3.green {
+    color: #4ba500;
+}
+h5.grey {
+    color: #666;
+}
+.div.auction-item-wrapper div  h5 {
+    display: inline-block;
+    line-height: 1em;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+
+a.buttons.orange {
+    background-color: #e56400;
+    background-image: url(/site/images/layout/orange-btn.jpg);
+    color: #fff !important;
+    text-shadow: 0 1px 2px #693100;
+    filter: dropshadow(color=#693100,offx=1,offy=2);
+    border-color: #fc7105;
+}
+a.buttons.medium {
+    height: 36px;
+    line-height: 37px;
+    font-size: 18px;
+    background-position: left -124px;
+}
+.buttons.bid {
+    min-width: 80px !important;
+}
+a.buttons {
+    padding: 0 12px;
+    margin: 0;
+    display: inline-block;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    letter-spacing: -0.02em;
+    border: solid 1px;
+    -webkit-box-shadow: 0 1px 4px 0 #c0c0c0;
+    -moz-box-shadow: 0 1px 4px 0 #c0c0c0;
+    box-shadow: 0 1px 4px 0 #c0c0c0;
+    background-repeat: repeat-x;
+    outline: 0;
+    text-shadow: none /9 !important;
+    filter: none /9 !important;
+    font-weight: 600;
+}
