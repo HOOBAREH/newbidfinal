@@ -96,8 +96,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\BODYStyleSheet.css" />
-    <Content Include="Content\BODYStyleSheet2.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -106,23 +104,32 @@
     <Content Include="Content\img\e %281%29.jpg" />
     <Content Include="Content\img\e.jpg" />
     <Content Include="Content\img\Footer-Bar\52.png" />
+    <Content Include="Content\img\Footer-Bar\badge_29_tiny.png" />
     <Content Include="Content\img\Footer-Bar\carouselgame-icon.png" />
+    <Content Include="Content\img\Footer-Bar\help.png" />
     <Content Include="Content\img\Footer-Bar\mybids.png" />
     <Content Include="Content\img\Footer-Bar\myquibids.png" />
     <Content Include="Content\img\Footer-Bar\notify.png" />
     <Content Include="Content\img\Footer-Bar\watchlist.png" />
     <Content Include="Content\img\Layout\arrow-down-bigger.png" />
     <Content Include="Content\img\Layout\arrows.png" />
+    <Content Include="Content\img\Layout\auction-details-sprite-2.png" />
+    <Content Include="Content\img\Layout\auction-details-sprite-3.png" />
     <Content Include="Content\img\Layout\Fb-logo.png" />
+    <Content Include="Content\img\Layout\footer.jpg" />
     <Content Include="Content\img\Layout\layout-background.gif" />
+    <Content Include="Content\img\Layout\mainnav-hov.jpg" />
     <Content Include="Content\img\Layout\mainnav.jpg" />
+    <Content Include="Content\img\Layout\module-white.jpg" />
     <Content Include="Content\img\Layout\Registering_BackG.png" />
     <Content Include="Content\img\Layout\search-bar-icon.png" />
     <Content Include="Content\img\Layout\search-options-FB.gif" />
     <Content Include="Content\img\Layout\topbar.jpg" />
     <Content Include="Content\img\Layout\tpo-gloss.png" />
+    <Content Include="Content\img\Layout\white-btn.jpg" />
     <Content Include="Content\img\login-gov-288x288.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\orange-btn %281%29.jpg" />
     <Content Include="Content\img\Pishnehad.png" />
     <Content Include="Content\img\Sold.png" />
     <Content Include="Content\img\Vector Smart Object.png" />
@@ -134,9 +141,6 @@
     <Content Include="Content\registering.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
-    <Content Include="Content\StyleSheet1.css" />
-    <Content Include="Content\StyleSheet2.css" />
-    <Content Include="Content\StyleSheet3.css" />
     <Content Include="fontawesome\css\all.css" />
     <Content Include="fontawesome\css\brands.css" />
     <Content Include="fontawesome\css\fontawesome.css" />
@@ -1442,6 +1446,17 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\loginstyle.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\NewFolder1\all.js" />
+    <Content Include="Scripts\NewFolder1\auctions.js" />
+    <Content Include="Scripts\NewFolder1\ga.js" />
+    <Content Include="Scripts\NewFolder1\homepage.js" />
+    <Content Include="Scripts\NewFolder1\jquery-ui.min.js" />
+    <Content Include="Scripts\NewFolder1\jquery.min.js" />
+    <Content Include="Scripts\NewFolder1\jquery.orbit-1.2.3.min.js" />
+    <Content Include="Scripts\NewFolder1\qbar.js" />
+    <Content Include="Scripts\NewFolder1\site.js" />
+    <Content Include="Scripts\NewFolder1\translation.js" />
+    <Content Include="Scripts\NewFolder1\tv2track.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1518,7 +1533,6 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
