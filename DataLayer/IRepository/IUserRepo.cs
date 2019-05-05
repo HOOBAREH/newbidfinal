@@ -13,6 +13,6 @@ namespace DataLayer.IRepository
         User Login(string userName, string password);
         bool Register(User user);
         bool UsernameExists(string userName);
-        int LowerBids(int userId);
+        User LowerBids(int userId);
     }
 }

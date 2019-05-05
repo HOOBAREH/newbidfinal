@@ -121,35 +121,46 @@ namespace App_QuiBids.Controllers
         }
         public ActionResult LowerBids(AuctionModel model)
         {
-            var auctions = _auctionRepo.GetAuctions();
-            var bid = _userRepo.LowerBids(model.Current_UserId.Value);
-            if (bid == -1)
+            var auctions = _auctionRepo.GetAuctionById(model.id);
+            _auctionRepo.UpdateWithClick(auctions, model.Current_UserId, model.Reserve_Price);
+            var bid = _userRepo.LowerBids(model.Current_UserId);
+            if (bid == null)
             {
-                ViewBag.Error = "موجودی bid های شما کم میباشد.";
+                ViewBag.Error = "لطفا مجددا تلاش کنید";
                 return Json(new
                 {
                     result = false
                 });
             }
-            //if (id != 0)
-            //{
-
-            //    var price = auctions.FirstOrDefault().Reserve_Price + 1;
-
             else
+            {
+                Session["Admin"] = bid;
                 return Json(new
                 {
-                    currentbids = bid
+                    currentbids = bid.RealBid
                     //currentPrice = bid
                 });
+            }
             //}
             //else
             //return View();
         }
         [HttpPost]
-        public ActionResult lid()
+        public ActionResult UpdateTimer(int id, TimeSpan timer)
         {
-            return View();
+            var res = _auctionRepo.UpdateTimer(id, timer);
+            if (res)
+            {
+                return Json(new
+                {
+                    result = true
+                });
+            }
+            else
+                return Json(new
+                {
+                    result = false
+                });
         }
     }
 }

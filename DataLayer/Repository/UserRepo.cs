@@ -51,7 +51,7 @@ namespace DataLayer.Repository
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public int LowerBids(int userId)
+        public User LowerBids(int userId)
         {
             var user = GetUserById(userId);
             if (user != null)
@@ -61,13 +61,12 @@ namespace DataLayer.Repository
 
                 if (user.VoucherBid != 0)
                     user.VoucherBid--;
-                else
-                    return -1; //movjudie bid nadarad.
+
                 _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 _dbContext.SaveChanges();
-                return user.RealBid ?? 0;
+                return user;
             }
-            else return 0;
+            return null;
 
         }
         public void AddToBids(int userId)
