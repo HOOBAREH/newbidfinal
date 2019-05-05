@@ -26,7 +26,7 @@
                 <li id="register" class="tab active "><button type="button" id="btn-reg" class="button">ثبت نام </button></li>
                 <li id="login" class="tab login"><a class="button" id="btn-login">ورود</a></li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-group">
                 @using (Html.BeginForm("Register", "Home", FormMethod.Post,
                     new { enctype = "multipart/form-data" }))
                 {
