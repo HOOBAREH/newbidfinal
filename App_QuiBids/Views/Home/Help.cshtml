@@ -1,0 +1,382 @@
+﻿
+@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/Content/NewFolder1/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/NewFolder1/main.css" rel="stylesheet" type="text/css" media="screen" />     
+    <link href="~/Content/NewFolder1/help.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/NewFolder1/print.css" rel="stylesheet" media="print" type="text/css" />
+
+    <script type="text/javascript" src="~/Scripts/NewFolder1/jquery.min.js"></script>>
+    <script type="text/javascript" src="~/Scripts/NewFolder1/jquery-ui.min.js"></script>>
+    <script type="text/javascript" src="~/Scripts/NewFolder1/translation.js"></script>
+    <script type="text/javascript" src="~/Scripts/NewFolder1/site.js"></script>
+    <script type='text/javascript'>
+        mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /* Begin TVSquared Tracking Code */
+        var _tvq = window._tvq = window._tvq || [];
+        (function () {
+            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-54540972-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function () {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+    </script>
+
+
+</head>
+
+<body class="market-US">
+
+            <div id="container">
+
+                <div id="square"></div>
+
+                <div class="content">
+
+
+
+                    <div id="main-content" class="twocol-right">
+                        <h1>Help</h1>
+                        <div id="get-started" class="module">
+                            <div id="search-wrapper" class="margin-bottom">
+                                <form id='help-search' action="/en/help/search.php" method="get">
+                                    <input id='help-q' type="text" name="helpterm" class="txt defaultText defaultTextActive"
+                                           placeholder="Search our Help section"
+                                           value="Search our Help section" />
+                                    <input type="hidden" name="qorigin" value="support" />
+                                    <input type="submit" class="buttons blue small" value="Search" />
+                                </form>
+                                <script>
+                                    $('#help-search').bind("submit", function () {
+                                        var val = $('#help-q').val();
+                                        if (val.length && $('#help-q').attr("placeholder") != val) {
+                                            return true;
+                                        }
+                                        return false;
+                                    });
+                                    $('#help-q').bind("focus", function () {
+                                        var val = $('#help-q').val();
+                                        if ($('#help-q').attr("placeholder") == val) {
+                                            $('#help-q').val("");
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <div class="content">
+                                <h2 class="bold">New to QuiBids? <span class="orange unbold">Get started here.</span></h2>
+                                <div class="left">
+                                    <p>
+                                        <strong>Need a question answered right now?</strong><br>
+                                        Try our quick hits below. If your answer's not there, then visit our active customer forums. Your question's probably been answered there before.
+                                    </p>
+                                    <ul class="faq-lists">
+                                        <li><a href="/en/help/faq/15-How-does-QuiBids-work#81">How does QuiBids work?</a></li>
+                                        <li><a href="/en/help/faq/15-What-is-Buy-Now#24">What is Buy Now?</a></li>
+                                        <li><a href="/en/help/faq/15-Whats-the-best-way-to-win-an-auction#8">What's the best way to win an auction?</a></li>
+                                        <li><a href="/en/help/faq/15-How-do-you-pronounce-QuiBids#79">How do you pronounce QuiBids?</a></li>
+                                        <li><a href="/en/help/faq/15-How-does-the-Bid-O-Matic-work#78">How does the Bid-O-Matic work?</a></li>
+                                        <li><a href="/en/help/faq/15-How-much-do-bids-cost#119">How much do bids cost?</a></li>
+                                        <li><a href="/en/help/faq/15-Can-everyone-be-a-winner#73">Can everyone be a winner?</a></li>
+                                        <li><a href="/en/help/faq/15-Are-products-brand-new#82">Are products brand-new?</a></li>
+                                    </ul>
+                                </div><!--left-->
+                                <div class="right">
+                                    <div class="module">
+                                        <h3 class="bold orange"> How It Works</h3>
+                                        <div class="content">
+                                            <ul class="how-it">
+                                                <li>
+                                                    <span class="number"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/numbers_1.png" /></span>
+                                                    <span class="text">Sign Up and Buy Bids</span>
+                                                    <span class="attachment"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/how-1.jpg" /></span>
+                                                </li>
+                                                <li>
+                                                    <span class="number"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/numbers_2.png" /></span>
+                                                    <span class="text">Choose Products</span>
+                                                    <span class="attachment"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/how-2.jpg" /></span>
+                                                </li>
+                                                <li>
+                                                    <span class="number"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/numbers_3.png" /></span>
+                                                    <span class="text">Place Bids</span>
+                                                    <span class="attachment"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/how-3.jpg" /></span>
+                                                </li>
+                                                <li>
+                                                    <span class="number"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/numbers_4.png" /></span>
+                                                    <span class="text">Win or Buy Now</span>
+                                                    <span class="attachment"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/layout/how-4.jpg" /></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div><!--right-->
+                            </div><!--content-->
+                        </div><!--get-started-->
+
+
+
+                    </div>
+
+                    <div id="side-content" class="twocol-right">
+
+
+                        <div class="module">
+                            <h3><img class="icon-spacing" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/help/help-support.png" /> Help</h3>
+                            <div class="content">
+                                <ul class="sidenav">
+                                    <li>
+                                        <a class="active"
+                                           href="http://www.quibids.com/en/help/">
+                                            Help & FAQs
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/help/faq/15-How-to-Start-Bidding#71">
+                                            How It Works
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.quibids.com/en/help/support.php">
+                                            Customer Support
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.quibids.com/en/help/rules.php">
+                                            Site Rules
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.quibids.com/en/help/terms.php">
+                                            Terms & Conditions
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--module-->
+                        <div class="module">
+                            <h3><img class="refer-icon" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/account/contact-icon.png" /> Contact Support</h3>
+                            <div class="content">
+
+                                <p>Got a question? We’ve got answers. For simple solutions, check out our easy-to-access <a href="/en/help/index.php">Help</a> section. For stickier situations, connect to <a href="/en/help/support.php">Live Chat</a> or submit a support request below.</p>
+                                <p class="center"><a href="/en/help/support.php" class="buttons medium blue">Contact Support</a></p>
+                            </div>
+                        </div><!--module-->
+                    </div><!--side-content-->
+
+
+                    <div class="content faqs">
+                        <h2 class="grey bold">Frequently Asked Questions</h2>
+                        <div id="sections">
+                            <div class='left module'>
+                                <h3 class='faq_name8'>
+                                  <a href='/en/help/faq/8-Auctions'><span class='faq_name8 faq-sprite'></span>Auctions</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                    <li><a href="/en/help/faq/8-Ive-won-an-auction-What-do-I-do-now#12">I've won an auction! What do I do now?</a></li>
+                                     <li><a href="/en/help/faq/8-How-do-I-redeem-coupons#13">How do I redeem coupons?</a></li>
+                                     <li><a href="/en/help/faq/8-When-does-an-auction-end#20">When does an auction end?</a></li>
+                                    <li><a href="/en/help/faq/8-Why-is-time-added-to-the-auction-clock#80">Why is time added to the auction clock?</a></li>
+                                    <li><a href="/en/help/faq/8-Whenhow-do-I-choose-my-product#571">When/how do I choose my product?</a></li>
+                                </ul>
+                                <p><a href="/en/help/faq/8-Auctions" class="view-more bold">View More </a></p>
+                              </div>
+                            </div><!--left-->
+                            
+                            <div class='right module'>
+                                 <h3 class='faq_name10'>
+                                      <a href='/en/help/faq/10-Bidding'><span class='faq_name10 faq-sprite'></span>Bidding</a>
+                                    </h3>
+                            
+                                <div class='content'>
+                                    <ul class='faq-lists'>
+                                        <li><a href="/en/help/faq/10-How-does-bidding-work#11">How does bidding work?</a></li>
+                                        <li><a href="/en/help/faq/10-How-to-Buy-Bids#9">How to Buy Bids</a></li>
+                                        <li><a href="/en/help/faq/10-What-are-Real-Bids#307">What are Real Bids?</a></li>
+                                        <li><a href="/en/help/faq/10-What-are-Voucher-Bids#86">What are Voucher Bids?</a></li>
+                                        <li><a href="/en/help/faq/10-Do-my-Real-Bids-expire#92">Do my Real Bids expire?</a></li>
+                                    </ul>
+                                
+                                    <p><a href="/en/help/faq/10-Bidding" class="view-more bold">View More </a></p>
+                                    
+                                </div>
+                                
+                            </div><!--right-->
+                            <div class='left module'>
+                            <h3 class='faq_name11'>
+                                <a href='/en/help/faq/11-Shipping-and-Returns'><span class='faq_name11 faq-sprite'></span>Shipping & Returns</a>
+                            </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                <li><a href="/en/help/faq/11-Wheres-my-order#30">Where's my order?</a></li>
+                                <li><a href="/en/help/faq/11-How-do-I-track-my-shipments#31">How do I track my shipments?</a></li>
+                                <li><a href="/en/help/faq/11-Return-Policy#901">Return Policy</a></li>
+                                <li><a href="/en/help/faq/11-International-Shipping#32">International Shipping</a></li>
+                                <li><a href="/en/help/faq/11-What-are-the-shipping-rates#87">What are the shipping rates?</a></li>
+                                    
+                                    </ul>
+                                <p><a href="/en/help/faq/11-Shipping-and-Returns" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--left-->
+                            
+                            <div class='right module'>
+                            <h3 class='faq_name9'>
+                                <a href='/en/help/faq/9-My-Account'><span class='faq_name9 faq-sprite'></span>My Account</a>
+                                </h3>
+                            <div class='content'>
+                                 <ul class='faq-lists'>
+                                    <li><a href="/en/help/faq/9-How-do-I-change-my-password#42">How do I change my password?</a></li>
+                                    <li><a href="/en/help/faq/9-I-forgot-my-password-or-username-What-can-I-do#43">I forgot my password or username. What can I do?</a></li>
+                                    <li><a href="/en/help/faq/9-How-do-I-change-my-email-preferences#44">How do I change my email preferences?</a></li>
+                                    <li><a href="/en/help/faq/9-How-do-I-change-my-username#45">How do I change my username?</a></li>
+                                    <li><a href="/en/help/faq/9-How-do-I-change-my-address-or-add-a-new-one#46">How do I change my address or add a new one?</a></li>
+                                
+                                 </ul>
+                                <p><a href="/en/help/faq/9-My-Account" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--right-->
+                            <div class='left module'>
+                            <h3 class='faq_name12'><a href='/en/help/faq/12-Miscellaneous'><span class='faq_name12 faq-sprite'></span>Miscellaneous</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                <li><a href="/en/help/faq/12-How-can-I-pay#56">How can I pay?</a></li>
+                                <li><a href="/en/help/faq/12-Whats-a-pending-transaction#93">What's a pending transaction?</a></li>
+                                <li><a href="/en/help/faq/12-What-are-Limit-Busters#94">What are Limit Busters?</a></li>
+                                <li><a href="/en/help/faq/12-Where-do-I-go-to-submit-a-review#546">Where do I go to submit a review?</a></li>
+                                <li><a href="/en/help/faq/12-What-goes-into-a-good-review#551">What goes into a good review?</a></li>
+                                    </ul>
+                                <p><a href="/en/help/faq/12-Miscellaneous" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--left-->
+                            <div class='right module'>
+                            <h3 class='faq_name16'>
+                                <a href='/en/help/faq/16-Badges'><span class='faq_name16 faq-sprite'></span>Badges</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                <li><a href="/en/help/faq/16-What-are-Badges#101">What are Badges?</a></li>
+                                <li><a href="/en/help/faq/16-How-do-I-earn-badges#99">How do I earn badges?</a></li>
+                                <li><a href="/en/help/faq/16-How-do-I-claim-my-badges#97">How do I claim my badges?</a></li>
+                                <li><a href="/en/help/faq/16-How-do-I-know-if-Ive-won-a-badge#96">How do I know if I've won a badge?</a></li>
+                                <li><a href="/en/help/faq/16-How-long-do-I-have-to-claim-my-badge#100">How long do I have to claim my badge?</a></li>
+                                    </ul><p><a href="/en/help/faq/16-Badges" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--right-->
+                            <div class='left module'>
+                            <h3 class='faq_name13'>
+                                <a href='/en/help/faq/13-Security'><span class='faq_name13 faq-sprite'></span>Security</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                    <li><a href="/en/help/faq/13-Whats-the-danger-of-fake-Phishing-or-Spoofing-emails#66">What's the danger of fake, 'Phishing' or 'Spoofing' emails?</a></li>
+                                    <li><a href="/en/help/faq/13-Security-notice-Dont-give-out-your-password-via-email-or-phone#74">Security notice: Don't give out your password via email or phone!</a></li>
+                                    <li><a href="/en/help/faq/13-Ive-received-an-email-that-seems-suspicious-What-should-I-do#75">I've received an email that seems suspicious. What should I do?</a></li>
+                                    <li><a href="/en/help/faq/13-How-do-I-recognize-a-fake-email-about-a-request-for-payment#68">How do I recognize a fake email about a request for payment?</a></li>
+                                    <li><a href="/en/help/faq/13-Payment-method-security#90">Payment method security</a></li>
+                                    </div>
+                                </div><!--left-->
+                            <div class='right module'>
+                            <h3 class='faq_name14'>
+                                <a href='/en/help/faq/14-Technical-Problems'><span class='faq_name14 faq-sprite'></span>Technical Problems</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                    <li><a href="/en/help/faq/14-Recommended-PC-requirements#59">Recommended PC requirements</a></li>
+                                    <li><a href="/en/help/faq/14-Why-hasnt-my-bid-registered-on-an-auction#60">Why hasn't my bid registered on an auction? </a></li>
+                                    <li><a href="/en/help/faq/14-What-happens-if-theres-downtime-or-an-auction-pauses#63">What happens if there’s downtime or an auction pauses?</a></li>
+                                    <li><a href="/en/help/faq/14-Im-using-an-AOL-browser-and-its-not-letting-me-bid#76">I'm using an AOL browser and it's not letting me bid.</a></li>
+                                    <li><a href="/en/help/faq/14-How-do-I-activate-cookies#84">How do I activate cookies?</a></li>
+                                    </div>
+                                </div><!--right-->
+                            <div class='left module'>
+                            <h3 class='faq_name17'>
+                                <a href='/en/help/faq/17-Top-Site-Questions'><span class='faq_name17 faq-sprite'></span>Top Site Questions</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                <li><a href="/en/help/faq/17-Why-does-the-timer-reset-in-the-final-seconds-when-a-user-bids#107">Why does the timer reset in the final seconds when a user bids?</a></li>
+                                <li><a href="/en/help/faq/17-Why-does-QuiBids-cost-to-participate-in-an-auction#232">Why does QuiBids cost to participate in an auction?</a></li>
+                                <li><a href="/en/help/faq/17-Is-QuiBids-considered-a-lottery-or-gambling#109">Is QuiBids considered a lottery or gambling?</a></li>
+                                <li><a href="/en/help/faq/17-I-just-spent-bids-in-an-auction-and-didnt-win-Can-I-retrieve-those-used-bids#110">I just spent bids in an auction and didn't win. Can I retrieve those used bids?</a></li>
+                                <li><a href="/en/help/faq/17-I-set-my-Bid-O-Matic-but-the-auction-ended-Why-didnt-my-Bid-O-Matic-work-Have-I-lost-any-bids#112">I set my Bid-O-Matic, but the auction ended. Why didn't my Bid-O-Matic work? Have I lost any bids?</a></li>
+                                    </ul>
+                                <p><a href="/en/help/faq/17-Top-Site-Questions" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--left-->
+                            <div class='right module'>
+                            <h3 class='faq_name27'>
+                                <a href='/en/help/faq/27-Games'><span class='faq_name27 faq-sprite'></span>Games</a>
+                                </h3>
+                            <div class='content'>
+                                <ul class='faq-lists'>
+                                <li><a href="/en/help/faq/27-What-are-QuiBids-Games#347">What are QuiBids Games?</a></li>
+                                <li><a href="/en/help/faq/27-How-do-I-win-gameplays#172">How do I win gameplays?</a></li>
+                                <li><a href="/en/help/faq/27-What-kind-of-bids-do-I-win-with-QuiBids-Gameplays#166">What kind of bids do I win with QuiBids Gameplays?</a></li>
+                                <li><a href="/en/help/faq/27-Whats-a-Multiplier#161">What’s a Multiplier?</a></li>
+                                <li><a href="/en/help/faq/27-Will-my-gameplay-ever-expire#272">Will my gameplay ever expire?</a></li>
+                                    </ul>
+                                <p><a href="/en/help/faq/27-Games" class="view-more bold">View More </a></p>
+                                </div>
+                                </div><!--right-->
+                            
+                            
+                            
+                            <div style='clear:both'></div>
+                           
+                            
+                            
+                            
+                            <div class="search-scroll">
+                            </div>
+
+                        </div>
+                    </div><!--faq-list-->
+
+                    <div class="search-scroll"><p><a href="#" class="back-top bold">Back to top</a></p></div>
+
+                </div>
+            </div><!--container-->
+
+</body>

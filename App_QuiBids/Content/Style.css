@@ -116,7 +116,7 @@ h5.grey {
 
 a.buttons.orange {
     background-color: #e56400;
-    background-image: url(/site/images/layout/orange-btn.jpg);
+    background-image: url('img/orange-btn.jpg');
     color: #fff !important;
     text-shadow: 0 1px 2px #693100;
     filter: dropshadow(color=#693100,offx=1,offy=2);

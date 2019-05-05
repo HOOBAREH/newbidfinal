@@ -151,5 +151,22 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
+        /*--------------------------------------------*/
+        public ActionResult Help()
+        {
+            return View();
+        }
+        public ActionResult Games()
+        {
+            return View();
+        }
+        public ActionResult Badges()
+        {
+            return View();
+        }
+        public ActionResult Abuot()
+        {
+            return View();
+        }
     }
 }

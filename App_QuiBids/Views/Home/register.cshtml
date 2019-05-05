@@ -8,8 +8,8 @@
         display: none;
     }
 </style>
-<link href="~/Content/registering.css" rel="stylesheet" !important />
-<link href="~/Content/Style.css" rel="stylesheet" />
+@*<link href="~/Content/registering.css" rel="stylesheet" !important />
+<link href="~/Content/Style.css" rel="stylesheet" />*@
 
 <head>
     <link href="~/Content/registering.css" rel="stylesheet" />
@@ -21,15 +21,17 @@
             <ul class="tab-group">
                 <!-- عنوان صفحه -->
 
-                <h1>همین حالا عضو شوید</h1>
 
                 <li id="register" class="tab active "><button type="button" id="btn-reg" class="button">ثبت نام </button></li>
-                <li id="login" class="tab login"><a class="button" id="btn-login">ورود</a></li>
+                <li id="login"    class="tab login"  ><a  class="button" id="btn-login">                           ورود</a></li>
             </ul>
+            <h1>همین حالا در نیو بیدزعضو شوید</h1>
+
             <div class="tab-group">
                 @using (Html.BeginForm("Register", "Home", FormMethod.Post,
                     new { enctype = "multipart/form-data" }))
                 {
+
                     <div id="signup">
                         @*<form action="/" method="post">*@
                         <div class="top-row">
