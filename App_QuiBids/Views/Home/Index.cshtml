@@ -138,7 +138,7 @@
                             <h3 id="Reserve_Price" class="price green Reserve-Price">@item.Reserve_Price</h3>
                             <h5 class="winning grey">@item.Current_UserId</h5>
                             <p class="p">
-                                <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
+                                <img class="buttons bid medium  btntest"   src="~/Content/img/Pishnehad.png" />
                                 @*<a class="buttons bid medium  btntest"  style="background-image:Url('~/Content/img/Pishnehad.png');" onclick=""></a>*@
                             </p>
                         </div>
@@ -190,6 +190,21 @@
             var revPrice = $(this).parent().siblings('.Reserve-Price');
             revPrice.html(parseInt(revPrice.html()) + 1);
             $(this).parent().siblings(".statusClick").val("1");
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/home/LowerBids/",
+                    data: {
+                        id: $(this).val(), // < note use of 'this' here
+                        access_token: $("#access_token").val()
+                    },
+                    success: function (result) {
+                        alert('ok');
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
         }
     });
 
@@ -197,10 +212,19 @@
 
         var minutes, seconds;
         var timer = duration;
-        setInterval(function () {
+      var intervalId=  setInterval(function () {
             var closeTime = $(display).siblings(".closeTime").val();
             var resetTime = $(display).siblings(".reset");
-            var status = $(display).siblings(".statusClick");
+          var status = $(display).siblings(".statusClick");
+          if (resetTime.val() == "1" && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadad dar mozaede sherkat nakard.
+          {
+
+              var img = $(display).parent().children(".p").children(".btntest");
+              $(img).attr("src", "/Content/img/Sold.png");
+              $(img).css({ "pointer-events": "none" });
+
+              window.clearInterval(intervalId);
+          }
             if (status.val() == "1") {
                 timer = closeTime;
                 status.val("0");
@@ -216,13 +240,6 @@
                 timer = closeTime;
                 resetTime.val("1");
             }
-            if (resetTime.val() == "1" && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadad dar mozaede sherkat nakard.
-            {
-
-                var img = $(display).parent().children(".p").children(".btntest");
-                $(img).attr("src", "~/Content/img/Sold.png");
-            }
-
         }, 1000);
     }
 
