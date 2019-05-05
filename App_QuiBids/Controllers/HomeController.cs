@@ -122,7 +122,7 @@ namespace App_QuiBids.Controllers
         public ActionResult LowerBids(AuctionModel model)
         {
             var auctions = _auctionRepo.GetAuctions();
-            var bid = _userRepo.LowerBids(model.id);
+            var bid = _userRepo.LowerBids(model.Current_UserId.Value);
             if (bid == -1)
             {
                 ViewBag.Error = "موجودی bid های شما کم میباشد.";

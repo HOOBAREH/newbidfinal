@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (User)Session["Admin"];
 }
 
 <div id="auctions">
@@ -119,6 +120,7 @@
                     @foreach (var item in Model)
                     {
                         <div class="auction-item-wrapper">
+                            <input type="hidden" value="@item.Id" class="auctionId" />
                             <div>
                                 <h5 class="auction-item-title">
                                     <a class="title" href="">$@item.Product.Price  @item.Product.Name</a>
@@ -136,7 +138,7 @@
                             <input type="hidden" class="reset" name="resetTime" value="0" />
                             <input type="hidden" class="statusClick" name="status" value="0" />
                             <h3 id="Reserve_Price" class="price green Reserve-Price">@item.Reserve_Price</h3>
-                            <h5 class="winning grey">@item.Current_UserId</h5>
+                            <h5 class="winning grey Current_User">@item.Current_UserId</h5>
                             <p class="p">
                                 <img class="buttons bid medium  btntest"   src="~/Content/img/Pishnehad.png" />
                                 @*<a class="buttons bid medium  btntest"  style="background-image:Url('~/Content/img/Pishnehad.png');" onclick=""></a>*@
@@ -188,18 +190,20 @@
         var reset = $(this).parent().siblings(".reset");
         if (reset.val() == "1") {
             var revPrice = $(this).parent().siblings('.Reserve-Price');
+            var id = $(this).parent().parent().parent().find('#template_bidsavailable');
             revPrice.html(parseInt(revPrice.html()) + 1);
             $(this).parent().siblings(".statusClick").val("1");
-                e.preventDefault();
                 $.ajax({
                     type: "POST",
                     url: "/home/LowerBids/",
                     data: {
-                        id: $(this).val(), // < note use of 'this' here
+                        Current_UserId:@user.Id,
+                        id: $(this).parent().siblings(".auctionId").val(), // < note use of 'this' here
                         access_token: $("#access_token").val()
                     },
                     success: function (result) {
-                        alert('ok');
+                        $(this).parent().siblings(".Current_User").text("@user.Fname");
+                        $(this).parent().siblings(".Current_User").text("@user.Fname");
                     },
                     error: function (result) {
                         alert('error');
