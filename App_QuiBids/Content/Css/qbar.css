@@ -57,7 +57,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
         position: relative;
         bottom: 0;
         z-index: 9996;
-        background: url(/site/images/qbar/qbar-gloss.jpg) #e2e2e2 left top repeat-x;
+        background: url('../img/Footer-Bar/qbar-gloss.jpg') #e2e2e2 left top repeat-x;
         -webkit-border-top-left-radius: 8px;
         -webkit-border-top-right-radius: 8px;
         -moz-border-radius-topright: 8px;
@@ -79,7 +79,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
         position: relative;
         bottom: 0;
         z-index: 9996;
-        background: url(/site/images/qbar/qbar-gloss.jpg) #e2e2e2 left top repeat-x;
+        background: url('../img/Footer-Bar/qbar-gloss.jpg') #e2e2e2 left top repeat-x;
         -webkit-border-top-left-radius: 8px;
         -webkit-border-top-right-radius: 8px;
         -moz-border-radius-topright: 8px;
@@ -117,14 +117,14 @@ input#bidsfirst_real, input#bidsfirst_voucher {
             text-indent: -9998px;
             overflow: hidden;
             cursor: pointer;
-            background: url(/site/images/qbar/logo.png) 15px 7px no-repeat
+            background: url('../img/Footer-Bar/logo.png') 15px 7px no-repeat;
         }
 
     #qbar #qbar_small {
         width: 110px;
         padding: 0;
         margin: 0;
-        background: url(/site/images/qbar/expand.jpg) #e2e2e2 68px center no-repeat
+        background: url('../img/Footer-Bar/expand.jpg') #e2e2e2 68px center no-repeat
     }
 
         #qbar #qbar_small .logo {
@@ -266,7 +266,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
                 border-left: solid 1px #228ee8;
                 border-right: solid 1px #228ee8;
                 cursor: pointer;
-                background: url(/site/images/qbar/navbar-hov.jpg) left bottom repeat-x;
+                background: url('../img/Footer-Bar/navbar-hov.jpg') left bottom repeat-x;
                 padding-top: 2px;
                 color: #f37226
             }
@@ -334,7 +334,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
     -moz-border-radius-topright: 8px;
     border-radius: 0 8px 0 0;
     border-left: solid 1px #ccc;
-    background: url(/site/images/qbar/notify-bg.jpg) left bottom;
+    background: url('../img/Footer-Bar/notify-bg.jpg') left bottom;
     text-align: center
 }
 
@@ -376,7 +376,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
             border-radius: 0 8px 0 0;
             border-top: solid 1px #228ee8;
             border-right: solid 1px #228ee8;
-            background: url(/site/images/qbar/navbar-hov.jpg) left bottom repeat-x
+            background: url('../img/Footer-Bar/navbar-hov.jpg') left bottom repeat-x;
         }
 
 #qbar .notifypopup .content li {
@@ -433,7 +433,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
         padding: 0;
         margin: 0;
         float: left;
-        background: url(/site/images/qbar/title-gloss.jpg) #48494b left top repeat-x;
+        background: url('../img/Footer-Bar/title-gloss.jpg') #48494b left top repeat-x;
         -webkit-border-top-left-radius: 6px;
         -webkit-border-top-right-radius: 6px;
         -moz-border-radius-topright: 6px;
@@ -461,7 +461,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
             cursor: pointer;
             text-indent: -9999px;
             overflow: hidden;
-            background: url(/site/images/qbar/close.gif) center center no-repeat
+            background: url('../img/Footer-Bar/close.gif') center center no-repeat
         }
 
         .popup .title a:hover.close {
@@ -479,7 +479,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
         padding: 0;
         margin: 0;
         float: left;
-        background: url(/site/images/qbar/link-bg.jpg) #48494b left top repeat-x;
+        background: url('../img/Footer-Bar/link-bg.jpg') #48494b left top repeat-x;
         line-height: 22px
     }
 
@@ -813,7 +813,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
     padding: 0;
     margin: 0;
     float: left;
-    background: url(/site/images/qbar/link-bg.jpg) #48494b left top repeat-x;
+    background: url('../img/Footer-Bar/link-bg.jpg') #48494b left top repeat-x;
     line-height: 22px
 }
 
@@ -1183,7 +1183,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: url(/site/images/qbar/bubble-bg.png) left top repeat;
+    background: url('../img/Footer-Bar/bubble-bg.png') left top repeat;
     display: none
 }
 
@@ -1201,7 +1201,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
         position: absolute;
         bottom: -9px;
         left: 40px;
-        background: url(/site/images/qbar/bubble-btm.png) left top no-repeat
+        background: url('../img/Footer-Bar/bubble-btm.png') left top no-repeat
     }
 
     #qbar .help p {
@@ -1260,7 +1260,7 @@ input#bidsfirst_real, input#bidsfirst_voucher {
     }
 
     .username #stars .off {
-        background: url(/site/images/qbar/label-off.png) 0 0 no-repeat
+        background: url('../img/Footer-Bar/label-off.png')0 0 no-repeat;
     }
 
     .username #stars .won {

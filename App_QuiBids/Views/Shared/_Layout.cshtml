@@ -8,12 +8,9 @@
     <title>@ViewBag.Title - NewBids</title>
     <title>NewBids</title>
 
-    <meta http-equiv="Content-Language" content="fa" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <!--[if IE]>
     <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
     <![endif]-->
@@ -64,10 +61,27 @@
 
     <link rel="stylesheet" href="~/Content/Style.css">
 
-    <link href="~/Content/css/home.css" rel="stylesheet" />
-    <link href="~/Content/css/jqueryui.css" rel="stylesheet" />
-    <link href="~/Content/css/qbar.css" rel="stylesheet" />
-    <link href="~/Content/css/main.css" rel="stylesheet" />
+    <link href="~/Content/Css/home.css" rel="stylesheet" />
+    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" />
+    <link href="~/Content/Css/qbar.css" rel="stylesheet" />
+    <link href="~/Content/Css/main.css" rel="stylesheet" />
+
+
+    @*<script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+
+
+    <script src="~/Scripts/JScript/all.js"></script>
+    <script src="~/Scripts/JScript/auctions.js"></script>
+    <script src="~/Scripts/JScript/ga.js"></script>
+    <script src="~/Scripts/JScript/homepage.js"></script>
+    <script src="~/Scripts/JScript/jquery-ui.min.js"></script>
+    <script src="~/Scripts/JScript/jquery.min.js"></script>
+    <script src="~/Scripts/JScript/jquery.orbit-1.2.3.min.js"></script>
+    <script src="~/Scripts/JScript/qbar.js"></script>
+    <script src="~/Scripts/JScript/site.js"></script>
+    <script src="~/Scripts/JScript/translation.js"></script>
+    <script src="~/Scripts/JScript/tv2track.js"></script>
     @*-----------------------------------------------------------------*@
 
 
@@ -179,18 +193,18 @@
                            
               
 
-           @*<script>
+           <script>
             $(document).ready(function () {
                 var BrowseMenu = new Class_BrowseMenu();
                 BrowseMenu.init();
             });
-        </script>*@
+        </script>
 
                 <style>
                     #browse-menu {
                         width: 190px;
                         height: 350px;
-                        /* box-shadow: 2px 2px 3px #bbbbbb; */
+                         box-shadow: 2px 2px 3px #bbbbbb; 
                     }
 
                         #browse-menu .browse-links .nav {
@@ -374,11 +388,52 @@
 
                         <div class="menu-data" id="menu_wrap">
 
-                            <div id="menu_3_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-2387-electronics/computers-and-tablets/">Computers & Tablets</a></li><li><a href="/category-2367-electronics/camera-and-photo/">Camera & Photo</a></li><li><a href="/category-2357-electronics/tv-and-video/">TV & Video</a></li><li><a href="/category-2377-electronics/portable-electronics/">Portable Electronics</a></li><li><a href="/category-2362-electronics/home-audio/">Home Audio</a></li><li><a href="/category-2382-electronics/video-games/">Video Games</a></li><li><a href="/category-2402-electronics/musical-instruments/">Musical Instruments</a></li><li><a href="/category-2397-electronics/office-equipment/">Office Equipment</a></li><li><a href="/category-2372-electronics/car-electronics/">Car Electronics</a></li><li><a href="/category-2392-electronics/cell-phones/">Cell Phones</a></li><li><a href="/category-2352-electronics/">All Electronics</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-2352-electronics/?b=2">Apple</a></li><li><a href="/category-2352-electronics/?b=1">Sony</a></li><li><a href="/category-2352-electronics/?b=134">Canon</a></li><li><a href="/category-2352-electronics/?b=728">Samsung</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image">
-    <img width="140" src="~/Content/img/Layout/auctions-electronics-001.jpg"/>
-</div>
+                            <div id="menu_3_sub" class="menu_browse_subs menu_sub_auctions" style="display:none">
+                                <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'>
+                                <h3 id="category_browse">By Category</h3>
+                                <ul id="menu-list-items" style="overflow:hidden;">
+                                    <li><a href="/category-2387-electronics/computers-and-tablets/">Computers & Tablets</a></li>
+                                    <li><a href="/category-2367-electronics/camera-and-photo/">Camera & Photo</a></li>
+                                    <li><a href="/category-2357-electronics/tv-and-video/">TV & Video</a></li>
+                                    <li><a href="/category-2377-electronics/portable-electronics/">Portable Electronics</a></li>
+                                    <li><a href="/category-2362-electronics/home-audio/">Home Audio</a></li>
+                                    <li><a href="/category-2382-electronics/video-games/">Video Games</a></li>
+                                    <li><a href="/category-2402-electronics/musical-instruments/">Musical Instruments</a></li>
+                                    <li><a href="/category-2397-electronics/office-equipment/">Office Equipment</a></li>
+                                    <li><a href="/category-2372-electronics/car-electronics/">Car Electronics</a></li>
+                                    <li><a href="/category-2392-electronics/cell-phones/">Cell Phones</a></li>
+                                    <li><a href="/category-2352-electronics/">All Electronics</a></li>
+                                    </ul>
+                                    </div>
+                                <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'>
+                                <h3 id="brand_browse">Top Brands</h3>
+                                <ul id="menu-list-items" style="overflow:hidden;">
+                                    <li><a href="/category-2352-electronics/?b=2">Apple</a></li>
+                                    <li><a href="/category-2352-electronics/?b=1">Sony</a></li>
+                                    <li><a href="/category-2352-electronics/?b=134">Canon</a></li>
+                                    <li><a href="/category-2352-electronics/?b=728">Samsung</a></li>
+                                    </ul>
+                                    </div>
+                                <div style='clear:both'>
+                                    </div>
+                                <div class="megamenu-image"><img width="140" src="~/Content/img/Layout/auctions-electronics-001.jpg"/></div>
                                 </div>
-                            <div id="menu_4_sub" class="menu_browse_subs menu_sub_auctions" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-10396-home-and-garden/fragrance/">Fragrance</a></li><li><a href="/category-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li><li><a href="/category-4097-home-and-garden/housewares/">Housewares</a></li><li><a href="/category-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li><li><a href="/category-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li><li><a href="/category-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li><li><a href="/category-4107-home-and-garden/health-and-personal/">Health & Personal</a></li><li><a href="/category-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li><li><a href="/category-4087-home-and-garden/">All Home & Garden</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-4087-home-and-garden/?b=189">Cuisinart</a></li><li><a href="/category-4087-home-and-garden/?b=230">Dyson</a></li><li><a href="/category-4087-home-and-garden/?b=109">Breville</a></li><li><a href="/category-4087-home-and-garden/?b=434">KitchenAid</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image">
+                            <div id="menu_4_sub" class="menu_browse_subs menu_sub_auctions" style="display:none">
+                                <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'>
+                                <h3 id="category_browse">By Category</h3>
+                                <ul id="menu-list-items" style="overflow:hidden;">
+                                    <li><a href="/category-10396-home-and-garden/fragrance/">Fragrance</a></li>
+                                    <li><a href="/category-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li>
+                                    <li><a href="/category-4097-home-and-garden/housewares/">Housewares</a></li>
+                                    <li><a href="/category-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li>
+                                    <li><a href="/category-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li>
+                                    <li><a href="/category-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li>
+                                    <li><a href="/category-4107-home-and-garden/health-and-personal/">Health & Personal</a></li>
+                                    <li><a href="/category-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li>
+                                    <li><a href="/category-4087-home-and-garden/">All Home & Garden</a></li>
+                                    </ul>
+                                    </div>
+                                <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/category-4087-home-and-garden/?b=189">Cuisinart</a></li><li><a href="/category-4087-home-and-garden/?b=230">Dyson</a></li><li><a href="/category-4087-home-and-garden/?b=109">Breville</a></li><li><a href="/category-4087-home-and-garden/?b=434">KitchenAid</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image">
     <img width="140" src="~/Content/img/Layout/auctions-home-001.png" />
 </div>
     </div>
@@ -398,7 +453,43 @@
     <img width="140" src="~/Content/img/Layout/store-electronics-001.jpg" />
 </div>
                                 </div>
-                            <div id="menu_12_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-10396-home-and-garden/fragrance/">Fragrance</a></li><li><a href="/browse-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li><li><a href="/browse-4097-home-and-garden/housewares/">Housewares</a></li><li><a href="/browse-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li><li><a href="/browse-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li><li><a href="/browse-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li><li><a href="/browse-4107-home-and-garden/health-and-personal/">Health & Personal</a></li><li><a href="/browse-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li><li><a href="/browse-4087-home-and-garden/">All Home & Garden</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-4087-home-and-garden/?b=189">Cuisinart</a></li><li><a href="/browse-4087-home-and-garden/?b=230">Dyson</a></li><li><a href="/browse-4087-home-and-garden/?b=109">Breville</a></li><li><a href="/browse-4087-home-and-garden/?b=434">KitchenAid</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-home-001.png" /></div></div><div id="menu_13_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-9561-jewelry-and-fashion/apparel-and-accessories/">Apparel & Accessories</a></li><li><a href="/browse-8987-jewelry-and-fashion/handbags-and-wallets/">Handbags & Wallets</a></li><li><a href="/browse-9506-jewelry-and-fashion/jewelry-and-watches/">Jewelry & Watches</a></li><li><a href="/browse-8932-jewelry-and-fashion/">All Jewelry & Fashion</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-8932-jewelry-and-fashion/?b=3101">Citizen</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=574">Nike</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=533">Michael Kors</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=152">Coach</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-jewelry-001.jpg" /></div></div><div id="menu_14_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5632-sports-and-recreation/golf/">Golf</a></li><li><a href="/browse-5502-sports-and-recreation/recreation/">Recreation</a></li><li><a href="/browse-6352-sports-and-recreation/remote-control/">Remote Control</a></li><li><a href="/browse-5507-sports-and-recreation/sports-gear/">Sports Gear</a></li><li><a href="/browse-5497-sports-and-recreation/games-and-toys/">Games & Toys</a></li><li><a href="/browse-5492-sports-and-recreation/">All Sports & Recreation</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5492-sports-and-recreation/?b=123">Bushnell</a></li><li><a href="/browse-5492-sports-and-recreation/?b=128">Callaway</a></li><li><a href="/browse-5492-sports-and-recreation/?b=574">Nike</a></li><li><a href="/browse-5492-sports-and-recreation/?b=826">TaylorMade</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-sports-001.jpg" /></div></div><div id="menu_16_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-212-gift-cards/10-gift-cards/">$10 Gift Cards</a></li><li><a href="/browse-213-gift-cards/15-gift-cards/">$15 Gift Cards</a></li><li><a href="/browse-214-gift-cards/25-gift-cards/">$25 Gift Cards</a></li><li><a href="/browse-216-gift-cards/50-gift-cards/">$50 Gift Cards</a></li><li><a href="/browse-17-gift-cards/">All Gift Cards</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-17-gift-cards/?b=6282">The Home Depot</a></li><li><a href="/browse-17-gift-cards/?b=6456">Shell</a></li><li><a href="/browse-17-gift-cards/?b=6387">Outback</a></li><li><a href="/browse-17-gift-cards/?b=6522">Walmart</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/auctions-cards-001.png" /></div></div>
+                            <div id="menu_12_sub" class="menu_browse_subs menu_sub_browse" style="display:none">
+                            <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'>
+                                <h3 id="category_browse">By Category</h3>
+                                <ul id="menu-list-items" style="overflow:hidden;">
+                                <li><a href="/browse-10396-home-and-garden/fragrance/">Fragrance</a></li>
+                                <li><a href="/browse-4092-home-and-garden/kitchen-and-dining/">Kitchen & Dining</a></li>
+                                <li><a href="/browse-4097-home-and-garden/housewares/">Housewares</a></li>
+                                <li><a href="/browse-4112-home-and-garden/home-furnishings/">Home Furnishings</a></li>
+                                <li><a href="/browse-4117-home-and-garden/outdoor-and-patio/">Outdoor & Patio</a></li>
+                                <li><a href="/browse-4102-home-and-garden/bedding-and-bath/">Bedding & Bath</a></li>
+                                <li><a href="/browse-4107-home-and-garden/health-and-personal/">Health & Personal</a></li>
+                                <li><a href="/browse-4122-home-and-garden/tools-and-garden/">Tools & Garden</a></li>
+                                <li><a href="/browse-4087-home-and-garden/">All Home & Garden</a></li>
+                                    </ul>
+                                </div>
+                            <div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'>
+                                <h3 id="brand_browse">Top Brands</h3>
+                                <ul id="menu-list-items" style="overflow:hidden;">
+                                <li><a href="/browse-4087-home-and-garden/?b=189">Cuisinart</a></li>
+                                <li><a href="/browse-4087-home-and-garden/?b=230">Dyson</a></li>
+                                <li><a href="/browse-4087-home-and-garden/?b=109">Breville</a></li>
+                                <li><a href="/browse-4087-home-and-garden/?b=434">KitchenAid</a></li>
+                                    </ul>
+                                </div>
+                            <div style='clear:both'></div>
+                            <div class="megamenu-image">
+                                <img width="140" src="~/Content/img/Layout/auctions-home-001.png" />
+                            </div>
+                                </div><div id="menu_13_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-9561-jewelry-and-fashion/apparel-and-accessories/">Apparel & Accessories</a></li><li><a href="/browse-8987-jewelry-and-fashion/handbags-and-wallets/">Handbags & Wallets</a></li><li><a href="/browse-9506-jewelry-and-fashion/jewelry-and-watches/">Jewelry & Watches</a></li><li><a href="/browse-8932-jewelry-and-fashion/">All Jewelry & Fashion</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-8932-jewelry-and-fashion/?b=3101">Citizen</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=574">Nike</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=533">Michael Kors</a></li><li><a href="/browse-8932-jewelry-and-fashion/?b=152">Coach</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-jewelry-001.jpg" /></div></div><div id="menu_14_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5632-sports-and-recreation/golf/">Golf</a></li><li><a href="/browse-5502-sports-and-recreation/recreation/">Recreation</a></li><li><a href="/browse-6352-sports-and-recreation/remote-control/">Remote Control</a></li><li><a href="/browse-5507-sports-and-recreation/sports-gear/">Sports Gear</a></li><li><a href="/browse-5497-sports-and-recreation/games-and-toys/">Games & Toys</a></li><li><a href="/browse-5492-sports-and-recreation/">All Sports & Recreation</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-5492-sports-and-recreation/?b=123">Bushnell</a></li><li><a href="/browse-5492-sports-and-recreation/?b=128">Callaway</a></li><li><a href="/browse-5492-sports-and-recreation/?b=574">Nike</a></li><li><a href="/browse-5492-sports-and-recreation/?b=826">TaylorMade</a></li></ul></div><div style='clear:both'></div><div class="megamenu-image"><img width="140" src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/dropdown/store-sports-001.jpg" /></div></div><div id="menu_16_sub" class="menu_browse_subs menu_sub_browse" style="display:none"><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-1'><h3 id="category_browse">By Category</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-212-gift-cards/10-gift-cards/">$10 Gift Cards</a></li><li><a href="/browse-213-gift-cards/15-gift-cards/">$15 Gift Cards</a></li><li><a href="/browse-214-gift-cards/25-gift-cards/">$25 Gift Cards</a></li><li><a href="/browse-216-gift-cards/50-gift-cards/">$50 Gift Cards</a></li><li><a href="/browse-17-gift-cards/">All Gift Cards</a></li></ul></div><div id='flyout' style='width: 170px; float:left' class='megamenu-sub-2'><h3 id="brand_browse">Top Brands</h3><ul id="menu-list-items" style="overflow:hidden;"><li><a href="/browse-17-gift-cards/?b=6282">The Home Depot</a></li><li><a href="/browse-17-gift-cards/?b=6456">Shell</a></li><li><a href="/browse-17-gift-cards/?b=6387">Outback</a></li><li><a href="/browse-17-gift-cards/?b=6522">Walmart</a></li></ul></div>
+                            <div style='clear:both'></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                            <div class="megamenu-image">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                            <img width="140" src="/img/Layout/auctions-cards-001.png" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                </div>
+                            </div>
                         </div>
                     </div> <!--browse-links-->
                 </div> <!--auction-menu-->
@@ -431,7 +522,7 @@
                            class="buttons medium green" />
                 </form>
 
-                @*<script>
+                <script>
                         $("#search_category_title").live('click', function (e) {
                             $('#search_category_options').show();
                         });
@@ -448,7 +539,7 @@
                             $('#search_category_options').fadeOut(100);
                         });
 
-                    </script>*@
+                    </script>
             </div>
             <!--search-auctions-->
 
@@ -537,7 +628,7 @@
             </div>
 
 
-            @*<script type="text/javascript">
+            <script type="text/javascript">
                     if (jQuery.browser.mobile) {
                         $('#slider_container').hide();
                     } else {
@@ -550,7 +641,7 @@
                             startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
                         });
                     }
-                </script>*@
+                </script>
 
             <div id="auctions">
 
@@ -574,7 +665,7 @@
                 //Homepage.initialize(options);
             </script>
 
-            @*<iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>*@
+            <iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>
 
 
             <footer>
@@ -641,7 +732,7 @@
                         <li><a href="http://www.quibids.com/categories/Sports-and-Recreation/">ورزش و سرگرمی</a></li>
                         <li><a href="http://www.quibids.com/categories/Vouchers-and-Limit-Busters/">Vouchers & Limit Busters</a></li>
                         <li><a href="http://www.quibids.com/categories/New-Products/">محصولات جدید</a></li>
-                        <li><a href="http://www.quibids.com/categories/Gift-Cards/">کارت های هدیه</a></li>
+                        <li><a href="">کارت های هدیه</a></li>
                     </ul>
                 </div>
             </footer><!--footer-->
@@ -658,7 +749,7 @@
 
 
 
-    <div id="popupModal" title="Basic dialog" style="display:none;width:450"></div>
+    <div id="popupModal" title="Basic dialog" style="display:none;width:450px"></div>
     <div id="popupImage" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
     <div id="popupIFrame" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
     <div id="popupShowUrl" title="QuiBids" style="display:none">
@@ -685,7 +776,7 @@
         });
     </script>
 
-    @*<script>
+    <script>
             $(function () {
                 window.fbAsyncInit = function () {
                     FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
@@ -695,7 +786,7 @@
 
                 $.getScript(document.location.protocol + '');
             })
-        </script>*@
+        </script>
 
     <script>
         !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = ""; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
@@ -729,7 +820,9 @@
                     <div style="float:right;width:250px;min-height:150px;padding-left:14px">
                         <h2>Recent Wins</h2><ul></ul><br />
                         <h2>
-                            Auction Limits		<a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/qbar/help.png"></a>
+                            Auction Limits		<a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ">
+    <img src="~/Content/img/Footer-Bar/help.png" />>
+</a>
                         </h2>
 
                         <p id="stars">
@@ -816,15 +909,19 @@
 
                     <div class="cont-right">
                         <ul>
-                            <li><span class="big2" id="qbar_bidsavailable_real">0</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/qbar/help.png"></a></li>
-                            <li><span class="big2" id="qbar_bidsavailable_free">0</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/qbar/help.png"></a></li>
+                            <li><span class="big2" id="qbar_bidsavailable_real">0</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
+    <img src="~/Content/img/Footer-Bar/help.png" />
+</a></li>
+                            <li><span class="big2" id="qbar_bidsavailable_free">0</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
+    <img src="~/Content/img/Footer-Bar/help.png" />
+</a></li>
                         </ul>
                     </div>
                     <div class="cont-right" style="line-height:20px">
                         Bid Type Selection:
                         <div style='float:right'>
                             <a href="/en/help/faq/10-Bidding#122" title="Click to view FAQ">
-                                <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/qbar/help.png">
+                                <img src="~/Content/img/Footer-Bar/help.png" />
                             </a>
                         </div>
                         <div style='margin-left:0px;'>
