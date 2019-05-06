@@ -18,96 +18,93 @@
 <body>
     <div class="form">
         <div>
-            <ul class="tab-group">
-                <!-- عنوان صفحه -->
+                <ul class="tab-group">
+                    <!-- عنوان صفحه -->
+                    @*<button type="submit" class="button button-block">ورود</button>*@
+                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-reg">ثبت نام </button></li>
+                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-login">  ورود</button></li>
+                </ul>
 
+                <div class="tab-group">
+                    @using (Html.BeginForm("Register", "Home", FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+                    {
+                        <h1>همین حالا در نیو بیدزعضو شوید</h1>
 
-                <li id="register" class="tab active "><button type="button" id="btn-reg" class="button">ثبت نام </button></li>
-                <li id="login"    class="tab login"  ><a  class="button" id="btn-login">                           ورود</a></li>
-            </ul>
-            <h1>همین حالا در نیو بیدزعضو شوید</h1>
-
-            <div class="tab-group">
-                @using (Html.BeginForm("Register", "Home", FormMethod.Post,
-                    new { enctype = "multipart/form-data" }))
-                {
-
-                    <div id="signup">
-                        @*<form action="/" method="post">*@
-                        <div class="top-row">
-                            <div class="field-wrap">
-                                <!-- فیلد نام -->
-                                <input type="text" name="Fname" placeholder="نام">
+                        <div id="signup">
+                            @*<form action="/" method="post">*@
+                            <div class="top-row">
+                                <div class="field-wrap">
+                                    <!-- فیلد نام -->
+                                    <input type="text" name="Fname" placeholder="نام">
+                                </div>
+                                <div class="field-wrap">
+                                    <!--  فیلد نام خانوادگی -->
+                                    <input type="text" name="Lname" placeholder="نام خانوادگی">
+                                </div>
                             </div>
-                            <div class="field-wrap">
-                                <!--  فیلد نام خانوادگی -->
-                                <input type="text" name="Lname" placeholder="نام خانوادگی">
-                            </div>
-                        </div>
-                        <!-- فیلد ایمیل -->
-                        <div class="field-wrap">
-
-                            <input type="text" name="Email" placeholder="ایمیل شما">
-                        </div>
-                        <div class="top-row">
-
-                            <!--  فیلد رمز عبور -->
-                            <div class="field-wrap">
-                                <!-- فیلد رمزعبور -->
-                                <input type="text" name="PassWord" placeholder="رمز عبور">
-
-                            </div>
-                            <div class="field-wrap">
-                                <!--  فیلد تکرار رمز عبور -->
-                                <input type="text" name="Password" placeholder="تکرار رمز عبور">
-
-                            </div>
-                        </div>
-                        <!-- فیلد تلفن-->
-                        <div class="field-wrap">
-
-                            <input type="text" name="Mobile" placeholder="تلفن" required>
-
-                        </div>
-                        <!-- فیلد ادرس-->
-                        <div class="field-wrap">
-
-                            <textarea type="text" name="Address" placeholder="ادرس" required></textarea>
-                        </div>
-
-                        <!--  کلید ثبت نام -->
-                        <button type="submit" class="button button-block">ثبت نام</button>
-                        @*</form>*@
-                    </div>
-                }
-                @using (Html.BeginForm("Login", "Home", FormMethod.Post,
-                new { enctype = "multipart/form-data" }))
-                {
-                    <div id="signIn" hidden>
-                        <!--فیلد ورود-->
-                        <div class="top-row">
                             <!-- فیلد ایمیل -->
                             <div class="field-wrap">
 
-                                <input type="text" name="UserName" placeholder="نام کاربری" required>
-                                <h3> ای دی ایمیل شما نام کاربری شماست</h3>
+                                <input type="text" name="Email" placeholder="ایمیل شما">
                             </div>
+                            <div class="top-row">
 
+                                <!--  فیلد رمز عبور -->
+                                <div class="field-wrap">
+                                    <!-- فیلد رمزعبور -->
+                                    <input type="text" name="PassWord" placeholder="رمز عبور">
+
+                                </div>
+                                <div class="field-wrap">
+                                    <!--  فیلد تکرار رمز عبور -->
+                                    <input type="text" name="Password" placeholder="تکرار رمز عبور">
+
+                                </div>
+                            </div>
+                            <!-- فیلد تلفن-->
                             <div class="field-wrap">
-                                <!-- فیلد رمزعبور -->
-                                <input type="text" name="Password" placeholder="رمز عبور" required>
-                                <h3>رمز عبورتان را وارد کنید </h3>
+
+                                <input type="text" name="Mobile" placeholder="تلفن" required>
 
                             </div>
+                            <!-- فیلد ادرس-->
+                            <div class="field-wrap">
+
+                                <textarea type="text" name="Address" placeholder="ادرس" required></textarea>
+                            </div>
+
+                            <!--  کلید ثبت نام -->
+                            <button type="submit" class="button button-block">ثبت نام</button>
+                            @*</form>*@
+                        </div>
+                    }
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                    {
+                        <div id="signIn" hidden>
+                            <!--فیلد ورود-->
+                            <div class="top-row">
+                                <!-- فیلد ایمیل -->
+                                <div class="field-wrap">
+
+                                    <input type="text" name="UserName" placeholder="نام کاربری" required>
+                                </div>
+
+                                <div class="field-wrap">
+                                    <!-- فیلد رمزعبور -->
+                                    <input type="text" name="Password" placeholder="رمز عبور" required>
+
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="button button-block">ورود</button>
+
 
                         </div>
-
-                        <button type="submit" class="button button-block">ورود</button>
-
-
-                    </div>
-                }
-            </div><!-- tab-content -->
+                    }
+                </div><!-- tab-content -->
         </div>
     </div> <!-- /form -->
 </body>

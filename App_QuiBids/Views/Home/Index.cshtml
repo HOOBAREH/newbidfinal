@@ -3,13 +3,12 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var user = (User)Session["Admin"];
 }
 
 <div id="auctions">
     <div id="container" class="home">
         <div id="featured">
-
+             
             <div id="breadcrumbs">
                 <ul>
                     <li class="featured bold">فعالیت های حال حاضر</li>
@@ -123,7 +122,6 @@
                     @foreach (var item in Model)
                     {
                         <div class="auction-item-wrapper">
-                            <input type="hidden" value="@item.Id" class="auctionId" />
                             <div>
                                 <h5 class="auction-item-title">
                                     <a class="title" href="">$@item.Product.Price  @item.Product.Name</a>
@@ -141,9 +139,9 @@
                             <input type="hidden" class="reset" name="resetTime" value="0" />
                             <input type="hidden" class="statusClick" name="status" value="0" />
                             <h3 id="Reserve_Price" class="price green Reserve-Price">@item.Reserve_Price</h3>
-                            <h5 class="winning grey Current_User">@item.Current_UserId</h5>
+                            <h5 class="winning grey">@item.Current_UserId</h5>
                             <p class="p">
-                                <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
+                                <img class="buttons bid medium  btntest"   src="~/Content/img/Pishnehad.png" />
                                 @*<a class="buttons bid medium  btntest"  style="background-image:Url('~/Content/img/Pishnehad.png');" onclick=""></a>*@
                             </p>
                         </div>
@@ -190,30 +188,21 @@
 
 
     $(".btntest").click(function () {
-        var currentUser = $(this).parent().siblings(".Current_User");
         var reset = $(this).parent().siblings(".reset");
         if (reset.val() == "1") {
-            var currentBids = $('#template_bidsavailable').text();
-            if (currentBids == 0) {
-                alert("You do not have enough bids left in your account to bid.");
-                return false;
-            }
             var revPrice = $(this).parent().siblings('.Reserve-Price');
             revPrice.html(parseInt(revPrice.html()) + 1);
-            var res = revPrice.html();
             $(this).parent().siblings(".statusClick").val("1");
+                e.preventDefault();
                 $.ajax({
                     type: "POST",
                     url: "/home/LowerBids/",
                     data: {
-                        Current_UserId:@user.Id,
-                        id: $(this).parent().siblings(".auctionId").val(),
-                        Reserve_Price: res
+                        id: $(this).val(), // < note use of 'this' here
+                        access_token: $("#access_token").val()
                     },
                     success: function (result) {
-                        currentUser.text("@user.Fname");
-                        $('#template_bidsavailable').text(result.currentbids);
-
+                        alert('ok');
                     },
                     error: function (result) {
                         alert('error');
@@ -221,34 +210,15 @@
                 });
         }
     });
-    function saveTimer(timer,id) {
-          $.ajax({
-                    type: "POST",
-                    url: "/home/UpdateTimer/",
-              data: {
-                  timer: timer,
-                  id:id
-                    },
-                    success: function (result) {
 
-                        //alert('success');
-                    },
-                    error: function (result) {
-                        alert('error');
-                        return false;
-                    }
-                });
-    }
     function startTimer(duration, display) {
 
         var minutes, seconds;
         var timer = duration;
-       
-        var intervalId = setInterval(function () {
+      var intervalId=  setInterval(function () {
             var closeTime = $(display).siblings(".closeTime").val();
             var resetTime = $(display).siblings(".reset");
-            var status = $(display).siblings(".statusClick");
-            var id = $(display).siblings(".auctionId").val();
+          var status = $(display).siblings(".statusClick");
           if (resetTime.val() == "1" && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadad dar mozaede sherkat nakard.
           {
 
@@ -268,9 +238,7 @@
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            display.textContent =  minutes + ":" + seconds;
-            saveTimer(00 + ":" +minutes + ":" + seconds, id);
-
+            display.textContent = minutes + ":" + seconds;
             if (--timer == -1) {
                 timer = closeTime;
                 resetTime.val("1");
