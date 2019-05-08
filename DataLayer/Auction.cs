@@ -34,9 +34,9 @@ public partial class Auction
 
     public Nullable<int> Current_UserId { get; set; }
 
-    public Nullable<bool> StartStatus { get; set; }
+    public bool StartStatus { get; set; }
 
-    public Nullable<bool> IsClose { get; set; }
+    public bool IsClose { get; set; }
 
 
 

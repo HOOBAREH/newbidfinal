@@ -146,9 +146,25 @@ namespace App_QuiBids.Controllers
             //return View();
         }
         [HttpPost]
-        public ActionResult UpdateTimer(int id, TimeSpan timer)
+        public ActionResult UpdateTimer(int id, TimeSpan timer,bool startStatus)
         {
-            var res = _auctionRepo.UpdateTimer(id, timer);
+            var res = _auctionRepo.UpdateTimer(id, timer,startStatus);
+            if (res)
+            {
+                return Json(new
+                {
+                    result = true
+                });
+            }
+            else
+                return Json(new
+                {
+                    result = false
+                });
+        }
+        public ActionResult UpdateIsclose(int id)
+        {
+            var res = _auctionRepo.UpdateIsclose(id);
             if (res)
             {
                 return Json(new

@@ -17,8 +17,8 @@
           <Property Name="EndPrice" Type="int" />
           <Property Name="CurrentBid_Id" Type="int" />
           <Property Name="Current_UserId" Type="int" />
-          <Property Name="StartStatus" Type="bit" />
-          <Property Name="IsClose" Type="bit" />
+          <Property Name="StartStatus" Type="bit" Nullable="false" />
+          <Property Name="IsClose" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -138,8 +138,8 @@
           <Property Name="EndPrice" Type="Int32" />
           <Property Name="CurrentBid_Id" Type="Int32" />
           <Property Name="Current_UserId" Type="Int32" />
-          <Property Name="StartStatus" Type="Boolean" />
-          <Property Name="IsClose" Type="Boolean" />
+          <Property Name="StartStatus" Type="Boolean" Nullable="false" />
+          <Property Name="IsClose" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Auction" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Auction_User" FromRole="Auction" ToRole="User" />
         </EntityType>
