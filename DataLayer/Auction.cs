@@ -34,6 +34,10 @@ public partial class Auction
 
     public Nullable<int> Current_UserId { get; set; }
 
+    public bool StartStatus { get; set; }
+
+    public bool IsClose { get; set; }
+
 
 
     public virtual Product Product { get; set; }

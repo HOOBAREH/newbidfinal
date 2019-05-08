@@ -17,6 +17,8 @@
           <Property Name="EndPrice" Type="int" />
           <Property Name="CurrentBid_Id" Type="int" />
           <Property Name="Current_UserId" Type="int" />
+          <Property Name="StartStatus" Type="bit" Nullable="false" />
+          <Property Name="IsClose" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -85,9 +87,9 @@
     <edmx:ConceptualModels>
       <Schema Namespace="QuiBidsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="QuiBidsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Auction" EntityType="QuiBidsModel.Auction" />
           <EntitySet Name="Product" EntityType="QuiBidsModel.Product" />
           <EntitySet Name="User" EntityType="QuiBidsModel.User" />
+          <EntitySet Name="Auction" EntityType="QuiBidsModel.Auction" />
           <AssociationSet Name="FK_Auction_Product" Association="QuiBidsModel.FK_Auction_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Auction" EntitySet="Auction" />
@@ -96,22 +98,7 @@
             <End Role="User" EntitySet="User" />
             <End Role="Auction" EntitySet="Auction" />
           </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Auction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Auction_Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Close_Time" Type="Int32" Nullable="false" />
-          <Property Name="Reserve_Price" Type="Int32" />
-          <Property Name="EndPrice" Type="Int32" />
-          <Property Name="CurrentBid_Id" Type="Int32" />
-          <Property Name="Current_UserId" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Auction" ToRole="Product" />
-          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Auction_User" FromRole="Auction" ToRole="User" />
-        </EntityType>
+          </EntityContainer>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -139,6 +126,23 @@
           <Property Name="RealBid" Type="Int32" />
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_User" FromRole="User" ToRole="Auction" />
         </EntityType>
+        <EntityType Name="Auction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Auction_Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Close_Time" Type="Int32" Nullable="false" />
+          <Property Name="Reserve_Price" Type="Int32" />
+          <Property Name="EndPrice" Type="Int32" />
+          <Property Name="CurrentBid_Id" Type="Int32" />
+          <Property Name="Current_UserId" Type="Int32" />
+          <Property Name="StartStatus" Type="Boolean" Nullable="false" />
+          <Property Name="IsClose" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Auction" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Auction_User" FromRole="Auction" ToRole="User" />
+        </EntityType>
         <Association Name="FK_Auction_Product">
           <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
           <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="0..1" />
@@ -163,26 +167,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuiBidsModelStoreContainer" CdmEntityContainer="QuiBidsEntities">
-          <EntitySetMapping Name="Auction">
-            <EntityTypeMapping TypeName="QuiBidsModel.Auction">
-              <MappingFragment StoreEntitySet="Auction">
-                <ScalarProperty Name="Current_UserId" ColumnName="Current_UserId" />
-                <ScalarProperty Name="CurrentBid_Id" ColumnName="CurrentBid_Id" />
-                <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
-                <ScalarProperty Name="Reserve_Price" ColumnName="Reserve_Price" />
-                <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
-                <ScalarProperty Name="Auction_Time" ColumnName="Auction_Time" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="QuiBidsModel.Product">
               <MappingFragment StoreEntitySet="Product">
@@ -206,6 +196,22 @@
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Lname" ColumnName="Lname" />
                 <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auction">
+            <EntityTypeMapping TypeName="QuiBidsModel.Auction">
+              <MappingFragment StoreEntitySet="Auction">
+                <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+                <ScalarProperty Name="StartStatus" ColumnName="StartStatus" />
+                <ScalarProperty Name="Current_UserId" ColumnName="Current_UserId" />
+                <ScalarProperty Name="CurrentBid_Id" ColumnName="CurrentBid_Id" />
+                <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
+                <ScalarProperty Name="Reserve_Price" ColumnName="Reserve_Price" />
+                <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
+                <ScalarProperty Name="Auction_Time" ColumnName="Auction_Time" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
