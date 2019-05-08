@@ -47,13 +47,13 @@
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Auction" Type="Self.Auction" Multiplicity="0..1" />
+          <End Role="Auction" Type="Self.Auction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Auction">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -145,13 +145,13 @@
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Auction">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

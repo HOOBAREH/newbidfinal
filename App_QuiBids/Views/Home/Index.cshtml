@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var user = (User)Session["Admin"];
 }
-
 <div id="auctions">
+    <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
+
     <div id="container" class="home">
         <div id="featured">
-
             <div id="breadcrumbs">
                 <ul>
                     <li class="featured bold">فعالیت های حال حاضر</li>
@@ -122,11 +122,10 @@
                     </div>
                 </div>
 
-
                 <div id="spots" class="content">
                     @foreach (var item in Model)
                     {
-                        <div class="auction-item-wrapper">
+                        <div class=" auction-item-wrapper">
                             <div>
                                 <h5 class="auction-item-title">
                                     <a class="title" href="">$@item.Product.Price  @item.Product.Name</a>
@@ -146,19 +145,30 @@
                             <input type="hidden" class="statusClick" name="status" value="0" />
                             <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@item.StartStatus" />
                             <input type="hidden" class="isClose" name="isClose" data-Close="@item.IsClose" />
-                            <input type="hidden" class="Current_UserId" name="Current_UserId" value="@item.Current_UserId" />
-                            <h3 id="Reserve_Price" class="price green Reserve-Price">@item.Reserve_Price</h3>
-                            <h5 class="winning grey" data-userID="@item.Current_UserId">@(item.User != null ? item.User.Fname : "" )</h5>
-                            <p class="p">
-                                <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
-                                @*<a class="buttons bid medium  btntest"  style="background-image:Url('~/Content/img/Pishnehad.png');" onclick=""></a>*@
-                            </p>
+                            <h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@item.Reserve_Price"> $@item.Reserve_Price</h3>
+                            <h5 class="winning grey" data-currentUser="">@(item.User != null ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
+                            @if (item.IsClose)
+                            {
+                                <p class="p">
+                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png" />
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="p">
+                                    <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
+                                </p>
+                            }
+
                         </div>
                     }
 
-
                 </div><!--ending-->
+                <hr />
 
+                <div id="show_more_auctions">
+                    <div class="pagination" style="display:none"></div><div class="pagination" style="display:none"></div>
+                </div>
                 <div class="module legend">
                     <div class="content">
 
@@ -177,9 +187,7 @@
 
 
 
-                <div id="show_more_auctions">
-                    <div class="pagination" style="display:none"></div><div class="pagination" style="display:none"></div>
-                </div>
+
 
             </div><!--auction-type-->
 
@@ -191,15 +199,14 @@
 
     </div><!--auctions-->
 </div>
+@*<script src="~/Scripts/JScript/IndexAuction.js"></script>*@
+
 
 <script>
-
-
-
     $(".btntest").click(function () {
         var currentUser = $(this).parent().siblings(".Current_User");
-        var reset = $(this).parent().siblings(".reset");
         var Startstatus = $(this).parent().siblings(".Startstatus");
+        var userID = $('.userId').attr('data-userId');
 
         if (Startstatus.attr('data-Start') == "True") {
             var currentBids = $('#template_bidsavailable').text();
@@ -208,48 +215,50 @@
                 return false;
             }
             var revPrice = $(this).parent().siblings('.Reserve-Price');
-            revPrice.html(parseInt(revPrice.html()) + 1);
-            var res = revPrice.html();
+            var currency = revPrice.html().replace('$', '').trim();
+            var sumCurrency = parseInt(currency) + 1;
+            revPrice.html('$' + sumCurrency);
+            var res = sumCurrency;
             $(this).parent().siblings(".statusClick").val("1");
-                $.ajax({
-                    type: "POST",
-                    url: "/home/LowerBids/",
-                    data: {
-                        Current_UserId:@user.Id,
-                        id: $(this).parent().siblings(".auctionId").val(),
-                        Reserve_Price: res
-                    },
-                    success: function (result) {
-                        currentUser.text("@user.Fname");
-                        $('#template_bidsavailable').text(result.currentbids);
+            $.ajax({
+                type: "POST",
+                url: "/home/LowerBids/",
+                data: {
+                    Current_UserId: userID,
+                    id: $(this).parent().siblings(".auctionId").val(),
+                    Reserve_Price: res
+                },
+                success: function (result) {
+                    currentUser.text(currentUser.attr('data-currentUser'));
+                    $('#template_bidsavailable').text(result.currentbids);
 
-                    },
-                    error: function (result) {
-                        alert('error');
-                    }
-                });
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
         }
     });
     function saveTimer(timer, id, startStatus) {
-          $.ajax({
-                    type: "POST",
-                    url: "/home/UpdateTimer/",
-              data: {
-                  timer: timer,
-                  id: id,
-                  Startstatus:startStatus
-                  //startStatus=startstatus,
-                  //isClose=isclose
-                    },
-                    success: function (result) {
+        $.ajax({
+            type: "POST",
+            url: "/home/UpdateTimer/",
+            data: {
+                timer: timer,
+                id: id,
+                Startstatus: startStatus
+                //startStatus=startstatus,
+                //isClose=isclose
+            },
+            success: function (result) {
 
-                        //alert('success');
-                    },
-                    error: function (result) {
-                        alert('error');
-                        return false;
-                    }
-                });
+                //alert('success');
+            },
+            error: function (result) {
+                alert('error');
+                return false;
+            }
+        });
     }
     function updateIsclose(id) {
         $.ajax({
@@ -274,44 +283,42 @@
         var minutes, seconds, hours;
         var timer = duration;
         var closeTime = $(display).siblings(".closeTime").val();
-        var resetTime = $(display).siblings(".reset");
         var status = $(display).siblings(".statusClick");
         var Startstatus = $(display).siblings(".Startstatus");
         var isClose = $(display).siblings(".isClose");
         var id = $(display).siblings(".auctionId").val();
 
         var intervalId = setInterval(function () {
-        if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadaddarmozaede sherkat nakard.
-        {
-          var img = $(display).parent().children(".p").children(".btntest");
-          $(img).attr("src", "/Content/img/Sold.png");
-          $(img).css({ "pointer-events": "none" });
-          isClose.attr('data-Close', 'True');
-        //  updateIsclose(id);
-          window.clearInterval(intervalId);
-        }
-        if (status.val() == "1") {
-            timer = closeTime;
-            status.val("0");
+            if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))//time reset shode va kasi mojadaddarmozaede sherkat nakard.
+            {
+                var img = $(display).parent().children(".p").children(".btntest");
+                $(img).attr("src", "/Content/img/Sold.png");
+                $(img).css({ "pointer-events": "none" });
+                isClose.attr('data-Close', 'True');
+                updateIsclose(id);
+                window.clearInterval(intervalId);
+            }
+            if (status.val() == "1") {
+                timer = closeTime;
+                status.val("0");
             }
             hours = parseInt((timer / 3600) % 24, 10);
             minutes = parseInt((timer / 60) % 60, 10);
             seconds = parseInt(timer % 60, 10);
-         hours = hours < 10 ? "0" + hours : hours;
-         minutes = minutes < 10 ? "0" + minutes : minutes;
-         seconds = seconds < 10 ? "0" + seconds : seconds;
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            display.textContent = hours+":"+ minutes + ":" + seconds;
+            display.textContent = hours + ":" + minutes + ":" + seconds;
 
-        if (--timer == -1) {
-            timer = closeTime;
-            Startstatus.attr('data-Start', 'True');
-            //update startStatus aya inja bashe ya dar saveTimer;
-        }
-          //  saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
+            if (--timer == -1) {
+                timer = closeTime;
+                Startstatus.attr('data-Start', 'True');
+                //update startStatus aya inja bashe ya dar saveTimer;
+            }
+            saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
         }, 1000);
     }
-
     window.onload = function () {
         var everyChild = document.getElementById("spots").querySelectorAll("#time");
 
@@ -331,3 +338,4 @@
     };
 </script>
 
+@*<script src="~/Scripts/JScript/Auction.js"></script>*@
