@@ -1511,6 +1511,8 @@
     <Content Include="Scripts\JScript\jquery.jcarousel.min.js" />
     <Content Include="Scripts\JScript\profiles.js" />
     <Content Include="Scripts\JScript\reviews.js" />
+    <Content Include="Scripts\JScript\IndexAuction.js" />
+    <Content Include="Scripts\JScript\pagination.js" />
     <Content Include="Scripts\loginstyle.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\JScript\all.js" />
