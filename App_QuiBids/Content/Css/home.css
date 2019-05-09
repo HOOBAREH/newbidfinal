@@ -359,7 +359,7 @@ li.ui-state-default, li.ui-widget-content .ui-state-default, li.ui-widget-header
         border-top: solid 1px #d1d1d1;
         border-left: solid 1px #d1d1d1;
         border-right: solid 1px #d1d1d1;
-        background: url(/site/images/layout/auctiontype-bg.png) #f5f5f5 left bottom repeat-x;
+        background: url('../img/Auction/auctiontype-bg.png') #f5f5f5 left bottom repeat-x;
         -moz-border-radius-topleft: 8px;
         -moz-border-radius-topright: 8px;
         -webkit-border-radius: 8px 8px 0 0;
@@ -369,7 +369,7 @@ li.ui-state-default, li.ui-widget-content .ui-state-default, li.ui-widget-header
         .auction-type ul.types li a:hover {
             color: #007fdd;
             text-decoration: none;
-            background: url(/site/images/layout/auctiontype-bg.png) #fff left bottom repeat-x
+            background: url('../img/Auction/auctiontype-bg.png') #fff left bottom repeat-x
         }
     .auction-type ul.types li.state-active a, .auction-type ul.types li.state-active a:link, .auction-type ul.types li.state-active a:visited {
         color: #333;

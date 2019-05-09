@@ -103,6 +103,15 @@
     <Content Include="Content\Css\auction.css" />
     <Content Include="Content\Css\reviews.css" />
     <Content Include="Content\img\29080.jpg" />
+    <Content Include="Content\img\Auction\auctiontype-bg.png" />
+    <Content Include="Content\img\Auction\blue-cloth-texture.jpg" />
+    <Content Include="Content\img\Auction\clock-timeout.jpg" />
+    <Content Include="Content\img\Auction\default.png" />
+    <Content Include="Content\img\Auction\dropnav-arrow.gif" />
+    <Content Include="Content\img\Auction\empty-product-auctions.png" />
+    <Content Include="Content\img\Auction\moduleheaders.jpg" />
+    <Content Include="Content\img\Auction\no-image.png" />
+    <Content Include="Content\img\Auction\s.jpg" />
     <Content Include="Content\img\badges.jpg" />
     <Content Include="Content\img\checkmark-green.png" />
     <Content Include="Content\img\coins.png" />
