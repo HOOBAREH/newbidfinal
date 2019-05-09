@@ -389,7 +389,7 @@ li.ui-state-default, li.ui-widget-content .ui-state-default, li.ui-widget-header
     left: -10px
 }
 div#featured_carousel {
-    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
+    /*-webkit-mask-image: url('../img/Layout/dataimagepng;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC.png');*/
 }
     div#featured_carousel .content {
         width: 984px;
@@ -441,11 +441,12 @@ div#featured_carousel {
  #featured_carousel div.twelvedaysdaily.d10{background:#fff url(/site/images/carousel/archive/bg/12days-10.jpg) repeat-x left top}
  #featured_carousel div.twelvedaysdaily.d11{background:#fff url(/site/images/carousel/archive/bg/12days-11.jpg) repeat-x left top}
  #featured_carousel div.twelvedaysdaily>a{margin:178px 0 0 145px;width:165px;text-align:center}
-#featured_carousel div.howItWorks {
+/*#featured_carousel div.howItWorks {
     background: #fff url(/site/images/carousel/archive/bg/white-fade.gif) repeat-x left top;
     padding-left: 60px;
     width: 924px
-}#featured_carousel div.howItWorks .title{font-size:30px;margin-top:30px;padding-bottom:25px}
+}*/
+#featured_carousel div.howItWorks .title{font-size:30px;margin-top:30px;padding-bottom:25px}
  #featured_carousel div.howItWorks .box{width:210px;margin-right:10px;float:left;text-align:center}
  #featured_carousel div.howItWorks .box .icon{height:40px}
  #featured_carousel div.howItWorks .box .title{font-size:18px;font-weight:bold;padding:5px 0}
@@ -467,7 +468,7 @@ div#featured_carousel {
  #featured_carousel div.gamePlay .body .bold{color:#fff}
  #featured_carousel div.gamePlay .body .green{color:#8eae55}
 #featured_carousel div.badges {
-    background: #fff url(/site/images/carousel/archive/bg/badges.jpg) repeat-x left top;
+    background: #fff url('../img/badges.jpg') repeat-x left top;
     padding-left: 80px;
     width: 904px
 }#featured_carousel div.badges .body{width:540px}
@@ -478,10 +479,11 @@ div#featured_carousel {
 }#featured_carousel div.chatlive .body{width:540px}
  #featured_carousel div.chatlive .mainIcon{position:absolute;top:60px;right:205px;z-index:10}
 #featured_carousel div.winners {
-    background: #fff url(/site/images/carousel/archive/bg/winners.jpg) no-repeat left top;
+    /*background: #fff url(/site/images/carousel/archive/bg/winners.jpg) no-repeat left top;*/
     padding-left: 20px;
     width: 964px
-}#featured_carousel div.winners .title{color:#fff;font-size:29px;margin-top:30px;padding-bottom:30px;text-shadow:0 0 12px #666}
+}
+#featured_carousel div.winners .title{color:#fff;font-size:29px;margin-top:30px;padding-bottom:30px;text-shadow:0 0 12px #666}
 #featured_carousel div.winners .title span{font-weight:bold}
     #featured_carousel div.winners .body {
         width: 550px;
@@ -532,7 +534,7 @@ div#featured_carousel {
     left: 80px
 }
 #featured_carousel div.promoStore {
- background: #fff url(/site/images/carousel/archive/bg/quibids-store-banner.jpg) no-repeat left top
+    background: #fff url('../img/quibids-store-banner.jpg') no-repeat left top
 }
 #featured_carousel div.gameplaysat{background:#fff url(/site/images/carousel/archive/bg/GameplaySaturday.jpg) no-repeat left top}
 #featured_carousel div.aprilFools{background:#fff url(/site/images/carousel/archive/bg/AFs_ShaqSlider.png) no-repeat left top}
@@ -551,7 +553,18 @@ div#featured_carousel {
 #featured_carousel div.lockedAuctions_es {
     background: #fff url(/site/images/carousel/archive/bg/Locked_Auctions_es.jpg) no-repeat left top
 }#featured_carousel div.lockedAuctions_fr{background:#fff url(/site/images/carousel/archive/bg/Locked_Auctions_fr.jpg) no-repeat left top}#featured_carousel div.lockedAuctions_fc{background:#fff url(/site/images/carousel/archive/bg/Locked_Auctions_fr.jpg) no-repeat left top}#featured_carousel div.lockedAuctions_it{background:#fff url(/site/images/carousel/archive/bg/Locked_Auctions_it_2.jpg) no-repeat left top}#featured_carousel div.lockedAuctions a{text-align:center;width:185px;height:54px;line-height:55px;position:absolute;bottom:52px}#featured_carousel div.lockedAuctions_en a{left:496px}#featured_carousel div.lockedAuctions_de a{left:520px}#featured_carousel div.lockedAuctions_es a{left:537px}#featured_carousel div.lockedAuctions_fr a{left:530px}#featured_carousel div.lockedAuctions_fc a{left:530px}#featured_carousel div.lockedAuctions_it a{left:525px;width:216px}#featured_carousel div.canadaFreeShipping{background:#fff url(/site/images/carousel/archive/bg/JF_Ship.jpg) no-repeat left top}#featured_carousel div.canadaFreeShipping a{text-align:center;width:145px;height:52px;line-height:55px;position:absolute;bottom:22px;left:695px;font-family:Helvetica,Arial,Sans-Serif;font-size:20px}#featured_carousel div.hauntedAuctions{background:#fff url(/site/images/carousel/archive/bg/haunted_auctions_2014.jpg) no-repeat left top}#featured_carousel div.hauntedAuctions a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.fordFocus{background:#fff url(/site/images/carousel/archive/bg/carbanner2.jpg) no-repeat left top}
-#featured_carousel div.fordFocus a{text-align:center;width:145px;height:52px;line-height:55px;position:absolute;bottom:40px;left:69px;font-family:Helvetica,Arial,Sans-Serif;font-size:24px}#featured_carousel div.fordFocus a:hover{font-family:Helvetica,Arial,Sans-Serif;font-size:24px}#featured_carousel div.celebrityBrands{background:#fff url(/site/images/carousel/archive/bg/celebrity_brands.jpg) no-repeat left top}#featured_carousel div.celebrityBrands a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.cyberMonday{background:#fff url(/site/images/carousel/archive/bg/cyberMonday.jpg) no-repeat left top}#featured_carousel div.cyberMonday a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.twelveDaysQuiBids{background:#fff url(/site/images/carousel/archive/bg/twelveDaysQuiBids2.jpg) no-repeat left top}#featured_carousel div.twelveDaysQuiBids a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.tips{background:#fff url(/site/images/carousel/archive/bg/tips.jpg) no-repeat left top;padding-left:80px;width:904px}#featured_carousel div.tips .title{color:#522e00;font-size:38px;font-weight:bold;font-style:italic;text-shadow:0 0 12px #fff}#featured_carousel div.tips .body{width:550px;font-size:21px;color:#333;font-style:italic;text-shadow:0 0 12px #fff}#featured_carousel div.tips .body span{color:#c31100;font-weight:bold}#featured_carousel div.tips ul{margin:0;padding:0}#featured_carousel div.tips ul li{list-style:none;background:url(/site/images/carousel/archive/icon/checkmark-green.png) no-repeat 0 50%;padding-left:30px;margin-bottom:5px}#featured_carousel div.tips ul li a{font-size:16px;font-weight:bold;color:#333}#container.home{-moz-border-radius-topleft:8px;-moz-border-radius-topright:8px;-webkit-border-radius:8px 8px 0 0;border-radius:8px 8px 0 0;position:relative}
+#featured_carousel div.fordFocus a{text-align:center;width:145px;height:52px;line-height:55px;position:absolute;bottom:40px;left:69px;font-family:Helvetica,Arial,Sans-Serif;font-size:24px}#featured_carousel div.fordFocus a:hover{font-family:Helvetica,Arial,Sans-Serif;font-size:24px}#featured_carousel div.celebrityBrands{background:#fff url(/site/images/carousel/archive/bg/celebrity_brands.jpg) no-repeat left top}#featured_carousel div.celebrityBrands a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.cyberMonday{background:#fff url(/site/images/carousel/archive/bg/cyberMonday.jpg) no-repeat left top}#featured_carousel div.cyberMonday a.widelink{display:block;width:100%;height:100%;left:0}#featured_carousel div.twelveDaysQuiBids{background:#fff url(/site/images/carousel/archive/bg/twelveDaysQuiBids2.jpg) no-repeat left top}#featured_carousel div.twelveDaysQuiBids a.widelink{display:block;width:100%;height:100%;left:0}
+#featured_carousel div.tips {
+    background: #fff url('../img/tips.jpg') no-repeat left top;
+    padding-left: 80px;
+    width: 904px
+}#featured_carousel div.tips .title{color:#522e00;font-size:38px;font-weight:bold;font-style:italic;text-shadow:0 0 12px #fff}#featured_carousel div.tips .body{width:550px;font-size:21px;color:#333;font-style:italic;text-shadow:0 0 12px #fff}#featured_carousel div.tips .body span{color:#c31100;font-weight:bold}#featured_carousel div.tips ul{margin:0;padding:0}
+    #featured_carousel div.tips ul li {
+        list-style: none;
+        background: url('../img/checkmark-green.png') no-repeat 0 50%;
+        padding-left: 30px;
+        margin-bottom: 5px
+    }#featured_carousel div.tips ul li a{font-size:16px;font-weight:bold;color:#333}#container.home{-moz-border-radius-topleft:8px;-moz-border-radius-topright:8px;-webkit-border-radius:8px 8px 0 0;border-radius:8px 8px 0 0;position:relative}
 .auction-item-wrapper {
     width: 168px;
     height: 330px;
@@ -568,7 +581,17 @@ div#featured_carousel {
     -webkit-border-radius: 8px;
     margin: 0 9px 20px 9px;
     position: relative
-}.auction-details .locked{width:21px;height:26px;background:url(/img/icons/lockedicon.png) left bottom repeat-x}.auction-details .unlocked{width:19px;height:25px;background:url(/img/icons/unlockedicon.png) left bottom repeat-x}.auction-item-wrapper .locked,.auction-item-wrapper .unlocked{position:absolute;left:10px;top:60px;display:none}.auction-item-wrapper.list-view .locked,.auction-item-wrapper.list-view .unlocked{top:10px}.auction-item-wrapper.beginners{border:solid 1px #1980cc}
+}
+.auction-details .locked {
+    width: 21px;
+    height: 26px;
+    background: url('../img/Layout/lockedicon.png') left bottom repeat-x
+}
+.auction-details .unlocked {
+    width: 19px;
+    height: 25px;
+    background: url('../img/Layout/unlockedicon.png') left bottom repeat-x
+}.auction-item-wrapper .locked,.auction-item-wrapper .unlocked{position:absolute;left:10px;top:60px;display:none}.auction-item-wrapper.list-view .locked,.auction-item-wrapper.list-view .unlocked{top:10px}.auction-item-wrapper.beginners{border:solid 1px #1980cc}
 .auction-item-wrapper.blitz {
     -moz-border-radius-topleft: 8px;
     -moz-border-radius-topright: 8px;
@@ -581,7 +604,36 @@ div#featured_carousel {
     -webkit-border-radius: 8px;
     margin: 0 9px 20px 9px;
     position: relative
-}.auction-item-wrapper h2,.auction-item-wrapper h3,.auction-item-wrapper h5,.auction-item-wrapper p{margin:0;padding-bottom:3px}.auction-item-wrapper a h3,.auction-item-wrapper h3{height:24px;margin:2px 15px;position:relative}.auction-item-wrapper h5.auction-item-title{height:43px;padding:5px;margin:0 0 10px 0;line-height:44px;background:url(/site/images/layout/moduleheaders.jpg) left bottom repeat-x;border-bottom:solid 1px #bfbfbf;line-height:22px;overflow:hidden;width:158px}div.auction-item-wrapper>div>h5{display:inline-block;line-height:1em;vertical-align:middle;word-wrap:break-word}div.auction-item-wrapper>div>h5>div{display:table-cell;vertical-align:middle;height:26px}div.auction-item-wrapper>div>h5>div>div{width:162px;overflow:hidden;max-height:26px}.auction-item-wrapper.beginners h5.auction-item-title{border-bottom:solid 1px #1980cc}.auction-item-wrapper span.loading{position:relative;top:100px;left:70px;height:34px;width:32px;background:url(/site/images/icons/loading.gif) no-repeat;display:block}.auction-item-wrapper.list-view span.loading{position:relative;top:0;left:0;height:34px;width:905px;background:url(/site/images/icons/loading.gif) center center no-repeat;display:block}.auction-item-wrapper .auction-item-img p{width:168px;height:110px;padding-bottom:5px}
+}.auction-item-wrapper h2,.auction-item-wrapper h3,.auction-item-wrapper h5,.auction-item-wrapper p{margin:0;padding-bottom:3px}.auction-item-wrapper a h3,.auction-item-wrapper h3{height:24px;margin:2px 15px;position:relative}
+.auction-item-wrapper h5.auction-item-title {
+    height: 43px;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    line-height: 44px;
+    background: url('../img/Layout/moduleheaders.jpg') left bottom repeat-x;
+    border-bottom: solid 1px #bfbfbf;
+    line-height: 22px;
+    overflow: hidden;
+    width: 158px
+}div.auction-item-wrapper>div>h5{display:inline-block;line-height:1em;vertical-align:middle;word-wrap:break-word}div.auction-item-wrapper>div>h5>div{display:table-cell;vertical-align:middle;height:26px}div.auction-item-wrapper>div>h5>div>div{width:162px;overflow:hidden;max-height:26px}.auction-item-wrapper.beginners h5.auction-item-title{border-bottom:solid 1px #1980cc}
+.auction-item-wrapper span.loading {
+    position: relative;
+    top: 100px;
+    left: 70px;
+    height: 34px;
+    width: 32px;
+    background: url('../img/Layout/loading.gif') no-repeat;
+    display: block
+}
+.auction-item-wrapper.list-view span.loading {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 34px;
+    width: 905px;
+    background: url('../img/Layout/loading.gif') center center no-repeat;
+    display: block
+}.auction-item-wrapper .auction-item-img p{width:168px;height:110px;padding-bottom:5px}
 .auction-item-wrapper.list-view {
     width: 905px;
     height: 105px;
@@ -602,4 +654,45 @@ div#featured_carousel {
 }.auction-item-wrapper.list-view.beginners{border:solid 1px #1980cc}.auction-item-wrapper.list-view h2,.auction-item-wrapper.list-view h3,.auction-item-wrapper.list-view h4,.auction-item-wrapper.list-view h5,.auction-item-wrapper.list-view p{margin:0;padding-bottom:3px}
 .auction-item-wrapper.list-view a h3,.auction-item-wrapper.list-view h3{height:24px;margin:2px 7px;position:relative}.auction-item-wrapper.list-view .details{float:left;width:370px}.auction-item-wrapper.list-view .bid-info{float:right;width:295px;margin-right:40px;position:relative;margin-top:20px}.auction-item-wrapper.list-view .bid-info .left{margin-left:30px}.auction-item-wrapper.list-view .bid-info .right{margin-top:8px}.auction-item-wrapper.list-view .bid-info-products{float:right;width:340px;margin-right:10px;position:relative;margin-top:20px}.auction-item-wrapper.list-view .bid-info-products .left{width:220px;position:relative}.auction-item-wrapper.list-view .bid-info-products .right{margin-top:25px}.auction-item-wrapper.list-view .bid-info-products .left .view-more{margin-top:3px;margin-left:15px;color:#007fdd}.auction-item-wrapper.list-view .bid-info,.auction-item-wrapper.list-view .bid-info-products .right{text-align:center}.auction-item-wrapper.list-view h5.auction-item-title{height:20px;padding:0;margin:0;line-height:20px;background:none transparent;border:0;line-height:22px;overflow:hidden}.auction-item-wrapper.list-view.beginners h5.auction-item-title{border:0}.auction-item-wrapper.list-view .auction-item-img{width:160px;height:100px;float:left;text-align:center;margin-right:20px}.auction-item-wrapper.list-view .auction-item-img.products{width:140px;height:100px;float:left}.auction-item-wrapper.list-view .auction-item-img.products p{width:140px}ul.grid-actions{width:220px;float:left;list-style:none;margin:0;padding:0}ul.grid-actions li{float:left;display:inline-block;position:relative}ul.grid-actions.products{width:260px;float:left;list-style:none;margin:0;padding:0}ul.grid-actions.products li{float:left;display:inline-block;position:relative;width:144px;text-align:left}ul.grid-actions.products li.times{width:100px;text-align:left}ul.grid-actions.products li.prices{width:76px;text-align:right}.filter-group ul li .extended{position:absolute;top:45px;width:670px;background:url(/site/images/home/dropdownback.png);z-index:1000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border:0 solid black;display:none;color:white;padding:20px}.filter-group ul li .extended .arrow-up{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:15px solid #000;position:absolute;left:20px;top:-15px}.filter-group ul li .extended .reset{position:absolute;right:20px}.filter-group ul li .extended label{color:white}.filter-group ul li #drop_valueprice{width:170px}.filter-group ul li #drop_sortby{width:250px;left:107px}.filter-group ul li .extended h2{font-size:16px;color:white;height:20px;border-bottom:1px solid #dadada;padding-bottom:10px}.filter-group ul li:hover a{color:white}#no_results_container{display:none}#no_results{padding:10px;width:94%;height:50px;font-weight:bold;text-align:center;margin:0 0 20px 28px;position:relative;float:left;background-color:#ffe0da;border:solid 1px #f4a594;color:#b20000;-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px}#no_results h4{color:red;margin:0;padding:0}.filters-labels{float:left;margin-right:10px;position:relative}.filters-labels a{text-decoration:none;padding:5px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;text-align:left;display:block;height:18px;border:1px solid #CCC;background:white;font-weight:bold;width:100px;color:#ccc!important;font-size:13px;line-height:21px}.filters-labels a:hover,.filters-labels a.active{text-decoration:none;border:1px solid #CCC;background:white;font-weight:bold;color:#1c94c4!important}#filters.sort-by{float:right;display:block;width:150px;position:relative}div#slider.ui-tabs{padding:0!important}div#slider.ui-tabs .ui-tabs-panel{padding:0!important}#filter-panel{width:500px;height:180px;padding:15px;position:absolute;top:31px;left:0;display:none;z-index:20;background:#fff;border:solid 1px #d1d1d1;-moz-border-radius-topleft:0;-moz-border-radius-topright:8px;-moz-border-radius-bottomright:8px;-moz-border-radius-bottomleft:8px;-webkit-border-radius:0 8px 8px 8px;border-radius:0 8px 8px 8px;-webkit-box-shadow:0 2px 3px 0 #cdcdcd;-moz-box-shadow:0 2px 3px 0 #cdcdcd;box-shadow:0 2px 3px 0 #cdcdcd;overflow:hidden}#filter-panel .left-column{float:left;width:45%}#filter-panel .right-column{float:right;width:45%}#filter-panel ul{margin:0;padding:0}#filter-panel ul li{float:left;width:100%;margin:0 0 5px 0;padding-bottom:2px;list-style:none}#filter-panel h5,#category-panel h4,#subcategory h4{margin:0;padding:0;width:80%}#category-panel h4,#subcategory h4 a#category-title.buttons.clear{font-size:20px;font-weight:normal;color:#999;margin:0;padding:0}#group-by-panel,#sort-panel{padding:15px;position:absolute;display:none;z-index:200;background:#fff;border:solid 1px #d1d1d1;-webkit-border-radius:8px;border-radius:8px;-webkit-box-shadow:0 2px 3px 0 #cdcdcd;-moz-box-shadow:0 2px 3px 0 #cdcdcd;box-shadow:0 2px 3px 0 #cdcdcd;overflow:hidden}#sort-panel{width:191px;top:-9px;right:15px}
 #group-by-panel{width:162px;top:-9px;right:321px}#group-by-panel ul,#sort-panel ul{margin:0;padding:0}#group-by-panel ul li,#sort-panel ul li{border-bottom:1px solid #d1d1d1;float:left;width:100%;margin:0 0 5px 0;padding-bottom:5px;list-style:none}#filter-panel ul li input,#group-by-panel ul li input,#sort-panel ul li input,#category-panel ul li input,#filter-panel ul li label{height:auto;margin-right:5px;border:0;cursor:pointer}#top{width:200px;height:200px;position:absolute;z-index:100;top:0;left:0}#subcategory{position:absolute;top:27px;right:43px;z-index:100;width:220px}.filter-arrow{position:absolute;top:0;margin-left:5px;float:right}.filter-arrow-dropdown{position:relative;top:6px}#category-panel{width:215px;height:300px;padding:15px;position:absolute;display:none;z-index:2000;background:#fff;border:solid 1px #d1d1d1;-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;-webkit-box-shadow:0 2px 3px 0 #cdcdcd;-moz-box-shadow:0 2px 3px 0 #cdcdcd;box-shadow:0 2px 3px 0 #cdcdcd;overflow:hidden;left:317px;top:12px}#category-panel.expand{height:auto}#category-panel ul{margin:10px 0 0 0;padding:0}#category-panel ul li{border-bottom:1px solid #d1d1d1;float:left;width:100%;margin:5px 0 8px 0;padding-bottom:8px;list-style:none;font-size:20px;line-height:25px}#category-panel li{cursor:pointer}a#category-title.id-0,#category-panel ul li a.id-0,#category-panel ul li.active a.id-0{color:#e00101!important}a#category-title.id-1,#category-panel ul li a.id-1,#category-panel ul li.active a.id-1{color:#52a50a!important}a#category-title.id-2,#category-panel ul li a.id-2,#category-panel ul li.active a.id-2{color:#09c!important}a#category-title.id-3,#category-panel ul li a.id-3,#category-panel ul li.active a.id-3{color:#90378d!important}a#category-title.id-4,#category-panel ul li a.id-4,#category-panel ul li.active a.id-4{color:#d39f00!important}a#category-title.id-5,#category-panel ul li a.id-5,#category-panel ul li.active a.id-5{color:#ff7400!important}a#category-title.id-6,#category-panel ul li a.id-6,#category-panel ul li.active a.id-6{color:#2c597e!important}ul#filter-breadcrumb{padding:0;width:600px;position:absolute;left:110px;top:0;margin-left:10px}ul#filter-breadcrumb,ul#filter-breadcrumb li,ul#filter-breadcrumb li a{list-style:none}ul#filter-breadcrumb li a{text-decoration:none;font-size:13px;color:#007fdd;padding-right:20px;background:url(/site/images/layout/reset-icon.png) center right no-repeat;display:inline-block;float:left;margin-right:10px}ul#filter-breadcrumb li a:hover{text-decoration:underline;padding-right:20px;background:url(/site/images/layout/reset-icon-blue.png) center right no-repeat}#search-for-results{font-size:12px;padding:3px 0 3px 20px;height:25px;width:600px;clear:both;float:left}#search-for-results .button{border:1px solid #006;background:#ccf}#search-for-results .button:hover{border:1px solid #f00;background:#eef}#filter-panel .input,#search-for-results .input{border:1px solid #006;background:#ffc;font-weight:bold}#filter-panel .input:hover,#search-for-results .input:hover{border:1px solid #f00;background:#ff6}ul#search-breadcrumb{padding:0;display:inline-block}ul#filter-breadcrumb,ul#search-breadcrumb li,ul#search-breadcrumb li a{list-style:none}ul#search-breadcrumb li .q{text-decoration:none;font-size:13px;color:#007fdd;padding-right:2px}ul#search-breadcrumb li a:hover{text-decoration:underline}ul#search-breadcrumb li .clear{background:url(/site/images/layout/reset-icon-blue.png) center right no-repeat;padding-right:25px;display:none}#search-for-change-search{padding-left:5px;display:none}#featured-zone{width:600px;position:absolute;float:left;height:80px;z-index:100}ul.auction-details{width:100%;margin:10px 0;padding:0;height:20px;position:relative;float:left;list-style:none;*margin-left:40px}ul.auction-details li{margin:0 4px 0 4px;display:inline-block;text-indent:22px;width:20px;height:20px;list-style:none;*float:left}ul.auction-details li.added{color:#4ba500}ul.auction-details.list-view{margin:0}ul.auction-details.list-view li{min-width:20px;width:auto;margin:0 8px 0 0;line-height:1.5em;vertical-align:top}ul.auction-details.list-view li.watchlist{padding-right:10px;margin-top:2px}div.auction-item-wrapper.list-view div.auction-item-details p{padding-top:10px;clear:both}div.auction-item-details{float:left;width:430px}div.auction-item-wrapper.list-view h5.auction-item-title{padding:7px 0 0}div.auction-item-wrapper.list-view p span{color:#999}div.auction-item-details.products{float:left;width:410px;margin-right:20px}div.auction-bidding-details{width:130px;float:left;text-align:center;padding-top:10px;margin-left:20px}div.auction-bidding-details h3{font-size:20px}div.auction-bidding-details.grid{width:210px;float:left;text-align:center;padding-top:10px;margin:0}div.auction-bidding-action{width:140px;float:right;text-align:center;padding-top:14px}div.auction-bidding-action.product{display:none;width:120px;float:right;text-align:center;padding-top:36px}.auction-item-wrapper.list-view div.auction-bidding-action h2{font-size:22px;padding-bottom:8px}
-.auction-item-wrapper.list-view .auction-item-img img{height:100px}.auction-item-wrapper.list-view li.watchlist a{color:#383838}.list-view>li{padding-top:3px}.addwatchlist{margin:0;display:inline-block;background:url(/site/images/auction-icons/auction-details-sprite-2.png) 0 -161px no-repeat;text-indent:22px;height:20px;color:#000;padding-top:3px}.addwatchlist.remove{margin:0;display:inline-block;background:url(/site/images/auction-icons/auction-details-sprite-2.png) 0 -271px no-repeat;text-indent:22px;height:20px;#000}.addwatchlist a{color:#000}.auction-details-wrapper{width:148px;height:76px;position:absolute;z-index:200;padding:10px;top:53px;-webkit-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px;background:url(/site/images/auctions/transparent-bg.png) top left repeat;-webkit-box-shadow:0 2px 3px 1px rgba(100,100,100,.2);box-shadow:0 2px 3px 1px rgba(100,100,100,.2);*left:0}.auction-details-legend{height:20px;position:relative}#container .module.legend{width:auto;position:relative;float:left;padding:0 15px;margin-left:30px}#container .module.legend .content{width:auto;padding:10px 0}ul.auction-legend{width:100%;margin:0;padding:0;height:20px;position:relative;float:left;display:inline-block}ul.auction-legend li{margin:0 5px;display:inline-block;text-indent:22px;height:20px;float:left}ul.auction-legend li.title{margin:0 7px;display:inline-block;text-indent:0;height:20px;float:left}ul.auction-legend li.added{color:#4ba500}.auction-details .locked,.auction-details .unlocked{position:absolute;left:10px;top:60px;display:none}.auction-details .locked{width:21px;height:26px;background:url(/img/icons/lockedicon.png) left bottom repeat-x}.auction-details .unlocked{width:19px;height:25px;background:url(/img/icons/unlockedicon.png) left bottom repeat-x}
+.auction-item-wrapper.list-view .auction-item-img img{height:100px}.auction-item-wrapper.list-view li.watchlist a{color:#383838}.list-view>li{padding-top:3px}
+.addwatchlist {
+    margin: 0;
+    display: inline-block;
+    background: url('../img/Layout/auction-details-sprite-2.png') 0 -161px no-repeat;
+    text-indent: 22px;
+    height: 20px;
+    color: #000;
+    padding-top: 3px
+}
+    .addwatchlist.remove {
+        margin: 0;
+        display: inline-block;
+        background: url('../img/Layout/auction-details-sprite-2.png') 0 -271px no-repeat;
+        text-indent: 22px;
+        height: 20px;
+        #000
+    }.addwatchlist a{color:#000}
+.auction-details-wrapper {
+    width: 148px;
+    height: 76px;
+    position: absolute;
+    z-index: 200;
+    padding: 10px;
+    top: 53px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    background: url('../img/Layout/transparent-bg.png') top left repeat;
+    -webkit-box-shadow: 0 2px 3px 1px rgba(100,100,100,.2);
+    box-shadow: 0 2px 3px 1px rgba(100,100,100,.2);
+    *left: 0
+}.auction-details-legend{height:20px;position:relative}#container .module.legend{width:auto;position:relative;float:left;padding:0 15px;margin-left:30px}#container .module.legend .content{width:auto;padding:10px 0}ul.auction-legend{width:100%;margin:0;padding:0;height:20px;position:relative;float:left;display:inline-block}ul.auction-legend li{margin:0 5px;display:inline-block;text-indent:22px;height:20px;float:left}ul.auction-legend li.title{margin:0 7px;display:inline-block;text-indent:0;height:20px;float:left}ul.auction-legend li.added{color:#4ba500}.auction-details .locked,.auction-details .unlocked{position:absolute;left:10px;top:60px;display:none}
+.auction-details .locked {
+    width: 21px;
+    height: 26px;
+    background: url('../img/Layout/lockedicon.png') left bottom repeat-x
+}
+.auction-details .unlocked {
+    width: 19px;
+    height: 25px;
+    background: url('../img/Layout/unlockedicon.png') left bottom repeat-x
+}

@@ -100,7 +100,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css\auction.css" />
+    <Content Include="Content\Css\reviews.css" />
     <Content Include="Content\img\29080.jpg" />
+    <Content Include="Content\img\badges.jpg" />
+    <Content Include="Content\img\checkmark-green.png" />
     <Content Include="Content\img\coins.png" />
     <Content Include="Content\img\e %281%29.jpg" />
     <Content Include="Content\img\e.jpg" />
@@ -126,7 +130,9 @@
     <Content Include="Content\img\Footer-Bar\qbar-gloss.jpg" />
     <Content Include="Content\img\Footer-Bar\title-gloss.jpg" />
     <Content Include="Content\img\Footer-Bar\watchlist.png" />
+    <Content Include="Content\img\Layout\ajax-loader.gif" />
     <Content Include="Content\img\Layout\arrow-down-bigger.png" />
+    <Content Include="Content\img\Layout\arrow-nav-sprite.png" />
     <Content Include="Content\img\Layout\arrow-right.gif" />
     <Content Include="Content\img\Layout\arrow.gif" />
     <Content Include="Content\img\Layout\arrows.png" />
@@ -137,18 +143,29 @@
     <Content Include="Content\img\Layout\auctions-home-001.png" />
     <Content Include="Content\img\Layout\auctions-jewelry-001.jpg" />
     <Content Include="Content\img\Layout\auctions-sports-001.jpg" />
+    <Content Include="Content\img\Layout\blue-btn.jpg" />
+    <Content Include="Content\img\Layout\body-gloss.png" />
+    <Content Include="Content\img\Layout\checkmark-circle.png" />
+    <Content Include="Content\img\Layout\dataimagepng%3bbase64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC.png" />
     <Content Include="Content\img\Layout\down-arrow.gif" />
     <Content Include="Content\img\Layout\down-arrow.png" />
     <Content Include="Content\img\Layout\Fb-logo.png" />
     <Content Include="Content\img\Layout\filter-arrow.png" />
     <Content Include="Content\img\Layout\footer.jpg" />
     <Content Include="Content\img\Layout\freeshippingisback.jpg" />
+    <Content Include="Content\img\Layout\gplay-vbids-sprite2.png" />
     <Content Include="Content\img\Layout\layout-background.gif" />
+    <Content Include="Content\img\Layout\loading.gif" />
+    <Content Include="Content\img\Layout\lockedicon.png" />
     <Content Include="Content\img\Layout\Locked_Auctions_en.jpg" />
     <Content Include="Content\img\Layout\mainnav-hov.jpg" />
     <Content Include="Content\img\Layout\mainnav.jpg" />
     <Content Include="Content\img\Layout\module-white.jpg" />
+    <Content Include="Content\img\Layout\moduleheaders.jpg" />
+    <Content Include="Content\img\Layout\pagination-left1.png" />
+    <Content Include="Content\img\Layout\pagination-right1.png" />
     <Content Include="Content\img\Layout\pause-black.png" />
+    <Content Include="Content\img\Layout\popup-bg.png" />
     <Content Include="Content\img\Layout\Registering_BackG.png" />
     <Content Include="Content\img\Layout\Rich-Blue-Abstract-Background.jpg" />
     <Content Include="Content\img\Layout\rotator-black.png" />
@@ -159,6 +176,8 @@
     <Content Include="Content\img\Layout\store-electronics-001.jpg" />
     <Content Include="Content\img\Layout\topbar.jpg" />
     <Content Include="Content\img\Layout\tpo-gloss.png" />
+    <Content Include="Content\img\Layout\transparent-bg.png" />
+    <Content Include="Content\img\Layout\unlockedicon.png" />
     <Content Include="Content\img\Layout\white-btn.jpg" />
     <Content Include="Content\img\login-gov-288x288.png" />
     <Content Include="Content\img\logo.png" />
@@ -166,7 +185,11 @@
     <Content Include="Content\img\orange-btn.jpg" />
     <Content Include="Content\img\Pishnehad.png" />
     <Content Include="Content\img\popup-titlebar.png" />
+    <Content Include="Content\img\quibids-store-banner.jpg" />
     <Content Include="Content\img\Sold.png" />
+    <Content Include="Content\img\tips.jpg" />
+    <Content Include="Content\img\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\img\ui-bg_gloss-wave_35_f6a828_500x100.png" />
     <Content Include="Content\img\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
     <Content Include="Content\img\ui-icons_ef8c08_256x240.png" />
     <Content Include="Content\img\Vector Smart Object.png" />
@@ -1484,6 +1507,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JScript\auctiondetail.js" />
+    <Content Include="Scripts\JScript\jquery.jcarousel.min.js" />
+    <Content Include="Scripts\JScript\profiles.js" />
+    <Content Include="Scripts\JScript\reviews.js" />
     <Content Include="Scripts\loginstyle.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\JScript\all.js" />
@@ -1584,6 +1611,7 @@
     <Content Include="Views\Home\Badges.cshtml" />
     <Content Include="Views\Home\Games.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\Action.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
