@@ -28,12 +28,13 @@ a {
     /*background-image: url('img/Layout/Rich-Blue-Abstract-Background.jpg');*/
     /*background: url('img/Layout/Registering_BackG.png') repeat-x scroll center top transparent;*/
     /*background: #2651ff;*/
-    padding: 7%;
+    padding: 4%;
     max-width: 50%;
     margin: auto;
-    float :right;
+    float: right;
     border-radius: 7px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    margin: 7px;
 }
 /*تگ های مربوط به ظاهر منویهای ثبت نام و ورود */
 .tab-group {

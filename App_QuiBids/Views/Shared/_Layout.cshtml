@@ -70,7 +70,7 @@
     <script src="~/Scripts/JScript/auctions.js"></script>
     <script src="~/Scripts/JScript/ga.js"></script>
     <script src="~/Scripts/JScript/homepage.js"></script>
-    <script src="~/Scripts/JScript/jquery-ui.min.js"></script>
+    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
     <script src="~/Scripts/JScript/jquery.min.js"></script>
     <script src="~/Scripts/JScript/jquery.orbit-1.2.3.min.js"></script>
     <script src="~/Scripts/JScript/qbar.js"></script>
@@ -83,9 +83,6 @@
 </head>
 
 <body>
-
-
-
     <div class="gloss">
         <div id="topbar">
             <div class="wrapper">
@@ -112,8 +109,8 @@
                                     <a href="">خروج</a>
                                 </li>
 
-                        </ul>
-                     }
+                            </ul>
+                        }
                         else
                         {
                             <ul class="show">
@@ -485,8 +482,7 @@
 
                                 <div class="megamenu-image">
 
-                                    <img width="140" src="/img/Layout/auctions-cards-001.png" />
-
+                                    <img width="140" src="~/Content/img/Layout/auctions-cards-001.png" />
                                 </div>
                             </div>
                         </div>
@@ -509,7 +505,7 @@
                             <li id="search_cat" url='/browse-9886-specialty-shops/'>کالا های ویژه</li>
                             <li id="search_cat" url='/browse-17-gift-cards/'>کارت های هدیه</li>
                             <li id="search_cat" url='/en/'>تمام فعالیت ها</li>
-                            <li id="search_cat" url='/en/help/search.php'>راهنما</li>
+                            <li id="search_cat" url=''>راهنما</li>
                         </ul>
                     </div>
                     <input type="text" id='qbSearch' name="q"
@@ -558,14 +554,14 @@
                     "search_term": '',
                     "category_filters": [],
                     "category_filters": [],
-                    "uri": "\/en",
+                    "uri": "\/Index",
                     "page": 1
                 }
 
                 //Homepage.initialize(options);
             </script>
 
-            <iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>
+            @*<iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>*@
 
 
             <footer>
@@ -696,8 +692,8 @@
 
 
 
-    @*-----------------------------------------------------------------*@
-    @*-----------------------------------------------------------------*@
+    @*--------------------------------QBar---------------------------------*@
+    @*--------------------------------Qbar---------------------------------*@
 
 
 
@@ -712,7 +708,7 @@
 
                 <div class="content">
                     <div style="float:left;width:105px;">
-                        <a href="/en/account/myaccount/avatar.php">
+                        <a href="">
                             <img src="~/Content/img/Footer-Bar/52.png" />
                         </a>
                         <div class="profileUsername">272620</div>
@@ -808,7 +804,7 @@
                             {
                                 var sum = user.RealBid + user.VoucherBid;
                                 <span id="qbar_bidsavailable2">
-                                   @sum
+                                    @sum
 
                                 </span>
 
@@ -929,7 +925,7 @@
                 <ul class="navleft">
                     <li id="qbar_li_username">
                         <a id="qbar_btn_username">
-                            <img src="~/Content/img/Footer-Bar/52.png" class="user">@(user!=null ? user.Fname:"")
+                            <img src="~/Content/img/Footer-Bar/52.png" class="user">@(user != null ? user.Fname : "")
                         </a>
                     </li>
                     <li id="qbar_li_myquibids">
@@ -981,8 +977,8 @@
         </div>
     </div>
 
-    @*-----------------------------------------------------------------*@
-    @*-----------------------------------------------------------------*@
+    @*----------------------------QBar-------------------------------------*@
+    @*----------------------------QBar-------------------------------------*@
 
 
 </body>

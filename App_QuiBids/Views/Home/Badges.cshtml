@@ -5,46 +5,48 @@
 }
 <head>
     <title>Badges - NewBids.com</title>
-    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/libraries/jqueryui.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
-    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/main.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="shortcut icon" href="https://dcfv5z6t7wfeu.cloudfront.net/favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="https://dcfv5z6t7wfeu.cloudfront.net/apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/badges.css?1448853474" type="text/css" />
-   
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/Css/badges.css" type="text/css" />
+
+    <script type="text/javascript" src="~/Scripts/JScript/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/translation.js?1448853474"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/site.js?1448853474"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/libraries/jquery.jcarousel.min.js?1448853474"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/libraries/jquery.caroufredsel-min.js?1448853474"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/pagination.js?1448853474"></script>
+    <script src="~/Scripts/JScript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/translation.js"></script>
+    <script src=""></script>
+    <script type="text/javascript" src="~/Scripts/JScript/site.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/jquery.caroufredsel-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
     <script type='text/javascript'>
-mm=100; 		var _gaq = _gaq || [];
-		_gaq.push(
-						['_setAccount', 'UA-10065556-11'],
-			['_trackPageview'],
-			['_setCustomVar', 1, 'CSL', '1', 1],
-			['_setCustomVar', 5, 'LA', '30', 1],
-										['b._setAccount', 'UA-10065556-1'],
-			['b._trackPageview']
-		);
-				(function () {
-			var ga = document.createElement('script');
-			ga.type = 'text/javascript';
-			ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ga, s);
-		})();
+        mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
 
 
         /* Begin TVSquared Tracking Code */
         var _tvq = window._tvq = window._tvq || [];
-        (function() {
+        (function () {
             var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
             _tvq.push(['setSiteId', "TV-54540972-1"]);
             _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
-            _tvq.push([function() {
+            _tvq.push([function () {
                 this.deleteCustomVariable(5, 'page')
             }]);
             _tvq.push(['trackPageView']);
@@ -61,7 +63,7 @@ mm=100; 		var _gaq = _gaq || [];
         /**
          * BOOMTRAIN
          */
-        !function(){function a(a){return function(){var b=Array.prototype.slice.call(arguments);return b.unshift(a),window._bt.push(b),window._bt}}window._bt=window._bt||[];for(var b=["track","identify","initialize","clear","setBsin","person.set"],c=0;c<b.length;c++){var d=window._bt,e=b[c].split("."),f=e[0],g=f;2===e.length&&(d[f]=d[f]||{},d=d[f],f=e[1],g=b[c]),d[f]=a(g)}if(!document.getElementById("analyticstrain-js")){var h=document.createElement("script");h.type="text/javascript",h.id="analyticstrain-js",h.async=!0,h.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.boomtrain.com/analyticstrain-2.min.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(h,i)}}();
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
         _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
 
 

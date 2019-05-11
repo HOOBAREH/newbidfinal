@@ -101,10 +101,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\auction.css" />
+    <Content Include="Content\Css\badges.css" />
     <Content Include="Content\Css\reviews.css" />
     <Content Include="Content\img\29080.jpg" />
     <Content Include="Content\img\Auction\auctiontype-bg.png" />
     <Content Include="Content\img\Auction\blue-cloth-texture.jpg" />
+    <Content Include="Content\img\Auction\carousel-next.png" />
+    <Content Include="Content\img\Auction\carousel-prev.png" />
     <Content Include="Content\img\Auction\clock-timeout.jpg" />
     <Content Include="Content\img\Auction\default.png" />
     <Content Include="Content\img\Auction\dropnav-arrow.gif" />
@@ -1517,6 +1520,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JScript\auctiondetail.js" />
+    <Content Include="Scripts\JScript\jquery-ui.min1.js" />
+    <Content Include="Scripts\JScript\jquery.caroufredsel-min.js" />
     <Content Include="Scripts\JScript\jquery.jcarousel.min.js" />
     <Content Include="Scripts\JScript\profiles.js" />
     <Content Include="Scripts\JScript\reviews.js" />
