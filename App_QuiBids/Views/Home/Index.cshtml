@@ -138,7 +138,7 @@
                                 </p>
                             </div>
                             <div class="clear"></div>
-                            <h2 id="time" class="time bold  red">@item.Auction_Time</h2>
+                            <h2 id="time" class="time bold black">@item.Auction_Time</h2>
                             <input type="hidden" id="close" class="closeTime" name="closeTime" value="@item.Close_Time" />
                             <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@item.Id" />
                             <input type="hidden" class="reset" name="resetTime" value="0" />
@@ -199,10 +199,10 @@
 
     </div><!--auctions-->
 </div>
-@*<script src="~/Scripts/JScript/IndexAuction.js"></script>*@
+<script src="~/Scripts/JScript/IndexAuction.js"></script>
 
 
-<script>
+@*<script>
     $(".btntest").click(function () {
         var currentUser = $(this).parent().siblings(".Current_User");
         var Startstatus = $(this).parent().siblings(".Startstatus");
@@ -336,6 +336,6 @@
             startTimer(seconds, display);
         }
     };
-</script>
+</script>*@
 
 @*<script src="~/Scripts/JScript/Auction.js"></script>*@
