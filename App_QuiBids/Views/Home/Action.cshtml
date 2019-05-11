@@ -1,0 +1,799 @@
+﻿
+@{
+    ViewBag.Title = "Action";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title>Actions - NewBids.com</title>
+
+    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/Css/auction.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Css/reviews.css" type="text/css" />
+
+    <!--[if IE]>
+    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+    <![endif]-->
+    <script type="text/javascript" src="~/Scripts/JScripts/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/translation.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/site.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/auctions.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/auctiondetail.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/profiles.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScripts/reviews.js"></script>
+    <script type='text/javascript'>
+        pageID = 2; mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /* Begin TVSquared Tracking Code */
+        var _tvq = window._tvq = window._tvq || [];
+        (function () {
+            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-54540972-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function () {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () {
+            function a(a) {
+                return function () {
+                    var b = Array.prototype.slice.call(arguments);
+                    return b.unshift(a), window._bt.push(b), window._bt
+                }
+            } window._bt = window._bt || [];
+            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
+            {
+                var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
+            } if (!document.getElementById("analyticstrain-js"))
+            {
+                var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
+            }
+        }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+    </script>
+
+
+</head>
+
+
+
+
+
+
+
+<div class="gloss">
+    <div class="wrapper">
+
+        <div id="container" class="auction-item-page">
+            <div id="product_breadcrumbs">
+
+                <ul id="breadcrumbs">
+
+                    <li itemscope="itemscope" id="first">
+                        <a itemprop="url" rel="up up " href="/Home/Index.cshtml"><span itemprop="title">فعالیت های حال حاظر</span></a>
+                    </li>
+
+                    <li itemscope="itemscope">
+                        <a itemprop="url" rel="up " href="/en/item-1346-25-voucher-bids"><span itemprop="title">25 Voucher Bids</span></a>
+                    </li>
+
+                    <li itemscope="itemscope">
+                        <a itemprop="url" rel="" class="active" href="/en/auction-948350631US-C1346-25-voucher-bids"><span itemprop="title">فعالیت شماره #00001</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+
+                <div class="module">
+                    <div class="content">
+
+                        <div class="banner left">
+                            <img src="~/Content/img/Auction/clock-timeout.jpg" />
+                        </div>
+
+                        <div class="banner right">
+                            <h2 class="bold"><span class='orange'>اکشن کامل شد</span></h2>
+
+                            <p>It's too late for you to get in on this auction, but don't worry -- we've got plenty of other stuff like it. Thousands of winners every day on NewBids!  </p>
+
+
+                            <div class="content tabbed">
+                                <div id="product-live-upcoming">
+                                    <ul class="live-products">
+                                        <li><img class='empty-left' src="~/Content/img/Auction/empty-product-auctions.png" /></li>
+                                        <li><img class='empty-left' src="~/Content/img/Auction/empty-product-auctions.png" /></li>
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                            <script>$(function () { AuctionDetail.updateCatalogAuctions(); });</script>
+
+                            <div style="float:right" id="show-all-you-choose-it">
+                                <a href="/item-1346-25-voucher-bids#liveauctions">نمایش فعالیت های مشابه</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    (function () {
+                        var Banners = {
+                            init: function () {
+                                $('#auction-to-checkout').on('click', Banners.shareWin);
+                            },
+
+                            shareWin: function (e) {
+                                var $this = $(this);
+                                if (!$this.data('popup-enabled')) {
+                                    return;
+                                }
+
+                                e.preventDefault();
+
+                                $('<div id="share-win-dialog">').dialog({
+                                    modal: true,
+                                    resizable: false,
+                                    open: function () {
+                                        $(this).load($this.data('popup-href'));
+                                    },
+                                    title: $this.data('title'),
+                                    minHeight: 300,
+                                    minWidth: 500
+                                });
+                            }
+                        };
+                        $(document).ready(Banners.init);
+                    })();
+
+                    /**
+                     * Pricepoint banner cookie
+                     */
+                </script>
+
+                <div id="auction-title">
+                    <h1 class="bold" id="product_title">25 Voucher Bids </h1>
+                </div>
+
+
+
+                <ul class="auction-details">
+                    <li class='tooltip-bottom bidomatic-on' title="!فعالیت های bid-o-Matic شما را قادر میسازد تا حتی زمانی که از کامپیوتر خود دور هستید هم در مزایده ها شرکت کنید!">Bid-O-Matic</li>
+                </ul>
+
+
+                <div class="module auction-top">
+                    <div class="module auction-left">
+
+                        <span class="sold sold-en" style='display:block'>
+                        </span>
+
+                        <div id="product_media">
+                            <div id="slide0" class="slide-img-container">
+                                <div class='auction-details 948350631'>
+                                    <div class='tooltip-bottom locked big' title='به علت پیشنهادات بالا این فعالیت قفل است.<br/>
+اعضاء تازه وارد نمیتوانند در این فعالیت شرکت کنند.'></div><div class='tooltip-bottom unlocked big' title='Due to high bidding activity, this auction is locked.<br/>
+You may continue to bid, but no new bidders can participate in this auction.'></div>
+                                </div><img src="~/Content/img/Auction/blue-cloth-texture.jpg" width="375" height="300" />
+                            </div>
+                            <div id="recently_sold_for">
+                                <h6 class='bold'>فروخته شد به <span class='green'><a href='#' onClick='AuctionDetail.showStatistics();return false;'>...</a></span></h6>
+                            </div>
+                            <div id="product-slider">
+                                <ul id="jcarousel" class="ui-tabs-nav jcarousel-skin-thumbs">
+                                    <li><a id="sliderImg1105226" href="#slide0"><img src="~/Content/img/Auction/s.jpg" width='64' height='52' alt='' border='0' /></a></li>
+                                    <li><span class='no-image'><img src="~/Content/img/Auction/no-image.png" width='64' height='52' /></span></li>
+                                    <li><span class='no-image'><img src="~/Content/img/Auction/no-image.png" width='64' height='52' /></span></li>
+                                    <li><span class='no-image'><img src="~/Content/img/Auction/no-image.png" width='64' height='52' /></span></li>
+                                </ul>
+                            </div>
+                        </div><!--product-->
+
+                        <script>
+                            AuctionDetail.catalogImagesInit();
+                        </script>
+
+                        <div class="module buynow smalls">
+                            <div class="left"><h5 class="bold orange shoppings">Buy Now!</h5></div>
+                            <div class="right">
+                                <p>
+                                    <span class='bold'>بید های خود را از دست ندهید</span> Use our Buy Now option and apply your bids towards the price. <a href='/help/faq/15-What-is-Buy-Now#24'>بیشتر بدانید</a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div><!--end left-->
+
+
+                    <div class="module auction-info">
+
+
+                        <div class="module auction-right">
+
+                            <div id="auction-left" class="948350631">
+                                <div class="content">
+
+
+
+                                    <p class="won_price large-price">--.--</p>
+
+                                    <h2 class="margin-five username-height">
+                                        <span><img src="~/Content/img/Auction/default.png" width="64" height="64" class="user-icon won_avatar" /></span><br>
+                                        <span class="won_username">&nbsp;&nbsp;</span>
+                                    </h2>
+
+                                    <p><a class="buttons grey large">Ended</a></p>
+
+
+                                    <div id="end-time-disclaim">
+                                        <p class="light-grey bold">این فعالیت به پایان رسیده</p>
+                                        <p class="light-grey bold"> 2019-05-09 01:40 CDT</p>
+                                    </div>
+
+                                    <ul class="price-breakdown">
+                                        <li>
+                                            Value Price:
+                                            <span class="float-right">
+                                                $10.00
+                                            </span>
+                                        </li>
+                                        <li>
+                                            Bids Credit:
+                                            <span class="float-right">- <span id='breakdown_bidsvalue'></span></span>
+                                        </li>
+
+                                        <li class="bid_breakdown">
+                                            <span id='breakdown_realbids'></span> Real / <span id='breakdown_voucherbids'></span> Voucher
+                                        </li>
+
+                                        <li class="last">
+
+                                            Auction Price:
+                                            <span class="float-right">- <span class='won_price'></span></span>
+                                        </li>
+
+                                        <li>
+                                            <h5 class="no-margin">
+                                                Winner Savings:									
+                                                <span class="float-right bold green">
+                                                    <span id="breakdown_savingsamt"></span>
+                                                </span>
+                                            </h5>
+                                        </li>
+
+                                    </ul>
+                                    <div style="text-align:center;font-weight:bold;color:#52A50A;font-size:18px; margin-top:5px;" id='breakdown_savingspercent'></div>
+
+                                </div>
+                            </div>
+
+                            <div id="auction-right">
+                                <div class="table-type">
+
+                                    <div id="history" class="content">
+                                        <div class="module ap-bidding-section">
+                                            <h3 class='orange bold'>تارخچه پیشنهادات</h3>
+
+                                            <div class="content">
+                                                <table id="bid-history">
+                                                    <tbody>
+
+
+                                                        <tr class=" bold">
+                                                            <td id="bhi_1" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_1" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_1" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_1" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class="zebra ">
+                                                            <td id="bhi_2" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_2" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_2" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_2" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class=" ">
+                                                            <td id="bhi_3" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_3" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_3" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_3" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class="zebra ">
+                                                            <td id="bhi_4" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_4" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_4" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_4" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class=" ">
+                                                            <td id="bhi_5" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_5" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_5" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_5" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class="zebra ">
+                                                            <td id="bhi_6" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_6" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_6" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_6" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class=" ">
+                                                            <td id="bhi_7" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_7" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_7" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_7" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class="zebra ">
+                                                            <td id="bhi_8" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_8" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_8" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_8" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+
+                                                        <tr class=" ">
+                                                            <td id="bhi_9" class="user-icons"><p>&nbsp;</p></td>
+                                                            <td id="bhu_9" class="username"><p>&nbsp;</p></td>
+                                                            <td id="bhp_9" class="amount"><p>&nbsp;</p></td>
+                                                            <td id="bht_9" class="bid-type"><p>&nbsp;</p></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="didyouknow module">
+                                            <h3 class="bold">ایا می دانستید?</h3>
+                                            <div class="content">
+                                                <p>
+                                                    ... تفاوت بزرگی بین بید های واقعی و  <a target="_blank" href="http://blog.quibids.com/real-bids-vs-voucher-bids/">Voucher Bid وجود دارد</a>?
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <script>
+
+
+                                    if (typeof (QBar) != "undefined") {
+                                        QBar.setTotalBids(0);
+                                        QBar.addAuctionDetail(948350631);
+                                    }
+                                </script>
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>	<!-- End Content -->
+
+            <div class="auction-specs">
+                <ul class="types" id="auctionspecs_tabs">
+                    <li class="left" id="auctionspecs_description"><a href="#description" aid="description">توضیحات</a></li>
+                    <li class="center" style="float:left" id="auctionspecs_reviews"><a href="#reviews" id="product-reviews-link" aid="reviews" onclick="reviews.setSection('helpful').setPage(1).navigate().doNothing()">بازدید</a></li>
+                    <li class="center" id="auctionspecs_stats"><a href="#stats" aid="stats">امار</a></li>
+                    <li class="right" id="auctionspecs_similar"><a href="#similar" aid="similar">فعالیت های مشابه</a></li>
+                </ul>
+
+                <div id="description">
+                    <div class="content tabs" style="min-height:500px" id="product_description">
+                        <div class="clear"></div>
+
+                        <h2 class="bold">25 Voucher Bid</h2>
+                        <p>
+                            <strong>Voucher Bids mean more prizes</strong>
+                        </p>
+                        <p>
+                            Are you working hard against a limited budget for trips to the Bid Store? Then maximize your efforts by winning auctions for Bid Vouchers. A single, well-placed bid can yield 25 Voucher Bids, which means you can win more auctions for great QuiBids prizes!
+                        </p>
+                        <p>
+                            <strong>اگر من برنده شوم چه چیزی بدست می اورم؟</strong>
+                        </p>
+                        <p>
+                            25 Voucher Bids will be credited to your account automatically. They last for nine months, so put them to good use!
+                        </p>
+                        <p>
+                            <strong> ها چی هستند؟Voucher Bid</strong>
+                        </p>
+                        <p>
+                            Voucher Bids are bids that are won at auction or acquired via QuiBids Games, Badges, or other promotions.
+                        </p>
+                        <p>
+                            <strong>voucher Bidها چه تفاوتی با بید های واقعی دارند؟</strong>
+                        </p>
+                        <p>
+                            Unlike the Real Bids you purchase at the Bid Store, Voucher Bids are not eligible for a refund, and nor may you use them toward an item&rsquo;s Buy Now price. Voucher Bids also carry an expiration date (they&rsquo;re valid for nine months in this case), which you can monitor by checking your&nbsp;<a href="/account/dashboard/bid-credit-history.php">Bid Credit History</a>. &nbsp;
+                        </p><br /><p><strong>Shipping Cost</strong>: رایگان!</p><p><strong>امنیت بازگشت:</strong> Within 30 in the original packaging</p>
+                    </div>
+                </div>
+
+                <div id="stats">
+
+                    <div class="content tabs stats">
+
+                        <div class="module recently-auctioned">
+                            <a name="stats"></a>
+                            <h3 class="bold orange">برنده های فعالیت های اخیر</h3>
+
+                            <div class="content">
+                                <table id="recently-auctioned">
+                                    <thead>
+                                        <tr>
+                                            <td class="user-icons">&nbsp;</td>
+                                            <td class="username"><p>Bidder Name</p></td>
+                                            <td class="auctionid"><p>Auction ID</p></td>
+                                            <td class="auctionfeatures"><p>Features</p></td>
+                                            <td class="ending"><p>End Price</p></td>
+                                            <td class="spent"><p>Bids Spent</p></td>
+                                            <td class="total"><p>Total Paid</p></td>
+                                            <td class="savings"><p>Savings</p></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recently-sold-content">
+                                        <tr class="zebra">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="zebra">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="zebra">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="zebra">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+                                        <tr class="zebra">
+                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='username'>&nbsp;</td>
+                                            <td class='auctionid'>&nbsp;</td>
+                                            <td class='auctionfeatures'>&nbsp;</td>
+                                            <td class='ending'>&nbsp;</td>
+                                            <td class='spent'>&nbsp;</td>
+                                            <td class='total'>&nbsp;</td>
+                                            <td class='savings'>&nbsp;</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- End Module -->
+
+                    </div>
+                </div>
+
+                <div id="reviews" class="review-auction">
+                    <table border='0' cellpadding='0' cellspacing='0' class='reviews-table'>
+                        <tr>
+                            <td class='reviews-navigation'>
+                                <ul class='reviews-links'>
+                                    <li class='reviews-links-section-space'></li>
+                                    <li class='reviews-links-section-title'>Browse Reviews by Rating</li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_5").setPage(1).navigate().doNothing();' class='reviews-link-rating_5 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_4").setPage(1).navigate().doNothing();' class='reviews-link-rating_4 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_3").setPage(1).navigate().doNothing();' class='reviews-link-rating_3 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_2").setPage(1).navigate().doNothing();' class='reviews-link-rating_2 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_1").setPage(1).navigate().doNothing();' class='reviews-link-rating_1 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li class='reviews-links-section-space'></li>
+                                    <li class='reviews-links-section-title'>Manage My Reviews</li>
+                                    <li><a href='javascript:void(0);' onclick='reviews.setSection("submit_review").setPage(1).navigate().doNothing();' class='reviews-link-submit_review arrow '>Submit Review</a></li>
+                                    <li><a href='javascript:reviews.setSection("my_reviews").setPage(1).navigate().doNothing();' class='reviews-link-my_reviews arrow '>های من Review</a></li>
+                                    <li class='reviews-links-section-space'></li>
+                                </ul>
+                            </td>
+                            <td class='reviews-content-wrapper'>
+                                <div class='reviews-content'></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="similar">
+                    <div class="content tabs stats">
+                        <a name="liveauctions"></a>
+
+                        <div class="module" id="liveauctions">
+
+                            <h3 class="orange bold">فعالیت های حال حاظر</h3>
+
+                            <div class="content tabbed">
+                                <div id="product-live-auctions">
+                                    <ul class="live-products">
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+
+
+                                </div>
+                                <div class="clear"></div>
+                                <div class="pagination" id="product_pagination">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--module-->
+
+
+
+                </div>
+
+                <script>
+                    $(document).ready(function () { $(".auction-specs").tabs(); });
+                </script>
+
+            </div>
+
+
+            <script>
+                if (typeof reviews == "undefined")
+                    var reviews;
+
+                $(function () {
+                    reviews = new ReviewsObj();
+                    reviews.setUPC('').setCatalogId('1346');
+                    reviews.setReviewsContentDiv($('.reviews-content'));
+                    reviews.disableReviews();
+
+                });
+
+                $('body').bind('reviewNavigationComplete', function (e) {
+                    if ($('.reviews-empty').length && reviews.section == 'helpful') {
+                        reviews.setSection('all').setPage(1).navigate().doNothing();
+                    } else if ($('.reviews-empty').length && reviews.section == 'all') {
+                        reviews.setSection("submit_review").setPage(1).navigate().doNothing();
+                    }
+                });
+
+
+                catalogDetailedID = 1346;
+                auctionDetailedID = 948350631;
+                Auctions.register(948350631, 'Completed', true); AuctionDetail.setup(0.01, 0, '10.00'); profiles.init(['bhu_']);
+
+                $('#bidomatic_starting_amount').val(formatPrice('0.00', true));
+
+                /**
+                 * BOOMTRAIN
+                 */
+                _bt.track("viewed", {
+                    model: "catalog",
+                    id: "1346"
+                })
+            </script>
+
+        </div><!-- End Wrapper -->
+
+    </div><!--wrapper-->
+</div><!--gloss-->
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        var anchor = $('#languageSelector').find('a');
+        anchor.click(function () {
+            var dialog = $('#languageSelectorPopup').dialog({
+                modal: true,
+                title: _t.display('select_your_language', 'Select Your Language'),
+                width: 400,
+                height: 200,
+                resizable: false
+            });
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        window.fbAsyncInit = function () {
+            FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
+        };
+
+        $('body').append('<div id="fb-root"></div>');
+
+        $.getScript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
+    })
+</script>
+
+<script>
+    !function (d, s, id)
+    {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }
+        (document, "script", "twitter-wjs");
+</script>
+
+
+<!--[if IE]>
+<style type="text/css">
+.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+</style>
+<![endif]-->
+

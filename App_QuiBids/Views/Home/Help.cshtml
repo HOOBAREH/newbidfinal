@@ -3,25 +3,30 @@
     ViewBag.Title = "Help";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <head>
-    <link href="~/Content/css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="~/Content/css/main.css" rel="stylesheet" type="text/css" media="screen" />     
-    <link href="~/Content/css/help.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/css/print.css" rel="stylesheet" media="print" type="text/css" />
+    <title>NewBids Help, NewBids.com</title>
+    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/Css/help.css" " type="text/css" />
+    <link rel="stylesheet" href="~/Content/Css/print.css" media="print" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Css/qbar.css" type="text/css" />
 
-    <script type="text/javascript" src="~/Scripts/JScript/jquery.min.js"></script>>
-    <script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min.js"></script>>
+    <!--[if IE]>
+    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+    <![endif]-->
+    <script type="text/javascript" src="~/Scripts/JScript/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/translation.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/site.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/qbar.js"></script>
     <script type='text/javascript'>
-        mm = 100; var _gaq = _gaq || [];
+        loggedIn = true; accountUsername = '272620'; mm = 100; var _gaq = _gaq || [];
         _gaq.push(
             ['_setAccount', 'UA-10065556-11'],
             ['_trackPageview'],
             ['_setCustomVar', 1, 'CSL', '1', 1],
             ['_setCustomVar', 5, 'LA', '30', 1],
-            ['b._setAccount', 'UA-10065556-1'],
+            ['_setCustomVar', 2, 'LoggedIn', 'Yes', 2], ['b._setAccount', 'UA-10065556-1'],
             ['b._trackPageview']
         );
         (function () {
@@ -60,6 +65,8 @@
         !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
         _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
 
+        _bt.identify('62282142');
+        _bt.person.set({ email: 'amirhoseingoorani@yahoo.com' });
 
     </script>
 
@@ -67,6 +74,11 @@
 </head>
 
 <body class="market-US">
+
+
+
+    <div class="gloss">
+        <div class="wrapper">
 
             <div id="container">
 
@@ -208,168 +220,8 @@
                     <div class="content faqs">
                         <h2 class="grey bold">Frequently Asked Questions</h2>
                         <div id="sections">
-                            <div class='left module'>
-                                <h3 class='faq_name8'>
-                                  <a href='/en/help/faq/8-Auctions'><span class='faq_name8 faq-sprite'></span>Auctions</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                    <li><a href="/en/help/faq/8-Ive-won-an-auction-What-do-I-do-now#12">I've won an auction! What do I do now?</a></li>
-                                     <li><a href="/en/help/faq/8-How-do-I-redeem-coupons#13">How do I redeem coupons?</a></li>
-                                     <li><a href="/en/help/faq/8-When-does-an-auction-end#20">When does an auction end?</a></li>
-                                    <li><a href="/en/help/faq/8-Why-is-time-added-to-the-auction-clock#80">Why is time added to the auction clock?</a></li>
-                                    <li><a href="/en/help/faq/8-Whenhow-do-I-choose-my-product#571">When/how do I choose my product?</a></li>
-                                </ul>
-                                <p><a href="/en/help/faq/8-Auctions" class="view-more bold">View More </a></p>
-                              </div>
-                            </div><!--left-->
-                            
-                            <div class='right module'>
-                                 <h3 class='faq_name10'>
-                                      <a href='/en/help/faq/10-Bidding'><span class='faq_name10 faq-sprite'></span>Bidding</a>
-                                    </h3>
-                            
-                                <div class='content'>
-                                    <ul class='faq-lists'>
-                                        <li><a href="/en/help/faq/10-How-does-bidding-work#11">How does bidding work?</a></li>
-                                        <li><a href="/en/help/faq/10-How-to-Buy-Bids#9">How to Buy Bids</a></li>
-                                        <li><a href="/en/help/faq/10-What-are-Real-Bids#307">What are Real Bids?</a></li>
-                                        <li><a href="/en/help/faq/10-What-are-Voucher-Bids#86">What are Voucher Bids?</a></li>
-                                        <li><a href="/en/help/faq/10-Do-my-Real-Bids-expire#92">Do my Real Bids expire?</a></li>
-                                    </ul>
-                                
-                                    <p><a href="/en/help/faq/10-Bidding" class="view-more bold">View More </a></p>
-                                    
-                                </div>
-                                
-                            </div><!--right-->
-                            <div class='left module'>
-                            <h3 class='faq_name11'>
-                                <a href='/en/help/faq/11-Shipping-and-Returns'><span class='faq_name11 faq-sprite'></span>Shipping & Returns</a>
-                            </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                <li><a href="/en/help/faq/11-Wheres-my-order#30">Where's my order?</a></li>
-                                <li><a href="/en/help/faq/11-How-do-I-track-my-shipments#31">How do I track my shipments?</a></li>
-                                <li><a href="/en/help/faq/11-Return-Policy#901">Return Policy</a></li>
-                                <li><a href="/en/help/faq/11-International-Shipping#32">International Shipping</a></li>
-                                <li><a href="/en/help/faq/11-What-are-the-shipping-rates#87">What are the shipping rates?</a></li>
-                                    
-                                    </ul>
-                                <p><a href="/en/help/faq/11-Shipping-and-Returns" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--left-->
-                            
-                            <div class='right module'>
-                            <h3 class='faq_name9'>
-                                <a href='/en/help/faq/9-My-Account'><span class='faq_name9 faq-sprite'></span>My Account</a>
-                                </h3>
-                            <div class='content'>
-                                 <ul class='faq-lists'>
-                                    <li><a href="/en/help/faq/9-How-do-I-change-my-password#42">How do I change my password?</a></li>
-                                    <li><a href="/en/help/faq/9-I-forgot-my-password-or-username-What-can-I-do#43">I forgot my password or username. What can I do?</a></li>
-                                    <li><a href="/en/help/faq/9-How-do-I-change-my-email-preferences#44">How do I change my email preferences?</a></li>
-                                    <li><a href="/en/help/faq/9-How-do-I-change-my-username#45">How do I change my username?</a></li>
-                                    <li><a href="/en/help/faq/9-How-do-I-change-my-address-or-add-a-new-one#46">How do I change my address or add a new one?</a></li>
-                                
-                                 </ul>
-                                <p><a href="/en/help/faq/9-My-Account" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--right-->
-                            <div class='left module'>
-                            <h3 class='faq_name12'><a href='/en/help/faq/12-Miscellaneous'><span class='faq_name12 faq-sprite'></span>Miscellaneous</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                <li><a href="/en/help/faq/12-How-can-I-pay#56">How can I pay?</a></li>
-                                <li><a href="/en/help/faq/12-Whats-a-pending-transaction#93">What's a pending transaction?</a></li>
-                                <li><a href="/en/help/faq/12-What-are-Limit-Busters#94">What are Limit Busters?</a></li>
-                                <li><a href="/en/help/faq/12-Where-do-I-go-to-submit-a-review#546">Where do I go to submit a review?</a></li>
-                                <li><a href="/en/help/faq/12-What-goes-into-a-good-review#551">What goes into a good review?</a></li>
-                                    </ul>
-                                <p><a href="/en/help/faq/12-Miscellaneous" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--left-->
-                            <div class='right module'>
-                            <h3 class='faq_name16'>
-                                <a href='/en/help/faq/16-Badges'><span class='faq_name16 faq-sprite'></span>Badges</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                <li><a href="/en/help/faq/16-What-are-Badges#101">What are Badges?</a></li>
-                                <li><a href="/en/help/faq/16-How-do-I-earn-badges#99">How do I earn badges?</a></li>
-                                <li><a href="/en/help/faq/16-How-do-I-claim-my-badges#97">How do I claim my badges?</a></li>
-                                <li><a href="/en/help/faq/16-How-do-I-know-if-Ive-won-a-badge#96">How do I know if I've won a badge?</a></li>
-                                <li><a href="/en/help/faq/16-How-long-do-I-have-to-claim-my-badge#100">How long do I have to claim my badge?</a></li>
-                                    </ul><p><a href="/en/help/faq/16-Badges" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--right-->
-                            <div class='left module'>
-                            <h3 class='faq_name13'>
-                                <a href='/en/help/faq/13-Security'><span class='faq_name13 faq-sprite'></span>Security</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                    <li><a href="/en/help/faq/13-Whats-the-danger-of-fake-Phishing-or-Spoofing-emails#66">What's the danger of fake, 'Phishing' or 'Spoofing' emails?</a></li>
-                                    <li><a href="/en/help/faq/13-Security-notice-Dont-give-out-your-password-via-email-or-phone#74">Security notice: Don't give out your password via email or phone!</a></li>
-                                    <li><a href="/en/help/faq/13-Ive-received-an-email-that-seems-suspicious-What-should-I-do#75">I've received an email that seems suspicious. What should I do?</a></li>
-                                    <li><a href="/en/help/faq/13-How-do-I-recognize-a-fake-email-about-a-request-for-payment#68">How do I recognize a fake email about a request for payment?</a></li>
-                                    <li><a href="/en/help/faq/13-Payment-method-security#90">Payment method security</a></li>
-                                    </div>
-                                </div><!--left-->
-                            <div class='right module'>
-                            <h3 class='faq_name14'>
-                                <a href='/en/help/faq/14-Technical-Problems'><span class='faq_name14 faq-sprite'></span>Technical Problems</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                    <li><a href="/en/help/faq/14-Recommended-PC-requirements#59">Recommended PC requirements</a></li>
-                                    <li><a href="/en/help/faq/14-Why-hasnt-my-bid-registered-on-an-auction#60">Why hasn't my bid registered on an auction? </a></li>
-                                    <li><a href="/en/help/faq/14-What-happens-if-theres-downtime-or-an-auction-pauses#63">What happens if there’s downtime or an auction pauses?</a></li>
-                                    <li><a href="/en/help/faq/14-Im-using-an-AOL-browser-and-its-not-letting-me-bid#76">I'm using an AOL browser and it's not letting me bid.</a></li>
-                                    <li><a href="/en/help/faq/14-How-do-I-activate-cookies#84">How do I activate cookies?</a></li>
-                                    </div>
-                                </div><!--right-->
-                            <div class='left module'>
-                            <h3 class='faq_name17'>
-                                <a href='/en/help/faq/17-Top-Site-Questions'><span class='faq_name17 faq-sprite'></span>Top Site Questions</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                <li><a href="/en/help/faq/17-Why-does-the-timer-reset-in-the-final-seconds-when-a-user-bids#107">Why does the timer reset in the final seconds when a user bids?</a></li>
-                                <li><a href="/en/help/faq/17-Why-does-QuiBids-cost-to-participate-in-an-auction#232">Why does QuiBids cost to participate in an auction?</a></li>
-                                <li><a href="/en/help/faq/17-Is-QuiBids-considered-a-lottery-or-gambling#109">Is QuiBids considered a lottery or gambling?</a></li>
-                                <li><a href="/en/help/faq/17-I-just-spent-bids-in-an-auction-and-didnt-win-Can-I-retrieve-those-used-bids#110">I just spent bids in an auction and didn't win. Can I retrieve those used bids?</a></li>
-                                <li><a href="/en/help/faq/17-I-set-my-Bid-O-Matic-but-the-auction-ended-Why-didnt-my-Bid-O-Matic-work-Have-I-lost-any-bids#112">I set my Bid-O-Matic, but the auction ended. Why didn't my Bid-O-Matic work? Have I lost any bids?</a></li>
-                                    </ul>
-                                <p><a href="/en/help/faq/17-Top-Site-Questions" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--left-->
-                            <div class='right module'>
-                            <h3 class='faq_name27'>
-                                <a href='/en/help/faq/27-Games'><span class='faq_name27 faq-sprite'></span>Games</a>
-                                </h3>
-                            <div class='content'>
-                                <ul class='faq-lists'>
-                                <li><a href="/en/help/faq/27-What-are-QuiBids-Games#347">What are QuiBids Games?</a></li>
-                                <li><a href="/en/help/faq/27-How-do-I-win-gameplays#172">How do I win gameplays?</a></li>
-                                <li><a href="/en/help/faq/27-What-kind-of-bids-do-I-win-with-QuiBids-Gameplays#166">What kind of bids do I win with QuiBids Gameplays?</a></li>
-                                <li><a href="/en/help/faq/27-Whats-a-Multiplier#161">What’s a Multiplier?</a></li>
-                                <li><a href="/en/help/faq/27-Will-my-gameplay-ever-expire#272">Will my gameplay ever expire?</a></li>
-                                    </ul>
-                                <p><a href="/en/help/faq/27-Games" class="view-more bold">View More </a></p>
-                                </div>
-                                </div><!--right-->
-                            
-                            
-                            
-                            <div style='clear:both'></div>
-                           
-                            
-                            
-                            
-                            <div class="search-scroll">
-                            </div>
+                            <div class='left module'><h3 class='faq_name8'><a href='/en/help/faq/8-Auctions'><span class='faq_name8 faq-sprite'></span>Auctions</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/8-Ive-won-an-auction-What-do-I-do-now#12">I've won an auction! What do I do now?</a></li><li><a href="/en/help/faq/8-How-do-I-redeem-coupons#13">How do I redeem coupons?</a></li><li><a href="/en/help/faq/8-When-does-an-auction-end#20">When does an auction end?</a></li><li><a href="/en/help/faq/8-Why-is-time-added-to-the-auction-clock#80">Why is time added to the auction clock?</a></li><li><a href="/en/help/faq/8-Whenhow-do-I-choose-my-product#571">When/how do I choose my product?</a></li></ul><p><a href="/en/help/faq/8-Auctions" class="view-more bold">View More </a></p></div></div><!--left--><div class='right module'><h3 class='faq_name10'><a href='/en/help/faq/10-Bidding'><span class='faq_name10 faq-sprite'></span>Bidding</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/10-How-does-bidding-work#11">How does bidding work?</a></li><li><a href="/en/help/faq/10-How-to-Buy-Bids#9">How to Buy Bids</a></li><li><a href="/en/help/faq/10-What-are-Real-Bids#307">What are Real Bids?</a></li><li><a href="/en/help/faq/10-What-are-Voucher-Bids#86">What are Voucher Bids?</a></li><li><a href="/en/help/faq/10-Do-my-Real-Bids-expire#92">Do my Real Bids expire?</a></li></ul><p><a href="/en/help/faq/10-Bidding" class="view-more bold">View More </a></p></div></div><!--right--><div class='left module'><h3 class='faq_name11'><a href='/en/help/faq/11-Shipping-and-Returns'><span class='faq_name11 faq-sprite'></span>Shipping & Returns</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/11-Wheres-my-order#30">Where's my order?</a></li><li><a href="/en/help/faq/11-How-do-I-track-my-shipments#31">How do I track my shipments?</a></li><li><a href="/en/help/faq/11-Return-Policy#901">Return Policy</a></li><li><a href="/en/help/faq/11-International-Shipping#32">International Shipping</a></li><li><a href="/en/help/faq/11-What-are-the-shipping-rates#87">What are the shipping rates?</a></li></ul><p><a href="/en/help/faq/11-Shipping-and-Returns" class="view-more bold">View More </a></p></div></div><!--left--><div class='right module'><h3 class='faq_name9'><a href='/en/help/faq/9-My-Account'><span class='faq_name9 faq-sprite'></span>My Account</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/9-How-do-I-change-my-password#42">How do I change my password?</a></li><li><a href="/en/help/faq/9-I-forgot-my-password-or-username-What-can-I-do#43">I forgot my password or username. What can I do?</a></li><li><a href="/en/help/faq/9-How-do-I-change-my-email-preferences#44">How do I change my email preferences?</a></li><li><a href="/en/help/faq/9-How-do-I-change-my-username#45">How do I change my username?</a></li><li><a href="/en/help/faq/9-How-do-I-change-my-address-or-add-a-new-one#46">How do I change my address or add a new one?</a></li></ul><p><a href="/en/help/faq/9-My-Account" class="view-more bold">View More </a></p></div></div><!--right--><div class='left module'><h3 class='faq_name12'><a href='/en/help/faq/12-Miscellaneous'><span class='faq_name12 faq-sprite'></span>Miscellaneous</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/12-How-can-I-pay#56">How can I pay?</a></li><li><a href="/en/help/faq/12-Whats-a-pending-transaction#93">What's a pending transaction?</a></li><li><a href="/en/help/faq/12-What-are-Limit-Busters#94">What are Limit Busters?</a></li><li><a href="/en/help/faq/12-Where-do-I-go-to-submit-a-review#546">Where do I go to submit a review?</a></li><li><a href="/en/help/faq/12-What-goes-into-a-good-review#551">What goes into a good review?</a></li></ul><p><a href="/en/help/faq/12-Miscellaneous" class="view-more bold">View More </a></p></div></div><!--left--><div class='right module'><h3 class='faq_name16'><a href='/en/help/faq/16-Badges'><span class='faq_name16 faq-sprite'></span>Badges</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/16-What-are-Badges#101">What are Badges?</a></li><li><a href="/en/help/faq/16-How-do-I-earn-badges#99">How do I earn badges?</a></li><li><a href="/en/help/faq/16-How-do-I-claim-my-badges#97">How do I claim my badges?</a></li><li><a href="/en/help/faq/16-How-do-I-know-if-Ive-won-a-badge#96">How do I know if I've won a badge?</a></li><li><a href="/en/help/faq/16-How-long-do-I-have-to-claim-my-badge#100">How long do I have to claim my badge?</a></li></ul><p><a href="/en/help/faq/16-Badges" class="view-more bold">View More </a></p></div></div><!--right--><div class='left module'><h3 class='faq_name13'><a href='/en/help/faq/13-Security'><span class='faq_name13 faq-sprite'></span>Security</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/13-Whats-the-danger-of-fake-Phishing-or-Spoofing-emails#66">What's the danger of fake, 'Phishing' or 'Spoofing' emails?</a></li><li><a href="/en/help/faq/13-Security-notice-Dont-give-out-your-password-via-email-or-phone#74">Security notice: Don't give out your password via email or phone!</a></li><li><a href="/en/help/faq/13-Ive-received-an-email-that-seems-suspicious-What-should-I-do#75">I've received an email that seems suspicious. What should I do?</a></li><li><a href="/en/help/faq/13-How-do-I-recognize-a-fake-email-about-a-request-for-payment#68">How do I recognize a fake email about a request for payment?</a></li><li><a href="/en/help/faq/13-Payment-method-security#90">Payment method security</a></li></div></div><!--left--><div class='right module'><h3 class='faq_name14'><a href='/en/help/faq/14-Technical-Problems'><span class='faq_name14 faq-sprite'></span>Technical Problems</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/14-Recommended-PC-requirements#59">Recommended PC requirements</a></li><li><a href="/en/help/faq/14-Why-hasnt-my-bid-registered-on-an-auction#60">Why hasn't my bid registered on an auction? </a></li><li><a href="/en/help/faq/14-What-happens-if-theres-downtime-or-an-auction-pauses#63">What happens if there’s downtime or an auction pauses?</a></li><li><a href="/en/help/faq/14-Im-using-an-AOL-browser-and-its-not-letting-me-bid#76">I'm using an AOL browser and it's not letting me bid.</a></li><li><a href="/en/help/faq/14-How-do-I-activate-cookies#84">How do I activate cookies?</a></li></div></div><!--right--><div class='left module'><h3 class='faq_name17'><a href='/en/help/faq/17-Top-Site-Questions'><span class='faq_name17 faq-sprite'></span>Top Site Questions</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/17-Why-does-the-timer-reset-in-the-final-seconds-when-a-user-bids#107">Why does the timer reset in the final seconds when a user bids?</a></li><li><a href="/en/help/faq/17-Why-does-QuiBids-cost-to-participate-in-an-auction#232">Why does QuiBids cost to participate in an auction?</a></li><li><a href="/en/help/faq/17-Is-QuiBids-considered-a-lottery-or-gambling#109">Is QuiBids considered a lottery or gambling?</a></li><li><a href="/en/help/faq/17-I-just-spent-bids-in-an-auction-and-didnt-win-Can-I-retrieve-those-used-bids#110">I just spent bids in an auction and didn't win. Can I retrieve those used bids?</a></li><li><a href="/en/help/faq/17-I-set-my-Bid-O-Matic-but-the-auction-ended-Why-didnt-my-Bid-O-Matic-work-Have-I-lost-any-bids#112">I set my Bid-O-Matic, but the auction ended. Why didn't my Bid-O-Matic work? Have I lost any bids?</a></li></ul><p><a href="/en/help/faq/17-Top-Site-Questions" class="view-more bold">View More </a></p></div></div><!--left--><div class='right module'><h3 class='faq_name27'><a href='/en/help/faq/27-Games'><span class='faq_name27 faq-sprite'></span>Games</a></h3><div class='content'><ul class='faq-lists'><li><a href="/en/help/faq/27-What-are-QuiBids-Games#347">What are QuiBids Games?</a></li><li><a href="/en/help/faq/27-How-do-I-win-gameplays#172">How do I win gameplays?</a></li><li><a href="/en/help/faq/27-What-kind-of-bids-do-I-win-with-QuiBids-Gameplays#166">What kind of bids do I win with QuiBids Gameplays?</a></li><li><a href="/en/help/faq/27-Whats-a-Multiplier#161">What’s a Multiplier?</a></li><li><a href="/en/help/faq/27-Will-my-gameplay-ever-expire#272">Will my gameplay ever expire?</a></li></ul><p><a href="/en/help/faq/27-Games" class="view-more bold">View More </a></p></div></div><!--right-->	<div style='clear:both'></div>
+                            <div class="search-scroll"></div>
 
                         </div>
                     </div><!--faq-list-->
@@ -379,4 +231,49 @@
                 </div>
             </div><!--container-->
 
+
+
+        </div><!--wrapper-->
+    </div><!--gloss-->
+
+
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var anchor = $('#languageSelector').find('a');
+            anchor.click(function () {
+                var dialog = $('#languageSelectorPopup').dialog({
+                    modal: true,
+                    title: _t.display('select_your_language', 'Select Your Language'),
+                    width: 400,
+                    height: 200,
+                    resizable: false
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            window.fbAsyncInit = function () {
+                FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
+            };
+
+            $('body').append('<div id="fb-root"></div>');
+
+            $.getScript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
+        })
+    </script>
+
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
 </body>
+
+<!--[if IE]>
+<style type="text/css">
+.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+</style>
+<![endif]-->
+

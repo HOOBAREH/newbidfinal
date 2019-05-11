@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "register/Login";
-    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style type="text/css">
     #hidden-div {
@@ -9,104 +9,225 @@
     }
 </style>
 @*<link href="~/Content/registering.css" rel="stylesheet" !important />
-<link href="~/Content/Style.css" rel="stylesheet" />*@
+    <link href="~/Content/Style.css" rel="stylesheet" />*@
 
 <head>
     <link href="~/Content/registering.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
 </head>
 <body>
-    <div class="form">
-        <div>
-                <ul class="tab-group">
-                    <!-- عنوان صفحه -->
-                    @*<button type="submit" class="button button-block">ورود</button>*@
-                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-reg">ثبت نام </button></li>
-                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-login">  ورود</button></li>
-                </ul>
 
-                <div class="tab-group">
-                    @using (Html.BeginForm("Register", "Home", FormMethod.Post,
-                        new { enctype = "multipart/form-data" }))
-                    {
-                        <h1>همین حالا در نیو بیدزعضو شوید</h1>
+    <div class="gloss">
 
-                        <div id="signup">
-                            @*<form action="/" method="post">*@
-                            <div class="top-row">
-                                <div class="field-wrap">
-                                    <!-- فیلد نام -->
-                                    <input type="text" name="Fname" placeholder="نام">
-                                </div>
-                                <div class="field-wrap">
-                                    <!--  فیلد نام خانوادگی -->
-                                    <input type="text" name="Lname" placeholder="نام خانوادگی">
-                                </div>
-                            </div>
-                            <!-- فیلد ایمیل -->
-                            <div class="field-wrap">
 
-                                <input type="text" name="Email" placeholder="ایمیل شما">
-                            </div>
-                            <div class="top-row">
+        <div class="module">
 
-                                <!--  فیلد رمز عبور -->
-                                <div class="field-wrap">
-                                    <!-- فیلد رمزعبور -->
-                                    <input type="text" name="PassWord" placeholder="رمز عبور">
 
-                                </div>
-                                <div class="field-wrap">
-                                    <!--  فیلد تکرار رمز عبور -->
-                                    <input type="text" name="Password" placeholder="تکرار رمز عبور">
+            <div id="slider_container">
+                <div id="featured_carousel">
 
-                                </div>
-                            </div>
-                            <!-- فیلد تلفن-->
-                            <div class="field-wrap">
-
-                                <input type="text" name="Mobile" placeholder="تلفن" required>
-
-                            </div>
-                            <!-- فیلد ادرس-->
-                            <div class="field-wrap">
-
-                                <textarea type="text" name="Address" placeholder="ادرس" required></textarea>
-                            </div>
-
-                            <!--  کلید ثبت نام -->
-                            <button type="submit" class="button button-block">ثبت نام</button>
-                            @*</form>*@
+                    <div class="content lockedAuctions lockedAuctions_en">
+                        <a target="_blank" href="http://blog.quibids.com/locked-auctions-winning-just-got-easier/" class="buttons green large"> بیشتر بدانید! </a>
+                    </div>
+                    <div class="content promoFreeShippingForever"></div>
+                    <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
+                    <div class="content howItWorks">
+                        <div class="title bold"><span class="orange">کویی بیدز چطور کار میکند؟</span></div>
+                        <div class="box box-1">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/pencil.gif" alt="pencil" width="63" height="62" /></div>
+                            <div class="title"> عضو شوید و پیشنهاد خریداری کنید</div>
+                            <div class="body">پیشناهدات فقط <span class="bold"><span class="green">$0.40</span></span> برای هر شخص هستند.  موجودی دریافت کنید و شروع به پیدا کردن محصولات جدید کنید.	</div>
                         </div>
-                    }
-                    @using (Html.BeginForm("Login", "Home", FormMethod.Post,
-                    new { enctype = "multipart/form-data" }))
-                    {
-                        <div id="signIn" hidden>
-                            <!--فیلد ورود-->
-                            <div class="top-row">
-                                <!-- فیلد ایمیل -->
-                                <div class="field-wrap">
-
-                                    <input type="text" name="UserName" placeholder="نام کاربری" required>
-                                </div>
-
-                                <div class="field-wrap">
-                                    <!-- فیلد رمزعبور -->
-                                    <input type="text" name="Password" placeholder="رمز عبور" required>
-
-                                </div>
-
+                        <div class="box box-2">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/cart.gif" alt="cart" width="63" height="54" /></div>
+                            <div class="title">محصولات را انتخاب کنید .</div>
+                            <div class="body">
+                                هرچیزی که میخواهید انتخاب کنید <span class="bold"><span class="green">HDTV, یک لپ تاپ جدید , و پیشنهادات دیگر.</span></span>
                             </div>
-
-                            <button type="submit" class="button button-block">ورود</button>
-
-
                         </div>
-                    }
-                </div><!-- tab-content -->
+                        <div class="box box-3">
+                            <div class="icon"><img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/carousel/archive/icon/gift.gif" alt="gift" width="64" height="64" /></div>
+                            <div class="title">	پیشنهاد و برنده شدن		</div>
+
+                            <div class="body">	,به کلیک کردن کردن ادامه دهید - اگر شما اخرین نفری باشید که وقتی تایمر صفر میشود پیشنهاد داده <span class="bold green">شما برنده اید </span>	</div>
+                        </div>
+                        <div class="box box-4">
+                            <div class="title">عضو شوید و <span class="orange">شروع به برنده شدن کنید</span> همین امروز!</div>
+                            <div class="body"><a href="/en/landing/" class="buttons green large">	همین الان عضو شوید!		</a></div>
+                        </div>
+                    </div>
+                    <div class="content winners">
+                        <div class="title">
+                            <span>اعضای</span> QuiBidsFarsi  <span>هر روز</span> برنده ی <span>هزاران محصول جدید </span> میشوند .
+                        </div>
+                        <div class="body">
+                            <div> پیشینهاد را روی موارد اخر برند های بزرگ بگذارید</div>
+                            <div>95%بهترین محصولات الکترونیکی را داشته باشید</div>
+                            <div>Never pay retail again!</div>
+                        </div>
+                        <a href="" class="buttons orange large"> همین امروز عضو شوید!	</a>
+                    </div>
+                    <div class="content tips">
+                        <div class="title">Find Out How to Win Big!</div>
+                        <div class="body">
+                            See <span>tips</span> and <span>tricks</span> from our staff on best practices for <span>Winning Big</span> on <span>QuiBids!</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    سه اشتباه بزرگ که نبتدی ها مرتکب میشوند
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    به دنبال " بزرگترین " بودن
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    و خیلی چیز های دیگر
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content badges">
+                        <div class="title">
+                            <span class="bold">
+                                Cash in with <span class="green">QuiBids Badges!</span>
+                            </span>
+                        </div>
+                        <div class="body">
+                            Badges are the best way to earn <span class="bold"><span class="green">FREE BIDS, achieve goals,</span></span> and  <span class="bold"><span class="green">gain experience</span></span> for shopping with QuiBids.
+                        </div>
+                        <a href="/en/badges/" class="buttons green large"> بیشتر بدانید		</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                if (jQuery.browser.mobile) {
+                    $('#slider_container').hide();
+                } else {
+                    $('#featured_carousel').orbit({
+                        animationSpeed: 800,             // how fast animtions are
+                        timer: true, 			 // true or false to have the timer
+                        advanceSpeed: 4000, 		 // if timer is enabled, time between transitions
+                        pauseOnHover: true, 		 // if you hover pauses the slider
+                        startClockOnMouseOut: true, 	 // if clock should start on MouseOut
+                        startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
+                    });
+                }
+            </script>
+
+
+
+
+            <div id="container">
+                <div class="games">
+
+                    <div class="module">
+                        <h3 class="bold">
+                            <span class="orange">!به نیو بیدز بپیوندید</span>
+                        </h3>
+
+                        <div class="form">
+                            <div>
+                                <ul class="tab-group">
+                                    <!-- عنوان صفحه -->
+                                    @*<button type="submit" class="button button-block">ورود</button>*@
+                                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-reg">ثبت نام </button></li>
+                                    <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-login">  ورود</button></li>
+                                </ul>
+
+                                <div class="tab-group">
+                                    @using (Html.BeginForm("Register", "Home", FormMethod.Post,
+                                        new { enctype = "multipart/form-data" }))
+                                    {
+                                        <h1>همین حالا در نیو بیدزعضو شوید</h1>
+
+                                        <div id="signup">
+                                            @*<form action="/" method="post">*@
+                                            <div class="top-row">
+                                                <div class="field-wrap">
+                                                    <!-- فیلد نام -->
+                                                    <input type="text" name="Fname" placeholder="نام">
+                                                </div>
+                                                <div class="field-wrap">
+                                                    <!--  فیلد نام خانوادگی -->
+                                                    <input type="text" name="Lname" placeholder="نام خانوادگی">
+                                                </div>
+                                            </div>
+                                            <!-- فیلد ایمیل -->
+                                            <div class="field-wrap">
+
+                                                <input type="text" name="Email" placeholder="ایمیل شما">
+                                            </div>
+                                            <div class="top-row">
+
+                                                <!--  فیلد رمز عبور -->
+                                                <div class="field-wrap">
+                                                    <!-- فیلد رمزعبور -->
+                                                    <input type="text" name="PassWord" placeholder="رمز عبور">
+
+                                                </div>
+                                                <div class="field-wrap">
+                                                    <!--  فیلد تکرار رمز عبور -->
+                                                    <input type="text" name="Password" placeholder="تکرار رمز عبور">
+
+                                                </div>
+                                            </div>
+                                            <!-- فیلد تلفن-->
+                                            <div class="field-wrap">
+
+                                                <input type="text" name="Mobile" placeholder="تلفن" required>
+
+                                            </div>
+                                            <!-- فیلد ادرس-->
+                                            <div class="field-wrap">
+
+                                                <textarea type="text" name="Address" placeholder="ادرس" required></textarea>
+                                            </div>
+
+                                            <!--  کلید ثبت نام -->
+                                            <button type="submit" class="button button-block">ثبت نام</button>
+                                            @*</form>*@
+                                        </div>
+                                    }
+                                    @using (Html.BeginForm("Login", "Home", FormMethod.Post,
+                                    new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div id="signIn" hidden>
+                                            <!--فیلد ورود-->
+                                            <div class="top-row">
+                                                <!-- فیلد ایمیل -->
+                                                <div class="field-wrap">
+
+                                                    <input type="text" name="UserName" placeholder="نام کاربری" required>
+                                                </div>
+
+                                                <div class="field-wrap">
+                                                    <!-- فیلد رمزعبور -->
+                                                    <input type="text" name="Password" placeholder="رمز عبور" required>
+
+                                                </div>
+
+                                            </div>
+
+                                            <button type="submit" class="button button-block">ورود</button>
+
+
+                                        </div>
+                                    }
+                                </div><!-- tab-content -->
+                            </div>
+                        </div> <!-- /form -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> <!-- /form -->
+    </div>
 </body>
 <script>
     $("#btn-reg").click(function () {
