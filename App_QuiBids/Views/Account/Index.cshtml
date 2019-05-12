@@ -1,0 +1,270 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title>Dashboard - NewBids.com</title>
+    <link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+    <script type='text/javascript'>
+        loggedIn = true; accountUsername = '272620'; mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['_setCustomVar', 2, 'LoggedIn', 'Yes', 2], ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /* Begin TVSquared Tracking Code */
+        var _tvq = window._tvq = window._tvq || [];
+        (function () {
+            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-54540972-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function () {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+        _bt.identify('62282142');
+        _bt.person.set({ email: 'amirhoseingoorani@yahoo.com' });
+
+    </script>
+
+</head>
+
+<body class="market-US">
+
+
+
+    <div class="gloss">
+        <div class="wrapper">
+            <div id="container">
+                <script>
+ $(document).ready(function(){
+	$('.tabs li').each(function(index) {
+		var tabClass = $(this).attr('class');
+		if(tabClass == "dashboard") {
+			$(this).addClass('ui-state-active');
+		}
+	});
+	$('.panel-content li').each(function(index) {
+		var panelHtml = $(this).attr('class');
+		if(panelHtml == "") {
+			$(this).addClass('active');
+		}
+	});
+
+
+ 	if($('.panel-content').length == 0) {
+ 		$('.tab-nav').css('border', '0px');
+ 	}
+ 	//$.scrollTo('.tab-nav',0);
+  });
+
+                </script>
+                <div class="tab-nav">
+                    <ul class="tabs">
+                        <li class="dashboard"><a href="">My QuiBids</a></li>
+                        <li class="myaccount"><a href="MyAccount">My Account</a></li>
+                        <li class="badges"><a href="">My Badges</a></li>
+                        <li class="games"><a href="">My Games</a></li>
+                    </ul>
+                    <div id="dashboard">
+                        <ul class="panel-content">
+                            <li class="biddinghistory"><a href="">Bidding History</a></li>
+                            <li class="watchlist"><a href="">Watchlist</a></li>
+                            <li class="bidomatichistory"><a href="">Bid-O-Matic History</a></li>
+                            <li class="wonauctions"><a href="">Won Auctions</a></li>
+                            <li class="bidcredithistory"><a href="">Bid Credit History</a></li>
+                            <li class="auctionlimits"><a href="">Auction Limits</a></li>
+                            <li class="orderhistory"><a href="">Order History</a></li>
+
+                        </ul>
+                    </div>
+                </div><!--end tabs-->
+
+                <div class="content">
+
+
+                    <div id="main-content" class="twocol-left">
+
+                        <div id="column-message">
+
+                        </div>
+                        <div class="module">
+                            <h3 class="orange bold">Announcements</h3>
+                            <div class="content">
+                            </div>
+                        </div>
+
+
+                        <div class="module watched">
+
+                            <h3 class="orange bold">Recent Participation</h3>
+                            <div class="content">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td class="watched-image">Product</td>
+                                            <td class="watched-info">&nbsp;</td>
+                                            <td class="watched-price">Price</td>
+                                            <td class="watched-status">Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <script>Auctions.register([]);</script>
+                                        <tr>
+                                            <td colspan="4" class="watched-info">
+                                                <center>
+                                                    <p class="bold">You are not bidding on any items.
+                                                        <p>
+                                                             To see auctions you were bidding on that have ended, go to 
+                                                            <a href='/en/account/dashboard/bidding-history.php'>Bidding History</a>.
+                                                        </p>
+                                                    </p>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="bg">
+                                            <td colspan="4" align="right">
+                                                <br />
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="clear"></div>
+                            <!-- ============= /Auctions You're Participating In =============  -->
+                        </div><!--module-->
+                    </div>	<!--main-content-->
+
+                    <div id="side-content" class="twocol-left">
+                        <div class="module">
+                            <div class="content">
+                                <h4 class="blue-background">
+                                    Hi, Amirhosein</h3>
+
+                                    <div class="content-left">
+                                        <p><img src="~/Content/img/Footer-Bar/52.png" class="img" border='0' /></p>
+
+                                        <p><a href="https://www.quibids.com/en/account/myaccount/avatar.php">(Change)</a></p>
+                                    </div>
+
+                                    <div class="content-right">
+                                        <p class="bold">Last Login</p>
+                                        <p>11 May 2019</p>
+
+                                        <hr>
+                                        <p class="bold">Remaining Bids</p>
+                                        <p><span>Real Bids <span class="right green">0</span> </span></p>
+                                        <p><span>Voucher Bids</span> <span class="right green">0</span></p>
+                                        <hr>
+                                        <p><span>Total Bids</span> <span class="right green">0</span> </p>
+
+                                        <hr>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="module">
+                            <h3><img class="refer-icon" src="~/Content/img/contact-icon.png" /> Contact Support</h3>
+                            <div class="content">
+
+                                <p>
+                                    Got a question? We’ve got answers. For simple solutions, check out our easy-to-access
+                                    <a href="/en/help/index.php">Help</a>
+                                    section. For stickier situations, connect to
+                                    <a href="/en/help/support.php">Live Chat</a> or submit a support request below.
+                                </p>
+                                <p class="center"><a href="/en/help/support.php" class="buttons medium blue">Contact Support</a></p>
+                            </div>
+                        </div><!--module-->
+                    </div><!--side-content-->
+
+                </div><!--content-->
+
+
+            </div><!--container-->
+
+            <script>
+
+
+	function countDown(timeLeft,divId){
+		var newBuyTime = timeLeft - 1;
+
+		var hms = "";
+        if(newBuyTime<0) {
+            hms="00:00:00";
+        } else {
+            var days = parseInt(newBuyTime / 86400);
+
+            if(days>0){
+                hours = parseInt((newBuyTime-days*86400) / 3600);
+
+                hms += days+ " day"+((days>1)?"s":"")+", ";
+                hms += hours+ " hour"+((hours>1)?"s":"");
+            } else {
+                var tempNum = 0;
+
+                tempNum = parseInt(newBuyTime / 3600);
+                hms += ((tempNum>9)?"":"0")+tempNum + ':';
+
+                tempNum = parseInt((newBuyTime / 60) % 60);
+                hms += ((tempNum>9)?"":"0")+tempNum + ':';
+
+                tempNum = parseInt(newBuyTime % 60);
+                hms += ((tempNum>9)?"":"0")+tempNum;
+            }
+
+            setTimeout("countDown("+newBuyTime+",'"+divId+"')",1000);
+        }
+
+		$('#'+divId).html(hms);
+	}
+
+            </script>
+
+
+        </div><!--wrapper-->
+    </div><!--gloss-->
+
+
+</body>
+
+<!--[if IE]>
+<style type="text/css">
+.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+</style>
+<![endif]-->
+
