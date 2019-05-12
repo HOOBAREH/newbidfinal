@@ -1731,6 +1731,9 @@
     <Content Include="Views\Home\MyAccount.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\MyAccount.cshtml" />
+    <Content Include="Views\Account\MyBadges.cshtml" />
+    <Content Include="Views\Account\MyGames.cshtml" />
+    <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
