@@ -20,6 +20,14 @@
           <Property Name="StartStatus" Type="bit" Nullable="false" />
           <Property Name="IsClose" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Country_name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -44,6 +52,8 @@
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="VoucherBid" Type="int" />
           <Property Name="RealBid" Type="int" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="CountryId" Type="int" />
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
@@ -69,8 +79,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuiBidsModelStoreContainer">
           <EntitySet Name="Auction" EntityType="Self.Auction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Auction_Product" Association="Self.FK_Auction_Product">
@@ -81,6 +104,10 @@
             <End Role="User" EntitySet="User" />
             <End Role="Auction" EntitySet="Auction" />
           </AssociationSet>
+          <AssociationSet Name="FK_User_Countries" Association="Self.FK_User_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -88,15 +115,20 @@
       <Schema Namespace="QuiBidsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="QuiBidsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Product" EntityType="QuiBidsModel.Product" />
-          <EntitySet Name="User" EntityType="QuiBidsModel.User" />
           <EntitySet Name="Auction" EntityType="QuiBidsModel.Auction" />
           <AssociationSet Name="FK_Auction_Product" Association="QuiBidsModel.FK_Auction_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Auction" EntitySet="Auction" />
           </AssociationSet>
+          <EntitySet Name="Countries" EntityType="QuiBidsModel.Countries" />
+          <EntitySet Name="User" EntityType="QuiBidsModel.User" />
           <AssociationSet Name="FK_Auction_User" Association="QuiBidsModel.FK_Auction_User">
             <End Role="User" EntitySet="User" />
             <End Role="Auction" EntitySet="Auction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Countries" Association="QuiBidsModel.FK_User_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Product">
@@ -110,21 +142,6 @@
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Img" Type="Boolean" />
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Product" ToRole="Auction" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Lname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="VoucherBid" Type="Int32" />
-          <Property Name="RealBid" Type="Int32" />
-          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_User" FromRole="User" ToRole="Auction" />
         </EntityType>
         <EntityType Name="Auction">
           <Key>
@@ -155,6 +172,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_User_Countries" FromRole="Countries" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherBid" Type="Int32" />
+          <Property Name="RealBid" Type="Int32" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="CountryId" Type="Int32" />
+          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_User" FromRole="User" ToRole="Auction" />
+          <NavigationProperty Name="Countries" Relationship="QuiBidsModel.FK_User_Countries" FromRole="User" ToRole="Countries" />
+        </EntityType>
         <Association Name="FK_Auction_User">
           <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
           <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="*" />
@@ -164,6 +208,18 @@
             </Principal>
             <Dependent Role="Auction">
               <PropertyRef Name="Current_UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Countries">
+          <End Type="QuiBidsModel.Countries" Role="Countries" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -185,21 +241,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="QuiBidsModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="RealBid" ColumnName="RealBid" />
-                <ScalarProperty Name="VoucherBid" ColumnName="VoucherBid" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Lname" ColumnName="Lname" />
-                <ScalarProperty Name="Fname" ColumnName="Fname" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Auction">
             <EntityTypeMapping TypeName="QuiBidsModel.Auction">
               <MappingFragment StoreEntitySet="Auction">
@@ -212,6 +253,32 @@
                 <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
                 <ScalarProperty Name="Auction_Time" ColumnName="Auction_Time" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="QuiBidsModel.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Country_name" ColumnName="Country_name" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="QuiBidsModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="RealBid" ColumnName="RealBid" />
+                <ScalarProperty Name="VoucherBid" ColumnName="VoucherBid" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

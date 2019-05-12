@@ -1,5 +1,11 @@
-﻿
+﻿@using DataLayer;
 @{
+    User user = new User();
+    if (Session["Admin"] != null)
+    {
+        user = (User)Session["Admin"];
+    }
+
     ViewBag.Title = "_AccountLayout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }

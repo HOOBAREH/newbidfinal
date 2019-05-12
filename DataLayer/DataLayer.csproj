@@ -89,6 +89,9 @@
     <Compile Include="Auction.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Countries.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="IRepository\IAuctionRepo.cs" />
     <Compile Include="IRepository\IUserRepo.cs" />
     <Compile Include="Model1.Context.cs">

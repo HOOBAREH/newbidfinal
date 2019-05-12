@@ -15,47 +15,29 @@ namespace DataLayer
 using System;
     using System.Collections.Generic;
     
-public partial class User
+public partial class Countries
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public User()
+    public Countries()
     {
 
-        this.Auction = new HashSet<Auction>();
+        this.User = new HashSet<User>();
 
     }
 
 
     public int Id { get; set; }
 
-    public string Fname { get; set; }
+    public string CountryCode { get; set; }
 
-    public string Lname { get; set; }
-
-    public string Mobile { get; set; }
-
-    public string Email { get; set; }
-
-    public string Address { get; set; }
-
-    public string Password { get; set; }
-
-    public Nullable<int> VoucherBid { get; set; }
-
-    public Nullable<int> RealBid { get; set; }
-
-    public Nullable<System.DateTime> LastLogin { get; set; }
-
-    public Nullable<int> CountryId { get; set; }
+    public string Country_name { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Auction> Auction { get; set; }
-
-    public virtual Countries Countries { get; set; }
+    public virtual ICollection<User> User { get; set; }
 
 }
 
