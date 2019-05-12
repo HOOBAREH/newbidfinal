@@ -1,7 +1,6 @@
 ﻿@using DataLayer;
 @{
     User user = new User();
-    var session = Session["Admin"];
     if (Session["Admin"]!=null)
     {
         user = (User)Session["Admin"];
@@ -89,7 +88,7 @@
             <div class="wrapper">
 
                 <div class="login">
-                    @if ( Session["Admin"]!=null )
+                    @if (Session["Admin"] != null )
                     {
                         <ul class="show">
                             <li>@user.Fname @user.Lname</li>
@@ -107,7 +106,7 @@
                                 </li>
                                 <span>|</span>
                                 <li>
-                                    <a href="home/logout">خروج</a>
+                                    <a href="/home/logout">خروج</a>
                                 </li>
 
                             </ul>
@@ -116,7 +115,7 @@
                         {
                             <ul class="show">
                                 <li>
-                                    ورود /عضویت <a href="/Home/register">عضو شوید</a>
+                                   <a href="/Home/register">عضو شوید</a>
                                 </li>
                                 <span>|</span>
                                 <li><a href="/home/login">ورود</a></li>

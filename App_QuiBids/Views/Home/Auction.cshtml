@@ -278,6 +278,14 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                         </p>
 
                                         <p class="time large-timer2">@Model.Auction_Time</p>
+                                        @* ///////////////////////////////Hidden////////////////////////////////// *@
+                                        <input type="hidden" id="close" class="closeTime" name="closeTime" value="@Model.Close_Time" />
+                                        <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@Model.Id" />
+                                        <input type="hidden" class="reset" name="resetTime" value="0" />
+                                        <input type="hidden" class="statusClick" name="status" value="0" />
+                                        <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@Model.StartStatus" />
+                                        <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
+                                        @* ///////////////////////////////Hidden////////////////////////////////// *@
 
                                         <h2 class="margin-five username-height">
                                             <span><img src="~/Content/Auction_Img/no-image.png" width="64" height="64" class="user-icon winning_avatar" /></span>
@@ -287,7 +295,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 
                                         <div id="138034043">
                                             <p>
-                                                <a  class="buttons bid large orange btnBid">Bid Now</a>
+                                                <a class="buttons bid large orange btnBid">Bid Now</a>
                                             </p>
                                         </div>
 
