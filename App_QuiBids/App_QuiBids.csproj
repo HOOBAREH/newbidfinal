@@ -1604,6 +1604,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JScript\auctiondetail.js" />
+    <Content Include="Scripts\JScript\AuctionDetails.js" />
     <Content Include="Scripts\JScript\jquery-ui.min1.js" />
     <Content Include="Scripts\JScript\jquery.caroufredsel-min.js" />
     <Content Include="Scripts\JScript\jquery.jcarousel.min.js" />

@@ -200,9 +200,10 @@ namespace App_QuiBids.Controllers
             var auction = _auctionRepo.GetAuctionById(id);
             return View(auction);
         }
-        public ActionResult Auction()
+        public ActionResult Auction(int id)
         {
-            return View();
+            var auction = _auctionRepo.GetAuctionById(id);
+            return View(auction);
         }
     }
 }

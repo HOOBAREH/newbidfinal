@@ -2,7 +2,7 @@
 @{
     User user = new User();
     var session = Session["Admin"];
-    if (!String.IsNullOrEmpty(Session["Admin"].ToString()))
+    if (Session["Admin"]!=null)
     {
         user = (User)Session["Admin"];
     }
@@ -93,7 +93,7 @@
             <div class="wrapper">
 
                 <div class="login">
-                    @if (Session["Admin"] != null)
+                    @if ( Session["Admin"]!=null )
                     {
                         <ul class="show">
                             <li>@user.Fname @user.Lname</li>
@@ -696,8 +696,8 @@
     @*--------------------------------QBar---------------------------------*@
     @*--------------------------------Qbar---------------------------------*@
 
-    @if (user != null)
-    {
+    @if (Session["Admin"]!=null)
+                {
 
 
 
@@ -720,7 +720,7 @@
                         <div style="float:right;width:250px;min-height:150px;padding-left:14px">
                             <h2>Recent Wins</h2><ul></ul><br />
                             <h2>
-                                Auction Limits		<a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ">
+                                Auction Limits      <a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ">
                                     <img src="~/Content/img/Footer-Bar/help.png" />>
                                 </a>
                             </h2>
@@ -731,7 +731,7 @@
 
                             <br /><br />
                             <h2>
-                                مدال ها		<a href="" class="tooltip-top" title="Click to view FAQ"><img src="~/Content/img/Footer-Bar/help.png" /></a>
+                                مدال ها     <a href="" class="tooltip-top" title="Click to view FAQ"><img src="~/Content/img/Footer-Bar/help.png" /></a>
                             </h2>
                             <p>
                                 <img src="~/Content/img/Footer-Bar/badge_29_tiny.png" class='tooltip-top' title="QuiZette Badge" />&nbsp;
@@ -805,8 +805,8 @@
                         <div class="cont-left">
                             <p class="big">
                                 @if (user != null)
-                                {
-                                    var sum = user.RealBid + user.VoucherBid;
+            {
+                var sum = user.RealBid + user.VoucherBid;
                                     <span id="qbar_bidsavailable2">
                                         @sum
 
@@ -946,7 +946,7 @@
                     <ul class="navright">
                         <li id="qbar_li_mybids">
                             <a id="qbar_btn_mybids">
-                                <img src="~/Content/img/Footer-Bar/mybids.png" />Bid های من	<label>(<span id="qbar_bidsavailable">0</span> Bids)</label>
+                                <img src="~/Content/img/Footer-Bar/mybids.png" />Bid های من <label>(<span id="qbar_bidsavailable">0</span> Bids)</label>
                             </a>
                         </li>
                         <li id="qbar_li_watchlist">

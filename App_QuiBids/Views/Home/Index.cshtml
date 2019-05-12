@@ -252,10 +252,10 @@
                                     </h5>
                                 </div>
                                 <div class="auction-item-img">
-                                    <p style="width: 168px; height: 110px; padding-bottom: 5px;">
+                                    <a style="width: 168px; height: 110px; padding-bottom: 5px;" href="@Url.Action("Auction","Home",new { id=item.Id})">
 
                                     <img src="~/Content/img/e.jpg" />
-                                </p>
+                                </a>
                             </div>
                             <div class="clear"></div>
                             <h2 id="time" class="time bold black">@item.Auction_Time</h2>
@@ -269,15 +269,15 @@
                             <h5 class="winning grey" data-currentUser="">@(item.User != null ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
                             @if (item.IsClose)
                             {
-                                <a class="p" href="/Action?id="@item.Id>
+                                <p class="p" >
                                     <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png"  />
-                                </a>
+                                </p>
                             }
                             else
                             {
-                                <a class="p">
+                                <p class="p">
                                     <img class="buttons bid medium  btntest" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout=""/>
-                                </a>
+                                </p>
                             }
 
                             </div>
