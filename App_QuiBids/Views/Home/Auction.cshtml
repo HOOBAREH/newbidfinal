@@ -285,18 +285,32 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                         <input type="hidden" class="statusClick" name="status" value="0" />
                                         <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@Model.StartStatus" />
                                         <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
-                                        @* ///////////////////////////////Hidden////////////////////////////////// *@
+                                    @* ///////////////////////////////Hidden////////////////////////////////// *@
 
                                         <h2 class="margin-five username-height">
                                             <span><img src="~/Content/Auction_Img/no-image.png" width="64" height="64" class="user-icon winning_avatar" /></span>
                                             <br />
-                                            <span class="winning" style="height:30px">&nbsp;</span>
+                                            <span class="winning" style="height:30px">
+                                            @(Model.User != null ? Model.User.Fname : "هیچ پیشنهادی نداریم" )
+                                            </span>
                                         </h2>
 
                                         <div id="138034043">
-                                            <p>
-                                                <a class="buttons bid large orange btnBid">Bid Now</a>
-                                            </p>
+                                            @*<p>
+            <a class="buttons bid large orange btnBid" onclick="btnClick()">Bid Now</a>
+        </p>*@
+                                            @if (Model.IsClose)
+                                            {
+                                                <p class="p">
+                                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png" id="btnBid" />
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="p">
+                                                    <img class="buttons bid medium  btntest" id="btnBid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout=""  />
+                                                </p>
+                                            }
                                         </div>
 
 

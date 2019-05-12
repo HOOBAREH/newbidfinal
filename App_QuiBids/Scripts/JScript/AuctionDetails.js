@@ -1,5 +1,5 @@
-﻿$(".btnBid").click(function () {
-    var currentUser = $(this).parent().siblings(".Current_User");
+﻿$("#btnBid").click(function () {
+    var currentUser = $("").parent().siblings(".Current_User");
     var Startstatus = $(this).parent().siblings(".Startstatus");
     var userID = $('.userId').attr('data-userId');
 
@@ -43,25 +43,27 @@
        var Startstatus = $(display).siblings(".Startstatus");
         var isClose = $(display).siblings(".isClose");
         var id = $(display).siblings(".auctionId").val();
-        //if (Startstatus.attr('data-Start') == "True") {
-        //    $(display).parent().find("h2").removeClass('black').addClass('red');
+        if (Startstatus.attr('data-Start') == "True") {
+            $(display).parent().find("h2").removeClass('black').addClass('red');
 
-        //}
+        }
         var intervalId = setInterval(function () {
 
             if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))
             ////time reset shode va kasi mojadaddarmozaede sherkat nakard.
             {
-            //    var img = $(display).parent().children(".p").children(".btnBid");
-            //    $(img).attr("src", "/Content/img/Sold.png");
-            //    $(img).css({ "pointer-events": "none" });
-            //    isClose.attr('data-Close', 'True');
+
+                var img = $(display).parent().children("#138034043").children(".p").children()[0];
+                ////var img = $(display).parent().children(".p").children(".btnBid");
+                $(img).attr("src", "/Content/img/Sold.png");
+                $(img).css({ "pointer-events": "none" });
+                isClose.attr('data-Close', 'True');
                 updateIsclose(id);
                 window.clearInterval(intervalId);
-            //}
-            //if (status.val() == "1") {
-            //    timer = closeTime;
-            //    status.val("0");
+            }
+            if (status.val() == "1") {
+                timer = closeTime;
+                status.val("0");
             }
             hours = parseInt((timer / 3600) % 24, 10);
             minutes = parseInt((timer / 60) % 60, 10);
@@ -75,12 +77,11 @@
             if (--timer == -1) {
                 timer = closeTime;
                 Startstatus.attr('data-Start', 'True');
-                //$(display).parent().find("h2").removeClass('black').addClass('red');
-                //cc.removeClass('black').addClass('red');
+                $(display).parent().find(".time").removeClass('black').addClass('red');
 
                 //update startStatus aya inja bashe ya dar saveTimer;
             }
-         //  saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
+          saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
         }, 1000);
     }
     function saveTimer(timer, id, startStatus) {
