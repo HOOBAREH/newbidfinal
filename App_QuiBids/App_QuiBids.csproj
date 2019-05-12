@@ -116,6 +116,7 @@
     <Content Include="Content\img\Auction\no-image.png" />
     <Content Include="Content\img\Auction\s.jpg" />
     <Content Include="Content\img\badges.jpg" />
+    <Content Include="Content\img\btn-login.png" />
     <Content Include="Content\img\checkmark-green.png" />
     <Content Include="Content\img\coins.png" />
     <Content Include="Content\img\e %281%29.jpg" />

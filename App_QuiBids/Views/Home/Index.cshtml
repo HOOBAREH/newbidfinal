@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var user = (User)Session["Admin"];
+    User user = new User();
+    if (Session["Admin"]!="")
+    {
+
+         user = (User)Session["Admin"];
+    }
+    
 }
 <link href="~/Content/Css/home.css" rel="stylesheet" />
 <link href="~/Content/Css/main.css" rel="stylesheet" />
@@ -263,15 +269,15 @@
                             <h5 class="winning grey" data-currentUser="">@(item.User != null ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
                             @if (item.IsClose)
                             {
-                                <p class="p">
-                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png" />
-                                </p>
+                                <a class="p" href="/Action?id="@item.Id>
+                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png"  />
+                                </a>
                             }
                             else
                             {
-                                <p class="p">
-                                    <img class="buttons bid medium  btntest" src="~/Content/img/Pishnehad.png" />
-                                </p>
+                                <a class="p">
+                                    <img class="buttons bid medium  btntest" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout=""/>
+                                </a>
                             }
 
                             </div>
@@ -453,3 +459,13 @@
 </script>*@
 
 </body>
+<script>
+    @*function over() {
+        //if (@string.IsNullOrEmpty(user.ToString())) {
+            document.getElementById("btn-bid").src = "/Content/img/btn-login.png";
+        //}
+    }
+    function out(){
+
+    }*@
+</script>

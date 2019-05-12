@@ -31,23 +31,23 @@ namespace App_QuiBids.Controllers
         public ActionResult Index(int id = 0)
         {
             //Session["Admin"] = _userRepo.GetUserById(2);
-            if (Session["Admin"] != null)
+            if (Session["Admin"] == null)
             {
-                var auctions = _auctionRepo.GetAuctions();
-                if (id != 0)
-                {
+                Session["Admin"] = "";
+            }
+            var auctions = _auctionRepo.GetAuctions();
+            if (id != 0)
+            {
 
-                    var price = auctions.FirstOrDefault().Reserve_Price + 1;
-                    return Json(new
-                    {
-                        currentPrice = price
-                    });
-                }
-                else
-                    return View(auctions);
+                var price = auctions.FirstOrDefault().Reserve_Price + 1;
+                return Json(new
+                {
+                    currentPrice = price
+                });
             }
             else
-                return RedirectToAction("Login");
+                return View(auctions);
+
         }
         public ActionResult Login()
         {
@@ -76,7 +76,7 @@ namespace App_QuiBids.Controllers
         }
         public ActionResult Logout()
         {
-            Session["Admin"] = "";
+            Session["Admin"] = null;
             return RedirectToAction("Index");
         }
         public ActionResult Register()
@@ -146,9 +146,9 @@ namespace App_QuiBids.Controllers
             //return View();
         }
         [HttpPost]
-        public ActionResult UpdateTimer(int id, TimeSpan timer,bool startStatus)
+        public ActionResult UpdateTimer(int id, TimeSpan timer, bool startStatus)
         {
-            var res = _auctionRepo.UpdateTimer(id, timer,startStatus);
+            var res = _auctionRepo.UpdateTimer(id, timer, startStatus);
             if (res)
             {
                 return Json(new
@@ -195,9 +195,10 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
-        public ActionResult Action()
+        public ActionResult Action(int id)
         {
-            return View();
+            var auction = _auctionRepo.GetAuctionById(id);
+            return View(auction);
         }
     }
 }
