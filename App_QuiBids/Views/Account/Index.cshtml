@@ -1,13 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Account";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
 <head>
     <title>Dashboard - NewBids.com</title>
-    <link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
-    <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
     <script type='text/javascript'>
         loggedIn = true; accountUsername = '272620'; mm = 100; var _gaq = _gaq || [];
         _gaq.push(
@@ -92,12 +90,6 @@
 
                 </script>
                 <div class="tab-nav">
-                    <ul class="tabs">
-                        <li class="dashboard"><a href="">My QuiBids</a></li>
-                        <li class="myaccount"><a href="MyAccount">My Account</a></li>
-                        <li class="badges"><a href="">My Badges</a></li>
-                        <li class="games"><a href="">My Games</a></li>
-                    </ul>
                     <div id="dashboard">
                         <ul class="panel-content">
                             <li class="biddinghistory"><a href="">Bidding History</a></li>

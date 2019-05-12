@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "_AccountLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--[if IE]>
+<link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+<![endif]-->
+<link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min1.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
+
+<div class="tab-nav">
+    <ul class="tabs">
+        <li class="dashboard"><a href="/account/index">My QuiBids</a></li>
+        <li class="myaccount"><a href="/account/MyAccount">My Account</a></li>
+        <li class="badges"><a href="/account/MyBadges">My Badges</a></li>
+        <li class="games"><a href="/account/MyGames">My Games</a></li>
+    </ul>
+</div><!--end tabs-->
+@RenderBody()

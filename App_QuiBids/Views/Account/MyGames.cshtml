@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "MyGames";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+<head>
+    <title>Games - My QuiBids - QuiBids.com</title>
+</head>
+
+<body class="market-US">
+
+    <div class="gloss">
+        <div class="wrapper">
+
+            <div id="container">
+
+                <script>
+ $(document).ready(function(){
+	$('.tabs li').each(function(index) {
+		var tabClass = $(this).attr('class');
+		if(tabClass == "games") {
+			$(this).addClass('ui-state-active');
+		}
+	});
+	$('.panel-content li').each(function(index) {
+		var panelHtml = $(this).attr('class');
+		if(panelHtml == "") {
+			$(this).addClass('active');
+		}
+	});
+
+
+ 	if($('.panel-content').length == 0) {
+ 		$('.tab-nav').css('border', '0px');
+ 	}
+ 	//$.scrollTo('.tab-nav',0);
+  });
+
+                </script>
+                <div class="content">
+
+                    <div id="main-content" class="twocol-left">
+                        <div id="games-top"><h4>Game Activity</h4></div>
+                        <div class="games" id="gamePlays">
+
+                            <div id="games-scroller">
+                                <center><br /><p class="bold">Sorry, you haven't played any games!</p><br /></center>
+                            </div>
+                            <div id="games-bottom">
+
+                                <script>
+    var options = new Array();
+    options["anchor"] = "";
+    options["baseUrl"] = "/en";
+    $(document).ready(function(){
+       pagination.init("/en/account/games/ajax.php?", "gamePlays", options);
+    });
+
+                                </script>
+
+
+                            </div>
+                        </div> <!--End grid-->
+
+
+
+
+                    </div>	<!--main-content-->
+
+                    <div id="side-content" class="twocol-left">
+                        <div class="module">
+                            <h3><img class="icon-spacing" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/account/spotlight-icon.png" /> Featured Game</h3>
+                            <div class="content">
+                                <div id="announcement-new"><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/account/new.png" /></div>
+                                <p><img class="rounded-corners" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/wordscramble_medium.jpg" width="190" height="123" /></p>
+
+                                <div class="stars">
+                                    <p>
+                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/blank-star.png" alt="star">
+                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/blank-star.png" alt="star">
+                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/blank-star.png" alt="star">
+                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/blank-star.png" alt="star">
+                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/blank-star.png" alt="star">
+                                    </p>
+                                </div>
+                                <h4><a href="/en/gameplay/play-word-scramble">Word Scramble</a></h4>
+                                <p>Like letters? Then you'll adulate Word Scramble!</p>
+
+                                <p class="center"><a href="/en/gameplay/play-word-scramble" class="buttons medium orange">Play Now!</a></p>
+
+                            </div>
+                        </div><!--module-->
+                        <div class="module">
+                            <h3><img class="icon-spacing" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/gameplay/gameplay-icon.png" /> Your Gameplays</h3>
+                            <div class="content">
+                                <ul class="gameplays">
+                                    <li class="multiplier-one"><p>0 Available</p></li>
+                                    <li class="multiplier-two"><p>0 Available</p></li>
+                                    <li class="multiplier-five"><p>0 Available</p></li>
+                                </ul>
+                            </div>
+                        </div><!--module-->
+                    </div><!--side-content-->
+
+                </div><!--content-->
+
+            </div><!--container-->
+        </div><!--wrapper-->
+    </div><!--gloss-->
+
+</body>
+
+<!--[if IE]>
+<style type="text/css">
+.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+</style>
+<![endif]-->
+

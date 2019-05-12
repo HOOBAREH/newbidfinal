@@ -29,5 +29,6 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
+     
     }
 }
