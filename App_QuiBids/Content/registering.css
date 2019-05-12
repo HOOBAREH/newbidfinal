@@ -38,6 +38,7 @@ a {
 }
 /*تگ های مربوط به ظاهر منویهای ثبت نام و ورود */
 .tab-group {
+    float: none;
     list-style: none;
     padding: 0;
     margin: 0 0 40px 0;

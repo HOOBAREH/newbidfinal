@@ -173,6 +173,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\auction.css" />
     <Content Include="Content\Css\badges.css" />
+    <Content Include="Content\Css\myquibids.css" />
     <Content Include="Content\Css\reviews.css" />
     <Content Include="Content\img\29080.jpg" />
     <Content Include="Content\img\Auction\auctiontype-bg.png" />
@@ -189,6 +190,7 @@
     <Content Include="Content\img\badges.jpg" />
     <Content Include="Content\img\checkmark-green.png" />
     <Content Include="Content\img\coins.png" />
+    <Content Include="Content\img\contact-icon.png" />
     <Content Include="Content\img\e %281%29.jpg" />
     <Content Include="Content\img\e.jpg" />
     <Content Include="Content\img\Footer-Bar\52.png" />
@@ -1722,6 +1724,8 @@
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Home\Action.cshtml" />
     <Content Include="Views\Home\Auction.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
+    <Content Include="Views\Home\MyAccount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
