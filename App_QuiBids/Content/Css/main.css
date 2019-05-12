@@ -3,7 +3,6 @@ table{border-collapse:collapse;border-spacing:0}
 fieldset,img{border:0}
 address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
 ol, ul, li {
-    float: left;
     list-style: none
 }
 caption,th{text-align:left}
