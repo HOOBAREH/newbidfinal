@@ -158,8 +158,15 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\Auction_Img\default.png" />
     <Content Include="Content\Auction_Img\e %281%29.jpg" />
     <Content Include="Content\Auction_Img\e.jpg" />
+    <Content Include="Content\Auction_Img\filter-arrow.png" />
+    <Content Include="Content\Auction_Img\m.jpg" />
+    <Content Include="Content\Auction_Img\no-image.png" />
+    <Content Include="Content\Auction_Img\s %281%29.jpg" />
+    <Content Include="Content\Auction_Img\s.jpg" />
+    <Content Include="Content\Auction_Img\youchooseit-placeholder.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
