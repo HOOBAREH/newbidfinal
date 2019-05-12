@@ -199,5 +199,9 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
+        public ActionResult Auction()
+        {
+            return View();
+        }
     }
 }
