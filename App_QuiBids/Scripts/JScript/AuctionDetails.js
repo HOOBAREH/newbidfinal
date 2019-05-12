@@ -1,4 +1,40 @@
-﻿function startTimer(duration, display) {
+﻿$(".btnBid").click(function () {
+    var currentUser = $(this).parent().siblings(".Current_User");
+    var Startstatus = $(this).parent().siblings(".Startstatus");
+    var userID = $('.userId').attr('data-userId');
+
+    if (Startstatus.attr('data-Start') == "True") {
+        var currentBids = $('#template_bidsavailable').text();
+        if (currentBids == 0) {
+            alert("You do not have enough bids left in your account to bid.");
+            return false;
+        }
+        var revPrice = $(this).parent().siblings('.Reserve-Price');
+        var currency = revPrice.html().replace('$', '').trim();
+        var sumCurrency = parseInt(currency) + 1;
+        revPrice.html('$' + sumCurrency);
+        var res = sumCurrency;
+        $(this).parent().siblings(".statusClick").val("1");
+        $.ajax({
+            type: "POST",
+            url: "/home/LowerBids/",
+            data: {
+                Current_UserId: userID,
+                id: $(this).parent().siblings(".auctionId").val(),
+                Reserve_Price: res
+            },
+            success: function (result) {
+                currentUser.text(currentUser.attr('data-currentUser'));
+                $('#template_bidsavailable').text(result.currentbids);
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+    }
+//});
+function startTimer(duration, display) {
 
     var minutes, seconds, hours;
     var timer = duration;
@@ -16,7 +52,7 @@
         //if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))
         ////time reset shode va kasi mojadaddarmozaede sherkat nakard.
         //{
-        //    var img = $(display).parent().children(".p").children(".btntest");
+        //    var img = $(display).parent().children(".p").children(".btnBid");
         //    $(img).attr("src", "/Content/img/Sold.png");
         //    $(img).css({ "pointer-events": "none" });
         //    isClose.attr('data-Close', 'True');
@@ -44,9 +80,47 @@
 
             //update startStatus aya inja bashe ya dar saveTimer;
         }
-        //saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
+        saveTimer(hours + ":" + minutes + ":" + seconds, id, Startstatus.attr('data-Start'));
     }, 1000);
 }
+function saveTimer(timer, id, startStatus) {
+    $.ajax({
+        type: "POST",
+        url: "/home/UpdateTimer/",
+        data: {
+            timer: timer,
+            id: id,
+            Startstatus: startStatus
+            //startStatus=startstatus,
+            //isClose=isclose
+        },
+        success: function (result) {
+
+            //alert('success');
+        },
+        error: function (result) {
+            alert('error');
+            return false;
+        }
+    });
+}
+function updateIsclose(id) {
+    $.ajax({
+        type: "POST",
+        url: "/home/UpdateIsclose/",
+        data: {
+            id: id
+
+        },
+        success: function (result) {
+
+            //alert('success');
+        },
+        error: function (result) {
+            alert('error');
+            return false;
+        }
+    });
 window.onload = function () {
     var everyChild = document.getElementsByClassName("time");
     //var s = everyChild.getElementsByClassName(".time");
