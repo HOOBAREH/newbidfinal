@@ -30,23 +30,26 @@ namespace App_QuiBids.Controllers
         // GET: Home
         public ActionResult Index(int id = 0)
         {
-            //Session["Admin"] = _userRepo.GetUserById(2);
             if (Session["Admin"] == null)
             {
-                Session["Admin"] = "";
-            }
-            var auctions = _auctionRepo.GetAuctions();
-            if (id != 0)
-            {
-
-                var price = auctions.FirstOrDefault().Reserve_Price + 1;
-                return Json(new
-                {
-                    currentPrice = price
-                });
+                return RedirectToAction("Login");
             }
             else
-                return View(auctions);
+            {
+                //Session["Admin"] = _userRepo.GetUserById(2);
+                var auctions = _auctionRepo.GetAuctions();
+                if (id != 0)
+                {
+
+                    var price = auctions.FirstOrDefault().Reserve_Price + 1;
+                    return Json(new
+                    {
+                        currentPrice = price
+                    });
+                }
+                else
+                    return View(auctions);
+            }
 
         }
         public ActionResult Login()

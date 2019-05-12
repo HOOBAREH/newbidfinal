@@ -4,12 +4,12 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
     User user = new User();
-    if (Session["Admin"]!="")
+    if (Session["Admin"]!=null)
     {
 
-         user = (User)Session["Admin"];
+        user = (User)Session["Admin"];
     }
-    
+
 }
 <link href="~/Content/Css/home.css" rel="stylesheet" />
 <link href="~/Content/Css/main.css" rel="stylesheet" />
@@ -125,7 +125,15 @@
 
 
     <div id="auctions">
-        <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
+        @if (Session["Admin"] != null)
+        {
+
+            <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
+        }
+        else {
+            <input type="hidden" class="userId" name="userId" data-userId="" />
+        }
+
 
         <div id="container" class="home">
             <div id="featured">
@@ -213,10 +221,10 @@
                                 <div><a style='display:none' id='filter-panel-apply' class='buttons blue small right'>Apply</a></div>
                             </div>
                             <!--<a href="#" id="sortbutton" class="buttons small white filter">Sort By <img src="~/Content/img/Layout/arrow.gif" class="filters-icon"/></a>
-                            <div id="sort-panel">
-                            <ul>
-                            <li><label><input checked='checked'  value='sortby_endingsoon' type='radio' name='sort'>درحال اتمام</label></li><li><label><input value='sortby_valuehigh' type='radio' name='sort'>گران ترین</label></li><li><label><input value='sortby_valuelow' type='radio' name='sort'>ارزان ترین</label></li><li><label><input value='sortby_popular' type='radio' name='sort'>مشهور ترین</label></li>									</ul>
-                            </div>	-->
+                        <div id="sort-panel">
+                        <ul>
+                        <li><label><input checked='checked'  value='sortby_endingsoon' type='radio' name='sort'>درحال اتمام</label></li><li><label><input value='sortby_valuehigh' type='radio' name='sort'>گران ترین</label></li><li><label><input value='sortby_valuelow' type='radio' name='sort'>ارزان ترین</label></li><li><label><input value='sortby_popular' type='radio' name='sort'>مشهور ترین</label></li>									</ul>
+                        </div>	-->
                         </div>
 
                         <ul id='filter-breadcrumb'></ul>
@@ -254,31 +262,31 @@
                                 <div class="auction-item-img">
                                     <a style="width: 168px; height: 110px; padding-bottom: 5px;" href="@Url.Action("Auction","Home",new { id=item.Id})">
 
-                                    <img src="~/Content/img/e.jpg" />
-                                </a>
-                            </div>
-                            <div class="clear"></div>
-                            <h2 id="time" class="time bold black">@item.Auction_Time</h2>
-                            <input type="hidden" id="close" class="closeTime" name="closeTime" value="@item.Close_Time" />
-                            <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@item.Id" />
-                            <input type="hidden" class="reset" name="resetTime" value="0" />
-                            <input type="hidden" class="statusClick" name="status" value="0" />
-                            <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@item.StartStatus" />
-                            <input type="hidden" class="isClose" name="isClose" data-Close="@item.IsClose" />
-                            <h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@item.Reserve_Price"> $@item.Reserve_Price</h3>
-                            <h5 class="winning grey" data-currentUser="">@(item.User != null ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
-                            @if (item.IsClose)
-                            {
-                                <p class="p" >
-                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png"  />
-                                </p>
-                            }
-                            else
-                            {
-                                <p class="p">
-                                    <img class="buttons bid medium  btntest" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout=""/>
-                                </p>
-                            }
+                                        <img src="~/Content/img/e.jpg" />
+                                    </a>
+                                </div>
+                                <div class="clear"></div>
+                                <h2 id="time" class="time bold black">@item.Auction_Time</h2>
+                                <input type="hidden" id="close" class="closeTime" name="closeTime" value="@item.Close_Time" />
+                                <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@item.Id" />
+                                <input type="hidden" class="reset" name="resetTime" value="0" />
+                                <input type="hidden" class="statusClick" name="status" value="0" />
+                                <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@item.StartStatus" />
+                                <input type="hidden" class="isClose" name="isClose" data-Close="@item.IsClose" />
+                                <h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@item.Reserve_Price"> $@item.Reserve_Price</h3>
+                                <h5 class="winning grey" data-currentUser="">@(item.User != null ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
+                                @if (item.IsClose)
+                                {
+                                    <p class="p">
+                                        <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png" />
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="p">
+                                        <img class="buttons bid medium  btntest" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout="" />
+                                    </p>
+                                }
 
                             </div>
                         }
@@ -317,8 +325,8 @@
 
 
 
-    </div><!--auctions-->
-</div>
+        </div><!--auctions-->
+    </div>
 <script src="~/Scripts/JScript/IndexAuction.js"></script>
 
 
