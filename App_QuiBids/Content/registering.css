@@ -12,16 +12,16 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 
-a {
+/*a {
     text-decoration: none;
-    color: rgba(235, 7, 7, 0.97);
+    color: #009cfc;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
 
     a:hover {
-        color: #179b77;
-    }
+        color: #002eff;
+    }*/
 
 .form {
     background-image: url('img/29080.jpg');
@@ -151,7 +151,7 @@ input, textarea {
     }
 
 textarea {
-    border: 2px solid #a0b3b0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     resize: vertical;
 }
 
@@ -185,7 +185,7 @@ textarea {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
-    background: rgba(249, 244, 2, 0.10);
+    background: rgba(249, 244, 2, 0.01);
     color: #ffffff;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;

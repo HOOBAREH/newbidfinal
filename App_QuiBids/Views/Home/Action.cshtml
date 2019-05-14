@@ -4,94 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<head>
     <title>Actions - NewBids.com</title>
 
-    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="stylesheet" href="~/Content/Css/auction.css" type="text/css" />
     <link rel="stylesheet" href="~/Content/Css/reviews.css" type="text/css" />
-
-    <!--[if IE]>
-    <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
-    <![endif]-->
-    <script type="text/javascript" src="~/Scripts/JScripts/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/translation.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/site.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/auctions.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/auctiondetail.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/profiles.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/jquery.jcarousel.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScripts/reviews.js"></script>
-    <script type='text/javascript'>
-        pageID = 2; mm = 100; var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '30', 1],
-            ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-
-        /* Begin TVSquared Tracking Code */
-        var _tvq = window._tvq = window._tvq || [];
-        (function () {
-            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
-            _tvq.push(['setSiteId', "TV-54540972-1"]);
-            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
-            _tvq.push([function () {
-                this.deleteCustomVariable(5, 'page')
-            }]);
-            _tvq.push(['trackPageView']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.defer = true;
-            g.async = true;
-            g.src = u + 'tv2track.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-
-        /**
-         * BOOMTRAIN
-         */
-        !function () {
-            function a(a) {
-                return function () {
-                    var b = Array.prototype.slice.call(arguments);
-                    return b.unshift(a), window._bt.push(b), window._bt
-                }
-            } window._bt = window._bt || [];
-            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
-            {
-                var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
-            } if (!document.getElementById("analyticstrain-js"))
-            {
-                var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
-            }
-        }();
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
-
-
-    </script>
-
-
-</head>
-
-
-
 
 
 
@@ -290,7 +206,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 
                                         <li>
                                             <h5 class="no-margin">
-                                                Winner Savings:									
+                                                Winner Savings:
                                                 <span class="float-right bold green">
                                                     <span id="breakdown_savingsamt"></span>
                                                 </span>
@@ -779,8 +695,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 </script>
 
 <script>
-    !function (d, s, id)
-    {
+    !function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (!d.getElementById(id)) {
             js = d.createElement(s); js.id = id; js.src = "";
@@ -791,9 +706,69 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 </script>
 
 
-<!--[if IE]>
-<style type="text/css">
-.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
-</style>
-<![endif]-->
 
+<script type="text/javascript" src="~/Scripts/JScripts/auctions.js"></script>
+<script type="text/javascript" src="~/Scripts/JScripts/auctiondetail.js"></script>
+<script type="text/javascript" src="~/Scripts/JScripts/profiles.js"></script>
+<script type="text/javascript" src="~/Scripts/JScripts/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="~/Scripts/JScripts/reviews.js"></script>
+<script type='text/javascript'>
+    pageID = 2; mm = 100; var _gaq = _gaq || [];
+    _gaq.push(
+        ['_setAccount', 'UA-10065556-11'],
+        ['_trackPageview'],
+        ['_setCustomVar', 1, 'CSL', '1', 1],
+        ['_setCustomVar', 5, 'LA', '30', 1],
+        ['b._setAccount', 'UA-10065556-1'],
+        ['b._trackPageview']
+    );
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+
+    /* Begin TVSquared Tracking Code */
+    var _tvq = window._tvq = window._tvq || [];
+    (function () {
+        var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+        _tvq.push(['setSiteId', "TV-54540972-1"]);
+        _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+        _tvq.push([function () {
+            this.deleteCustomVariable(5, 'page')
+        }]);
+        _tvq.push(['trackPageView']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.defer = true;
+        g.async = true;
+        g.src = u + 'tv2track.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+
+    /**
+     * BOOMTRAIN
+     */
+    !function () {
+        function a(a) {
+            return function () {
+                var b = Array.prototype.slice.call(arguments);
+                return b.unshift(a), window._bt.push(b), window._bt
+            }
+        } window._bt = window._bt || [];
+        for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) {
+            var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
+        } if (!document.getElementById("analyticstrain-js")) {
+            var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
+        }
+    }();
+    _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+</script>

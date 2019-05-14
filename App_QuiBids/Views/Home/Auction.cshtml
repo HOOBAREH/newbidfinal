@@ -11,10 +11,7 @@
 }
 
 @section Styles{
-    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="stylesheet" href="~/Content/Css/auction.css" type="text/css" />
-    <link href="~/Content/Css/auction.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/Css/reviews.css" type="text/css" />
     <style>
         ol, ul, li {
@@ -729,8 +726,6 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 @section Scripts{
 
     <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/translation.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/site.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/profiles.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/reviews.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/AuctionDetails.js"></script>
@@ -811,7 +806,22 @@ You may continue to bid, but no new bidders can participate in this auction.'></
         /**
          * BOOMTRAIN
          */
-        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+        !function () {
+            function a(a) {
+                return function () {
+                    var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt
+                }
+            }
+            window._bt = window._bt || [];
+            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
+            {
+                var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
+            } if (!document.getElementById("analyticstrain-js"))
+            {
+                var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js";
+                var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
+            }
+        }();
         _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
 
         ////

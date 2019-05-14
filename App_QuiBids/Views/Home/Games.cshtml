@@ -3,73 +3,11 @@
     ViewBag.Title = "Games";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <title>Games - NewBids.com</title>
-    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <link rel="stylesheet" href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/gameplay.css?1448853474" type="text/css" />
-
-    <script type="text/javascript" src="~/Scripts/JScript/jquery.min.js"></script>
-    @*<script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min.js"></script>*@
-    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/translation.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/site.js"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/games.js?1448853474"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/profiles.js"></script>
-    <script type="text/javascript" src="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/js/libraries/jquery.caroufredsel-min.js?1448853474"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-    <script type='text/javascript'>
-        mm = 100; var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '30', 1],
-            ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+<title>Games - NewBids.com</title>
+@*<link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />*@
+<link rel="stylesheet" href="~/Content/Css/gameplay.css" type="text/css" />
 
 
-        /* Begin TVSquared Tracking Code */
-        var _tvq = window._tvq = window._tvq || [];
-        (function () {
-            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
-            _tvq.push(['setSiteId', "TV-54540972-1"]);
-            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
-            _tvq.push([function () {
-                this.deleteCustomVariable(5, 'page')
-            }]);
-            _tvq.push(['trackPageView']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.defer = true;
-            g.async = true;
-            g.src = u + 'tv2track.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-
-        /**
-         * BOOMTRAIN
-         */
-        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
-
-
-    </script>
-
-
-</head>
 
 <body class="market-US">
 
@@ -93,18 +31,18 @@
                         <h2 class="bold game-heading2">Playing QuiBids Games is as easy as 1, 2, 3.</h2>
                         <div class="module">
                             <div class="content">
-                                <p><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/gameplay/gameplay-step1.jpg" /></p>
+                                <p><img src="~/Content/Games_img/gameplay-step1.jpg" /></p>
                                 <h3 class="bold orange one">Win a Gameplay!</h3>
                                 <p>
                                     <span class="bold"><b>Want to know more about QuiBids Games and Gameplays?</b></span>
-                                    The short story: you earn them by winning Gameplay Auctions. The long story: well, we recommend you check out our <a href="http://www.quibids.com/help/faq/27-Games">Help pages</a> for more information.
+                                    The short story: you earn them by winning Gameplay Auctions. The long story: well, we recommend you check out our <a href="">Help pages</a> for more information.
                                 </p>
                             </div>
                         </div><!--module-->
                         <div class="module">
                             <div class="content">
                                 <p>
-                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/gameplay/gameplay-step2.jpg" />
+                                    <img src="~/Content/Games_img/gameplay-step2.jpg" />
                                 </p>
                                 <h3 class="bold orange two">Choose your Game!</h3>
                                 <p>
@@ -116,7 +54,7 @@
                         <div class="module">
                             <div class="content">
                                 <p>
-                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/gameplay/gameplay-step3.jpg" />
+                                    <img src="~/Content/Games_img/gameplay-step3.jpg" />
                                 </p>
                                 <h3 class="bold orange three">Earn Bids!</h3>
                                 <p>
@@ -144,26 +82,27 @@
                                 <ul class="gamelist">
                                     <li>
 
-
                                         <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-treasure-cove"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/treasurecove_medium.jpg" /></a>
+                                            <a href=""><img class="preview" src="~/Content/Games_img/treasurecove_medium.jpg" /></a>
                                         </p>
                                         <div class="game-desc">
 
                                             <div class="stars">
                                                 <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/blank-star.png" alt="star">
+                                                    <img src="" />
+                                                    <img src="" />
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/blank-star.png" alt="star">
                                                 </p>
                                             </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-treasure-cove">Treasure Cove</a></h4>
+                                            <h4 class="blue"><a href="">Treasure Cove</a></h4>
                                             <p>Who knows how much gold bullion’s waiting in our treasure cove?</p>
 
                                             <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
+                                                <a href="/Account/Index" class="buttons orange medium">
                                                     Sign in to play!
                                                 </a>
                                             </p>
@@ -172,26 +111,25 @@
                                     </li>
                                     <li>
 
-
                                         <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-big-game-fishing"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/biggamefishing_medium.jpg" /></a>
+                                            <a href=""><img class="preview" src="~/Content/Games_img/biggamefishing_medium.jpg" /></a>
                                         </p>
                                         <div class="game-desc">
 
                                             <div class="stars">
                                                 <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/half-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/blank-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/blank-star.png" alt="star">
                                                 </p>
                                             </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-big-game-fishing">Big Game Fishing</a></h4>
+                                            <h4 class="blue"><a href="">Big Game Fishing</a></h4>
                                             <p>Grab your tackle box, a rod and reel, and rev up your boat engine — we’re going fishing!</p>
 
                                             <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
+                                                <a href="/Account/Index" class="buttons orange medium">
                                                     Sign in to play!
                                                 </a>
                                             </p>
@@ -199,55 +137,25 @@
 
                                     </li>
                                     <li>
-
-
                                         <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-deal-wheel"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/dealwheel_medium.jpg" /></a>
+                                            <a href=""><img class="preview" src="~/Content/Games_img/dealwheel_medium.jpg" /></a>
                                         </p>
                                         <div class="game-desc">
 
                                             <div class="stars">
                                                 <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/blank-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/blank-star.png" alt="star">
                                                 </p>
                                             </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-deal-wheel">Deal Wheel</a></h4>
+                                            <h4 class="blue"><a href="">Deal Wheel</a></h4>
                                             <p>Should you take The Banker’s offer or go for another spin on the Deal Wheel?</p>
 
                                             <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
-                                                    Sign in to play!
-                                                </a>
-                                            </p>
-                                        </div>
-
-                                    </li>
-                                    <li class="no-border">
-
-
-                                        <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-ground-hog-hunting"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/groundhoghunting_medium.jpg" /></a>
-                                        </p>
-                                        <div class="game-desc">
-
-                                            <div class="stars">
-                                                <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/half-star.png" alt="star">
-                                                </p>
-                                            </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-ground-hog-hunting">Groundhog Hunting</a></h4>
-                                            <p>Win bids by whacking groundhogs before the timer runs out!</p>
-
-                                            <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
+                                                <a href="/Account/Index" class="buttons orange medium">
                                                     Sign in to play!
                                                 </a>
                                             </p>
@@ -255,55 +163,26 @@
 
                                     </li>
                                     <li>
-
-
+                                        <img src="" />
                                         <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-color-capture"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/colorcapture_medium.jpg" /></a>
+                                            <a href=""><img class="preview" src="~/Content/Games_img/wordscramble_medium.jpg" /></a>
                                         </p>
                                         <div class="game-desc">
 
                                             <div class="stars">
                                                 <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/blank-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
+                                                    <img src="~/Content/Games_img/full-star.png" alt="star">
                                                 </p>
                                             </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-color-capture">Color Capture</a></h4>
-                                            <p>Let’s paint this board red! Or blue, or purple, or green, or whatever color you like!</p>
-
-                                            <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
-                                                    Sign in to play!
-                                                </a>
-                                            </p>
-                                        </div>
-
-                                    </li>
-                                    <li>
-
-
-                                        <p>
-                                            <a href="https://www.quibids.com/en/gameplay/play-word-scramble"><img class="preview" src="https://dcfv5z6t7wfeu.cloudfront.net/img/games/wordscramble_medium.jpg" /></a>
-                                        </p>
-                                        <div class="game-desc">
-
-                                            <div class="stars">
-                                                <p>
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/full-star.png" alt="star">
-                                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net/site/images/gameplay/half-star.png" alt="star">
-                                                </p>
-                                            </div>
-                                            <h4 class="blue"><a href="https://www.quibids.com/en/gameplay/play-word-scramble">Word Scramble</a></h4>
+                                            <h4 class="blue"><a href="">Word Scramble</a></h4>
                                             <p>Like letters? Then you'll adulate Word Scramble!</p>
 
                                             <p class='game-button'>
-                                                <a href="https://www.quibids.com/en/account/login.php?return=/gameplay" class="buttons orange medium">
+                                                <a href="/Account/Index" class="buttons orange medium">
                                                     Sign in to play!
                                                 </a>
                                             </p>
@@ -326,3 +205,57 @@
 
 
 </body>
+
+<script type="text/javascript" src="~/Scripts/JScript/profiles.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/games.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/jquery.caroufredsel-min.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/swfobject.js"></script>
+<script type='text/javascript'>
+    mm = 100; var _gaq = _gaq || [];
+    _gaq.push(
+        ['_setAccount', 'UA-10065556-11'],
+        ['_trackPageview'],
+        ['_setCustomVar', 1, 'CSL', '1', 1],
+        ['_setCustomVar', 5, 'LA', '30', 1],
+        ['b._setAccount', 'UA-10065556-1'],
+        ['b._trackPageview']
+    );
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+
+    /* Begin TVSquared Tracking Code */
+    var _tvq = window._tvq = window._tvq || [];
+    (function () {
+        var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+        _tvq.push(['setSiteId', "TV-54540972-1"]);
+        _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+        _tvq.push([function () {
+            this.deleteCustomVariable(5, 'page')
+        }]);
+        _tvq.push(['trackPageView']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.defer = true;
+        g.async = true;
+        g.src = u + 'tv2track.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+
+    /**
+     * BOOMTRAIN
+     */
+    !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+    _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+</script>
+
