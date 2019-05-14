@@ -1,50 +1,21 @@
-﻿@model DataLayer.User
+﻿@*@model DataLayer.User*@
 @{
     ViewBag.Title = "MyAccount";
-    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    Layout = "~/Views/Shared/_MyAccountLayout.cshtml";
 }
 
 <title>My Account Information - QuiBids.com</title>
 
 
-<body class="market-US">
 
-
-    <div class="gloss">
-        <div class="wrapper">
-
-            <div id="container">
-
-                <div class="tab-nav">
-                    <div id="myaccount">
-                        <ul class="panel-content">
-                            <li class="myinformation"><a href="">My Information</a></li>
-                            <li class="changepassword"><a href="ChangePassword">Change Password</a></li>
-                            <li class="myavatar"><a href="">My Avatar</a></li>
-                            <li class="notifications"><a href="">Notifications</a></li>
-                            <li class="redeemcoupon"><a href="">Redeem Promo</a></li>
-                        </ul>
-                    </div>
-                </div><!--end tabs-->
-
-                <div class="content">
 
                     <div id="main-content" class="twocol-left">
 
 
                         <div class="module">
                             <h3 class="orange bold">My Profile</h3>
-                            <div class="content">
-                                <div class="module-left">
-                                    <ul>
-                                        <li class="bold">نام :</li>
-                                        <li class="bold">نام کاربری :</li>
-                                        <li class="bold">ایمیل :</li>
-                                        <li class="bold">مخفی کردن موقعیت :</li>
-                                        <li class="bold"> کشور :</li>
-                                    </ul>
-                                </div>
 
+                            <div style="direction:rtl" class="content">
                                 <div class="module-right">
                                     <form method="POST" action="@Url.Action("UpdateProfile", "Account")">
                                         <input type="hidden" name="action" value="updatePreferences" />
@@ -56,7 +27,7 @@
                                             <li>@Model.Email (<a href="email.php">Update</a>)</li>
                                             <li>
                                                 <fieldset>
-                                                    @if (!Model.HideLocation.Value)
+                                                    @if (!Model.HideLocation)
                                                     {
 
                                                         <input name="incognito" value="Yes" type="radio" class="checkbox">
@@ -89,6 +60,17 @@
                                         <input class="orange small buttons" type="submit" value="Update">
                                     </form>
                                 </div>
+
+                                <div style="direction:rtl" class="module-left">
+                                    <ul>
+                                        <li class="bold">نام :</li>
+                                        <li class="bold">نام کاربری :</li>
+                                        <li class="bold">ایمیل :</li>
+                                        <li class="bold">مخفی کردن موقعیت :</li>
+                                        <li class="bold"> کشور :</li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div><!--module-->
 
@@ -135,49 +117,7 @@
                         </div><!--module-->
                     </div>
                     <!--main-content-->
-                    <div id="side-content" class="twocol-left">
-                        <div class="module">
-                            <div class="content">
-                                <h4 class="blue-background">
-                                    Hi, @Model.Fname
-                                </h4>
 
-                                <div class="content-left">
-                                    <p><img src="~/Content/img/Footer-Bar/52.png" class="img" border='0' /></p>
-
-                                    <p><a href="https://www.quibids.com/en/account/myaccount/avatar.php">(Change)</a></p>
-                                </div>
-
-                                <div class="content-right">
-                                    <p class="bold">Last Login</p>
-                                    <p>@Model.LastLogin.Value.ToString("MMM dd, yyyy")</p>
-
-                                    <hr>
-                                    <p class="bold">Remaining Bids</p>
-                                    <p><span>Real Bids <span class="right green">@Model.RealBid</span> </span></p>
-                                    <p><span>Voucher Bids</span> <span class="right green">@Model.VoucherBid</span></p>
-                                    <hr>
-                                    <p><span>Total Bids</span> <span class="right green">@(Model.RealBid + Model.VoucherBid)</span> </p>
-
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="module">
-                            <h3><img class="refer-icon" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/account/contact-icon.png" /> Contact Support</h3>
-                            <div class="content">
-
-                                <p>Got a question? We’ve got answers. For simple solutions, check out our easy-to-access <a href="/en/help/index.php">Help</a> section. For stickier situations, connect to <a href="/en/help/support.php">Live Chat</a> or submit a support request below.</p>
-                                <p class="center"><a href="/en/help/support.php" class="buttons medium blue">Contact Support</a></p>
-                            </div>
-                        </div><!--module-->
-                    </div><!--side-content-->
-                </div><!--content-->
-            </div><!--container-->
-        </div><!--wrapper-->
-    </div><!--gloss-->
-
-</body>
 @section Scripts{
 <script>
     $(document).ready(function () {

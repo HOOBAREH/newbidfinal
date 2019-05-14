@@ -1753,6 +1753,10 @@
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Shared\_MyAccountLayout.cshtml" />
+    <Content Include="Views\Account\MyAvatar.cshtml" />
+    <Content Include="Views\Account\MyInformation.cshtml" />
+    <Content Include="Views\Account\Notifications.cshtml" />
+    <Content Include="Views\Account\RedeemPromo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

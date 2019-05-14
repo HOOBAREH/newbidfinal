@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Notifications";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+<div class="tab-nav">
+    <div id="myaccount">
+        <ul class="panel-content">
+            <li class="myinformation"><a href="MyAccount">My Information</a></li>
+            <li class="changepassword"><a href="ChangePassword">Change Password</a></li>
+            <li class="myavatar"><a href="MyAvatar">My Avatar</a></li>
+            <li class="notifications"><a href="Notifications">Notifications</a></li>
+            <li class="redeemcoupon"><a href="RedeemPromo">Redeem Promo</a></li>
+        </ul>
+    </div>
+</div><!--end tabs-->
+
+
+<div class="content">
+    <div class="module notifications">
+        <h3 class="orange bold">Notifications History</h3>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="notifications-date"><p>Date</p></td>
+                        <td class="notifications-type"><p>Type</p></td>
+                        <td class="notifications-name"><p>Notification</p></td>
+                        <!--<td class="notifications-action"><p>Action</p></td>-->
+                    </tr>
+                </thead>
+                <tbody id="notifications"></tbody>
+            </table>
+        </div>
+    </div><!--module-->
+    <!--main-content-->
+</div><!--content-->
