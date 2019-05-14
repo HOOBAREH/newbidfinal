@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "RedeemPromo";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="tab-nav">
+    <div id="myaccount">
+        <ul class="panel-content">
+            <li class="myinformation"><a href="MyAccount">My Information</a></li>
+            <li class="changepassword"><a href="ChangePassword">Change Password</a></li>
+            <li class="myavatar"><a href="MyAvatar">My Avatar</a></li>
+            <li class="notifications"><a href="Notifications">Notifications</a></li>
+            <li class="redeemcoupon"><a href="RedeemPromo">Redeem Promo</a></li>
+        </ul>
+    </div>
+</div><!--end tabs-->
+
+<div id="container">
+
+    <div class="content">
+
+        <div id="main-content" class="twocol-left-redeem">
+            <h2> <span class="bold">Redeem Promo</h2>
+            <p>
+                QuiBids offers promotion codes from time to time. Promos are for Voucher Bids, which come with specific expiration dates. So keep track of them!</span>.
+            </p>
+
+        </div>	<!--main-content-->
+
+        <div id="side-content" class="twocol-right-redeem">
+
+            <div id="redeem-box">
+                <h2><span class="bold gold">Redemption Code:</h2>
+                <p class="gold">(Enter one at a time) </p>
+
+
+
+                <form name="redeem_form" action="" method="post">
+                    <fieldset class="spacing">
+                        <input type="text" name="code" id="code" class="txt" value="" /> &nbsp;
+
+
+                        <a href="#" onclick="redeem_form.submit();" class="buttons small blue">Apply</a>
+                    </fieldset>
+
+                </form>
+
+                <div class="clear"></div>
+
+            </div>
+
+        </div>
+
+    </div><!--content-->
+
+</div><!--container-->

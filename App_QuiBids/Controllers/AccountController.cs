@@ -116,5 +116,22 @@ namespace App_QuiBids.Controllers
 
 
         }
+        public ActionResult MyInformation()
+        {
+            return View();
+        }
+        public ActionResult MyAvatar()
+        {
+            return View();
+        }
+        public ActionResult Notifications()
+        {
+            return View();
+        }
+        public ActionResult RedeemPromo()
+        {
+            return View();
+        }
+
     }
 }

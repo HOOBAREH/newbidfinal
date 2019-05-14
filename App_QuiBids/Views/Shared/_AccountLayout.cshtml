@@ -26,15 +26,17 @@
         <li class="games"><a href="/account/MyGames">My Games</a></li>
     </ul>
 </div><!--end tabs-->
-@RenderBody()
+<div id="container">
 
-<!--[if IE]>
-<style type="text/css">
-.qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
-</style>
-<![endif]-->
-@section Scripts{
-    <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
-    @RenderSection("Scripts", required: false)
-}
+    @RenderBody()
+    </div>
+    <!--[if IE]>
+    <style type="text/css">
+    .qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+    </style>
+    <![endif]-->
+    @section Scripts{
+        <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+        <script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
+        @RenderSection("Scripts", required: false)
+    }
