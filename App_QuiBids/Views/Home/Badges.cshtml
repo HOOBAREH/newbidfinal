@@ -3,76 +3,9 @@
     ViewBag.Title = "Badges";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
+
     <title>Badges - NewBids.com</title>
-    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="shortcut icon" href="https://dcfv5z6t7wfeu.cloudfront.net/favicon.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="https://dcfv5z6t7wfeu.cloudfront.net/apple-touch-icon.png" />
     <link rel="stylesheet" href="~/Content/Css/badges.css" type="text/css" />
-
-    <script type="text/javascript" src="~/Scripts/JScript/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-    <script src="~/Scripts/JScript/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/translation.js"></script>
-    <script src=""></script>
-    <script type="text/javascript" src="~/Scripts/JScript/site.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/jquery.jcarousel.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/jquery.caroufredsel-min.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
-    <script type='text/javascript'>
-        mm = 100; var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '30', 1],
-            ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-
-        /* Begin TVSquared Tracking Code */
-        var _tvq = window._tvq = window._tvq || [];
-        (function () {
-            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
-            _tvq.push(['setSiteId', "TV-54540972-1"]);
-            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
-            _tvq.push([function () {
-                this.deleteCustomVariable(5, 'page')
-            }]);
-            _tvq.push(['trackPageView']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.defer = true;
-            g.async = true;
-            g.src = u + 'tv2track.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-
-        /**
-         * BOOMTRAIN
-         */
-        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
-
-
-    </script>
-
-
-</head>
-
-<body class="market-US">
 
 
 
@@ -84,9 +17,8 @@
 
                 <div class="content background">
                     <div id="intro">
-                        <h1>
-                            Badges			<a href="https://twitter.com/share" class="twitter-share-button" data-via="QuiBids" data-count="none">Tweet</a>
-                            <div class="fb-like" data-href="http://www.quibids.com/en/badges/" data-send="false" data-width="450" data-show-faces="false"></div>
+                        <h1>   Badges
+                            <div class="fb-like" data-href="/Account/MyBadges" data-send="false" data-width="450" data-show-faces="false"></div>
                         </h1>
                         <div id="intro-text">
                             <h2 class="bold orange">Earn Badges. Get Free Bids. It's that simple.</h2>
@@ -105,7 +37,7 @@
                         <div class="module">
                             <div class="content">
                                 <p>
-                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/achievements-step1.jpg" />
+                                    <img src="~/Content/Badges_img/achievements-step1.jpg" />
                                 </p>
                                 <h3 class="bold orange one">Choose wisely</h3>
                                 <p>
@@ -116,7 +48,7 @@
                         <div class="module">
                             <div class="content">
                                 <p>
-                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/achievements-step2.jpg" />
+                                    <img src="~/Content/Badges_img/achievements-step2.jpg" />
                                 </p>
                                 <h3 class="bold orange two">Read up</h3>
                                 <p>
@@ -127,7 +59,7 @@
                         <div class="module">
                             <div class="content">
                                 <p>
-                                    <img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/achievements-step3.jpg" />
+                                    <img src="~/Content/Badges_img/achievements-step3.jpg" />
                                 </p>
                                 <h3 class="bold orange three">Win your badge and get free bids</h3>
                                 <p>
@@ -153,8 +85,6 @@
                                 <div id="badges-slider">
                                     <ul class="badgelist">
                                         <div class="badge-rows">
-
-
                                             <li>
 
                                                 <div class="new-corner en"></div>
@@ -163,39 +93,31 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('101','Nothin but Net Badge'); return false;">Nothin' but Net Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('101','Nothin but Net Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_101_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_101_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">3 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">3 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by winning three auctions or completing three Buy Nows in the Sports and Recreation category </p>
 
                                                     <!--<p class="view-detail">
-                                                        <a href="#" onclick="showBadge('101','Nothin but Net Badge'); return false;" class="buttons small orange">
-                                                            View Details								</a>
-                                                    </p> -->
+            <a href="#" onclick="showBadge('101','Nothin but Net Badge'); return false;" class="buttons small orange">
+                View Details								</a>
+        </p> -->
                                                 </div>
 
-
-
                                             </li>
-
                                             <!--End Row-->
-
                                             <li>
-
                                                 <div class="new-corner en"></div>
-
-
                                                 <h4 class="blue"><a href="#" onclick="showBadge('21','Get To Da Choppah! Badge'); return false;">Get To Da Choppah! Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('21','Get To Da Choppah! Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_21_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_21_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
-
+                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
                                                 <div class="descriptions">
                                                     <p> Earn it by winning an auction or completing a Buy Now for any item in the Remote Control category of Sports & Recreation. </p>
 
@@ -204,24 +126,17 @@
                                                             View Details								</a>
                                                     </p> -->
                                                 </div>
-
-
-
                                             </li>
-
                                             <!--End Row-->
-
                                             <li>
-
-
 
                                                 <h4 class="blue"><a href="#" onclick="showBadge('1','Beginner Badge'); return false;">Beginner Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('1','Beginner Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_1_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_1_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">5 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">5 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by purchasing your first Bid Pack </p>
@@ -245,10 +160,10 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('3','Training Day Badge'); return false;">Training Day Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('3','Training Day Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_3_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_3_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">3 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">3 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by first earning the Beginner Badge and then taking the QuiBids 101 Quiz </p>
@@ -274,10 +189,10 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('4','Mr. Roboto Badge'); return false;">Mr. Roboto Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('4','Mr. Roboto Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_4_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_4_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by using the Bid-O-Matic to place at least 20 bids </p>
@@ -301,10 +216,10 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('5','Iron Man Badge'); return false;">Iron Man Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('5','Iron Man Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_5_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Account_img/badge_5_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">7 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">7 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by winning an auction you spent one hour or more bidding on </p>
@@ -328,18 +243,18 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('6','100th Bid Badge'); return false;">100th Bid Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('6','100th Bid Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_6_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Badges_img/badge_6_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">2 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by placing 100 bids in QuiBids auctions </p>
 
                                                     <!--<p class="view-detail">
-                                                        <a href="#" onclick="showBadge('6','100th Bid Badge'); return false;" class="buttons small orange">
-                                                            View Details								</a>
-                                                    </p> -->
+            <a href="#" onclick="showBadge('6','100th Bid Badge'); return false;" class="buttons small orange">
+                View Details								</a>
+        </p> -->
                                                 </div>
 
 
@@ -355,18 +270,18 @@
                                                 <h4 class="blue"><a href="#" onclick="showBadge('7','Trifecta Voucher Challenge Badge'); return false;">Trifecta Voucher Challenge Badge</a></h4>
                                                 <p>
                                                     <a href="#" onclick="showBadge('7','Trifecta Voucher Challenge Badge'); return false;">
-                                                        <img src="https://dcfv5z6t7wfeu.cloudfront.net/badges/badge_7_sm.png" width="100" height="100" alt="" />
+                                                        <img src="~/Content/Badges_img/badge_7_sm.png" width="100" height="100" alt="" />
                                                     </a>
                                                 </p>
-                                                <h4 class="grey no-margin">5 <img class="bid-coin" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/badges/bid-coin.png" /></h4>
+                                                <h4 class="grey no-margin">5 <img class="bid-coin" src="~/Content/Account_img/bid-coin.png" /></h4>
 
                                                 <div class="descriptions">
                                                     <p> Earn it by winning three auctions for Voucher Bids in a 28-day period </p>
 
                                                     <!--<p class="view-detail">
-                                                        <a href="#" onclick="showBadge('7','Trifecta Voucher Challenge Badge'); return false;" class="buttons small orange">
-                                                            View Details								</a>
-                                                    </p> -->
+            <a href="#" onclick="showBadge('7','Trifecta Voucher Challenge Badge'); return false;" class="buttons small orange">
+                View Details								</a>
+        </p> -->
                                                 </div>
 
 
@@ -383,12 +298,12 @@
                                 <div id="games-bottom">
                                     <div id="displaying"><p>Displaying 1 - 8 of 41 entries</p></div><div class="pagination badges_lists"><ul><li><a href="javascript:void(0);" page="0" class="inactive view-past"></a></li><li><a href="#tabtop" page="1" class="active selected">1</a></li><li><a href="javascript:void(0);" page="2" class="">2</a></li><li><a href="javascript:void(0);" page="3" class="">3</a></li><li><a href="javascript:void(0);" page="4" class="">4</a></li><li><a href="javascript:void(0);" page="5" class="">5</a></li><li><a href=javascript:void(0); page=2 class="active view-more"></a></li></ul></div>
                                     <script>
-    var options = new Array();
-    options["anchor"] = "badges_lists";
-    options["baseUrl"] = "/en";
-    $(document).ready(function(){
-       pagination.init("ajax.php?", "badges_lists", options);
-    });
+                                        var options = new Array();
+                                        options["anchor"] = "badges_lists";
+                                        options["baseUrl"] = "/en";
+                                        $(document).ready(function () {
+                                            pagination.init("ajax.php?", "badges_lists", options);
+                                        });
 
                                     </script>
                                 </div>
@@ -404,38 +319,105 @@
 
             <script type="text/javascript">
 
-	var showBadge = function(id,title){
+                var showBadge = function (id, title) {
 
-    	$("#popupModal").html('<div id="badge_detail"><span class="loading"></span></div>');
+                    $("#popupModal").html('<div id="badge_detail"><span class="loading"></span></div>');
 
-    	$("#popupModal").dialog({
-    		modal: true,
-    		title: title,
-    		width: 700,
-    		height:460,
-    		resizable: false
-    	});
+                    $("#popupModal").dialog({
+                        modal: true,
+                        title: title,
+                        width: 700,
+                        height: 460,
+                        resizable: false
+                    });
 
-    	$('.ui-widget-overlay').live("click", function() {
-	       //Close the dialog
-  	       $("#popupModal").dialog("close");
-	    });
+                    $('.ui-widget-overlay').live("click", function () {
+                        //Close the dialog
+                        $("#popupModal").dialog("close");
+                    });
 
-    	var url = '/ajax/badge.php?id='+id;
-    	$.ajax({ url: url,
-			cache : true,
-			success: function(data){
-				$('#badge_detail').html( "&nbsp;" + data );  // IE8 hack, content wasn't showing
-			}
-    	});
+                    var url = '/ajax/badge.php?id=' + id;
+                    $.ajax({
+                        url: url,
+                        cache: true,
+                        success: function (data) {
+                            $('#badge_detail').html("&nbsp;" + data);  // IE8 hack, content wasn't showing
+                        }
+                    });
 
 
-    }
+                }
 
             </script>
 
         </div><!--wrapper-->
     </div><!--gloss-->
 
-</body>
+
+
+<script type="text/javascript" src="~/Scripts/JScript/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/jquery.caroufredsel-min.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
+<script type='text/javascript'>
+    mm = 100; var _gaq = _gaq || [];
+    _gaq.push(
+        ['_setAccount', 'UA-10065556-11'],
+        ['_trackPageview'],
+        ['_setCustomVar', 1, 'CSL', '1', 1],
+        ['_setCustomVar', 5, 'LA', '30', 1],
+        ['b._setAccount', 'UA-10065556-1'],
+        ['b._trackPageview']
+    );
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+
+    /* Begin TVSquared Tracking Code */
+    var _tvq = window._tvq = window._tvq || [];
+    (function () {
+        var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+        _tvq.push(['setSiteId', "TV-54540972-1"]);
+        _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+        _tvq.push([function () {
+            this.deleteCustomVariable(5, 'page')
+        }]);
+        _tvq.push(['trackPageView']);
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.defer = true;
+        g.async = true;
+        g.src = u + 'tv2track.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+
+    /**
+     * BOOMTRAIN
+     */
+    !function () {
+        function a(a) {
+            return function () {
+                var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt
+            }
+        } window._bt = window._bt || [];
+        for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
+        {
+            var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
+        }
+        if (!document.getElementById("analyticstrain-js"))
+        {
+            var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
+        }
+    }();
+    _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+
+</script>
 
