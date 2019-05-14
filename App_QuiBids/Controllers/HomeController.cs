@@ -66,6 +66,7 @@ namespace App_QuiBids.Controllers
                 if (res != null)
                 {
                     Session["Admin"] = res;
+                    _userRepo.LastLogin(model.UserId);
                     return RedirectToAction("Index");
                 }
                 else
@@ -102,7 +103,11 @@ namespace App_QuiBids.Controllers
                         Email = model.Email,
                         Address = model.Address,
                         Mobile = model.Mobile,
-                        Password = pass
+                        LastLogin = DateTime.Now,
+                        Password = pass,
+                        RealBid = 0,
+                        VoucherBid = 0,
+                        HideLocation = false
                     };
                     var register = _userRepo.Register(user);
                     if (register)

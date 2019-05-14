@@ -103,5 +103,15 @@ namespace DataLayer.Repository
             }
             return false;
         }
+        public void LastLogin(int id)
+        {
+            var user = GetUserById(id);
+            if (user != null)
+            {
+                user.LastLogin = DateTime.Now;
+                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

@@ -17,5 +17,6 @@ namespace DataLayer.IRepository
         User LowerBids(int userId);
         void UpdateProfile(UserModel model);
         bool ChangePass(string pass, int id);
+        void LastLogin(int id);
     }
 }
