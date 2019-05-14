@@ -22,28 +22,7 @@
 
 <div id="container">
 
-    <script>
-        $(document).ready(function () {
-            $('.tabs li').each(function (index) {
-                var tabClass = $(this).attr('class');
-                if (tabClass == "myaccount") {
-                    $(this).addClass('ui-state-active');
-                }
-            });
-            $('.panel-content li').each(function (index) {
-                var panelHtml = $(this).attr('class');
-                if (panelHtml == "myinformation") {
-                    $(this).addClass('active');
-                }
-            });
 
-
-            if ($('.panel-content').length == 0) {
-                $('.tab-nav').css('border', '0px');
-            }
-            //$.scrollTo('.tab-nav',0);
-        });
-    </script>
     <div class="tab-nav">
         <div id="myaccount">
             <ul class="panel-content">
@@ -71,9 +50,9 @@
                     </h4>
 
                     <div class="content-left">
-                        <p><img src="~/Content/img/Footer-Bar/52.png" class="img" border='0' /></p>
+                        <p><img ng-src="@user.Image" class="img" border='0' /></p>
 
-                        <p><a href="https://www.quibids.com/en/account/myaccount/avatar.php">(Change)</a></p>
+                        <p><a href="MyAvatar">(Change)</a></p>
                     </div>
 
                     <div class="content-right">
@@ -108,4 +87,29 @@
 .qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
 </style>
 <![endif]-->
+@section Scripts{
+<script>
+    $(function () {
+        $('.tabs li').each(function (index) {
+            var tabClass = $(this).attr('class');
+            if (tabClass == "myaccount") {
+                $(this).addClass('ui-state-active');
+            }
+        });
+        $('.panel-content li').each(function (index) {
+            var panelHtml = $(this).attr('class');
+            if (panelHtml == "myinformation") {
+                $(this).addClass('active');
+            }
+        });
+
+
+        if ($('.panel-content').length == 0) {
+            $('.tab-nav').css('border', '0px');
+        }
+        //$.scrollTo('.tab-nav',0);
+    });
+
+</script>
 @RenderSection("Scripts", required: false)
+}

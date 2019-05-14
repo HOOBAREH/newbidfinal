@@ -113,5 +113,16 @@ namespace DataLayer.Repository
                 _dbContext.SaveChanges();
             }
         }
+        public User UpdateImage(int id,string name)
+        {
+            var user = GetUserById(id);
+            if (user != null)
+            {
+                user.Image = name;
+                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                _dbContext.SaveChanges();
+            }
+            return user;
+        }
     }
 }

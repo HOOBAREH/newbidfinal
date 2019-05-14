@@ -55,6 +55,7 @@
           <Property Name="LastLogin" Type="datetime" />
           <Property Name="CountryId" Type="int" />
           <Property Name="HideLocation" Type="bit" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
@@ -198,6 +199,7 @@
           <Property Name="LastLogin" Type="DateTime" Precision="3" />
           <Property Name="CountryId" Type="Int32" />
           <Property Name="HideLocation" Type="Boolean" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_User" FromRole="User" ToRole="Auction" />
           <NavigationProperty Name="Countries" Relationship="QuiBidsModel.FK_User_Countries" FromRole="User" ToRole="Countries" />
         </EntityType>
@@ -271,6 +273,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="QuiBidsModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="HideLocation" ColumnName="HideLocation" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />

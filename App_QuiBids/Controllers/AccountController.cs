@@ -6,6 +6,7 @@ using DataLayer.Utilites;
 using Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -132,6 +133,14 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
-
+        public ActionResult UpdateImage(string imageName)
+        {
+            var UserModel = (User)Session["Admin"];
+            var filename = Path.GetFileName(imageName + ".png");
+            var path = Path.Combine(Server.MapPath("~/Content/img/avatar/"), filename);
+            var user = _userRepo.UpdateImage(UserModel.Id, path);
+            Session["Admin"] = user;
+            return RedirectToAction("MyAvatar");
+        }
     }
 }
