@@ -71,7 +71,7 @@ namespace App_QuiBids.Controllers
                 else
                 {
                     ViewBag.Error = "نام کاربری یا رمز اشتباه است";
-                    return View();
+                    return View("Register",model);
                 }
             }
 
@@ -212,6 +212,10 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult UpdateProfile()
+        {
+            return View();
+        }
     }
 }

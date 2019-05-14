@@ -286,15 +286,6 @@ D:\Projects\newbidfinal-master\App_QuiBids\bin\roslyn\VBCSCompiler.exe.config
 D:\Projects\newbidfinal-master\App_QuiBids\bin\DataLayer.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\DataLayer.pdb
 D:\Projects\newbidfinal-master\App_QuiBids\bin\DataLayer.dll.config
-D:\Projects\newbidfinal-master\App_QuiBids\bin\EntityFramework.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\EntityFramework.SqlServer.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Razor.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Webpages.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Webpages.Deployment.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Webpages.Razor.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Helpers.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Mvc.xml
 D:\Projects\newbidfinal-master\App_QuiBids\obj\Debug\App_QuiBids.csprojAssemblyReference.cache
 D:\Projects\newbidfinal-master\App_QuiBids\obj\Debug\App_QuiBids.csproj.CoreCompileInputs.cache
 D:\Projects\newbidfinal-master\App_QuiBids\obj\Debug\App_QuiBids.csproj.CopyComplete

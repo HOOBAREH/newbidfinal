@@ -7,105 +7,99 @@
     <title>MyGames - NewBids.com</title>
 </head>
 
-<body class="market-US">
+<div class="gloss">
+    <div class="wrapper">
 
-    <div class="gloss">
-        <div class="wrapper">
+        <div id="container">
 
-            <div id="container">
+            <div class="content">
 
-                <script>
- $(document).ready(function(){
-	$('.tabs li').each(function(index) {
-		var tabClass = $(this).attr('class');
-		if(tabClass == "games") {
-			$(this).addClass('ui-state-active');
-		}
-	});
-	$('.panel-content li').each(function(index) {
-		var panelHtml = $(this).attr('class');
-		if(panelHtml == "") {
-			$(this).addClass('active');
-		}
-	});
+                <div id="main-content" class="twocol-left">
+                    <div id="games-top"><h4>Game Activity</h4></div>
+                    <div class="games" id="gamePlays">
+
+                        <div id="games-scroller">
+                            <center><br /><p class="bold">Sorry, you haven't played any games!</p><br /></center>
+                        </div>
+                        <div id="games-bottom">
 
 
- 	if($('.panel-content').length == 0) {
- 		$('.tab-nav').css('border', '0px');
- 	}
- 	//$.scrollTo('.tab-nav',0);
-  });
 
-                </script>
-                <div class="content">
 
-                    <div id="main-content" class="twocol-left">
-                        <div id="games-top"><h4>Game Activity</h4></div>
-                        <div class="games" id="gamePlays">
+                        </div>
+                    </div> <!--End grid-->
 
-                            <div id="games-scroller">
-                                <center><br /><p class="bold">Sorry, you haven't played any games!</p><br /></center>
+
+
+
+                </div>	<!--main-content-->
+
+                <div id="side-content" class="twocol-left">
+                    <div class="module">
+                        <h3><img class="icon-spacing" src="~/Content/Account_img/spotlight-icon.png" /> Featured Game</h3>
+                        <div class="content">
+                            <div id="announcement-new"><img src="~/Content/Account_img/new.png" /></div>
+                            <p><img class="~/Content/Account_img/wordscramble_medium.jpg" width="190" height="129" /></p>
+                            <div class="stars">
+                                <p>
+                                    <img src="~/Content/Account_img/blank-star.png" alt="star">
+                                    <img src="~/Content/Account_img/blank-star.png" alt="star">
+                                    <img src="~/Content/Account_img/blank-star.png" alt="star">
+                                    <img src="~/Content/Account_img/blank-star.png" alt="star">
+                                    <img src="~/Content/Account_img/blank-star.png" alt="star">
+                                </p>
                             </div>
-                            <div id="games-bottom">
+                            <h4><a href="/en/gameplay/play-word-scramble">Word Scramble</a></h4>
+                            <p>Like letters? Then you'll adulate Word Scramble!</p>
 
-                                <script>
-    var options = new Array();
-    options["anchor"] = "";
-    options["baseUrl"] = "/en";
-    $(document).ready(function(){
-       pagination.init("/en/account/games/ajax.php?", "gamePlays", options);
-    });
+                            <p class="center"><a href="/en/gameplay/play-word-scramble" class="buttons medium orange">Play Now!</a></p>
 
-                                </script>
+                        </div>
+                    </div><!--module-->
+                    <div class="module">
+                        <h3><img class="icon-spacing" src="~/Content/Account_img/gameplay-icon.png" /> Your Gameplays</h3>
+                        <div class="content">
+                            <ul class="gameplays">
+                                <li class="multiplier-one"><p>0 Available</p></li>
+                                <li class="multiplier-two"><p>0 Available</p></li>
+                                <li class="multiplier-five"><p>0 Available</p></li>
+                            </ul>
+                        </div>
+                    </div><!--module-->
+                </div><!--side-content-->
+
+            </div><!--content-->
+
+        </div><!--container-->
+    </div><!--wrapper-->
+</div><!--gloss-->
+@section Scripts{
+    <script>
+        var options = new Array();
+        options["anchor"] = "";
+        options["baseUrl"] = "/en";
+        $(document).ready(function () {
+            pagination.init("/en/account/games/ajax.php?", "gamePlays", options);
+        });
+        $(document).ready(function () {
+            $('.tabs li').each(function (index) {
+                var tabClass = $(this).attr('class');
+                if (tabClass == "games") {
+                    $(this).addClass('ui-state-active');
+                }
+            });
+            $('.panel-content li').each(function (index) {
+                var panelHtml = $(this).attr('class');
+                if (panelHtml == "") {
+                    $(this).addClass('active');
+                }
+            });
 
 
-                            </div>
-                        </div> <!--End grid-->
-
-
-
-
-                    </div>	<!--main-content-->
-
-                    <div id="side-content" class="twocol-left">
-                        <div class="module">
-                            <h3><img class="icon-spacing" src="~/Content/Account_img/spotlight-icon.png" /> Featured Game</h3>
-                            <div class="content">
-                                <div id="announcement-new"><img src="~/Content/Account_img/new.png" /></div>
-                                <p><img class="~/Content/Account_img/wordscramble_medium.jpg" width="190" height="129" /></p>
-                                <div class="stars">
-                                    <p>
-                                        <img src="~/Content/Account_img/blank-star.png" alt="star">
-                                        <img src="~/Content/Account_img/blank-star.png" alt="star">
-                                        <img src="~/Content/Account_img/blank-star.png" alt="star">
-                                        <img src="~/Content/Account_img/blank-star.png" alt="star">
-                                        <img src="~/Content/Account_img/blank-star.png" alt="star">
-                                    </p>
-                                </div>
-                                <h4><a href="/en/gameplay/play-word-scramble">Word Scramble</a></h4>
-                                <p>Like letters? Then you'll adulate Word Scramble!</p>
-
-                                <p class="center"><a href="/en/gameplay/play-word-scramble" class="buttons medium orange">Play Now!</a></p>
-
-                            </div>
-                        </div><!--module-->
-                        <div class="module">
-                            <h3><img class="icon-spacing" src="~/Content/Account_img/gameplay-icon.png" /> Your Gameplays</h3>
-                            <div class="content">
-                                <ul class="gameplays">
-                                    <li class="multiplier-one"><p>0 Available</p></li>
-                                    <li class="multiplier-two"><p>0 Available</p></li>
-                                    <li class="multiplier-five"><p>0 Available</p></li>
-                                </ul>
-                            </div>
-                        </div><!--module-->
-                    </div><!--side-content-->
-
-                </div><!--content-->
-
-            </div><!--container-->
-        </div><!--wrapper-->
-    </div><!--gloss-->
-
-</body>
-
+            if ($('.panel-content').length == 0) {
+                $('.tab-nav').css('border', '0px');
+            }
+            //$.scrollTo('.tab-nav',0);
+        });
+    </script>
+}

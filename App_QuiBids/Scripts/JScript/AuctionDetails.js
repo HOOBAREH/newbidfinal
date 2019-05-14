@@ -1,26 +1,73 @@
-﻿$("#btnBid").click(function () {
-    var currentUser = $("").parent().siblings(".Current_User");
-    var Startstatus = $(this).parent().siblings(".Startstatus");
-    var userID = $('.userId').attr('data-userId');
+﻿function BiddingHistory() {
+    $.ajax({
+        type: "POST",
+        url: "/home/LowerBids/",
+        data: {
+            Current_UserId: userID,
+            id: $(this).parent().siblings(".auctionId").val(),
+            Reserve_Price: res
+        },
+        success: function (result) {
+            currentUser.text(currentUser.attr('data-currentUser'));
+            $('#template_bidsavailable').text(result.currentbids);
 
-    if (Startstatus.attr('data-Start') == "True") {
+        },
+        error: function (result) {
+            alert('error');
+        }
+    });
+}
+window.onload = function () {
+
+    btn = document.getElementById('btnBid');
+
+    var everyChild = document.getElementsByClassName("time");
+    //var s = everyChild.getElementsByClassName(".time");
+    //for (var i = 0; i < everyChild.length; i++) {
+    const time = everyChild[0].innerText;
+    var a = time.split(':'); // split it at the colons
+    // minutes are worth 60 seconds. Hours are worth 60 minutes.
+    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+    //var fiveMinutes = 60 * 5,
+    var display = everyChild;
+    var Startstatus = $(".Startstatus");
+    var isClose = $(display).siblings('.isClose');
+    if (Startstatus.data('start') == 'True') {
+        $(display).parent().find(".time").removeClass('black').addClass('red');
+    }
+    if (isClose.attr('data-Close') == 'True') {
+        $(display).parent().find(".time").removeClass('black').addClass('red');
+    }
+    else {
+        startTimer(seconds, display);
+    }
+    //}
+}
+$(".btntest").click(function () {
+    //var currentUser = btn.parent().siblings(".Current_User");
+    //var Startstatus = $(this).parents('.spots');
+    //var currentUser = document.getElementsByClassName("Current_User");
+    var Startstatus = $(".Startstatus");
+    var userID = $('.userId').data('userid');
+    if (Startstatus.data('start')== 'True') {
         var currentBids = $('#template_bidsavailable').text();
         if (currentBids == 0) {
             alert("You do not have enough bids left in your account to bid.");
             return false;
         }
-        var revPrice = $(this).parent().siblings('.Reserve-Price');
+        var revPrice = $('.Reserve-Price');
         var currency = revPrice.html().replace('$', '').trim();
         var sumCurrency = parseInt(currency) + 1;
         revPrice.html('$' + sumCurrency);
         var res = sumCurrency;
-        $(this).parent().siblings(".statusClick").val("1");
+        $(".statusClick").val("1");
         $.ajax({
             type: "POST",
             url: "/home/LowerBids/",
             data: {
                 Current_UserId: userID,
-                id: $(this).parent().siblings(".auctionId").val(),
+                id: $(".auctionId").val(),
                 Reserve_Price: res
             },
             success: function (result) {
@@ -33,7 +80,7 @@
             }
         });
     }
-    });
+});
     function startTimer(duration, display) {
 
         var minutes, seconds, hours;
@@ -43,13 +90,14 @@
        var Startstatus = $(display).siblings(".Startstatus");
         var isClose = $(display).siblings(".isClose");
         var id = $(display).siblings(".auctionId").val();
-        if (Startstatus.attr('data-Start') == "True") {
-            $(display).parent().find("h2").removeClass('black').addClass('red');
+        if (Startstatus.attr('data-Start') == 'True') {
+            $(display).parent().find(".time").removeClass('black').addClass('red');
+            
 
         }
         var intervalId = setInterval(function () {
 
-            if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))
+            if ((Startstatus.attr('data-Start') == 'True') && (timer == 0 && status.val() == 0))
             ////time reset shode va kasi mojadaddarmozaede sherkat nakard.
             {
 
@@ -123,23 +171,3 @@
             }
         });
     }
-window.onload = function () {
-    var everyChild = document.getElementsByClassName("time");
-    //var s = everyChild.getElementsByClassName(".time");
-    //for (var i = 0; i < everyChild.length; i++) {
-    const time = everyChild[0].innerText;
-    var a = time.split(':'); // split it at the colons
-    // minutes are worth 60 seconds. Hours are worth 60 minutes.
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-
-    //var fiveMinutes = 60 * 5,
-    var display = everyChild;
-    var isClose = $(display).siblings(".isClose");
-    if (isClose.attr('data-Close') == "True") {
-        $(display).parent().find("h2").removeClass('black').addClass('red');
-    }
-    else {
-        startTimer(seconds, display);
-    }
-    //}
-}

@@ -9,76 +9,178 @@
 <html lang="fa">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - NewBids</title>
-    <title>NewBids</title>
 
-    <script>
-        pageID = 1; mm = 100; isNewUser = true;
-        try {
-            Homepage.featuredFilterText = 'Select Features';
-            Homepage.valuePriceFilterText = 'Select Price';
-            Homepage.category0FilterText = 'Select Categories';
-            Homepage.category1FilterText = 'Select Electronics';
-            Homepage.category2FilterText = 'Select Lifestyle';
-            Homepage.category3FilterText = 'Select Fashion';
-            Homepage.category4FilterText = 'Select Gift Cards';
-            Homepage.sortOptionText = 'Sort Option';
-            Homepage.addFilter = 'Add Filters';
-            Homepage.remFilter = 'Clear Filters';
-        } catch (e) { }
-        var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '20', 1],
-            ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    @*<title>@ViewBag.Title - NewBids</title>*@
 
 
-        /**
-         * BOOMTRAIN
-         */
-        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + ""; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
-
-
-    </script>
     @*-----------------------------------------------------------------*@
+    <link rel="stylesheet" href="~/Content/Css/jqueryui.css" />
     <link rel="stylesheet" href="~/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/Content/Style.css">
 
-    <link href="~/Content/Css/home.css" rel="stylesheet" />
-    <link href="~/Content/Css/jqueryui.css" rel="stylesheet" />
-    <link href="~/Content/Css/qbar.css" rel="stylesheet" />
-    <link href="~/Content/Css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Css/home.css" />
+    <link rel="stylesheet" href="~/Content/Css/qbar.css" />
+    <link rel="stylesheet" href="~/Content/Css/main.css" />
+    <style>
+        #browse-menu {
+            width: 190px;
+            height: 350px;
+            box-shadow: 2px 2px 3px #bbbbbb;
+        }
 
+            #browse-menu .browse-links .nav {
+                width: 190px;
+                background: white left bottom repeat-x;
+                background: url('../../Content/img/Layout/module-white.jpg') white left bottom repeat-x;
+                border: solid 1px #D1D1D1;
+                -webkit-border-radius: 0px 0px 8px 8px;
+                border-radius: 0px 0px 8px 8px;
+                -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                box-shadow: 0px 1px 6px 0px #CDCDCD;
+                padding: 10px 0;
+                position: relative;
+                z-index: 3002;
+                margin-left: 10px;
+            }
+
+                #browse-menu .browse-links .nav:after {
+                    content: ".";
+                    display: block;
+                    clear: both;
+                    visibility: hidden;
+                    height: 0;
+                    line-height: 0;
+                }
+
+                #browse-menu .browse-links .nav h2 {
+                    padding: 0 15px;
+                    margin: 0;
+                    color: #FF7400;
+                    font-family: Myriad, "Myriad Pro", Arial;
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: .02em;
+                }
+
+                #browse-menu .browse-links .nav .store-header {
+                    float: left;
+                    margin-top: 20px;
+                }
+
+            #browse-menu a {
+                cursor: pointer;
+            }
+
+            #browse-menu h2, #browse-menu h3 {
+                cursor: default;
+            }
+
+            /* popout menu*/
+            #browse-menu .browse-links .menu-data > * {
+                background: url('../../Content/img/Layout/module-white.jpg') white left bottom repeat-x;
+                position: absolute;
+                top: 5px;
+                left: 190px;
+                width: 340px;
+                background: white left bottom repeat-x;
+                border: 1px solid #dddddd;
+                padding: 15px 0 10px 25px;
+                border: solid 1px #D1D1D1;
+                -webkit-border-radius: 0px 8px 8px 0px;
+                border-radius: 0px 8px 8px 0px;
+                -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
+                box-shadow: 0px 1px 6px 0px #CDCDCD;
+                z-index: 3001;
+            }
+
+        .menu_sub_browse {
+            top: auto !important;
+            bottom: 5px;
+        }
+
+        #browse-menu .browse-links .menu-data h3 {
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        #browse-menu .browse-links .menu_sub_auctions {
+            height: 275px;
+        }
+
+        #browse-menu .browse-links .menu_sub_browse {
+            height: 290px;
+            margin-top: 148px
+        }
+
+        .megamenu-image {
+            position: absolute;
+            bottom: 0;
+            right: 45px;
+            top: 160px;
+        }
+
+
+        .megamenu-sub-2 {
+            padding-bottom: 170px;
+        }
+
+        #menu-auctions, #menu-store {
+            width: 190px;
+            padding: 10px 15px;
+        }
+
+            #menu-auctions li, #menu-store li {
+                background: url('../../Content/img/Layout/arrow.gif') no-repeat 90% 50%;
+                padding: 0 15px;
+                margin: 0;
+            }
+
+                #menu-auctions li:hover, #menu-store li:hover {
+                    background: url('../../Content/img/Layout/arrow.gif')no-repeat 90% 50%;
+                }
+
+        #browse-menu ul li a:hover, #browse-menu ul li a:hover {
+            color: #4f4f4f;
+            font-weight: bold;
+        }
+
+        #browse-menu .browse-links .nav #menu-auctions li a, #browse-menu .browse-links .nav #menu-store li a {
+            width: 170px;
+            margin-left: 15px;
+        }
+
+        #brand_browse {
+            font-family: Myriad, "Myriad Pro", Arial, Helvetica;
+            height: 30px;
+            font-size: 14px;
+        }
+
+        #category_browse {
+            font-family: Myriad, "Myriad Pro", Arial, Helvetica;
+            height: 30px;
+            font-size: 14px;
+        }
+
+        #menu-list-items {
+            overflow: hidden;
+            width: 155px;
+        }
+
+            #menu-list-items li {
+                line-height: 23px;
+                margin: 0;
+                padding: 0;
+            }
+    </style>
     <!--[if IE]>
     <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
     <![endif]-->
-
-    <script src="~/Scripts/JScript/all.js"></script>
-    <script src="~/Scripts/JScript/auctions.js"></script>
-    <script src="~/Scripts/JScript/ga.js"></script>
-    <script src="~/Scripts/JScript/homepage.js"></script>
-    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
-    <script src="~/Scripts/JScript/jquery.min.js"></script>
-    <script src="~/Scripts/JScript/jquery.orbit-1.2.3.min.js"></script>
-    <script src="~/Scripts/JScript/qbar.js"></script>
-    <script src="~/Scripts/JScript/site.js"></script>
-    <script src="~/Scripts/JScript/translation.js"></script>
-    <script src="~/Scripts/JScript/tv2track.js"></script>
     @*-----------------------------------------------------------------*@
-
+    @RenderSection("Styles", required: false)
 
 </head>
 
@@ -152,9 +254,7 @@
                          style="display:inline-block;width:780px;height:90px"
                          data-ad-client="ca-pub-4560135486422930"
                          data-ad-slot="8876535802"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                  
                 </div>
             </header>
             <!--header--><!--منوی تیتر صفحه-->
@@ -188,167 +288,7 @@
 
 
 
-                <script>
-                    $(document).ready(function () {
-                        var BrowseMenu = new Class_BrowseMenu();
-                        BrowseMenu.init();
-                    });
-                </script>
-
-                <style>
-                    #browse-menu {
-                        width: 190px;
-                        height: 350px;
-                        box-shadow: 2px 2px 3px #bbbbbb;
-                    }
-
-                        #browse-menu .browse-links .nav {
-                            width: 190px;
-                            background: white left bottom repeat-x;
-                            background: url('../../Content/img/Layout/module-white.jpg') white left bottom repeat-x;
-                            border: solid 1px #D1D1D1;
-                            -webkit-border-radius: 0px 0px 8px 8px;
-                            border-radius: 0px 0px 8px 8px;
-                            -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            padding: 10px 0;
-                            position: relative;
-                            z-index: 3002;
-                            margin-left: 10px;
-                        }
-
-                            #browse-menu .browse-links .nav:after {
-                                content: ".";
-                                display: block;
-                                clear: both;
-                                visibility: hidden;
-                                height: 0;
-                                line-height: 0;
-                            }
-
-                            #browse-menu .browse-links .nav h2 {
-                                padding: 0 15px;
-                                margin: 0;
-                                color: #FF7400;
-                                font-family: Myriad, "Myriad Pro", Arial;
-                                font-size: 20px;
-                                font-weight: bold;
-                                letter-spacing: .02em;
-                            }
-
-                            #browse-menu .browse-links .nav .store-header {
-                                float: left;
-                                margin-top: 20px;
-                            }
-
-                        #browse-menu a {
-                            cursor: pointer;
-                        }
-
-                        #browse-menu h2, #browse-menu h3 {
-                            cursor: default;
-                        }
-
-                        /* popout menu*/
-                        #browse-menu .browse-links .menu-data > * {
-                            background: url('../../Content/img/Layout/module-white.jpg') white left bottom repeat-x;
-                            position: absolute;
-                            top: 5px;
-                            left: 190px;
-                            width: 340px;
-                            background: white left bottom repeat-x;
-                            border: 1px solid #dddddd;
-                            padding: 15px 0 10px 25px;
-                            border: solid 1px #D1D1D1;
-                            -webkit-border-radius: 0px 8px 8px 0px;
-                            border-radius: 0px 8px 8px 0px;
-                            -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            box-shadow: 0px 1px 6px 0px #CDCDCD;
-                            z-index: 3001;
-                        }
-
-                    .menu_sub_browse {
-                        top: auto !important;
-                        bottom: 5px;
-                    }
-
-                    #browse-menu .browse-links .menu-data h3 {
-                        padding: 0;
-                        margin: 0;
-                        font-weight: bold;
-                    }
-
-                    #browse-menu .browse-links .menu_sub_auctions {
-                        height: 275px;
-                    }
-
-                    #browse-menu .browse-links .menu_sub_browse {
-                        height: 290px;
-                        margin-top: 148px
-                    }
-
-                    .megamenu-image {
-                        position: absolute;
-                        bottom: 0;
-                        right: 45px;
-                        top: 160px;
-                    }
-
-
-                    .megamenu-sub-2 {
-                        padding-bottom: 170px;
-                    }
-
-                    #menu-auctions, #menu-store {
-                        width: 190px;
-                        padding: 10px 15px;
-                    }
-
-                        #menu-auctions li, #menu-store li {
-                            background: url('../../Content/img/Layout/arrow.gif') no-repeat 90% 50%;
-                            padding: 0 15px;
-                            margin: 0;
-                        }
-
-                            #menu-auctions li:hover, #menu-store li:hover {
-                                background: url('../../Content/img/Layout/arrow.gif')no-repeat 90% 50%;
-                            }
-
-                    #browse-menu ul li a:hover, #browse-menu ul li a:hover {
-                        color: #4f4f4f;
-                        font-weight: bold;
-                    }
-
-                    #browse-menu .browse-links .nav #menu-auctions li a, #browse-menu .browse-links .nav #menu-store li a {
-                        width: 170px;
-                        margin-left: 15px;
-                    }
-
-                    #brand_browse {
-                        font-family: Myriad, "Myriad Pro", Arial, Helvetica;
-                        height: 30px;
-                        font-size: 14px;
-                    }
-
-                    #category_browse {
-                        font-family: Myriad, "Myriad Pro", Arial, Helvetica;
-                        height: 30px;
-                        font-size: 14px;
-                    }
-
-                    #menu-list-items {
-                        overflow: hidden;
-                        width: 155px;
-                    }
-
-                        #menu-list-items li {
-                            line-height: 23px;
-                            margin: 0;
-                            padding: 0;
-                        }
-                </style>
+               
                 <div id="browse-menu">
                     <div class="browse-links">
 
@@ -520,24 +460,7 @@
                            class="buttons medium green" />
                 </form>
 
-                <script>
-                    $("#search_category_title").live('click', function (e) {
-                        $('#search_category_options').show();
-                    });
-
-                    $("#search_category_options li").live('click', function (e) {
-                        $('#qbSearchForm').attr("action", $(this).attr('url'));
-                        $('#search_category_title').html($(this).html());
-
-                        $('#search_category_options').hide();
-                    });
-
-                    $("#search_category_options").hover(function () {
-                    }, function (e) {
-                        $('#search_category_options').fadeOut(100);
-                    });
-
-                </script>
+           
             </div>
             <!--search-auctions-->
 
@@ -551,18 +474,7 @@
 
 
             </div>
-            <script>
-                var options = {
-                    "brand_id": 0,
-                    "search_term": '',
-                    "category_filters": [],
-                    "category_filters": [],
-                    "uri": "\/Index",
-                    "page": 1
-                }
-
-                //Homepage.initialize(options);
-            </script>
+      
 
             @*<iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>*@
 
@@ -595,7 +507,7 @@
                             <li><a href="">چیست؟ QuiBids</a></li>
                             <li><a href="">فعالیت های حال حاضر</a></li>
                             <li><a href="">سفارشات</a></li>
-                            <li><a href="javascript:return false;" onclick="$('#siteMap').toggle()">نقشه ی سایت</a></li>
+                            <li><a href="javascript:return false;" onclick="mapFunction()">نقشه ی سایت</a></li>
                         </ul>
                     </div><!--content-->
 
@@ -616,11 +528,7 @@
 
 
                 </div><!--footer-right-->
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#siteMap').toggle();
-                    });
-                </script>
+              
                 <div id="siteMap">
 
                     <ul class="last-column">
@@ -660,36 +568,9 @@
 
 
 
-    <script type="text/javascript">
-        $(function () {
-            var anchor = $('#languageSelector').find('a');
-            anchor.click(function () {
-                var dialog = $('#languageSelectorPopup').dialog({
-                    modal: true,
-                    title: _t.display('select_your_language', 'Select Your Language'),
-                    width: 400,
-                    height: 200,
-                    resizable: false
-                });
-            });
-        });
-    </script>
+  
 
-    <script>
-        $(function () {
-            window.fbAsyncInit = function () {
-                FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
-            };
 
-            $('body').append('<div id="fb-root"></div>');
-
-            $.getScript(document.location.protocol + '');
-        })
-    </script>
-
-    <script>
-        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = ""; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
-    </script>
 
 
 
@@ -986,6 +867,119 @@
     @*----------------------------QBar-------------------------------------*@
     @*----------------------------QBar-------------------------------------*@
 
+
+    <script src="~/Scripts/JScript/jquery.min.js"></script>
+    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
+    <script src="~/Scripts/JScript/jquery.orbit-1.2.3.min.js"></script>
+    <script src="~/Scripts/JScript/all.js"></script>
+    <script src="~/Scripts/JScript/auctions.js"></script>
+    <script src="~/Scripts/JScript/ga.js"></script>
+    <script src="~/Scripts/JScript/homepage.js"></script>
+    <script src="~/Scripts/JScript/qbar.js"></script>
+    <script src="~/Scripts/JScript/site.js"></script>
+    <script src="~/Scripts/JScript/translation.js"></script>
+    <script src="~/Scripts/JScript/tv2track.js"></script>
+    <script>
+        pageID = 1; mm = 100; isNewUser = true;
+        try {
+            Homepage.featuredFilterText = 'Select Features';
+            Homepage.valuePriceFilterText = 'Select Price';
+            Homepage.category0FilterText = 'Select Categories';
+            Homepage.category1FilterText = 'Select Electronics';
+            Homepage.category2FilterText = 'Select Lifestyle';
+            Homepage.category3FilterText = 'Select Fashion';
+            Homepage.category4FilterText = 'Select Gift Cards';
+            Homepage.sortOptionText = 'Sort Option';
+            Homepage.addFilter = 'Add Filters';
+            Homepage.remFilter = 'Clear Filters';
+        } catch (e) { }
+        var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '20', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + ""; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+        ////////////////////////////////
+        $(document).ready(function () {
+            var BrowseMenu = new Class_BrowseMenu();
+            BrowseMenu.init();
+            ////
+            $('#siteMap').toggle();
+            ////////////
+            var anchor = $('#languageSelector').find('a');
+            anchor.click(function () {
+                var dialog = $('#languageSelectorPopup').dialog({
+                    modal: true,
+                    title: _t.display('select_your_language', 'Select Your Language'),
+                    width: 400,
+                    height: 200,
+                    resizable: false
+                });
+            });
+            window.fbAsyncInit = function () {
+                FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
+            };
+
+            $('body').append('<div id="fb-root"></div>');
+
+            $.getScript(document.location.protocol + '');
+        });
+        //////////////////////////////
+        $("#search_category_title").live('click', function (e) {
+            $('#search_category_options').show();
+        });
+
+        $("#search_category_options li").live('click', function (e) {
+            $('#qbSearchForm').attr("action", $(this).attr('url'));
+            $('#search_category_title').html($(this).html());
+
+            $('#search_category_options').hide();
+        });
+
+        $("#search_category_options").hover(function () {
+        }, function (e) {
+            $('#search_category_options').fadeOut(100);
+            });
+                //////////////////////////////
+
+        var options = {
+            "brand_id": 0,
+            "search_term": '',
+            "category_filters": [],
+            "category_filters": [],
+            "uri": "\/Index",
+            "page": 1
+        }
+
+                //Homepage.initialize(options);
+        /////////
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = ""; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        function mapFunction() {
+            $('#siteMap').toggle()
+        }
+    </script>
+
+    @RenderSection("Scripts",required:false)
 
 </body>
 </html>

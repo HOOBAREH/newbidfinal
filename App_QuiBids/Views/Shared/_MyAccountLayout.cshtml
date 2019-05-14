@@ -1,0 +1,225 @@
+﻿@using DataLayer;
+@{
+    User user = new User();
+    if (Session["Admin"] != null)
+    {
+        user = (User)Session["Admin"];
+    }
+
+    ViewBag.Title = "_AccountLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--[if IE]>
+<link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
+<![endif]-->
+<link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min1.js"></script>
+<script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
+@RenderSection("Styles", required: false)
+<div class="tab-nav">
+    <ul class="tabs">
+        <li class="dashboard"><a href="/account/index">My QuiBids</a></li>
+        <li class="myaccount"><a href="/account/MyAccount">My Account</a></li>
+        <li class="badges"><a href="/account/MyBadges">My Badges</a></li>
+        <li class="games"><a href="/account/MyGames">My Games</a></li>
+    </ul>
+</div><!--end tabs-->
+
+
+<div class="gloss">
+    <div class="wrapper">
+
+        <div id="container">
+
+            <script>
+                $(document).ready(function () {
+                    $('.tabs li').each(function (index) {
+                        var tabClass = $(this).attr('class');
+                        if (tabClass == "myaccount") {
+                            $(this).addClass('ui-state-active');
+                        }
+                    });
+                    $('.panel-content li').each(function (index) {
+                        var panelHtml = $(this).attr('class');
+                        if (panelHtml == "myinformation") {
+                            $(this).addClass('active');
+                        }
+                    });
+
+
+                    if ($('.panel-content').length == 0) {
+                        $('.tab-nav').css('border', '0px');
+                    }
+                    //$.scrollTo('.tab-nav',0);
+                });
+
+            </script>
+            <div class="tab-nav">
+                <div id="myaccount">
+                    <ul class="panel-content">
+                        <li class="myinformation"><a href="">My Information</a></li>
+                        <li class="changepassword"><a href="ChangePassword">Change Password</a></li>
+                        <li class="myavatar"><a href="">My Avatar</a></li>
+                        <li class="notifications"><a href="">Notifications</a></li>
+                        <li class="redeemcoupon"><a href="">Redeem Promo</a></li>
+                    </ul>
+                </div>
+            </div><!--end tabs-->
+
+            <div class="content">
+
+                <div id="main-content" class="twocol-left">
+
+                    @RenderBody()
+
+                    @*<div class="module">
+                        <h3 class="orange bold">My Profile</h3>
+                        <div class="content">
+                            <div class="module-left">
+                                <ul>
+                                    <li class="bold">نام :</li>
+                                    <li class="bold">نام کاربری :</li>
+                                    <li class="bold">ایمیل :</li>
+                                    <li class="bold">مخفی کردن موقعیت :</li>
+                                    <li class="bold"> کشور :</li>
+                                </ul>
+                            </div>
+
+                            <div class="module-right">
+                                <form method="POST" action="@Url.Action("UpdateProfile", "Account")">
+                                    <input type="hidden" name="action" value="updatePreferences" />
+                                    <input type="hidden" name="Id" value="@Model.Id" />
+
+                                    <ul>
+                                        <li>@Model.Fname @Model.Lname</li>
+                                        <li>@Model.Email</li>
+                                        <li>@Model.Email (<a href="email.php">Update</a>)</li>
+                                        <li>
+                                            <fieldset>
+                                                @if (!Model.HideLocation.Value)
+                                                {
+
+                                                    <input name="incognito" value="Yes" type="radio" class="checkbox">
+                                                    <span>Yes</span>
+                                                    <input name="incognito" value="No" type="radio" class="checkbox" checked>
+                                                    <span>No</span>
+
+                                                }
+                                                else
+                                                {
+                                                    <input name="incognito" value="Yes" type="radio" class="checkbox" checked>
+                                                    <span>Yes</span>
+                                                    <input name="incognito" value="No" type="radio" class="checkbox">
+                                                    <span>No</span>
+
+                                                }
+                                            </fieldset>
+
+                                            &nbsp; &nbsp; <a href="#" class="tooltip-top" title="What's Hide My Location?<br/>While we assure you that shopping on QuiBids isn't directly compromising to your online security, we<br/>understand your wish to remain as anonymous as possible when using the Internet.  This is why we've<br/>built the Hide My Location option into your user profile, so you can maintain a certain level of mystique<br/>to other users. Select Yes and your location will appear as the country from where you're bidding."><img src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/auctions/question-hover.png" /></a>
+                                        </li>
+                                        <li>
+                                            <fieldset>
+                                                @*<select name="account_timezone" id="accountTimezone">
+                                        <select class="form-control" id="departmentsDropdown" name="CountryId"></select>
+                                        @*</select>
+                                                </fieldset>
+
+                                            </li>
+                                        </ul>
+                                        <input class="orange small buttons" type="submit" value="Update">
+                                    </form>
+                                </div>
+                            </div>
+                        </div><!--module-->
+
+                                        <div class="module">
+                                            <h3 class="orange bold">Special Offers</h3>
+
+                                            <div class="content">
+                                                <p>
+                                                    Subscribe to QuiBids promotional email for special offers to receive free bids, rewards, news on site features, and more!					</br>
+                                                    <strong>Note</strong>: These preferences do not apply to transactional emails such as order confirmations account changes.
+                                                </p>
+                                                <form>
+                                                    <input type="hidden" name="action" value="update">
+                                                    <fieldset>
+                                                        <input type="radio" name="EmailNewsletter" class="checkbox" value="Yes" checked="checked">
+                                                        Yes. I want to get offers for Free Bids and other QuiBids promotions!							</br>
+                                                        <input type="radio" name="EmailNewsletter" class="checkbox" value="No">
+                                                        No Thanks. I do not want offers for free bids or QuiBids promotions.
+                                                    </fieldset>
+                                                    </br></br></br>
+                                                    <input style="float:right" class="orange buttons small" type="submit" value="Update">
+                                                </form>
+                                            </div>
+
+                                        </div><!--module--><!--module-->
+                                        <div class="module">
+                                            <h3 class="orange bold">My Addresses</h3>
+                                            <div class="content">
+                                                <div class="module-left no-borders ship">
+                                                    <p class="bold">Shipping:</p>
+                                                    <ul class="boxes">
+                                                        <li>No Shipping Addresses Saved</li>
+                                                    </ul>
+
+                                                </div>
+                                                <div class="module-right no-borders ship">
+                                                    <p class="bold">Billing:</p>
+                                                    <ul class="boxes">
+                                                        <li>No Billing Addresses Saved</li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div><!--module-->
+                                    </div> *@
+                    <!--main-content-->
+                    <div id="side-content" class="twocol-left">
+                        <div class="module">
+                            <div class="content">
+                                <h4 class="blue-background">
+                                    Hi, @*@Model.Fname*@
+                                </h4>
+
+                                <div class="content-left">
+                                    <p><img src="~/Content/img/Footer-Bar/52.png" class="img" border='0' /></p>
+
+                                    <p><a href="https://www.quibids.com/en/account/myaccount/avatar.php">(Change)</a></p>
+                                </div>
+
+                                <div class="content-right">
+                                    <p class="bold">Last Login</p>
+                                    <p>@*@Model.LastLogin.Value.ToString("MMM dd, yyyy")*@</p>
+
+                                    <hr>
+                                    <p class="bold">Remaining Bids</p>
+                                    <p><span>Real Bids <span class="right green">@*@Model.RealBid*@</span> </span></p>
+                                    <p><span>Voucher Bids</span> <span class="right green">@*@Model.VoucherBid*@</span></p>
+                                    <hr>
+                                    <p><span>Total Bids</span> <span class="right green">@*@(Model.RealBid + Model.VoucherBid)*@</span> </p>
+
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module">
+                            <h3><img class="refer-icon" src="https://dcfv5z6t7wfeu.cloudfront.net//site/images/account/contact-icon.png" /> Contact Support</h3>
+                            <div class="content">
+
+                                <p>Got a question? We’ve got answers. For simple solutions, check out our easy-to-access <a href="/en/help/index.php">Help</a> section. For stickier situations, connect to <a href="/en/help/support.php">Live Chat</a> or submit a support request below.</p>
+                                <p class="center"><a href="/en/help/support.php" class="buttons medium blue">Contact Support</a></p>
+                            </div>
+                        </div><!--module-->
+                    </div><!--side-content-->
+                </div><!--content-->
+            </div><!--container-->
+        </div><!--wrapper-->
+    </div><!--gloss-->
+    <!--[if IE]>
+    <style type="text/css">
+    .qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
+    </style>
+    <![endif]-->

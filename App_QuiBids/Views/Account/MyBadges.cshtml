@@ -7,39 +7,12 @@
 <title>Badges - QuiBids.com</title>
 
 
-
-<body class="market-US">
-
-
-
     <div class="gloss">
         <div class="wrapper">
 
             <div id="container">
 
-                <script>
-                    $(document).ready(function () {
-                        $('.tabs li').each(function (index) {
-                            var tabClass = $(this).attr('class');
-                            if (tabClass == "badges") {
-                                $(this).addClass('ui-state-active');
-                            }
-                        });
-                        $('.panel-content li').each(function (index) {
-                            var panelHtml = $(this).attr('class');
-                            if (panelHtml == "") {
-                                $(this).addClass('active');
-                            }
-                        });
 
-
-                        if ($('.panel-content').length == 0) {
-                            $('.tab-nav').css('border', '0px');
-                        }
-                        //$.scrollTo('.tab-nav',0);
-                    });
-
-                </script>
 
                 <div class="content">
 
@@ -76,15 +49,7 @@
                                 </div>
                                 <div id="games-bottom">
                                     <div id="displaying"><p>Displaying 1 - 1 of 1 entries</p></div>
-                                    <script>
-                                        var options = new Array();
-                                        options["anchor"] = "";
-                                        options["baseUrl"] = "/en";
-                                        $(document).ready(function () {
-                                            pagination.init("/en/account/badges/ajax.php?action=listAccountBadges&", "account_badges", options);
-                                        });
-
-                                    </script>
+                                
                                 </div>
                             </div>
                         </div> <!--End grid-->
@@ -209,26 +174,19 @@
                             <div id="games-bottom">
                                 <div id="displaying"><p>Displaying 1 - 6 of 40 entries</p></div>
                                 <div class="pagination badges_towin">
-                                <ul>
-                                    <li>
-                                    <a href="javascript:void(0);" page="0" class="inactive view-past"></a></li>
-                                    <li><a href="#tabtop" page="1" class="active selected">1</a></li>
-                                    <li><a href="javascript:void(0);" page="2" class="">2</a></li>
-                                    <li><a href="javascript:void(0);" page="3" class="">3</a></li>
-                                    <li><a href="javascript:void(0);" page="4" class="">4</a></li>
-                                    <li><a href="javascript:void(0);" page="5" class="">5</a></li>
-                                    <li><a href=javascript:void(0); page=2 class="active view-more"></a></li>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0);" page="0" class="inactive view-past"></a>
+                                        </li>
+                                        <li><a href="#tabtop" page="1" class="active selected">1</a></li>
+                                        <li><a href="javascript:void(0);" page="2" class="">2</a></li>
+                                        <li><a href="javascript:void(0);" page="3" class="">3</a></li>
+                                        <li><a href="javascript:void(0);" page="4" class="">4</a></li>
+                                        <li><a href="javascript:void(0);" page="5" class="">5</a></li>
+                                        <li><a href=javascript:void(0); page=2 class="active view-more"></a></li>
                                     </ul>
                                 </div>
-                                <script>
-                                    var options = new Array();
-                                    options["anchor"] = "";
-                                    options["baseUrl"] = "/en";
-                                    $(document).ready(function () {
-                                        pagination.init("ajax.php?action=listBadgesToWin&", "badges_towin", options);
-                                    });
-
-                                </script>
+                            
                             </div>
 
                         </div>
@@ -255,4 +213,42 @@
         </div><!--wrapper-->
     </div><!--gloss-->
 
-</body>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.tabs li').each(function (index) {
+                var tabClass = $(this).attr('class');
+                if (tabClass == "badges") {
+                    $(this).addClass('ui-state-active');
+                }
+            });
+            $('.panel-content li').each(function (index) {
+                var panelHtml = $(this).attr('class');
+                if (panelHtml == "") {
+                    $(this).addClass('active');
+                }
+            });
+
+
+            if ($('.panel-content').length == 0) {
+                $('.tab-nav').css('border', '0px');
+            }
+            //$.scrollTo('.tab-nav',0);
+        });
+
+        ////
+        var options = new Array();
+        options["anchor"] = "";
+        options["baseUrl"] = "/en";
+        $(document).ready(function () {
+            pagination.init("/en/account/badges/ajax.php?action=listAccountBadges&", "account_badges", options);
+        });
+        ////
+        var options = new Array();
+        options["anchor"] = "";
+        options["baseUrl"] = "/en";
+        $(document).ready(function () {
+            pagination.init("ajax.php?action=listBadgesToWin&", "badges_towin", options);
+        });
+    </script>
+}

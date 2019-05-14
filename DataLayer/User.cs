@@ -49,6 +49,8 @@ public partial class User
 
     public Nullable<int> CountryId { get; set; }
 
+    public Nullable<bool> HideLocation { get; set; }
+
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

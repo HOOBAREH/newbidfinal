@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,7 @@ namespace DataLayer.IRepository
         bool Register(User user);
         bool UsernameExists(string userName);
         User LowerBids(int userId);
+        void UpdateProfile(UserModel model);
+        bool ChangePass(string pass, int id);
     }
 }

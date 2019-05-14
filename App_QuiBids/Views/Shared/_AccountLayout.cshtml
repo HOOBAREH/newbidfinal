@@ -13,11 +13,11 @@
 <!--[if IE]>
 <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
 <![endif]-->
-<link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
-<script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
-<script type="text/javascript" src="~/Scripts/JScript/jquery-ui.min1.js"></script>
-<script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
 
+@section Styles{
+    <link rel="stylesheet" href="~/Content/Css/myquibids.css" type="text/css" />
+    @RenderSection("Styles", required: false)
+}
 <div class="tab-nav">
     <ul class="tabs">
         <li class="dashboard"><a href="/account/index">My QuiBids</a></li>
@@ -33,3 +33,8 @@
 .qbarmygames li span {padding-top: 4px!important; height: 18px!important;}
 </style>
 <![endif]-->
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/pagination.js"></script>
+    @RenderSection("Scripts", required: false)
+}

@@ -1,4 +1,5 @@
 ﻿using DataLayer.IRepository;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,32 @@ namespace DataLayer.Repository
             user.RealBid++;
             _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
             _dbContext.SaveChanges();
+        }
+        public void UpdateProfile(UserModel model)
+        {
+            var user = GetUserById(model.Id);
+            if (user != null)
+            {
+                //user.Email = model.Email;
+                user.HideLocation = (model.incognito == "Yes" ? true : false);
+                if (model.CountryDropdown != 0)
+                {
+                    user.CountryId = model.CountryDropdown;
+                }
+                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                _dbContext.SaveChanges();
+            }
+        }
+        public bool ChangePass(string pass,int id)
+        {
+            var user = GetUserById(id);
+            if (user != null)
+            {
+                user.Password = pass;
+                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                return _dbContext.SaveChanges() == 1 ? true : false;
+            }
+            return false;
         }
     }
 }
