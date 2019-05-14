@@ -25,28 +25,28 @@
         <div id="slider_container">
             <div id="featured_carousel">
 
-                    <div class="content lockedAuctions lockedAuctions_en">
-                        <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
+                <div class="content lockedAuctions lockedAuctions_en">
+                    <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
+                </div>
+                <div class="content promoFreeShippingForever"></div>
+                <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
+                <div class="content howItWorks">
+                    <div class="title bold"><span class="orange">کویی بیدز چطور کار میکند؟</span></div>
+                    <div class="box box-1">
+                        <div class="icon"><img src="" alt="pencil" width="63" height="62" /></div>
+                        <div class="title"> عضو شوید و پیشنهاد خریداری کنید</div>
+                        <div class="body">پیشناهدات فقط <span class="bold"><span class="green">$0.40</span></span> برای هر شخص هستند.  موجودی دریافت کنید و شروع به پیدا کردن محصولات جدید کنید.	</div>
                     </div>
-                    <div class="content promoFreeShippingForever"></div>
-                    <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
-                    <div class="content howItWorks">
-                        <div class="title bold"><span class="orange">کویی بیدز چطور کار میکند؟</span></div>
-                        <div class="box box-1">
-                            <div class="icon"><img src="" alt="pencil" width="63" height="62" /></div>
-                            <div class="title"> عضو شوید و پیشنهاد خریداری کنید</div>
-                            <div class="body">پیشناهدات فقط <span class="bold"><span class="green">$0.40</span></span> برای هر شخص هستند.  موجودی دریافت کنید و شروع به پیدا کردن محصولات جدید کنید.	</div>
+                    <div class="box box-2">
+                        <div class="icon"><img src="" alt="cart" width="63" height="54" /></div>
+                        <div class="title">محصولات را انتخاب کنید .</div>
+                        <div class="body">
+                            هرچیزی که میخواهید انتخاب کنید <span class="bold"><span class="green">HDTV, یک لپ تاپ جدید , و پیشنهادات دیگر.</span></span>
                         </div>
-                        <div class="box box-2">
-                            <div class="icon"><img src="" alt="cart" width="63" height="54" /></div>
-                            <div class="title">محصولات را انتخاب کنید .</div>
-                            <div class="body">
-                                هرچیزی که میخواهید انتخاب کنید <span class="bold"><span class="green">HDTV, یک لپ تاپ جدید , و پیشنهادات دیگر.</span></span>
-                            </div>
-                        </div>
-                        <div class="box box-3">
-                            <div class="icon"><img src="" alt="gift" width="64" height="64" /></div>
-                            <div class="title">	پیشنهاد و برنده شدن		</div>
+                    </div>
+                    <div class="box box-3">
+                        <div class="icon"><img src="" alt="gift" width="64" height="64" /></div>
+                        <div class="title">	پیشنهاد و برنده شدن		</div>
 
                         <div class="body">	,به کلیک کردن کردن ادامه دهید - اگر شما اخرین نفری باشید که وقتی تایمر صفر میشود پیشنهاد داده <span class="bold green">شما برنده اید </span>	</div>
                     </div>
@@ -114,16 +114,19 @@
                         <span class="orange">!به نیو بیدز بپیوندید</span>
                     </h3>
 
-                    
-                    <div class="form">
+
+                    <div class="form" id="regform" >
                         @if (ViewBag.Error != null)
                         {
-                            <div class="error">
+                            <div class="alert">
                                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                                 <strong>!</strong> @ViewBag.Error
                             </div>
-                        }
+                            <br />
+                            <br />
+                            <br />
 
+                        }
                         <div>
 
 
@@ -138,9 +141,9 @@
                                 @using (Html.BeginForm("Register", "Home", FormMethod.Post,
 new { enctype = "multipart/form-data" }))
                                 {
-                                    <h1>همین حالا در نیو بیدزعضو شوید</h1>
 
                                     <div id="signup">
+                                    <h1>همین حالا در نیو بیدزعضو شوید</h1>
                                         @*<form action="/" method="post">*@
                                         <div class="top-row">
                                             <div class="field-wrap">
@@ -149,44 +152,45 @@ new { enctype = "multipart/form-data" }))
                                             </div>
                                             <div class="field-wrap">
                                                 <!--  فیلد نام خانوادگی -->
-                                                <input type="text" name="Lname" placeholder="نام خانوادگی">
+                                                <input type="text" name="Lname" placeholder="نام خانوادگی" required>
                                             </div>
                                         </div>
                                         <!-- فیلد ایمیل -->
                                         <div class="field-wrap">
 
-                                            <input type="text" name="Email" placeholder="ایمیل شما">
+                                            <input type="email" name="Email" id="account_email" placeholder="ایمیل شما" required >
                                         </div>
                                         <div class="top-row">
 
                                             <!--  فیلد رمز عبور -->
                                             <div class="field-wrap">
                                                 <!-- فیلد رمزعبور -->
-                                                <input type="text" name="PassWord" placeholder="رمز عبور">
+                                                <input type="text" name="PassWord" id="account_password" placeholder="رمز عبور" onkeyup="runPassword(this.value, 'mypassword');" required>
 
                                             </div>
+                                           
                                             <div class="field-wrap">
-                                                <!--  فیلد تکرار رمز عبور -->
-                                                <input type="text" name="Password" placeholder="تکرار رمز عبور">
+                                                <strong><span style="font-size: 10px;color:#ffffff;">Strength:</span></strong>
+                                                <div id="mypassword_text" style="font-size: 10px;color:aliceblue"></div>
+                                                <div id="mypassword_bar" style="font-size: 1px; height: 5px; width: 0px; border: 1px solid #ffffff;"> </div>
+                                            </div>
+                                            </div>
+                                            <!-- فیلد تلفن-->
+                                            <div class="field-wrap">
+
+                                                <input type="text" name="Mobile" placeholder="تلفن" required>
 
                                             </div>
+                                            <!-- فیلد ادرس-->
+                                            <div class="field-wrap">
+
+                                                <textarea type="text" name="Address" placeholder="ادرس" ></textarea>
+                                            </div>
+
+                                            <!--  کلید ثبت نام -->
+                                            <button type="submit" class="button button-block btnreg" >ثبت نام</button>
+                                            @*</form>*@
                                         </div>
-                                        <!-- فیلد تلفن-->
-                                        <div class="field-wrap">
-
-                                            <input type="text" name="Mobile" placeholder="تلفن" required>
-
-                                        </div>
-                                        <!-- فیلد ادرس-->
-                                        <div class="field-wrap">
-
-                                            <textarea type="text" name="Address" placeholder="ادرس" required></textarea>
-                                        </div>
-
-                                        <!--  کلید ثبت نام -->
-                                        <button type="submit" class="button button-block">ثبت نام</button>
-                                        @*</form>*@
-                                    </div>
                                 }
                                 @using (Html.BeginForm("Login", "Home", FormMethod.Post,
 new { enctype = "multipart/form-data" }))
@@ -221,8 +225,15 @@ new { enctype = "multipart/form-data" }))
     </div>
 </div>
 @section Scripts{
-
+    <script src="~/Scripts/JScript/register.js"></script>
     <script>
+       
+
+        $('#agree').click(function () {
+            if ($('#agree').not(':checked')) {
+                outline_reset(null, "agree");
+            }
+        });
         $("#btn-reg").click(function () {
             $('#signIn').hide();
             $('#signup').show();

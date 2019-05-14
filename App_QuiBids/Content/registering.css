@@ -90,7 +90,7 @@ h1 {
     padding: 10px 10px 10px 10px;
     margin: 0;
     float: left;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     line-height: normal
 }
@@ -181,7 +181,7 @@ textarea {
     outline: none;
     border-radius: 10px;
     padding: 15px 0;
-    font-size: 27px;
+    font-size: 26px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
