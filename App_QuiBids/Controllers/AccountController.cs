@@ -136,9 +136,8 @@ namespace App_QuiBids.Controllers
         public ActionResult UpdateImage(string imageName)
         {
             var UserModel = (User)Session["Admin"];
-            var filename = Path.GetFileName(imageName + ".png");
-            var path = Path.Combine(Server.MapPath("~/Content/img/avatar/"), filename);
-            var user = _userRepo.UpdateImage(UserModel.Id, path);
+            
+            var user = _userRepo.UpdateImage(UserModel.Id, imageName+".png");
             Session["Admin"] = user;
             return RedirectToAction("MyAvatar");
         }

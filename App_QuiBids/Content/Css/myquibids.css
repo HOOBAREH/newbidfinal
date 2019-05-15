@@ -18,7 +18,7 @@ ul li{list-style:none}
     .module-left ul li, .module-right ul li {
         border-bottom: 1px solid #e5e5e5;
         margin-bottom: 3px;
-        height: 22px;
+        height: 30px;
         padding: 3px;position: relative;
         float: left;
         display: block;

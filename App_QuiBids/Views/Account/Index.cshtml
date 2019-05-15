@@ -6,6 +6,8 @@
 
 <head>
     <title>Dashboard - NewBids.com</title>
+    <link rel="stylesheet" href="~/Content/Css/jqueryui.css" />
+
 </head>
 <div class="gloss">
     <div class="wrapper">
@@ -91,7 +93,9 @@
                             </h4>
 
                             <div class="content-left">
-                                <p><img src="@Model.Image" class="img" border='0' /></p>
+                                <p>
+                                <img style="width:65px;height:65px" src="~/Content/img/avatar/@Model.Image" />
+                                </p>
 
                                 <p><a href="MyAvatar">(Change)</a></p>
                             </div>
