@@ -186,7 +186,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                             <div id="auction-left" class="138034043" bid='Bid Now'>
                                 <div class="content spots">
                                     <p class='large-price'>
-                                        <span class='price'>$@Model.Reserve_Price</span>
+                                        <span class='price green Reserve-Price' id="Reserve_Price"  data-reservePrice="@Model.Reserve_Price">$@Model.Reserve_Price</span>
                                         <span class='medium light-grey'>USD</span>
                                     </p>
 
@@ -198,7 +198,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                     <input type="hidden" class="statusClick" name="status" value="0" />
                                     <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@Model.StartStatus" />
                                     <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
-                                    <h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@Model.Reserve_Price"> $@Model.Reserve_Price</h3>
+                                    @*<h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@Model.Reserve_Price"> $@Model.Reserve_Price</h3>*@
                                     @* ///////////////////////////////Hidden////////////////////////////////// *@
 
                                     <h2 class="margin-five username-height">

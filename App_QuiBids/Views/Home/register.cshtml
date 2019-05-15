@@ -114,8 +114,8 @@
                         <span class="orange">!به نیو بیدز بپیوندید</span>
                     </h3>
 
-
-                    <div class="form" id="regform" >
+                    <div class="form" id="regform" style="
+    background:url(/Content/img/form-bg.png) repeat;">
                         @if (ViewBag.Error != null)
                         {
                             <div class="alert">
@@ -133,8 +133,13 @@
                             <ul class="tab-group">
                                 <!-- عنوان صفحه -->
                                 @*<button type="submit" class="button button-block">ورود</button>*@
-                                <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-reg">ثبت نام </button></li>
-                                <li id="register" class="tab active"><button type="button" class="button button-block" id="btn-login">  ورود</button></li>
+                                <li id="register" class="tab active">
+                                    <button type="button" class="button button-block" id="btn-reg">ثبت نام </button>
+                                </li>
+                                <br />
+                                <li id="register" class="tab active">
+                                    <button type="button" class="button button-block" id="btn-login">  ورود</button>
+                                </li>
                             </ul>
 
                             <div class="tab-group">
@@ -143,7 +148,7 @@ new { enctype = "multipart/form-data" }))
                                 {
 
                                     <div id="signup">
-                                    <h1>همین حالا در نیو بیدزعضو شوید</h1>
+                                        @*<h1>همین حالا در نیو بیدزعضو شوید</h1>*@
                                         @*<form action="/" method="post">*@
                                         <div class="top-row">
                                             <div class="field-wrap">
@@ -158,7 +163,7 @@ new { enctype = "multipart/form-data" }))
                                         <!-- فیلد ایمیل -->
                                         <div class="field-wrap">
 
-                                            <input type="email" name="Email" id="account_email" placeholder="ایمیل شما" required >
+                                            <input type="email" name="Email" id="account_email" placeholder="ایمیل شما" required>
                                         </div>
                                         <div class="top-row">
 
@@ -167,30 +172,30 @@ new { enctype = "multipart/form-data" }))
                                                 <!-- فیلد رمزعبور -->
                                                 <input type="text" name="PassWord" id="account_password" placeholder="رمز عبور" onkeyup="runPassword(this.value, 'mypassword');" required>
                                             </div>
-                                           
+
                                             <div class="field-wrap">
                                                 <strong><span style="font-size: 10px;color:#ffffff;">Strength:</span></strong>
                                                 <div id="mypassword_text" style="font-size: 10px;color:aliceblue"></div>
                                                 <div id="mypassword_bar" style="font-size: 1px; height: 5px; width: 0px; border: 1px solid #ffffff;"> </div>
                                             </div>
-                                            
+
                                         </div>
-                                            <!-- فیلد تلفن-->
-                                            <div class="field-wrap">
+                                        <!-- فیلد تلفن-->
+                                        <div class="field-wrap">
 
-                                                <input type="text" name="Mobile" placeholder="تلفن" required>
+                                            <input type="text" name="Mobile" placeholder="تلفن" required>
 
-                                            </div>
-                                            <!-- فیلد ادرس-->
-                                            <div class="field-wrap">
-
-                                                <textarea type="text" name="Address" placeholder="ادرس" ></textarea>
-                                            </div>
-
-                                            <!--  کلید ثبت نام -->
-                                            <button type="submit" class="button button-block btnreg" >ثبت نام</button>
-                                            @*</form>*@
                                         </div>
+                                        <!-- فیلد ادرس-->
+                                        <div class="field-wrap">
+
+                                            <textarea type="text" name="Address" placeholder="ادرس"></textarea>
+                                        </div>
+
+                                        <!--  کلید ثبت نام -->
+                                        <button type="submit" class="button button-block btnreg">ثبت نام</button>
+                                        @*</form>*@
+                                    </div>
                                 }
                                 @using (Html.BeginForm("Login", "Home", FormMethod.Post,
 new { enctype = "multipart/form-data" }))
@@ -227,7 +232,7 @@ new { enctype = "multipart/form-data" }))
 @section Scripts{
     <script src="~/Scripts/JScript/register.js"></script>
     <script>
-       
+
 
         $('#agree').click(function () {
             if ($('#agree').not(':checked')) {
@@ -237,10 +242,15 @@ new { enctype = "multipart/form-data" }))
         $("#btn-reg").click(function () {
             $('#signIn').hide();
             $('#signup').show();
+            $("#btn-login").show();
+            $("#btn-reg").hide();
         });
         $("#btn-login").click(function () {
             $('#signIn').show();
             $('#signup').hide();
+            $("#btn-login").hide();
+            $("#btn-reg").show();
+
         });
         if (jQuery.browser.mobile) {
             $('#slider_container').hide();

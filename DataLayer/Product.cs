@@ -37,7 +37,7 @@ public partial class Product
 
     public int Price { get; set; }
 
-    public Nullable<bool> Img { get; set; }
+    public string Img { get; set; }
 
 
 

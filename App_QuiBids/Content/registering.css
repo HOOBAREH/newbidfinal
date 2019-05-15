@@ -9,7 +9,7 @@ html {
 
 body {
     /*background: rgba(196, 212, 207, 0.23);*/
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'B Yekan';
 }
 
 /*a {
@@ -24,6 +24,7 @@ body {
     }*/
 
 .form {
+    font-family: 'B Yekan';
     background-image: url('img/29080.jpg');
     /*background-image: url('img/Layout/Rich-Blue-Abstract-Background.jpg');*/
     /*background: url('img/Layout/Registering_BackG.png') repeat-x scroll center top transparent;*/
@@ -38,6 +39,7 @@ body {
 }
 /*تگ های مربوط به ظاهر منویهای ثبت نام و ورود */
 .tab-group {
+    font-family: 'B Yekan';
     float: none;
     list-style: none;
     padding: 0;
@@ -51,11 +53,12 @@ body {
     }
 
     .tab-group li a {
+        font-family: 'B Yekan';
         display: block;
         text-decoration: none;
         padding: 15px;
         /*background:rgba(129, 255, 0, 0.90);*/
-        color:#ffffff;
+        color: #ffffff;
         font-size: 20px;
         float: left;
         width: 50%;
@@ -97,6 +100,7 @@ h1 {
 
 /*تگ های مربوط به فیلدهای ثبت نام */
 label {
+    font-family: 'B Yekan';
     position: absolute;
     -webkit-transform: translateY(6px);
     -ms-transform: translateY(6px);
@@ -132,6 +136,7 @@ label {
     }
 
 input, textarea {
+    font-family: 'B Yekan';
     font-size: 16px;
     display: block;
     width: 100%;
@@ -143,6 +148,7 @@ input, textarea {
     border-radius: 10px;
     -webkit-transition: border-color .25s ease, box-shadow .25s ease;
     transition: border-color .25s ease, box-shadow .25s ease;
+    height:35px
 }
 
     input:focus, textarea:focus {
@@ -151,6 +157,7 @@ input, textarea {
     }
 
 textarea {
+
     border: 2px solid rgba(255, 255, 255, 0.5);
     resize: vertical;
 }
@@ -176,7 +183,7 @@ textarea {
         margin: 0;
     }
 /*تگ مربوط به ظاهر کلید ثبت نام */
-.button {
+/*.button {
     border: 0;
     outline: none;
     border-radius: 10px;
@@ -190,13 +197,29 @@ textarea {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-appearance: none;
+}*/
+
+.button {
+    font-family: 'B Yekan';
+    font-size: 26px;
+    color: #fff !important;
+    text-transform: uppercase;
+    background: #60a3bc;
+    padding: 9px 9px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
 }
 
-    .button:hover, .button:focus {
-        background: rgba(249, 244, 2, 0.80);
+    .button:hover {
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
     }
+   
 
 .button-block {
-    display: block;
-    width: 100%;
+    /*display: block;
+    width: 100%;*/
 }

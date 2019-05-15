@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d4f7c3bf52224d63927fdd58925bec5a" Name="Diagram1">
-        <EntityTypeShape EntityType="QuiBidsModel.Product" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="QuiBidsModel.Auction" Width="1.5" PointX="3" PointY="2.875" />
-        <AssociationConnector Association="QuiBidsModel.FK_Auction_Product" />
         <EntityTypeShape EntityType="QuiBidsModel.Countries" Width="1.5" PointX="5.375" PointY="5.75" />
         <EntityTypeShape EntityType="QuiBidsModel.User" Width="1.5" PointX="7.625" PointY="4.75" />
         <AssociationConnector Association="QuiBidsModel.FK_Auction_User" />
         <AssociationConnector Association="QuiBidsModel.FK_User_Countries" />
+        <EntityTypeShape EntityType="QuiBidsModel.Product" Width="1.5" PointX="5.375" PointY="1" />
+        <AssociationConnector Association="QuiBidsModel.FK_Auction_Product" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

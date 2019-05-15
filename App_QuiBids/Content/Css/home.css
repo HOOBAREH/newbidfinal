@@ -449,11 +449,11 @@ div#featured_carousel {
 #featured_carousel div.howItWorks .title{font-size:30px;margin-top:30px;padding-bottom:25px}
  #featured_carousel div.howItWorks .box{width:210px;margin-right:10px;float:left;text-align:center}
  #featured_carousel div.howItWorks .box .icon{height:40px}
- #featured_carousel div.howItWorks .box .title{font-size:18px;font-weight:bold;padding:5px 0}
- #featured_carousel div.howItWorks .box .body{font-size:14px;line-height:1.25em;color:#333}
+ #featured_carousel div.howItWorks .box .title{font-size:13px;font-weight:bold;padding:5px 0}
+ #featured_carousel div.howItWorks .box .body{font-size:12px;line-height:1.25em;color:#333}
     #featured_carousel div.howItWorks .box-4 .title {
         height: 95px;
-        font-size: 29px;
+        font-size: 21px;
         line-height: 1em;
         font-weight: bold;
         margin: 0;

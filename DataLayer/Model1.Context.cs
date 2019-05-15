@@ -32,13 +32,13 @@ public partial class QuiBidsEntities : DbContext
     }
 
 
-    public virtual DbSet<Product> Product { get; set; }
-
     public virtual DbSet<Auction> Auction { get; set; }
 
     public virtual DbSet<Countries> Countries { get; set; }
 
     public virtual DbSet<User> User { get; set; }
+
+    public virtual DbSet<Product> Product { get; set; }
 
 }
 
