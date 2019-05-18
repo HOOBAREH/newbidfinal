@@ -70,7 +70,7 @@ div#login-wrapper.hover div#signin-left-wrapper>div,div#login-wrapper.hover div#
 .search-auctions-large {
     float: left;
     margin: 0;
-    width: 984px;
+    width: 100%;
     position: relative;
     height: 55px;
     *height: 53px;
@@ -80,7 +80,7 @@ div#login-wrapper.hover div#signin-left-wrapper>div,div#login-wrapper.hover div#
     border-bottom: 1px solid #1b88d5
 }
     .search-auctions-large form {
-        width: 956px;
+        width: 91.4%;
         height: 35px;
         margin-top: 9px;
         margin-left: 15px;
@@ -113,6 +113,8 @@ div#search-options {
     div#search-options ul.options li:hover{text-decoration:underline;color:#f68b00}
 .search-auctions-large input.txt {
     width: 940px;
+    width: 785px;
+    direction: rtl;
     height: 33px;
     border: 0 none;
     border-top: 1px solid #e1e1e1;
@@ -168,7 +170,61 @@ div#search-options {
     -moz-box-shadow: 0 3px 6px 0 #b8b8b8;
     box-shadow: 0 3px 6px 0 #b8b8b8
 }
-#auction-menu .browse-links{padding:0;margin:0;position:relative}#auction-menu .browse-top{width:34px;height:18px;position:absolute;top:-16px;right:35px;z-index:200}#auction-menu .content{width:100%;padding:0;margin:10px 0;float:left}#auction-menu .browse-links .left,#auction-menu .browse-links .center,#auction-menu .browse-links .right{width:195px;padding:0;margin:0 20px;float:left;text-align:left}#auction-menu .browse-links ul li h2.black a{color:#000!important}#auction-menu .content h2{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;line-height:normal}#auction-menu .content h2 a{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;color:#333;line-height:normal}#auction-menu ul{padding:0;margin:0}#auction-menu ul li{width:100%;padding:0;margin:3px 0;display:block;float:left}#auction-menu ul li a{width:100%;padding:0;margin:0;display:block;float:left;font-size:12px;color:#007fdd}#auction-menu ul li a:hover{color:#007fdd;background:0;text-decoration:underline}#auction-menu ul li a.more{font-weight:bold}#browse-menu{width:220px;height:333px;position:absolute;display:none;z-index:200;top:50px}#browse-menu .browse-links .nav{position:relative;width:200px;z-index:190}#browse-menu .menu-data{z-index:180}#browse-menu .menu_browse_subs{position:absolute;left:219px;top:10px!important;padding-left:10px;background-color:white;border-radius:5px;-webkit-border-radius:5px;-webkit-box-shadow:0 1px 6px 0 #cdcdcd;-moz-box-shadow:0 1px 6px 0 #cdcdcd;box-shadow:0 1px 6px 0 #cdcdcd;z-index:180;width:420px;height:400px}#browse-menu .browse-top{width:34px;height:18px;position:absolute;top:-16px;right:35px;z-index:200}#browse-menu .content{width:100%;padding:0;margin:10px 0;float:left}#browse-menu .browse-links .left,#browse-menu .browse-links .center,#browse-menu .browse-links .right{width:195px;padding:0;margin:0 20px;float:left;text-align:left}#browse-menu .browse-links ul li h2.black a{color:#000!important}#browse-menu li.no-children{background-image:none!important}#browse-menu .content h2{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;line-height:normal}#browse-menu .content h2 a{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;color:#333;line-height:normal}#browse-menu ul{padding:0;margin:0}#browse-menu ul li{width:100%;padding:0;margin:0;display:block;float:left}#browse-menu ul li a{width:100%;padding:0;margin:0;display:block;float:left;font-size:12px;color:#007fdd}#browse-menu ul li a:hover{color:#007fdd;background:0;text-decoration:underline}#browse-menu ul li a.more{font-weight:bold}#browse-menu ul li span.menu-link-selected a{color:#4f4f4f}#nav{position:relative;float:left;z-index:100}[lang='de'] #breadcrumbs ul li{font-size:15px;font-weight:bold;margin-top:3px}[lang="fr"] #breadcrumbs ul li{font-size:15px;font-weight:bold;margin-top:3px}#breadcrumbs ul li{font-size:20px;list-style:none;display:block;float:left;padding-right:5px;font-weight:300;color:#666}#breadcrumbs ul li.search{width:410px;margin-bottom:10px}#breadcrumbs ul li.search a{text-decoration:none;color:#007fdd;padding-right:20px;background:url(/site/images/layout/reset-icon.png) center right no-repeat;margin-right:10px}#breadcrumbs ul li.search a:hover{text-decoration:underline;padding-right:20px;background:url(/site/images/layout/reset-icon-blue.png) center right no-repeat}.auction-type{margin-top:20px}#container.category.home{border-radius:0;-webkit-border-radius:0}#breadcrumbs ul li.auctions a{color:#999}#breadcrumbs ul li.electronics a{color:#52a50a}#breadcrumbs ul li.jewelry-and-fashion a{color:#90378c}#breadcrumbs ul li.sports-and-recreation a{color:#09c}#breadcrumbs ul li.home-and-garden a{color:#03c}#breadcrumbs ul li.gift-cards a{color:#f60}#breadcrumbs ul li.mothers-day a{color:#979733}#breadcrumbs ul li.voucher-bids-and-limit-busters a{color:#d39f00}#display-sort{position:absolute;top:19px;right:0;height:30px}#breadcrumbs ul li.auctions.bold{font-weight:500!important}#display-sort ul{float:right;list-style:none}#display-sort ul li{float:left;display:inline-block;margin-right:15px;text-align:left}#display-sort ul li.display{width:auto}#display-sort ul li.layout-view{width:58px;margin-top:6px}#display-sort ul li.layout-view ul{width:58px;height:24px;list-style:none;padding:0;margin:0;position:relative}#display-sort ul li.layout-view ul li{width:24px;height:24px;text-indent:-9999px;float:left;display:inline;margin-right:5px}#display-sort ul li.layout-view ul li a{width:24px;height:24px;display:block}#display-sort ul li.layout-view ul li a.list{background:url(/site/images/layout/list-sprite.png) -1px -26px no-repeat}#display-sort ul li.layout-view ul li a.list:hover,#display-sort ul li.layout-view ul li a.list.active{background:url(/site/images/layout/list-sprite.png) 0 0 no-repeat}#display-sort ul li.layout-view ul li a.grid{background:url(/site/images/layout/list-sprite.png) -24px 0 no-repeat}#display-sort ul li.layout-view ul li a.grid:hover,#display-sort ul li.layout-view ul li a.grid.active{background:url(/site/images/layout/list-sprite.png) -24px -26px no-repeat}
+#auction-menu .browse-links{padding:0;margin:0;position:relative}
+#auction-menu .browse-top{width:34px;height:18px;position:absolute;top:-16px;right:35px;z-index:200}
+#auction-menu .content{width:100%;padding:0;margin:10px 0;float:left}
+#auction-menu .browse-links .left,#auction-menu .browse-links .center,#auction-menu .browse-links .right{width:195px;padding:0;margin:0 20px;float:left;text-align:left}
+#auction-menu .browse-links ul li h2.black a{color:#000!important}
+#auction-menu .content h2{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;line-height:normal}
+#auction-menu .content h2 a{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;color:#333;line-height:normal}
+#auction-menu ul{padding:0;margin:0}
+#auction-menu ul li{width:100%;padding:0;margin:3px 0;display:block;float:left}
+#auction-menu ul li a{width:100%;padding:0;margin:0;display:block;float:left;font-size:12px;color:#007fdd}
+#auction-menu ul li a:hover{color:#007fdd;background:0;text-decoration:underline}
+#auction-menu ul li a.more{font-weight:bold}
+#browse-menu{width:220px;height:333px;position:absolute;display:none;z-index:200;top:50px}
+#browse-menu .browse-links .nav{position:relative;width:200px;z-index:190}
+#browse-menu .menu-data{z-index:180}
+    #browse-menu .menu_browse_subs {
+        position: absolute;
+        left: 219px;
+        top: 10px !important;
+        padding-left: 10px;
+        background-color: white;border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -webkit-box-shadow: 0 1px 6px 0 #cdcdcd;
+        -moz-box-shadow: 0 1px 6px 0 #cdcdcd;
+        box-shadow: 0 1px 6px 0 #cdcdcd;
+        z-index: 180;
+        width: 420px;
+        height: 400px
+    }
+#browse-menu .browse-top{width:34px;height:18px;position:absolute;top:-16px;right:35px;z-index:200}
+#browse-menu .content{width:100%;padding:0;margin:10px 0;float:left}
+    
+#browse-menu .browse-links .left, #browse-menu .browse-links .center, #browse-menu .browse-links .right {
+        width: 195px;
+        padding: 0;
+        margin: 0 20px;
+        float: left;text-align: left
+    }
+#browse-menu .browse-links ul li h2.black a{color:#000!important}
+#browse-menu li.no-children{background-image:none!important}
+#browse-menu .content h2{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;line-height:normal}
+#browse-menu .content h2 a{padding:0;margin:0 0 10px 0;font-size:15px;font-weight:normal;color:#333;line-height:normal}
+#browse-menu ul{padding:0;margin:0}
+#browse-menu ul li{width:100%;padding:0;margin:0;display:block;float:left}
+#browse-menu ul li a{width:100%;padding:0;margin:0;display:block;float:left;font-size:12px;color:#007fdd}
+#browse-menu ul li a:hover{color:#007fdd;background:0;text-decoration:underline}
+#browse-menu ul li a.more{font-weight:bold}
+#browse-menu ul li span.menu-link-selected a{color:#4f4f4f}
+#nav {
+    position: relative;
+    direction: rtl;
+    float:left;
+    z-index: 100
+}
+[lang='de'] #breadcrumbs ul li{font-size:15px;font-weight:bold;margin-top:3px}[lang="fr"] #breadcrumbs ul li{font-size:15px;font-weight:bold;margin-top:3px}#breadcrumbs ul li{font-size:20px;list-style:none;display:block;float:left;padding-right:5px;font-weight:300;color:#666}#breadcrumbs ul li.search{width:410px;margin-bottom:10px}#breadcrumbs ul li.search a{text-decoration:none;color:#007fdd;padding-right:20px;background:url(/site/images/layout/reset-icon.png) center right no-repeat;margin-right:10px}#breadcrumbs ul li.search a:hover{text-decoration:underline;padding-right:20px;background:url(/site/images/layout/reset-icon-blue.png) center right no-repeat}.auction-type{margin-top:20px}#container.category.home{border-radius:0;-webkit-border-radius:0}#breadcrumbs ul li.auctions a{color:#999}#breadcrumbs ul li.electronics a{color:#52a50a}#breadcrumbs ul li.jewelry-and-fashion a{color:#90378c}#breadcrumbs ul li.sports-and-recreation a{color:#09c}#breadcrumbs ul li.home-and-garden a{color:#03c}#breadcrumbs ul li.gift-cards a{color:#f60}#breadcrumbs ul li.mothers-day a{color:#979733}#breadcrumbs ul li.voucher-bids-and-limit-busters a{color:#d39f00}#display-sort{position:absolute;top:19px;right:0;height:30px}#breadcrumbs ul li.auctions.bold{font-weight:500!important}#display-sort ul{float:right;list-style:none}#display-sort ul li{float:left;display:inline-block;margin-right:15px;text-align:left}#display-sort ul li.display{width:auto}#display-sort ul li.layout-view{width:58px;margin-top:6px}#display-sort ul li.layout-view ul{width:58px;height:24px;list-style:none;padding:0;margin:0;position:relative}#display-sort ul li.layout-view ul li{width:24px;height:24px;text-indent:-9999px;float:left;display:inline;margin-right:5px}#display-sort ul li.layout-view ul li a{width:24px;height:24px;display:block}#display-sort ul li.layout-view ul li a.list{background:url(/site/images/layout/list-sprite.png) -1px -26px no-repeat}#display-sort ul li.layout-view ul li a.list:hover,#display-sort ul li.layout-view ul li a.list.active{background:url(/site/images/layout/list-sprite.png) 0 0 no-repeat}#display-sort ul li.layout-view ul li a.grid{background:url(/site/images/layout/list-sprite.png) -24px 0 no-repeat}#display-sort ul li.layout-view ul li a.grid:hover,#display-sort ul li.layout-view ul li a.grid.active{background:url(/site/images/layout/list-sprite.png) -24px -26px no-repeat}
 #display-sort h4,#sort-panel label{margin:0;font-weight:300;font-size:16px;font-family:'B Yekan';letter-spacing:-0.02em}
 ul#mainnav {
     width: 952px;
@@ -190,7 +246,19 @@ ul#mainnav {
     box-shadow: 0 -1px 6px 0 #b8b8b8;
     position: relative
 }ul#mainnav li{display:inline;list-style:none}
- ul#mainnav li a{padding:9px 15px 10px 15px;margin:5px 10px 0 0;color:#fff;font-size:17px;font-weight:bold;letter-spacing:-0.03em;display:block;float:left;filter:dropshadow(color=#575757,offx=1,offy=2);text-shadow:none /9;filter:none /9;cursor:pointer}
+    ul#mainnav li a {
+        padding: 9px 15px 10px 15px;
+        margin: 5px 10px 0 0;color: #fff;
+        font-size: 17px;
+        font-weight: bold;
+        /*letter-spacing: -0.03em;*/
+        display: block;
+        float: right;
+        filter: dropshadow(color=#575757,offx=1,offy=2);
+        text-shadow: none /9;
+        filter: none /9;
+        cursor: pointer
+    }
     ul#mainnav li a:hover {
         color: #fff;
         text-decoration: none;
