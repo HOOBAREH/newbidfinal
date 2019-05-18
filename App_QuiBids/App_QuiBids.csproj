@@ -294,6 +294,7 @@
     <Content Include="Content\img\Layout\arrow-right.gif" />
     <Content Include="Content\img\Layout\arrow.gif" />
     <Content Include="Content\img\Layout\arrows.png" />
+    <Content Include="Content\img\Layout\arrow_mirror.gif" />
     <Content Include="Content\img\Layout\auction-details-sprite-2.png" />
     <Content Include="Content\img\Layout\auction-details-sprite-3.png" />
     <Content Include="Content\img\Layout\auctions-cards-001.png" />

@@ -84,14 +84,14 @@
                 background: url('../../Content/img/Layout/module-white.jpg') white left bottom repeat-x;
                 position: absolute;
                 top: 5px;
-                left: 190px;
+                right: 190px;
                 width: 340px;
                 background: white left bottom repeat-x;
                 border: 1px solid #dddddd;
                 padding: 15px 0 10px 25px;
                 border: solid 1px #D1D1D1;
                 -webkit-border-radius: 0px 8px 8px 0px;
-                border-radius: 0px 8px 8px 0px;
+                border-radius: 8px 0px 0px 8px;
                 -webkit-box-shadow: 0px 1px 6px 0px #CDCDCD;
                 -moz-box-shadow: 0px 1px 6px 0px #CDCDCD;
                 box-shadow: 0px 1px 6px 0px #CDCDCD;
@@ -136,7 +136,7 @@
         }
 
             #menu-auctions li, #menu-store li {
-                background: url('../../Content/img/Layout/arrow.gif') no-repeat 90% 50%;
+                background: url('../../Content/img/Layout/arrow_mirror.gif') no-repeat 90% 50%;
                 padding: 0 15px;
                 margin: 0;
             }
@@ -152,7 +152,8 @@
 
         #browse-menu .browse-links .nav #menu-auctions li a, #browse-menu .browse-links .nav #menu-store li a {
             width: 170px;
-            margin-left: 15px;
+            text-align: right;
+            margin-right: 15px;
         }
 
         #brand_browse {
@@ -249,15 +250,6 @@
                 <!--logo-->
 
 
-                <div class="bannerad">
-                    @*<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>*@
-                    <!-- 2015 - QB ROS -->
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:780px;height:90px"
-                         data-ad-client="ca-pub-4560135486422930"
-                         data-ad-slot="8876535802"></ins>
-
-                </div>
             </header>
             <!--header--><!--منوی تیتر صفحه-->
             <div id='nav'>
@@ -300,7 +292,7 @@
 
                                 <li class="no-children"><span class="menu_link" id="menu_1"><a href="/home/index">تمام فعالیت های زنده</a></span></li>
                                 <li class="no-children"><span class="menu_link" id="menu_2"><a href="">Watchlist</a></span></li>
-                                <li class="has-children"><span class="menu_link" id="menu_3"><a href="">الکترونیکی ها</a></span></li>
+                                <li class="has-children"><span class="menu_link" id="menu_3"><a href=""> الکترونیکی ها</a></span></li>
                                 <li class="has-children"><span class="menu_link" id="menu_4"><a href="">خانه و باغچه</a></span></li>
                                 <li class="has-children"><span class="menu_link" id="menu_5"><a href="">مد و جواهرات</a></span></li>
                                 <li class="has-children"><span class="menu_link" id="menu_6"><a href="">ورزش و سرگرمی</a></span></li>
@@ -559,9 +551,8 @@
                     <div class="content">
                         <h5>پشتیبانی</h5>
                         <ul>
-                            <li><a href="">راهنما</a></li>
-
-                            <li><a href="">این برنامه چطور کار میکند</a></li>
+                            <li><a href="/Home/Help">راهنما</a></li>
+                            <li><a href="/Home/Help">این برنامه چطور کار میکند</a></li>
                             <li><a href="">پشتیبانی مشتریان</a></li>
 
                             <li><a href="">قوانین سایت</a></li>
@@ -578,8 +569,8 @@
                         <h5 onclick="document.location=''">لینک های سریع</h5>
                         <ul>
                             <li><a href="/Home/register">همین الان عضو شوید!</a></li>
-                            <li><a href="">چیست؟ QuiBids</a></li>
-                            <li><a href="">فعالیت های حال حاضر</a></li>
+                            <li><a href="/Home/Abuot">چیست؟ NewBids</a></li>
+                            <li><a href="/Home/index">فعالیت های حال حاضر</a></li>
                             <li><a href="">سفارشات</a></li>
                             <li><a href="javascript:return false;" onclick="mapFunction()">نقشه ی سایت</a></li>
                         </ul>
@@ -620,7 +611,7 @@
             <div id="copyright">
                 <p>
                     <span title="145">&copy;</span>
-                    <span title="0.031">QuiBidsfarsi</span>
+                    <span title="0.031">NewBids</span>
                     <span title="120">تمامی حقوق سایت رزرو  شده میباشد</span>
                 </p>
 
@@ -633,7 +624,7 @@
     <div id="popupModal" title="Basic dialog" style="display:none;width:450px"></div>
     <div id="popupImage" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
     <div id="popupIFrame" style="display: none;float: left;position: fixed;top: 50%; left: 50%;z-index: 999999;"></div>
-    <div id="popupShowUrl" title="QuiBids" style="display:none">
+    <div id="popupShowUrl" title="NewBids" style="display:none">
         <div id="popupShowUrl_contents"></div>
         <div id="popupShowUrl_closebutton"><input type='button' value='Close' onclick="$('#popupShowUrl').dialog('close');"></div>
     </div><!--end popup-->
@@ -695,10 +686,10 @@
                         <div class="cont-left">
                             <h3>اکانت من</h3>
                             <ul>
-                                <li><a href="/en/account/badges/">مدال های من</a></li>
-                                <li><a href="/en/account/myaccount">اطلاعات من</a></li>
-                                <li><a href="/en/account/myaccount/password.php">تغیر رمز عبور</a></li>
-                                <li><a href="/en/account/myaccount/refer.php">Refer دوستان من</a></li>
+                                <li><a href="/Account/MyBadges">مدال های من</a></li>
+                                <li><a href="/Account/MyAccount">اطلاعات من</a></li>
+                                <li><a href="/Account/ChangePassword">تغیر رمز عبور</a></li>
+                                <li><a href="">Refer دوستان من</a></li>
                             </ul>
                             <div>&nbsp;</div>
                             <h3>مغازه نیوبیدر</h3>
