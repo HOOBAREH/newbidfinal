@@ -9,14 +9,20 @@ namespace DataLayer.Repository
     public class CountryRepo:ICountryRepo
 
     {
-        private QuiBidsEntities _dbContext = new QuiBidsEntities();
+      
         public List<Countries> GetCountries()
         {
-            return _dbContext.Countries.ToList();
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.Countries.ToList();
+            }
         }
         public Countries GetCountryById(int id)
         {
-            return _dbContext.Countries.Where(x => x.Id == id).FirstOrDefault();
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.Countries.Where(x => x.Id == id).FirstOrDefault();
+            }
         }
     }
 }
