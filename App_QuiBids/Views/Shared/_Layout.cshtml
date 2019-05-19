@@ -1,4 +1,5 @@
-﻿@using DataLayer;
+﻿
+@using DataLayer;
 @{
     User user = new User();
     if (Session["Admin"] != null)
@@ -6,9 +7,11 @@
         user = (User)Session["Admin"];
     }
 }
+
+<!DOCTYPE HTML>
 <html lang="fa">
 <head>
-   
+
     <meta charset="utf-8" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -519,7 +522,7 @@
                     </div>
                     <input type="text" id='qbSearch' name="q"
                            placeholder="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..."
-                           class="txt defaultText  defaultTextActive" value="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..." style="width:700px;">
+                           class="txt defaultText  defaultTextActive" value="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..." style="width:785px;">
 
                     <input id='qbSearchButton' type="button"
                            value="Go"
