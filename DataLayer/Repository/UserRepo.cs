@@ -9,7 +9,7 @@ namespace DataLayer.Repository
 {
     public class UserRepo : IUserRepo
     {
-        private QuiBidsEntities _dbContext = new QuiBidsEntities();
+     
 
         public UserRepo()
         {
@@ -18,29 +18,44 @@ namespace DataLayer.Repository
 
         public User GetUserById(int id)
         {
-            return _dbContext.User.Where(x => x.Id == id).FirstOrDefault();
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.User.Where(x => x.Id == id).FirstOrDefault();
+            }
         }
 
         public List<User> GetUsers()
         {
-            return _dbContext.User.ToList();
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.User.ToList();
+            }
         }
 
         public User Login(string userName, string password)
         {
-            var user = _dbContext.User.Where(x => x.Email == userName && x.Password == password).FirstOrDefault();
-            return user;
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                var user = db.User.Where(x => x.Email == userName && x.Password == password).FirstOrDefault();
+                return user;
+            }
         }
         public bool UsernameExists(string userName)
         {
-            if (_dbContext.User.Where(x => x.Email == userName).Any())
-                return true;
-            return false;
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                if (db.User.Where(x => x.Email == userName).Any())
+                    return true;
+                return false;
+            }
         }
         public bool Register(User user)
         {
-            _dbContext.User.Add(user);
-            return _dbContext.SaveChanges() == 1 ? true : false;
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                db.User.Add(user);
+                return db.SaveChanges() == 1 ? true : false;
+            }
 
         }
         /// <summary>
@@ -54,75 +69,92 @@ namespace DataLayer.Repository
         /// <returns></returns>
         public User LowerBids(int userId)
         {
-            var user = GetUserById(userId);
-            if (user != null)
+            using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                if (user.RealBid != 0)
-                    user.RealBid--;
+                var user = GetUserById(userId);
+                if (user != null)
+                {
+                    if (user.RealBid != 0)
+                        user.RealBid--;
 
-                if (user.VoucherBid != 0)
-                    user.VoucherBid--;
+                    if (user.VoucherBid != 0)
+                        user.VoucherBid--;
 
-                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                _dbContext.SaveChanges();
-                return user;
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return user;
+                }
+                return null;
             }
-            return null;
-
         }
         public void AddToBids(int userId)
         {
-            var user = GetUserById(userId);
-            user.RealBid++;
-            _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-            _dbContext.SaveChanges();
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                var user = GetUserById(userId);
+                user.RealBid++;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
         }
         public void UpdateProfile(UserModel model)
         {
-            var user = GetUserById(model.Id);
-            if (user != null)
+            using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                //user.Email = model.Email;
-                user.HideLocation = (model.incognito == "Yes" ? true : false);
-                if (model.CountryDropdown != 0)
+                var user = GetUserById(model.Id);
+                if (user != null)
                 {
-                    user.CountryId = model.CountryDropdown;
+                    //user.Email = model.Email;
+                    user.HideLocation = (model.incognito == "Yes" ? true : false);
+                    if (model.CountryDropdown != 0)
+                    {
+                        user.CountryId = model.CountryDropdown;
+                    }
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
-                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                _dbContext.SaveChanges();
             }
         }
         public bool ChangePass(string pass,int id)
         {
-            var user = GetUserById(id);
-            if (user != null)
+            using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                user.Password = pass;
-                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                return _dbContext.SaveChanges() == 1 ? true : false;
+                var user = GetUserById(id);
+                if (user != null)
+                {
+                    user.Password = pass;
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    return db.SaveChanges() == 1 ? true : false;
+                }
+                return false;
             }
-            return false;
         }
         public void LastLogin(int id)
         {
-            var user = GetUserById(id);
-            if (user != null)
+            using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                user.LastLogin = DateTime.Now;
-                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                _dbContext.SaveChanges();
+                var user = GetUserById(id);
+                if (user != null)
+                {
+                    user.LastLogin = DateTime.Now;
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
         }
         public User UpdateImage(int id,string name)
         {
-            var user = GetUserById(id);
-            if (user != null)
+            using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                user.Image = name;
-                _dbContext.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                _dbContext.SaveChanges();
+                var user = GetUserById(id);
+                if (user != null)
+                {
+                    user.Image = name;
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return user;
             }
-            return user;
         }
     }
 }

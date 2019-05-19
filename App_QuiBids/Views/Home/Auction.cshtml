@@ -200,9 +200,11 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                     <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
                                     @*<h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@Model.Reserve_Price"> $@Model.Reserve_Price</h3>*@
                                     @* ///////////////////////////////Hidden////////////////////////////////// *@
-
+                                   
                                     <h2 class="margin-five username-height">
-                                        <span><img src="~/Content/Auction_Img/no-image.png" width="64" height="64" class="user-icon winning_avatar" /></span>
+                                        <span>
+                                        <img src="~/Content/img/avatar/@Model.User.Image" width="64" height="64" class="user-icon winning_avatar" />
+                                        </span>
                                         <br />
                                         <span class="winning" style="height:30px">
                                             @(Model.User != null ? Model.User.Fname : "هیچ پیشنهادی نداریم" )
@@ -235,7 +237,6 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                                 $49.95
                                             </span>
                                         </li>
-
                                         <li>
                                             Bids Credit:
                                             <span class="float-right">- <span id='breakdown_bidsvalue'></span></span>
@@ -278,12 +279,12 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                         <div class="module ap-bidding-section">
                                             <h3 class='orange bold'>Bidding History</h3>
 
-                                            <div class="content">
+                                            <div class="content" id="titreAppend">
                                                 <table id="bid-history">
-                                                    <tbody>
+                                                    <tbody  id="tab tbody">
 
 
-                                                        <tr class=" bold">
+                                                        @*<tr class=" bold">
                                                             <td id="bhi_1" class="user-icons"><p>&nbsp;</p></td>
                                                             <td id="bhu_1" class="username"><p>&nbsp;</p></td>
                                                             <td id="bhp_1" class="amount"><p>&nbsp;</p></td>
@@ -344,7 +345,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                                             <td id="bhu_9" class="username"><p>&nbsp;</p></td>
                                                             <td id="bhp_9" class="amount"><p>&nbsp;</p></td>
                                                             <td id="bht_9" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                        </tr>*@
                                                     </tbody>
                                                 </table>
                                                 <div class="right recent-bidders">

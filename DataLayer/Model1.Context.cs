@@ -40,6 +40,8 @@ public partial class QuiBidsEntities : DbContext
 
     public virtual DbSet<Product> Product { get; set; }
 
+    public virtual DbSet<AuctionLogs> AuctionLogs { get; set; }
+
 }
 
 }
