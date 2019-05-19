@@ -70,12 +70,12 @@ $(".btntest").click(function () {
                 id: $(".auctionId").val(),
                 Reserve_Price: res
             },
-            success: function (result) {
-                currentUser.text(currentUser.attr('data-currentUser'));
-                $('#template_bidsavailable').text(result.currentbids);
+            success: function (list) {
+                //currentUser.text(currentUser.attr('data-currentUser'));
+                //$('#template_bidsavailable').text(result.currentbids);
                 ///////////////addtoLog----------------------
 
-                if (result.list == "fail") {
+                if (list == "fail") {
                     alert('error');
                 }
                 else {
@@ -96,7 +96,7 @@ $(".btntest").click(function () {
 
                 ///////////////Log----------------------
             },
-            error: function (result) {
+            error: function (list) {
                 alert('error');
             }
         });
