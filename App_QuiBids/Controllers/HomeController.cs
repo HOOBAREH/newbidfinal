@@ -149,13 +149,23 @@ namespace App_QuiBids.Controllers
                     UserId = model.Current_UserId
                 };
                 new AuctionLogsRepo().Insert(modellog);
+                var list = new AuctionLogsRepo().GetLast8ByAuctionId(model.id);
                 Session["Admin"] = bid;
-                return Json(new
+                //return Json(new
+                //{
+                //    currentbids = bid.RealBid,
+                //    //currentPrice = bid
+                //},JsonRequestBehavior.AllowGet);
+                if (list != null)
                 {
-                    currentbids = bid.RealBid,
-                    list = new AuctionLogsRepo().GetLast8ByAuctionId(model.id)
-                    //currentPrice = bid
-                });
+
+                    return Json(list, JsonRequestBehavior.AllowGet);
+
+                }
+                else
+                {
+                    return Json("fail");
+                }
             }
             //}
             //else
