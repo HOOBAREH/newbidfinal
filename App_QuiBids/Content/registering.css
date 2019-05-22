@@ -25,10 +25,7 @@ body {
 
 .form {
     font-family: 'B Yekan';
-    background-image: url('img/29080.jpg');
-    /*background-image: url('img/Layout/Rich-Blue-Abstract-Background.jpg');*/
-    /*background: url('img/Layout/Registering_BackG.png') repeat-x scroll center top transparent;*/
-    /*background: #2651ff;*/
+    /*background-image: url('img/29080.jpg');*/
     padding: 4%;
     max-width: 50%;
     margin: auto;
