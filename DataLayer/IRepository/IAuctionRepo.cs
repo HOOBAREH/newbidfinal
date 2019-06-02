@@ -12,6 +12,6 @@ namespace DataLayer.IRepository
         Auction GetAuctionById(int id);
         void UpdateWithClick(Auction auction, int id,int price);
         bool UpdateTimer(int auctionId, TimeSpan timer,bool startStatus);
-        bool UpdateIsclose(int auctionId);
+        Auction UpdateIsclose(int auctionId);
     }
 }

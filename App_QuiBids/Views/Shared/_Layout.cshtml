@@ -1,10 +1,10 @@
-﻿
+﻿@using DataLayer.Repository;
 @using DataLayer;
 @{
     User user = new User();
-    if (Session["Admin"] != null)
+    if (User.Identity.IsAuthenticated)
     {
-        user = (User)Session["Admin"];
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
     }
 }
 
@@ -181,6 +181,7 @@
                 margin: 0;
                 padding: 0;
             }
+
     </style>
     <!--[if IE]>
     <link href="https://dcfv5z6t7wfeu.cloudfront.net/site/cache/css/ie.css?1448853474" rel="stylesheet" type="text/css" media="screen" />
@@ -196,7 +197,7 @@
             <div class="wrapper">
 
                 <div class="login">
-                    @if (Session["Admin"] != null)
+                    @if (user.Id != 0)
                     {
                         <ul class="show">
                             <li>@user.Fname @user.Lname</li>
@@ -260,7 +261,7 @@
                     <li id='browse-menu-btn'>
                         <a class='active' href="/Home/Index">Browse	<img src="~/Content/img/Layout/down-arrow.png" /></a>
                     </li>
-                    @if (Session["Admin"] != null)
+                    @if (user.Id != 0)
                     {
 
                         <li><a href="/Account/index">داشبورد </a></li>
@@ -272,11 +273,11 @@
 
                     <li><a href="">خرید بید</a></li>
 
-                    <li> <a href="/Home/Abuot">درباره ما </a> </li>
+                    <li> <a href="/Home/About">درباره ما </a> </li>
 
 
                     <li> <a href="/Home/Help">راهنما</a> </li>
-                    @if (Session["Admin"] == null)
+                    @if (user.Id != 0)
                     {
                         <li> <a href="/Home/register">عضویت</a> </li>
                     }
@@ -572,7 +573,7 @@
                         <h5 onclick="document.location=''">لینک های سریع</h5>
                         <ul>
                             <li><a href="/Home/register">همین الان عضو شوید!</a></li>
-                            <li><a href="/Home/Abuot">چیست؟ NewBids</a></li>
+                            <li><a href="/Home/About">چیست؟ NewBids</a></li>
                             <li><a href="/Home/index">فعالیت های حال حاضر</a></li>
                             <li><a href="">سفارشات</a></li>
                             <li><a href="javascript:return false;" onclick="mapFunction()">نقشه ی سایت</a></li>
@@ -634,7 +635,7 @@
     @*--------------------------------QBar---------------------------------*@
     @*--------------------------------Qbar---------------------------------*@
 
-    @if (Session["Admin"] != null)
+    @if (user.Id != 0)
     {
 
 
@@ -742,7 +743,7 @@
                     <div class="content">
                         <div class="cont-left">
                             <p class="big">
-                                @if (user != null)
+                                @if (user.Id != 0)
                                 {
                                     var sum = user.RealBid + user.VoucherBid;
                                     <span id="qbar_bidsavailable2">
@@ -767,12 +768,12 @@
                         <div class="cont-right">
                             <ul>
                                 <li>
-                                    <span class="big2" id="qbar_bidsavailable_real">@(user != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
+                                    <span class="big2" id="qbar_bidsavailable_real">@(user.Id != 0 != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
                                         <img src="~/Content/img/Footer-Bar/help.png" />
                                     </a>
                                 </li>
                                 <li>
-                                    <span class="big2" id="qbar_bidsavailable_free">@(user != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
+                                    <span class="big2" id="qbar_bidsavailable_free">@(user.Id!=0 != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
                                         <img src="~/Content/img/Footer-Bar/help.png" />
                                     </a>
                                 </li>

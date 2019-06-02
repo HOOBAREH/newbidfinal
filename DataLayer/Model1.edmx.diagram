@@ -12,7 +12,7 @@
         <AssociationConnector Association="QuiBidsModel.FK_User_Countries" />
         <EntityTypeShape EntityType="QuiBidsModel.Product" Width="1.5" PointX="5.75" PointY="1.375" />
         <AssociationConnector Association="QuiBidsModel.FK_Auction_Product" />
-        <EntityTypeShape EntityType="QuiBidsModel.AuctionLogs" Width="1.5" PointX="10.875" PointY="4.75" />
+        <EntityTypeShape EntityType="QuiBidsModel.AuctionLogs" Width="1.5" PointX="10.875" PointY="4.625" />
         <AssociationConnector Association="QuiBidsModel.FK_LogsAuction_Auction" />
         <AssociationConnector Association="QuiBidsModel.FK_LogsAuction_User" />
         </Diagram>

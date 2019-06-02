@@ -24,7 +24,7 @@ namespace DataLayer.Repository
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                return db.Auction.Include("User").Where(x => x.Id == id).FirstOrDefault();
+                return db.Auction.Include("User").Include("Product").Where(x => x.Id == id).FirstOrDefault();
             }
         }
         public void UpdateWithClick(Auction auction, int UserId, int price)
@@ -48,14 +48,15 @@ namespace DataLayer.Repository
                 return db.SaveChanges() == 0 ? false : true;
             }
         }
-        public bool UpdateIsclose(int auctionId)
+        public Auction UpdateIsclose(int auctionId)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
                 var auction = GetAuctionById(auctionId);
                 auction.IsClose = true;
                 db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
-                return db.SaveChanges() == 0 ? false : true;
+                db.SaveChanges();
+                return auction;
             }
         }
     }

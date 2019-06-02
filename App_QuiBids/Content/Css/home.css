@@ -614,7 +614,7 @@ div#featured_carousel {
     border-bottom: solid 1px #bfbfbf;
     line-height: 22px;
     overflow: hidden;
-    width: 158px
+    width: 157px
 }div.auction-item-wrapper>div>h5{display:inline-block;line-height:1em;vertical-align:middle;word-wrap:break-word}div.auction-item-wrapper>div>h5>div{display:table-cell;vertical-align:middle;height:26px}div.auction-item-wrapper>div>h5>div>div{width:162px;overflow:hidden;max-height:26px}.auction-item-wrapper.beginners h5.auction-item-title{border-bottom:solid 1px #1980cc}
 .auction-item-wrapper span.loading {
     position: relative;

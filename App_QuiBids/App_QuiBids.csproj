@@ -53,6 +53,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -175,10 +178,10 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
-    <Content Include="Content\Abuot_img\auction-icon.png" />
-    <Content Include="Content\Abuot_img\best-icon.png" />
-    <Content Include="Content\Abuot_img\test-icon.png" />
-    <Content Include="Content\Abuot_img\tips-icon.png" />
+    <Content Include="Content\About_img\auction-icon.png" />
+    <Content Include="Content\About_img\best-icon.png" />
+    <Content Include="Content\About_img\test-icon.png" />
+    <Content Include="Content\About_img\tips-icon.png" />
     <Content Include="Content\Account_img\available-gameplays.jpg" />
     <Content Include="Content\Account_img\badge_101_sm.png" />
     <Content Include="Content\Account_img\badge_1_sm.png" />
@@ -215,6 +218,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\101.css" />
+    <Content Include="Content\Css\aucrionCss.css" />
     <Content Include="Content\Css\auction.css" />
     <Content Include="Content\Css\badges.css" />
     <Content Include="Content\Css\gameplay.css" />
@@ -360,6 +364,7 @@
     <Content Include="Content\img\Layout\white-btn.jpg" />
     <Content Include="Content\img\login-gov-288x288.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\options-down-arrow.png" />
     <Content Include="Content\img\orange-btn %281%29.jpg" />
     <Content Include="Content\img\orange-btn.jpg" />
     <Content Include="Content\img\Pishnehad.png" />
@@ -1751,7 +1756,9 @@
     <Content Include="Scripts\JScript\site.js" />
     <Content Include="Scripts\JScript\translation.js" />
     <Content Include="Scripts\JScript\tv2track.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1764,6 +1771,7 @@
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\SessionContext.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -1839,7 +1847,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Views\Home\Abuot.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Badges.cshtml" />
     <Content Include="Views\Home\Games.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />

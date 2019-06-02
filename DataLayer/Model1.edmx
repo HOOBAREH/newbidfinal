@@ -29,6 +29,7 @@
           <Property Name="AuctionId" Type="int" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="TypeBid" Type="tinyint" Nullable="false" />
+          <Property Name="Price" Type="int" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -290,6 +291,7 @@
           <Property Name="AuctionId" Type="Int32" Nullable="false" />
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TypeBid" Type="Byte" Nullable="false" />
+          <Property Name="Price" Type="Int32" />
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_LogsAuction_Auction" FromRole="AuctionLogs" ToRole="Auction" />
           <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_LogsAuction_User" FromRole="AuctionLogs" ToRole="User" />
         </EntityType>
@@ -382,6 +384,7 @@
           <EntitySetMapping Name="AuctionLogs">
             <EntityTypeMapping TypeName="QuiBidsModel.AuctionLogs">
               <MappingFragment StoreEntitySet="AuctionLogs">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="TypeBid" ColumnName="TypeBid" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
                 <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />

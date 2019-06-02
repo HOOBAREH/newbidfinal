@@ -1,4 +1,5 @@
 ﻿using DataLayer.IRepository;
+using DataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,21 @@ namespace DataLayer.Repository
                 return db.AuctionLogs.Where(x => x.AuctionId == id).FirstOrDefault();
             }
         }
-        public List<AuctionLogs> GetLast8ByAuctionId(int id)
+        public LogModel GetLast8ByAuctionId(int id)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                return db.AuctionLogs.Where(x => x.AuctionId == id).Take(8).ToList();
+
+                var last= db.AuctionLogs.Include("Auction").Include("User").Where(x => x.AuctionId == id).OrderByDescending(x=>x.Id).FirstOrDefault();
+
+                return new LogModel
+                {
+                    Image = last.User.Image,
+                    Price = last.Price.Value,
+                    UserName = last.User.Fname,
+
+                };
+                
             }
         }
         public void Insert(AuctionLogs model)
@@ -45,7 +56,8 @@ namespace DataLayer.Repository
                     AuctionId = model.AuctionId,
                     DateTime = DateTime.Now,
                     TypeBid = model.TypeBid,
-                    UserId = model.UserId
+                    UserId = model.UserId,
+                    Price=model.Price
                 };
                 db.AuctionLogs.Add(auction);
                 db.SaveChanges();

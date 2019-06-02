@@ -61,6 +61,7 @@ $(".btntest").click(function () {
         var sumCurrency = parseInt(currency) + 1;
         revPrice.html('$' + sumCurrency);
         var res = sumCurrency;
+        var s ='@(Model.Id)';
         $(".statusClick").val("1");
         $.ajax({
             type: "POST",

@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Newtonsoft.Json;
 
 namespace App_QuiBids.Controllers
 {
@@ -15,6 +17,8 @@ namespace App_QuiBids.Controllers
     {
         private readonly IUserRepo _userRepo;
         private readonly IAuctionRepo _auctionRepo;
+        SessionContext context = new SessionContext();
+
 
         public HomeController() : this(new UserRepo(), new AuctionRepo())
         {
@@ -28,28 +32,23 @@ namespace App_QuiBids.Controllers
 
 
         // GET: Home
+        //[Authorize]
         public ActionResult Index(int id = 0)
         {
-            if (Session["Admin"] == null)
+            var user = User.Identity.Name;
+            var auctions = _auctionRepo.GetAuctions();
+            if (id != 0)
             {
-                return RedirectToAction("Login");
+
+                var price = auctions.FirstOrDefault().Reserve_Price + 1;
+                return Json(new
+                {
+                    currentPrice = price
+                });
             }
             else
-            {
-                //Session["Admin"] = _userRepo.GetUserById(2);
-                var auctions = _auctionRepo.GetAuctions();
-                if (id != 0)
-                {
+                return View(auctions);
 
-                    var price = auctions.FirstOrDefault().Reserve_Price + 1;
-                    return Json(new
-                    {
-                        currentPrice = price
-                    });
-                }
-                else
-                    return View(auctions);
-            }
 
         }
         public ActionResult Login()
@@ -65,22 +64,26 @@ namespace App_QuiBids.Controllers
                 var res = _userRepo.Login(model.UserName, hash);
                 if (res != null)
                 {
-                    Session["Admin"] = res;
+
+                    context.SetAuthenticationToken(res.Id.ToString(), false, res);
                     _userRepo.LastLogin(model.UserId);
                     return RedirectToAction("Index");
                 }
                 else
                 {
                     ViewBag.Error = "نام کاربری یا رمز اشتباه است";
-                    return View("Register",model);
+                    return View("Register", model);
                 }
             }
 
             return View();
         }
+        [Authorize]
+
         public ActionResult Logout()
         {
-            Session["Admin"] = null;
+            FormsAuthentication.SignOut();
+            //Session["Admin"] = null;
             return RedirectToAction("Index");
         }
         public ActionResult Register()
@@ -88,6 +91,7 @@ namespace App_QuiBids.Controllers
             return View();
         }
         [HttpPost]
+
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -112,8 +116,7 @@ namespace App_QuiBids.Controllers
                     var register = _userRepo.Register(user);
                     if (register)
                     {
-                        Session["Admin"] = user;
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Login");
                     }
                     ViewBag.Error = "ثبت اطلاعات شما با مشکل مواجه شد. لطفا از صحت اطلاعات اطمینان حاصل کنید و مجددا تلاش نمایید.";
                     return View(model);
@@ -127,12 +130,14 @@ namespace App_QuiBids.Controllers
             ViewBag.Error = "لطفا از صحت اطلاعات اطمینان حاصل کنید و مجددا تلاش نمایید.";
             return View(model);
         }
+        [Authorize]
+
         public ActionResult LowerBids(AuctionModel model)
         {
             var auctions = _auctionRepo.GetAuctionById(model.id);
             _auctionRepo.UpdateWithClick(auctions, model.Current_UserId, model.Reserve_Price);
-            var bid = _userRepo.LowerBids(model.Current_UserId);
-            if (bid == null)
+            var user = _userRepo.LowerBids(model.Current_UserId);
+            if (user == null)
             {
                 ViewBag.Error = "لطفا مجددا تلاش کنید";
                 return Json(new
@@ -145,22 +150,21 @@ namespace App_QuiBids.Controllers
                 var modellog = new AuctionLogs
                 {
                     AuctionId = model.id,
-                    TypeBid=1,
-                    UserId = model.Current_UserId
+                    TypeBid = 1,
+                    UserId = model.Current_UserId,
+                    Price=model.Reserve_Price
                 };
                 new AuctionLogsRepo().Insert(modellog);
                 var list = new AuctionLogsRepo().GetLast8ByAuctionId(model.id);
-                Session["Admin"] = bid;
-                //return Json(new
-                //{
-                //    currentbids = bid.RealBid,
-                //    //currentPrice = bid
-                //},JsonRequestBehavior.AllowGet);
+                var repoList = JsonConvert.SerializeObject(list,
+                              Formatting.None,
+                              new JsonSerializerSettings()
+                              {
+                                  ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                              });
                 if (list != null)
                 {
-
                     return Json(list, JsonRequestBehavior.AllowGet);
-
                 }
                 else
                 {
@@ -172,6 +176,8 @@ namespace App_QuiBids.Controllers
             //return View();
         }
         [HttpPost]
+        [Authorize]
+
         public ActionResult UpdateTimer(int id, TimeSpan timer, bool startStatus)
         {
             var res = _auctionRepo.UpdateTimer(id, timer, startStatus);
@@ -188,10 +194,13 @@ namespace App_QuiBids.Controllers
                     result = false
                 });
         }
+        [Authorize]
+
         public ActionResult UpdateIsclose(int id)
         {
-            var res = _auctionRepo.UpdateIsclose(id);
-            if (res)
+            var auction = _auctionRepo.UpdateIsclose(id);
+            Session["Auction"] = auction;
+            if (auction != null)
             {
                 return Json(new
                 {
@@ -217,7 +226,7 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
-        public ActionResult Abuot()
+        public ActionResult About()
         {
             return View();
         }
@@ -229,6 +238,7 @@ namespace App_QuiBids.Controllers
         public ActionResult Auction(int id)
         {
             var auction = _auctionRepo.GetAuctionById(id);
+            Session["Auction"] = auction;
             return View(auction);
         }
         public ActionResult Account()
