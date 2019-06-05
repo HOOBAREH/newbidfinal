@@ -152,7 +152,7 @@ namespace App_QuiBids.Controllers
                     AuctionId = model.id,
                     TypeBid = 1,
                     UserId = model.Current_UserId,
-                    Price=model.Reserve_Price
+                    Price = model.Reserve_Price
                 };
                 new AuctionLogsRepo().Insert(modellog);
                 var list = new AuctionLogsRepo().GetLast8ByAuctionId(model.id);
@@ -232,12 +232,15 @@ namespace App_QuiBids.Controllers
         }
         public ActionResult Action(int id)
         {
+            var s = _auctionRepo.GetProductByAuction(id);
             var auction = _auctionRepo.GetAuctionById(id);
             return View(auction);
         }
         public ActionResult Auction(int id)
         {
-            var auction = _auctionRepo.GetAuctionById(id);
+            var auction = _auctionRepo.GetProductByAuction(id);
+
+            //var auction = _auctionRepo.GetAuctionById(id);
             Session["Auction"] = auction;
             return View(auction);
         }

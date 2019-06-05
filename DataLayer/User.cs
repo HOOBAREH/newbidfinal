@@ -26,6 +26,8 @@ public partial class User
 
         this.AuctionLogs = new HashSet<AuctionLogs>();
 
+        this.Image1 = new HashSet<Image>();
+
     }
 
 
@@ -61,11 +63,15 @@ public partial class User
 
     public virtual ICollection<Auction> Auction { get; set; }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<AuctionLogs> AuctionLogs { get; set; }
+
     public virtual Countries Countries { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<AuctionLogs> AuctionLogs { get; set; }
+    public virtual ICollection<Image> Image1 { get; set; }
 
 }
 

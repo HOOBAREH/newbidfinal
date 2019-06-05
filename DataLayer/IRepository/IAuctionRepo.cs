@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace DataLayer.IRepository
         void UpdateWithClick(Auction auction, int id,int price);
         bool UpdateTimer(int auctionId, TimeSpan timer,bool startStatus);
         Auction UpdateIsclose(int auctionId);
+        AuctionModel GetProductByAuction(int auctionId);
     }
 }

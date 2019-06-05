@@ -1,4 +1,4 @@
-﻿@model DataLayer.Auction
+﻿@model DataLayer.Models.AuctionModel
 @using DataLayer;
 @using DataLayer.Repository;
 @{
@@ -377,20 +377,23 @@ else
                                     <div class='tooltip-bottom unlocked big' title='Due to high bidding activity, this auction is locked.<br/>
 You may continue to bid, but no new bidders can participate in this auction.'></div>
                                 </div>
-                                <img src="~/Content/img/@Model.Product.Img" width="375" height="300" />
+                                <img id="image1" src="~/Content/img/@Model.ProductImage.FirstOrDefault()" width="375" height="300" />
                             </div>
                             <div id="recently_sold_for">
                                 <h6 class='bold'>Recently sold for <span class='green'><a href='#' onClick='AuctionDetail.showStatistics();return false;'>...</a></span></h6>
                             </div>
                             <div id="product-slider">
                                 <ul id="jcarousel" class="ui-tabs-nav jcarousel-skin-thumbs">
+                                    @foreach (var item in Model.ProductImage)
+                                    {
+                                        <li style="float: left; list-style: none;">
+                                            <a id="sliderImg" onclick="SliderImage(this)">
+                                                <img src="~/Content/img/@item" width='64' height='52' alt='' border='0' />
+                                            </a>
+                                        </li>
 
-                                    <li style="float: left; list-style: none;"><a id="sliderImg5575430" href="#slide0">	<img src="~/Content/Auction_Img/s.jpg" width='64' height='52' alt='' border='0' /></a></li>
-                                    <li style="float: left; list-style: none;"><span class='no-image'><img src="~/Content//Auction_Img/s.jpg" width='64' height='52' /></span></li>
-                                    <li style="float: left; list-style: none;"><span class='no-image'><img src="~/Content//Auction_Img/s.jpg" width='64' height='52' /></span></li>
-                                    <li style="float: left; list-style: none;"><span class='no-image'><img src="~/Content//Auction_Img/s.jpg" width='64' height='52' /></span></li>
-                                    <li style="float: left; list-style: none;"><span class='no-image'><img src="~/Content//Auction_Img/s.jpg" width='64' height='52' /></span></li>
-                                    <li style="float: left; list-style: none;"><span class='no-image'><img src="~/Content//Auction_Img/s.jpg" width='64' height='52' /></span></li>
+                                    }
+                                   
                                 </ul>
                             </div>
                         </div><!--product-->
@@ -420,25 +423,14 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                         <span class='price green Reserve-Price' id="Reserve_Price" data-reservePrice="@Model.Reserve_Price">$@Model.Reserve_Price</span>
                                         <span class='medium light-grey'>USD</span>
                                     </p>
-
                                     <p class="time large-timer2">@Model.Auction_Time</p>
-                                    @* ///////////////////////////////Hidden////////////////////////////////// *@
                                     <input type="hidden" id="close" class="closeTime" name="closeTime" value="@Model.Close_Time" />
-                                    <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@Model.Id" />
-                                    <input type="hidden" class="reset" name="resetTime" value="0" />
-
                                     <input type="hidden" class="statusClick" name="status" value="0" />
-                                    <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@Model.StartStatus" />
-                                    <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
-                                    @*<h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@Model.Reserve_Price"> $@Model.Reserve_Price</h3>*@
-                                    @* ///////////////////////////////Hidden////////////////////////////////// *@
-
                                     <h2 class="margin-five username-height">
                                         @if (Model.User != null)
                                         {
-
                                             <span>
-                                                <img src="~/Content/img/avatar/@Model.User.Image" width="64" height="64" class="user-icon winning_avatar" />
+                                                <img src="~/Content/img/avatar/@Model.UserImage" width="64" height="64" class="user-icon winning_avatar" />
                                             </span>
                                         }
                                         <br />
@@ -970,54 +962,54 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 
     <script>
         function BiddingHistory() {
-    $.ajax({
-        type: "POST",
-        url: "/home/LowerBids/",
-        data: {
-            Current_UserId: userID,
-            id: $(this).parent().siblings(".auctionId").val(),
-            Reserve_Price: res
-        },
-        success: function (result) {
-            currentUser.text(currentUser.attr('data-currentUser'));
-            $('#template_bidsavailable').text(result.currentbids);
+            $.ajax({
+                type: "POST",
+                url: "/home/LowerBids/",
+                data: {
+                    Current_UserId: userID,
+                    id: @Model.ProductId,
+                    Reserve_Price: res
+                },
+                success: function (result) {
+                    currentUser.text(currentUser.attr('data-currentUser'));
+                    $('#template_bidsavailable').text(result.currentbids);
 
-        },
-        error: function (result) {
-            alert('error');
-        }
-    });
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
         }
         var closeTime = '@Model.Close_Time';
         var startStatus = '@Model.StartStatus';
         var isclose = '@Model.IsClose';
         var revPrice = '@Model.Reserve_Price';
 
-window.onload = function () {
+        window.onload = function () {
 
-    btn = document.getElementById('btnBid');
+            btn = document.getElementById('btnBid');
 
-    var everyChild = document.getElementsByClassName("time");
-    //var s = everyChild.getElementsByClassName(".time");
-    //for (var i = 0; i < everyChild.length; i++) {
-    const time = everyChild[0].innerText;
-    var a = time.split(':'); // split it at the colons
-    // minutes are worth 60 seconds. Hours are worth 60 minutes.
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+            var everyChild = document.getElementsByClassName("time");
+            //var s = everyChild.getElementsByClassName(".time");
+            //for (var i = 0; i < everyChild.length; i++) {
+            const time = everyChild[0].innerText;
+            var a = time.split(':'); // split it at the colons
+            // minutes are worth 60 seconds. Hours are worth 60 minutes.
+            var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-    //var fiveMinutes = 60 * 5,
-    var display = everyChild;
-    //var Startstatus = $(".Startstatus");
-    //var isClose = $(display).siblings('.isClose');
-    if (startStatus == 'True') {
-        $(display).parent().find(".time").removeClass('black').addClass('red');
-    }
-    if ('@Model.IsClose' == 'True') {
-        $(display).parent().find(".time").removeClass('black').addClass('red');
-    }
-    else {
-        startTimer(seconds, display);
-    }
+            //var fiveMinutes = 60 * 5,
+            var display = everyChild;
+            //var Startstatus = $(".Startstatus");
+            //var isClose = $(display).siblings('.isClose');
+            if (startStatus == 'True') {
+                $(display).parent().find(".time").removeClass('black').addClass('red');
+            }
+            if ('@Model.IsClose' == 'True') {
+                $(display).parent().find(".time").removeClass('black').addClass('red');
+            }
+            else {
+                startTimer(seconds, display);
+            }
     //}
         }
         var i = 0;
@@ -1045,7 +1037,7 @@ $(".btntest").click(function () {
             url: "/home/LowerBids/",
             data: {
                 Current_UserId: @user.Id,
-                id: @Model.Id,
+                id: @Model.ProductId,
                 Reserve_Price: revPrice
             },
             success: function (list) {
@@ -1100,7 +1092,7 @@ function startTimer(duration, display) {
     var status = $(display).siblings(".statusClick");
     //var Startstatus = $(display).siblings(".Startstatus");
     var isClose = $(display).siblings(".isClose");
-    var id = @Model.Id;
+    var id = @Model.ProductId;
     if (startStatus == 'True') {
         $(display).parent().find(".time").removeClass('black').addClass('red');
 
