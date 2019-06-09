@@ -31,12 +31,13 @@ namespace DataLayer.Repository
                 return db.User.ToList();
             }
         }
-
+        
         public User Login(string userName, string password)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
                 var user = db.User.Where(x => x.Email == userName && x.Password == password).FirstOrDefault();
+
                 return user;
             }
         }

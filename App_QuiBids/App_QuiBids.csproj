@@ -1876,6 +1876,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Games\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Auction\" />
   </ItemGroup>

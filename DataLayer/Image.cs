@@ -14,8 +14,9 @@ namespace DataLayer
 
 using System;
     using System.Collections.Generic;
-    
-public partial class Image
+    using System.Web.Script.Serialization;
+
+    public partial class Image
 {
 
     public int Id { get; set; }
@@ -29,10 +30,10 @@ public partial class Image
     public Nullable<int> UserId { get; set; }
 
 
-
-    public virtual Product Product { get; set; }
-
-    public virtual User User { get; set; }
+        [ScriptIgnore]
+        public virtual Product Product { get; set; }
+        [ScriptIgnore]
+        public virtual User User { get; set; }
 
 }
 

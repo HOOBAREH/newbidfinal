@@ -16,7 +16,15 @@ namespace App_QuiBids.Models
             string data = null;
             if (userData != null)
             {
-                var r = JsonConvert.SerializeObject(userData);
+                var s = new User
+                {
+                    Id = userData.Id,
+                    Fname = userData.Fname,
+                    RealBid=userData.RealBid,
+                    VoucherBid=userData.VoucherBid,
+                    LastLogin=userData.LastLogin
+                };
+                var r = JsonConvert.SerializeObject(s);
                 data = new JavaScriptSerializer().Serialize(r);
             }
             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, name, DateTime.Now, DateTime.Now.AddYears(1), isPersistant, userData.Id.ToString());

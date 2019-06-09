@@ -14,8 +14,9 @@ namespace DataLayer
 
 using System;
     using System.Collections.Generic;
-    
-public partial class AuctionLogs
+    using System.Web.Script.Serialization;
+
+    public partial class AuctionLogs
 {
 
     public int Id { get; set; }
@@ -31,10 +32,10 @@ public partial class AuctionLogs
     public Nullable<int> Price { get; set; }
 
 
-
-    public virtual Auction Auction { get; set; }
-
-    public virtual User User { get; set; }
+        [ScriptIgnore]
+        public virtual Auction Auction { get; set; }
+        [ScriptIgnore]
+        public virtual User User { get; set; }
 
 }
 

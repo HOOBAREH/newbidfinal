@@ -18,7 +18,7 @@ namespace DataLayer.Repository
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                return db.Auction.Include("Product").Include("User").ToList();
+                return db.Auction.Include("Product").Include("User").Where(x=>x.IsActive).ToList();
             }
         }
         public Auction GetAuctionById(int id)

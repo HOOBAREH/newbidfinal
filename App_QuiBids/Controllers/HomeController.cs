@@ -62,9 +62,10 @@ namespace App_QuiBids.Controllers
             {
                 var hash = new Helpers().Encryption(model.Password);
                 var res = _userRepo.Login(model.UserName, hash);
+
                 if (res != null)
                 {
-
+                   
                     context.SetAuthenticationToken(res.Id.ToString(), false, res);
                     _userRepo.LastLogin(model.UserId);
                     return RedirectToAction("Index");
@@ -83,7 +84,6 @@ namespace App_QuiBids.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            //Session["Admin"] = null;
             return RedirectToAction("Index");
         }
         public ActionResult Register()

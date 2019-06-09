@@ -14,8 +14,9 @@ namespace DataLayer
 
 using System;
     using System.Collections.Generic;
-    
-public partial class Category
+    using System.Web.Script.Serialization;
+
+    public partial class Category
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,14 +31,13 @@ public partial class Category
     public int Id { get; set; }
 
     public string CategoryName { get; set; }
-
-    public Nullable<int> ParentCategoryId { get; set; }
+        public Nullable<int> ParentCategoryId { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Product> Product { get; set; }
+        [ScriptIgnore]
+        public virtual ICollection<Product> Product { get; set; }
 
 }
 
