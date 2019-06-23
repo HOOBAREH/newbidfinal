@@ -11,8 +11,8 @@ namespace DataLayer.IRepository
     {
         List<Auction> GetAuctions();
         Auction GetAuctionById(int id);
-        void UpdateWithClick(Auction auction, int id,int price);
-        bool UpdateTimer(int auctionId, TimeSpan timer,bool startStatus);
+        int ParticipateInAuctions(int auctionId, int UserId);
+        bool UpdateTimer(int auctionId, TimeSpan timer,bool startStatus, bool isclose);
         Auction UpdateIsclose(int auctionId);
         AuctionModel GetProductByAuction(int auctionId);
     }

@@ -14,5 +14,6 @@ namespace DataLayer.IRepository
         AuctionLogs GetByAuctionId(int id);
         LogModel GetLast8ByAuctionId(int id);
         void Insert(AuctionLogs model);
+        List<LogModel> GetEight(int id);
     }
 }

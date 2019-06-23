@@ -65,7 +65,7 @@ namespace App_QuiBids.Controllers
 
                 if (res != null)
                 {
-                   
+
                     context.SetAuthenticationToken(res.Id.ToString(), false, res);
                     _userRepo.LastLogin(model.UserId);
                     return RedirectToAction("Index");
@@ -134,53 +134,72 @@ namespace App_QuiBids.Controllers
 
         public ActionResult LowerBids(AuctionModel model)
         {
-            var auctions = _auctionRepo.GetAuctionById(model.id);
-            _auctionRepo.UpdateWithClick(auctions, model.Current_UserId, model.Reserve_Price);
-            var user = _userRepo.LowerBids(model.Current_UserId);
-            if (user == null)
-            {
-                ViewBag.Error = "لطفا مجددا تلاش کنید";
+            //var currentUser = _userRepo.GetUserById(int.Parse(User.Identity.Name));
+            //if (currentUser.RealBid != 0)
+            //{
+            //    var user = _userRepo.LowerBids(int.Parse(User.Identity.Name));
+            //    if (user == null)
+            //    {
+            //        ViewBag.Error = "لطفا مجددا تلاش کنید";
+            //        return Json(new
+            //        {
+            //            result = false
+            //        });
+            //    }
+            //    else
+            //    {
+            //        var auction = _auctionRepo.GetAuctionById(model.id);
+            //        auction = _auctionRepo.UpdateWithClick(auction, user.Id, auction.Reserve_Price ?? 0);
+            //        if (auction == null)
+            //        {
+            //            return Json(new
+            //            {
+            //                result = "fail"
+            //            });
+            //        }
+            //        var modellog = new AuctionLogs
+            //        {
+            //            AuctionId = model.id,
+            //            TypeBid = 1,
+            //            UserId = user.Id,
+            //            Price = auction.Reserve_Price
+            //        };
+            //        new AuctionLogsRepo().Insert(modellog);
+            //        return Json(auction.Reserve_Price, JsonRequestBehavior.AllowGet);
+
+            //    }
+            //}
+            //else
                 return Json(new
                 {
-                    result = false
+                    result = "Low"
                 });
+        }
+        public ActionResult GetAuctionLog(int auctionId)
+        {
+            var list = new AuctionLogsRepo().GetLast8ByAuctionId(auctionId);
+            var repoList = JsonConvert.SerializeObject(list,
+                          Formatting.None,
+                          new JsonSerializerSettings()
+                          {
+                              ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                          });
+            if (list != null)
+            {
+                return Json(list, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                var modellog = new AuctionLogs
-                {
-                    AuctionId = model.id,
-                    TypeBid = 1,
-                    UserId = model.Current_UserId,
-                    Price = model.Reserve_Price
-                };
-                new AuctionLogsRepo().Insert(modellog);
-                var list = new AuctionLogsRepo().GetLast8ByAuctionId(model.id);
-                var repoList = JsonConvert.SerializeObject(list,
-                              Formatting.None,
-                              new JsonSerializerSettings()
-                              {
-                                  ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                              });
-                if (list != null)
-                {
-                    return Json(list, JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Json("fail");
-                }
+                return Json("fail");
             }
-            //}
-            //else
-            //return View();
         }
         [HttpPost]
         [Authorize]
 
         public ActionResult UpdateTimer(int id, TimeSpan timer, bool startStatus)
         {
-            var res = _auctionRepo.UpdateTimer(id, timer, startStatus);
+            //var res = _auctionRepo.UpdateTimer(id, timer, startStatus);
+            var res = false;
             if (res)
             {
                 return Json(new
@@ -236,14 +255,7 @@ namespace App_QuiBids.Controllers
             var auction = _auctionRepo.GetAuctionById(id);
             return View(auction);
         }
-        public ActionResult Auction(int id)
-        {
-            var auction = _auctionRepo.GetProductByAuction(id);
 
-            //var auction = _auctionRepo.GetAuctionById(id);
-            Session["Auction"] = auction;
-            return View(auction);
-        }
         public ActionResult Account()
         {
             return View();

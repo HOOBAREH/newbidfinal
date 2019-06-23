@@ -10,13 +10,8 @@
 
 
 <body class="market-US">
-
-
-
     <div class="gloss">
         <div class="wrapper">
-
-
             <div id="container">
                 <div class="content background game-background-wordscramble">
                     <div id="intro">
@@ -76,17 +71,16 @@
                         <div class="module">
                             <h3 class="bold">
                                 <span class="orange">Choose your Game:</span>
-                            </h3>    <!--<a ref="#" class="game-scroll-up">UP</a>-->
-
+                            </h3>
                             <div id="games-scroller">
                                 <ul class="gamelist">
                                     <li>
-
                                         <p>
-                                            <a href=""><img class="preview" src="~/Content/Games_img/treasurecove_medium.jpg" /></a>
+                                            <a href="">
+                                                <img class="preview" src="~/Content/Games_img/flappy-bird.jpg" />
+                                            </a>
                                         </p>
                                         <div class="game-desc">
-
                                             <div class="stars">
                                                 <p>
                                                     <img src="" />
@@ -102,9 +96,18 @@
                                             <p>Who knows how much gold bullion’s waiting in our treasure cove?</p>
 
                                             <p class='game-button'>
-                                                <a href="/Account/Index" class="buttons orange medium">
-                                                    Sign in to play!
-                                                </a>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a href="/Game/FloppyBird" class="buttons orange medium">
+                                                       Play Now
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Home/Login" class="buttons orange medium">
+                                                        Sign in to play!
+                                                    </a>
+                                                }
                                             </p>
                                         </div>
 
@@ -112,7 +115,8 @@
                                     <li>
 
                                         <p>
-                                            <a href=""><img class="preview" src="~/Content/Games_img/biggamefishing_medium.jpg" /></a>
+                                            <a href="">
+                                            <img class="preview" src="~/Content/Games_img/Pac-Man.png" /></a>
                                         </p>
                                         <div class="game-desc">
 
@@ -125,20 +129,30 @@
                                                     <img src="~/Content/Games_img/blank-star.png" alt="star">
                                                 </p>
                                             </div>
-                                            <h4 class="blue"><a href="">Big Game Fishing</a></h4>
+                                            <h4 class="blue">
+                                            <a href="">PacMan Game</a></h4>
                                             <p>Grab your tackle box, a rod and reel, and rev up your boat engine — we’re going fishing!</p>
 
                                             <p class='game-button'>
-                                                <a href="/Account/Index" class="buttons orange medium">
-                                                    Sign in to play!
-                                                </a>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a href="/Game/Pacman" class="buttons orange medium">
+                                                        Play Now
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Home/Login" class="buttons orange medium">
+                                                        Sign in to play!
+                                                    </a>
+                                                }
                                             </p>
                                         </div>
 
                                     </li>
                                     <li>
                                         <p>
-                                            <a href=""><img class="preview" src="~/Content/Games_img/dealwheel_medium.jpg" /></a>
+                                            <a href=""><img class="preview" src="~/Content/Games_img/TicTac.jpg" /></a>
                                         </p>
                                         <div class="game-desc">
 
@@ -155,9 +169,18 @@
                                             <p>Should you take The Banker’s offer or go for another spin on the Deal Wheel?</p>
 
                                             <p class='game-button'>
-                                                <a href="/Account/Index" class="buttons orange medium">
-                                                    Sign in to play!
-                                                </a>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a href="/Game/Pacman" class="buttons orange medium">
+                                                        Play Now
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Home/Login" class="buttons orange medium">
+                                                        Sign in to play!
+                                                    </a>
+                                                }
                                             </p>
                                         </div>
 

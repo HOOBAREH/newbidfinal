@@ -224,13 +224,55 @@
     <Content Include="Content\Css\gameplay.css" />
     <Content Include="Content\Css\myquibids.css" />
     <Content Include="Content\Css\reviews.css" />
+    <Content Include="Content\Games\floppybird\assets\bird.png" />
+    <Content Include="Content\Games\floppybird\assets\ceiling.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_0.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_1.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_2.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_3.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_4.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_5.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_6.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_7.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_8.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_9.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_0.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_1.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_2.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_3.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_4.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_5.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_6.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_7.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_8.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_9.png" />
+    <Content Include="Content\Games\floppybird\assets\land.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_bronze.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_gold.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_platinum.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_silver.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe-down.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe-up.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe.png" />
+    <Content Include="Content\Games\floppybird\assets\replay.png" />
+    <Content Include="Content\Games\floppybird\assets\scoreboard.png" />
+    <Content Include="Content\Games\floppybird\assets\sky.png" />
+    <Content Include="Content\Games\floppybird\assets\splash.png" />
+    <Content Include="Content\Games\floppybird\assets\thumb.png" />
+    <Content Include="Content\Games\floppybird\css\main.css" />
+    <Content Include="Content\Games\floppybird\css\reset.css" />
+    <Content Include="Content\Games\Pacman\style.css" />
+    <Content Include="Content\Games\TicTacToe\style.css" />
+    <Content Include="Content\Games_img\TicTac.jpg" />
     <Content Include="Content\Games_img\biggamefishing_medium.jpg" />
     <Content Include="Content\Games_img\blank-star.png" />
     <Content Include="Content\Games_img\dealwheel_medium.jpg" />
+    <Content Include="Content\Games_img\flappy-bird.jpg" />
     <Content Include="Content\Games_img\full-star.png" />
     <Content Include="Content\Games_img\gameplay-step1.jpg" />
     <Content Include="Content\Games_img\gameplay-step2.jpg" />
     <Content Include="Content\Games_img\gameplay-step3.jpg" />
+    <Content Include="Content\Games_img\Pac-Man.png" />
     <Content Include="Content\Games_img\treasurecove_medium.jpg" />
     <Content Include="Content\Games_img\wordscramble-bg.jpg" />
     <Content Include="Content\Games_img\wordscramble_medium.jpg" />
@@ -1675,6 +1717,12 @@
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\Games\floppybird\js\buzz.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\jquery.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\jquery.transit.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\main.js" />
+    <Content Include="Scripts\Games\Pacman\script.js" />
+    <Content Include="Scripts\Games\TicTacToe\main.js" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1714,6 +1762,13 @@
     <Content Include="fonts\BYekan.eot" />
     <Content Include="fonts\BYekan.ttf" />
     <Content Include="fonts\BYekan.woff" />
+    <Content Include="Content\Games\floppybird\assets\font_big.psd" />
+    <Content Include="Content\Games\floppybird\assets\font_small.psd" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_die.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_hit.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_point.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_swooshing.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_wing.ogg" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -1766,6 +1821,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1867,6 +1923,10 @@
     <Content Include="Views\Account\MyInformation.cshtml" />
     <Content Include="Views\Account\Notifications.cshtml" />
     <Content Include="Views\Account\RedeemPromo.cshtml" />
+    <Content Include="Views\Auction\Index.cshtml" />
+    <Content Include="Views\Game\Pacman.cshtml" />
+    <Content Include="Views\Game\FloppyBird.cshtml" />
+    <Content Include="Views\Game\TicTac.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1876,9 +1936,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Games\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Auction\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

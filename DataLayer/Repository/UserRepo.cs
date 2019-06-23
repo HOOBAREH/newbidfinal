@@ -9,7 +9,7 @@ namespace DataLayer.Repository
 {
     public class UserRepo : IUserRepo
     {
-     
+
 
         public UserRepo()
         {
@@ -31,7 +31,7 @@ namespace DataLayer.Repository
                 return db.User.ToList();
             }
         }
-        
+
         public User Login(string userName, string password)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
@@ -88,14 +88,14 @@ namespace DataLayer.Repository
                 return null;
             }
         }
-        public void AddToBids(int userId)
+        public bool AddToBids(int userId)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
                 var user = GetUserById(userId);
                 user.RealBid++;
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                return db.SaveChanges() == 1 ? true : false;
             }
         }
         public void UpdateProfile(UserModel model)
@@ -116,7 +116,7 @@ namespace DataLayer.Repository
                 }
             }
         }
-        public bool ChangePass(string pass,int id)
+        public bool ChangePass(string pass, int id)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
@@ -143,7 +143,7 @@ namespace DataLayer.Repository
                 }
             }
         }
-        public User UpdateImage(int id,string name)
+        public User UpdateImage(int id, string name)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
@@ -155,6 +155,18 @@ namespace DataLayer.Repository
                     db.SaveChanges();
                 }
                 return user;
+            }
+        }
+        public int GetBidsById(int id)
+        {
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                var user = GetUserById(id);
+                if (user != null)
+                {
+                    return user.RealBid ?? 0;
+                }
+                return 0;
             }
         }
     }

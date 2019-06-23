@@ -19,5 +19,7 @@ namespace DataLayer.IRepository
         bool ChangePass(string pass, int id);
         void LastLogin(int id);
         User UpdateImage(int id, string name);
+        bool AddToBids(int userId);
+        int GetBidsById(int id);
     }
 }
