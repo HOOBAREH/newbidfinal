@@ -353,6 +353,7 @@
     <Content Include="Content\img\form-bg.png" />
     <Content Include="Content\img\Layout\ajax-loader.gif" />
     <Content Include="Content\img\Layout\arrow-down-bigger.png" />
+    <Content Include="Content\img\Layout\arrow-hover.gif" />
     <Content Include="Content\img\Layout\arrow-nav-sprite.png" />
     <Content Include="Content\img\Layout\arrow-right.gif" />
     <Content Include="Content\img\Layout\arrow.gif" />
@@ -1927,6 +1928,7 @@
     <Content Include="Views\Game\Pacman.cshtml" />
     <Content Include="Views\Game\FloppyBird.cshtml" />
     <Content Include="Views\Game\TicTac.cshtml" />
+    <Content Include="Views\Home\_ListAuction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1962,7 +1964,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13326</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:13326/</IISUrl>
+          <IISUrl>http://localhost:13327/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

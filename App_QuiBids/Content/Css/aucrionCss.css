@@ -794,10 +794,12 @@ span#buyitnowTimeLeft {
 
 ul.price-breakdown {
     list-style: none;
-    text-align: left;
+    /*text-align: left;*/
     margin: 10px 0 10px 0;
     padding: 0;
-    font-weight: bold
+    font-weight: bold;
+    text-align:right;
+    direction:rtl
 }
 
     ul.price-breakdown li {
@@ -818,6 +820,10 @@ ul.price-breakdown {
 
         ul.price-breakdown li span.float-right {
             float: right;
+            font-weight: normal
+        }
+        ul.price-breakdown li span.float-left {
+            float: left;
             font-weight: normal
         }
 
@@ -842,7 +848,7 @@ ul.auction-details {
 
         ul.auction-details li.watchlist {
             display: inline;
-            background: url('../img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
+            background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
         }
 
     ul.auction-details li {
@@ -870,7 +876,7 @@ i.bido {
     display: block;
     height: 22px;
     width: 22px;
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -107px no-repeat;
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -107px no-repeat;
     position: relative;
     float: left;
     margin-top: 10px
@@ -2468,7 +2474,7 @@ div#swap_content {
 
 div#show-all-you-choose-it {
     float: right;
-    background: url('../img/Auction/dropnav-arrow.gif') no-repeat 100% 8px;
+    background: url('../../Content/img/Auction/dropnav-arrow.gif') no-repeat 100% 8px;
     padding-right: 10px;
     margin-top: -30px
 }
@@ -2709,12 +2715,12 @@ div#auction-title h1 {
 }
 
 .auction-details-wrapper-simple a {
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat;
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat;
     padding-left: 25px
 }
 
     .auction-details-wrapper-simple a.remove {
-        background: url('../img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
+        background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
     }
 
 .auction-details-wrapper-simple {
@@ -2732,7 +2738,7 @@ div#auction-title h1 {
 }
 
 .auction-details li.watchlist.remove {
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
 }
 
 .auction-top .locked, .auction-top .unlocked, .auction-top .big {

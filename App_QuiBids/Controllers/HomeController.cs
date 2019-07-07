@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace App_QuiBids.Controllers
 {
@@ -62,10 +63,8 @@ namespace App_QuiBids.Controllers
             {
                 var hash = new Helpers().Encryption(model.Password);
                 var res = _userRepo.Login(model.UserName, hash);
-
                 if (res != null)
                 {
-
                     context.SetAuthenticationToken(res.Id.ToString(), false, res);
                     _userRepo.LastLogin(model.UserId);
                     return RedirectToAction("Index");
@@ -97,7 +96,7 @@ namespace App_QuiBids.Controllers
             if (ModelState.IsValid)
             {
                 var pass = new Helpers().Encryption(model.Password);
-                var exixts = _userRepo.UsernameExists(model.Email);
+                var exixts = _userRepo.UsernameExists(model.Email, model.Mobile);
                 if (!exixts)
                 {
                     var user = new User()
@@ -170,10 +169,10 @@ namespace App_QuiBids.Controllers
             //    }
             //}
             //else
-                return Json(new
-                {
-                    result = "Low"
-                });
+            return Json(new
+            {
+                result = "Low"
+            });
         }
         public ActionResult GetAuctionLog(int auctionId)
         {
@@ -196,22 +195,83 @@ namespace App_QuiBids.Controllers
         [HttpPost]
         [Authorize]
 
-        public ActionResult UpdateTimer(int id, TimeSpan timer, bool startStatus)
+        public ActionResult UpdateTimer()
         {
-            //var res = _auctionRepo.UpdateTimer(id, timer, startStatus);
-            var res = false;
-            if (res)
+            var auctions = _auctionRepo.GetAuctions().Where(x=>!x.IsClose);
+            List<AuctionModel> list = new List<AuctionModel>();
+            List<string> listStr = new List<string>();
+            foreach (var item in auctions)
             {
-                return Json(new
+                var auction = item;
+                bool result = false, startStatus = auction.StartStatus, isclose = auction.IsClose;
+                TimeSpan timer = new TimeSpan();
+                TimeSpan time = new TimeSpan();
+                string colorStatus = "Black";
+
+                var status = auction.Auction_Time.CompareTo(new TimeSpan(0, 0, 0));
+                timer = auction.Auction_Time;
+                if (!auction.IsClose)
                 {
-                    result = true
-                });
+                    if (timer.CompareTo(new TimeSpan(0, 0, 0)) == 0)
+                    {
+                        time = timer;
+                    }
+                    else
+                    {
+                        time = timer.Subtract(TimeSpan.FromSeconds(1));
+                    }
+                    if (time.CompareTo(new TimeSpan(0, 0, 0)) == 0)//if time==0
+                    {
+                        if (!auction.StartStatus)
+                        {
+                            startStatus = true;
+                            time = TimeSpan.FromSeconds(auction.Close_Time);
+                        }
+                        else
+                        {
+                            isclose = true;
+                        }
+                    }
+
+                    auction = _auctionRepo.UpdateTimer2(auction.Id, time, startStatus, isclose);
+
+                }
+                colorStatus = startStatus == true ? "Red" : "Black";
+                var model = new AuctionModel
+                {
+                    Auction_Time = auction.Auction_Time,
+                    Close_Time = auction.Close_Time,
+                    CurrentBid_Id = auction.CurrentBid_Id,
+                    Current_UserId = auction.Current_UserId,
+                    Reserve_Price = auction.Reserve_Price,
+                    IsActive = auction.IsActive,
+                    id = auction.Id,
+                    ProductId = auction.ProductId,
+                    User = auction.User,
+                    colorStatus = colorStatus,
+                    IsClose=auction.IsClose,
+                    Product=auction.Product
+                };
+                list.Add(model);
+                //var r = JsonConvert.SerializeObject(model);
+              //listStr.Add( new JavaScriptSerializer().Serialize(r));
             }
-            else
-                return Json(new
-                {
-                    result = false
-                });
+
+            //return Json(new
+            //{
+            //    result = list
+            //},JsonRequestBehavior.AllowGet);
+
+            //var res = false;
+            //if (res)
+            //{
+            //    return Json(new
+            //    {
+            //        result = true
+            //    });
+            //}
+            //else
+            return PartialView("_ListAuction", list);
         }
         [Authorize]
 

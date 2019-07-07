@@ -1,4 +1,4 @@
-﻿$(".btntest").click(function () {
+﻿$(".btnAuction").click(function () {
     var currentUser = $(this).parent().siblings(".Current_User");
     var Startstatus = $(this).parent().siblings(".Startstatus");
     var userID = $('.userId').attr('data-userId');
@@ -85,9 +85,10 @@ function startTimer(duration, display) {
     if (Startstatus.attr('data-Start')=="True") {
         $(display).parent().find("h2").removeClass('black').addClass('red');
 
-    }
+    } 
     var intervalId = setInterval(function () {
-      
+        
+
         if ((Startstatus.attr('data-Start') == "True") && (timer == 0 && status.val() == 0))
         //time reset shode va kasi mojadaddarmozaede sherkat nakard.
         {
@@ -96,7 +97,9 @@ function startTimer(duration, display) {
             $(img).css({ "pointer-events": "none" });
             isClose.attr('data-Close', 'True');
             updateIsclose(id);
+            $(display).offsetParent("div.auction-item-wrapper").remove();
             window.clearInterval(intervalId);
+
         }
         if (status.val() == "1") {
             timer = closeTime;

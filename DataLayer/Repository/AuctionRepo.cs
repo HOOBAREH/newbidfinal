@@ -16,10 +16,11 @@ namespace DataLayer.Repository
         }
 
         public List<Auction> GetAuctions()
-        {
+            {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                return db.Auction.Include("Product").Include("User").Where(x => x.IsActive).ToList();
+                var result=db.Auction.Include("Product").Include("User").Where(x => x.IsActive && !x.IsClose).OrderBy(x=>x.Auction_Time).Take(20).ToList();
+                return result;
             }
         }
         public Auction GetAuctionById(int id)
@@ -38,12 +39,13 @@ namespace DataLayer.Repository
                 using (QuiBidsEntities db = new QuiBidsEntities())
                 {
                     #region AddToPrice_Auction
-                    var auction = GetAuctionById(auctionId);
+                    var auction = db.Auction.Where(x => x.Id == auctionId).FirstOrDefault();
                     auction.Current_UserId = UserId;
-                    auction.Reserve_Price ++;//moshakas shavad chand vahed add shavad
+                    auction.Reserve_Price++;//moshakas shavad chand vahed add shavad
                     auction.Auction_Time = TimeSpan.FromSeconds(auction.Close_Time);
                     db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                 
+                    var s=db.SaveChanges();
                     #endregion
 
                     #region LowerBidOfUser
@@ -64,7 +66,7 @@ namespace DataLayer.Repository
                     {
                         AuctionId = auctionId,
                         DateTime = DateTime.Now,
-                        TypeBid =1,//EditType
+                        TypeBid = 1,//EditType
                         UserId = UserId,
                         Price = auction.Reserve_Price
                     };
@@ -73,20 +75,40 @@ namespace DataLayer.Repository
                     #endregion
                     result = auction.Reserve_Price.Value;
                 }
-                    scope.Complete();
+                scope.Complete();
             }
             return result;
         }
-        public bool UpdateTimer(int auctionId, TimeSpan timer, bool startStatus, bool isclose)
+        public bool UpdateTimer(int auctionId, TimeSpan timer, bool startStatus, bool? isclose)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
                 var auction = GetAuctionById(auctionId);
                 auction.Auction_Time = timer;
-                auction.IsClose = isclose;
+                if (isclose != null)
+                {
+                    auction.IsClose = isclose.Value;
+                }
                 auction.StartStatus = startStatus;
                 db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
                 return db.SaveChanges() == 0 ? false : true;
+            }
+        }
+        public Auction UpdateTimer2(int auctionId, TimeSpan timer, bool startStatus, bool? isclose)
+        {
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                var auction = GetAuctionById(auctionId);
+                auction.Auction_Time = timer;
+                if (isclose != null)
+                {
+                    auction.IsClose = isclose.Value;
+                }
+                auction.StartStatus = startStatus;
+
+               var result= db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
+              var s= db.SaveChanges();
+                return auction;
             }
         }
         public Auction UpdateIsclose(int auctionId)
@@ -124,6 +146,27 @@ namespace DataLayer.Repository
                                  AuctionId = au.Id
                              }).FirstOrDefault();
                 return query;
+            }
+        }
+        public List<StatisticsModel> GetStatistics()
+        {
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                var result = (from au in db.Auction
+                                  //join img in db.Image on au.ProductId equals img.ProductId into img
+
+                              join Al in db.AuctionLogs on au.Id equals Al.AuctionId into log
+                              where au.IsActive && au.IsClose
+                              select new StatisticsModel
+                              {
+                                  AuctionId = au.Id,
+                                  BidderName = au.User.Fname,
+                                  BidsSpent = log.Count(),
+                                  EndPrice = au.Reserve_Price.Value,
+                                  TotalPaid = au.Reserve_Price.Value,
+                                  Img = au.User.Image
+                              }).ToList();
+                return result;
             }
         }
     }

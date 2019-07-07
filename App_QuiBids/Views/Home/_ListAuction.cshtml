@@ -1,0 +1,36 @@
+﻿@model List<AuctionModel>
+@using App_QuiBids.Models
+@foreach (var item in Model)
+{
+    <div class="auction-item-wrapper">
+        <div>
+            <h5 class="auction-item-title">
+                <a class="title" href="">$@item.EndPrice  @*@item.User.Fname*@</a>
+            </h5>
+        </div>
+        <div class="auction-item-img">
+            <a style="width: 168px; height: 110px; padding-bottom: 5px;" href="@Url.Action("Index","Auction",new { id=item.id})">
+
+                <img src="~/Content/img/@item.Product.Image" />
+            </a>
+        </div>
+        <div class="clear"></div>
+        
+        <h2 id="time" class="time bold @item.colorStatus black">@item.Auction_Time</h2>
+        <h3 id="Reserve_Price" class="price green Reserve-Price " data-reservePrice="@item.Reserve_Price"> $@item.Reserve_Price</h3>
+        <h5 class="winning grey Current_User">@((item.User != null) ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
+        @if (item.IsClose)
+        {
+            <p class="p">
+                <img class="buttons bid medium btnAuction" src="~/Content/img/Sold.png" />
+            </p>
+        }
+        else
+        {
+            <p class="p">
+                <img class="buttons bid medium btnAuction" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout="" />
+            </p>
+        }
+
+    </div>
+}

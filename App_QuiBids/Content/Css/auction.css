@@ -794,7 +794,8 @@ span#buyitnowTimeLeft {
 
 ul.price-breakdown {
     list-style: none;
-    text-align: left;
+    text-align: right;
+    direction:rtl;
     margin: 10px 0 10px 0;
     padding: 0;
     font-weight: bold
@@ -813,11 +814,16 @@ ul.price-breakdown {
         ul.price-breakdown li.bid_breakdown {
             font-size: 12px;
             font-weight: normal;
-            margin-top: -8px
+            margin-top: -8px;
+            text-align:left
         }
 
         ul.price-breakdown li span.float-right {
             float: right;
+            font-weight: normal
+        }
+        ul.price-breakdown li span.float-left {
+            float: left;
             font-weight: normal
         }
 
@@ -842,7 +848,7 @@ ul.auction-details {
 
         ul.auction-details li.watchlist {
             display: inline;
-            background: url('../img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
+            background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
         }
 
     ul.auction-details li {
@@ -870,7 +876,7 @@ i.bido {
     display: block;
     height: 22px;
     width: 22px;
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -107px no-repeat;
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -107px no-repeat;
     position: relative;
     float: left;
     margin-top: 10px
@@ -1744,7 +1750,8 @@ div.module ul.live-upcoming li div.live-upcoming-left p, div.module ul.live-upco
 table#recently-auctioned {
     width: 900px;
     float: left;
-    background: #fafafa
+    background: #fafafa;
+    direction: rtl;
 }
 
     table#recently-auctioned thead tr {
@@ -1766,42 +1773,42 @@ table#recently-auctioned {
 
     table#recently-auctioned thead tr td.username {
         width: 225px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.auctionid {
         width: 150px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.ending {
         width: 128px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.auctionfeatures {
         width: 130px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.paid {
         width: 100px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.spent {
-        width: 134px;
-        text-align: left
+        width: 218px;
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.total {
         width: 134px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned thead tr td.savings {
         width: 75px;
-        text-align: left
+        text-align: right
     }
 
     table#recently-auctioned tbody tr {
@@ -1858,27 +1865,27 @@ table#recently-auctioned {
 
         table#recently-auctioned tbody tr td.username {
             width: 226px;
-            text-align: left
+            text-align: right
         }
 
         table#recently-auctioned tbody tr td.ending {
             width: 170px;
-            text-align: left
+            text-align: right
         }
 
         table#recently-auctioned tbody tr td.spent {
             width: 170px;
-            text-align: left
+            text-align: right
         }
 
         table#recently-auctioned tbody tr td.total {
-            width: 220px;
-            text-align: left
+            width: 181px;
+            text-align: right
         }
 
         table#recently-auctioned tbody tr td.savings {
             width: 90px;
-            text-align: left
+            text-align: right
         }
 
     table#recently-auctioned p {
@@ -2468,7 +2475,7 @@ div#swap_content {
 
 div#show-all-you-choose-it {
     float: right;
-    background: url('../img/Auction/dropnav-arrow.gif') no-repeat 100% 8px;
+    background: url('../../Content/img/Auction/dropnav-arrow.gif') no-repeat 100% 8px;
     padding-right: 10px;
     margin-top: -30px
 }
@@ -2709,12 +2716,12 @@ div#auction-title h1 {
 }
 
 .auction-details-wrapper-simple a {
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat;
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat;
     padding-left: 25px
 }
 
     .auction-details-wrapper-simple a.remove {
-        background: url('../img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
+        background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
     }
 
 .auction-details-wrapper-simple {
@@ -2732,7 +2739,7 @@ div#auction-title h1 {
 }
 
 .auction-details li.watchlist.remove {
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -272px no-repeat
 }
 
 .auction-top .locked, .auction-top .unlocked, .auction-top .big {

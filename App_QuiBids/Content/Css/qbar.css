@@ -1,6 +1,7 @@
 #qbar p, #qbar span, #qbar li, #qbar a, #qbar h1, #qbar h2 {
     font-family: helvetica,arial,sans-serif;
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    direction:rtl
 }
 
 #qbar_popup_username.popup.username div ul li {

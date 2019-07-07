@@ -5,6 +5,12 @@ using System.Web;
 
 namespace DataLayer.Models
 {
+    public class AuctionListModel
+    {
+        public AuctionModel Auctions { get; set; }
+        public List<StatisticsModel> statisticsList { get; set; }
+
+    }
     public class AuctionModel
     {
         public int AuctionId { get; set; }
@@ -27,6 +33,12 @@ namespace DataLayer.Models
         public bool StartStatus { get; set; }
 
         public bool IsClose { get; set; }
+
+        public string colorStatus { get; set; }
+
         public User User { get; set; }
+        
+        public bool IsActive { get; set; }
+
     }
 }

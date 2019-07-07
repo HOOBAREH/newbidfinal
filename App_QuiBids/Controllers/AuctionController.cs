@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using DataLayer.Repository;
 using DataLayer.IRepository;
 using DataLayer;
+using App_QuiBids.Models;
+using DataLayer.Models;
 
 namespace App_QuiBids.Controllers
 {
@@ -23,8 +25,17 @@ namespace App_QuiBids.Controllers
         public ActionResult Index(int id)
         {
             var auction = _auctionRepo.GetProductByAuction(id);
-            return View(auction);
+            AuctionListModel model = new AuctionListModel()
+            {
+                Auctions = auction,
+                statisticsList = _auctionRepo.GetStatistics()
+            };
+
+
+
+            return View(model);
         }
+
         public ActionResult AddToAcuctionLog(int auctionId, byte type)
         {
             if (Session["Admin"] == null)
@@ -44,6 +55,7 @@ namespace App_QuiBids.Controllers
                 return RedirectToAction("Login", "Home");
             }
         }
+
         public ActionResult UpdateTimer(int id)
         {
             var auction = _auctionRepo.GetProductByAuction(id);
@@ -67,14 +79,17 @@ namespace App_QuiBids.Controllers
 
                 if (time.CompareTo(new TimeSpan(0, 0, 0)) == 0)//if time==0
                 {
-                    if (!auction.StartStatus)
+                    if (timer.CompareTo(new TimeSpan(0, 0, 0)) == 0)
                     {
-                        startStatus = true;
-                        time = TimeSpan.FromSeconds(auction.Close_Time);
-                    }
-                    else
-                    {
-                        isclose = true;
+                        if (!auction.StartStatus)
+                        {
+                            startStatus = true;
+                            time = TimeSpan.FromSeconds(auction.Close_Time);
+                        }
+                        else
+                        {
+                            isclose = true;
+                        }
                     }
                 }
 
@@ -86,13 +101,14 @@ namespace App_QuiBids.Controllers
                 return Json(new
                 {
                     startStatus = startStatus,
-                isclose,
+                    isclose,
                     result = (new TimeSpan(time.Hours, time.Minutes, time.Seconds)).ToString()
                 });
             }
             else
                 return Json(false);
         }
+
         /// <summary>
         /// Kam kardane bids va sabte gheimate:
         /// 1-Check bids 2-check start shodane time mozaede  3-kam kardan bid  4-sabte gheimat. 5 sabte log
@@ -105,13 +121,22 @@ namespace App_QuiBids.Controllers
             var bid = new UserRepo().GetBidsById(int.Parse(User.Identity.Name));
             if (bid != 0)
             {
+                var Uid = int.Parse(User.Identity.Name);
                 var auction = _auctionRepo.GetAuctionById(id);
                 if (auction.StartStatus && !auction.IsClose)
                 {
+                    if (auction.Current_UserId == Uid)
+                    {
+                        ViewBag.Error = "شما قادر نیستید،دو پیشنهاد را پشت سر هم بدهید";
+                        return Json(new
+                        {
+                            result = "0"
+                        });
+                    }
                     var user = new UserRepo().GetUserById(int.Parse(User.Identity.Name));
                     var result = _auctionRepo.ParticipateInAuctions(id, user.Id);
 
-                    if (result==0)
+                    if (result == 0)
                     {
                         ViewBag.Error = "لطفا مجددا تلاش کنید";
                         return Json(new
@@ -123,8 +148,8 @@ namespace App_QuiBids.Controllers
                     {
                         return Json(new
                         {
-                            name=user.Fname,
-                            price= result
+                            name = user.Fname,
+                            price = result
                         }
                             , JsonRequestBehavior.AllowGet);
 
@@ -136,6 +161,7 @@ namespace App_QuiBids.Controllers
                 result = "NoBid"
             });
         }
+
         public ActionResult GetEight(int id)
         {
             var list = _logRepo.GetEight(id);
@@ -144,8 +170,9 @@ namespace App_QuiBids.Controllers
                 result = list
             });
         }
-        public ActionResult  Statistics()
+        public ActionResult Statistics()
         {
+            var result = _auctionRepo.GetStatistics();
             return View();
         }
     }

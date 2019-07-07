@@ -36,16 +36,16 @@ namespace DataLayer.Repository
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                var user = db.User.Where(x => x.Email == userName && x.Password == password).FirstOrDefault();
+                var user = db.User.Where(x => x.Mobile == userName && x.Password == password).FirstOrDefault();
 
                 return user;
             }
         }
-        public bool UsernameExists(string userName)
+        public bool UsernameExists(string userName,string number)
         {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                if (db.User.Where(x => x.Email == userName).Any())
+                if (db.User.Where(x => x.Email == userName|| x.Mobile==number).Any())
                     return true;
                 return false;
             }

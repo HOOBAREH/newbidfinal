@@ -62,7 +62,7 @@
                     padding: 0 15px;
                     margin: 0;
                     color: #FF7400;
-                    font-family: 'B Yekan';
+                    font-family: 'iransans';
                     font-size: 20px;
                     font-weight: bold;
                     letter-spacing: .02em;
@@ -159,13 +159,13 @@
         }
 
         #brand_browse {
-            font-family: 'B Yekan';
+            font-family: 'iransans';
             height: 30px;
             font-size: 14px;
         }
 
         #category_browse {
-            font-family: 'B Yekan';
+            font-family: 'iransans';
             height: 30px;
             font-size: 14px;
         }
@@ -207,7 +207,7 @@
                                      class="bids-icon">
                                 <a href="" class="bids"
                                    id="template_bidsavailable_click">
-                                    <span id="template_bidsavailable"
+                                    <span id="bidsavailable"
                                           style="width:25px">@user.RealBid</span>
                                         Bids
                                     </a>
@@ -276,7 +276,7 @@
 
 
                     <li> <a href="/Home/Help">راهنما</a> </li>
-                    @if (user.Id != 0)
+                    @if (user.Id == 0)
                     {
                         <li> <a href="/Home/register">عضویت</a> </li>
                     }
@@ -549,7 +549,7 @@
 
 
             <footer>
-                <div id="footer-left">
+                <div id="footer-right">
 
                     <div class="content">
                         <h5>پشتیبانی</h5>
@@ -636,284 +636,284 @@
 
     @if (user.Id != 0)
     {
-        <div id="qbar">
-            <div class="container" id="qbar_full" style="display:none">
-                <div class="popup username" style="display:none" id="qbar_popup_username">
-                    <div class="title">
-                        <h2>نام کاربری</h2>
-                        <a id="qbar_close_username" class="close">Close</a>
-                    </div><!--title-->
+    <div id="qbar">
+        <div class="container" id="qbar_full" style="display:none">
+            <div class="popup username" style="display:none" id="qbar_popup_username">
+                <div class="title">
+                    <h2>نام کاربری</h2>
+                    <a id="qbar_close_username" class="close">Close</a>
+                </div><!--title-->
 
-                    <div class="content">
-                        <div style="float:left;width:105px;">
-                            <a href="">
-                                <img src="~/Content/img/Footer-Bar/52.png" />
+                <div class="content">
+                    <div style="float:left;width:105px;">
+                        <a href="">
+                            <img src="~/Content/img/Footer-Bar/52.png" />
+                        </a>
+                        <div class="profileUsername">272620</div>
+                    </div>
+                    <div style="float:right;width:250px;min-height:150px;padding-left:14px">
+                        <h2>Recent Wins</h2><ul></ul><br />
+                        <h2>
+                            Auction Limits      <a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ">
+                                <img src="~/Content/img/Footer-Bar/help.png" />>
                             </a>
-                            <div class="profileUsername">272620</div>
-                        </div>
-                        <div style="float:right;width:250px;min-height:150px;padding-left:14px">
-                            <h2>Recent Wins</h2><ul></ul><br />
-                            <h2>
-                                Auction Limits      <a href="/en/help/faq/8#19" class="tooltip-top" title="Click to view FAQ">
-                                    <img src="~/Content/img/Footer-Bar/help.png" />>
-                                </a>
-                            </h2>
+                        </h2>
 
-                            <p id="stars">
-                                <a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><br><br><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a>
-                            </p>
+                        <p id="stars">
+                            <a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><br><br><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a><a class='off tooltip-top' title='Open'></a>
+                        </p>
 
-                            <br /><br />
-                            <h2>
-                                مدال ها     <a href="" class="tooltip-top" title="Click to view FAQ"><img src="~/Content/img/Footer-Bar/help.png" /></a>
-                            </h2>
-                            <p>
-                                <img src="~/Content/img/Footer-Bar/badge_29_tiny.png" class='tooltip-top' title="QuiZette Badge" />&nbsp;
-                            </p>
-                        </div>
+                        <br /><br />
+                        <h2>
+                            مدال ها     <a href="" class="tooltip-top" title="Click to view FAQ"><img src="~/Content/img/Footer-Bar/help.png" /></a>
+                        </h2>
+                        <p>
+                            <img src="~/Content/img/Footer-Bar/badge_29_tiny.png" class='tooltip-top' title="QuiZette Badge" />&nbsp;
+                        </p>
+                    </div>
 
-                    </div><!--content-->
-                </div><!--popup username-->
+                </div><!--content-->
+            </div><!--popup username-->
 
 
-                <div class="popup myquibids" style="display:none" id="qbar_popup_myquibids">
-                    <div class="title">
-                        <h2>نیو بید من</h2>
-                        <a id="qbar_close_myquibids" class="close">Close</a>
-                    </div><!--title-->
-                    <div class="content">
-                        <div class="cont-left">
-                            <h3>اکانت من</h3>
-                            <ul>
-                                <li><a href="/Account/MyBadges">مدال های من</a></li>
-                                <li><a href="/Account/MyAccount">اطلاعات من</a></li>
-                                <li><a href="/Account/ChangePassword">تغیر رمز عبور</a></li>
-                                <li><a href="">Refer دوستان من</a></li>
-                            </ul>
-                            <div>&nbsp;</div>
-                            <h3>مغازه نیوبیدر</h3>
-                            <ul>
-                                <li><a href="">خرید بید</a></li>
-                                <li><a href="">تاریخچه خرید</a></li>
-                            </ul>
-                        </div><!--right-->
+            <div class="popup myquibids" style="display:none" id="qbar_popup_myquibids">
+                <div class="title">
+                    <h2>نیو بید من</h2>
+                    <a id="qbar_close_myquibids" class="close">Close</a>
+                </div><!--title-->
+                <div class="content">
+                    <div class="cont-left">
+                        <h3>اکانت من</h3>
+                        <ul>
+                            <li><a href="/Account/MyBadges">مدال های من</a></li>
+                            <li><a href="/Account/MyAccount">اطلاعات من</a></li>
+                            <li><a href="/Account/ChangePassword">تغیر رمز عبور</a></li>
+                            <li><a href="">Refer دوستان من</a></li>
+                        </ul>
+                        <div>&nbsp;</div>
+                        <h3>مغازه نیوبیدر</h3>
+                        <ul>
+                            <li><a href="">خرید بید</a></li>
+                            <li><a href="">تاریخچه خرید</a></li>
+                        </ul>
+                    </div><!--right-->
 
-                        <div class="cont-left">
-                            <h3>فعالیت ها</h3>
-                            <ul>
-                                <li><a href="">Watchlist</a></li>
-                                <li><a href="">تاریخچه مزایده ها</a></li>
-                                <li><a href="">Bid-O-Matic History</a></li>
-                                <li><a href="">فعالیت های برنده شده</a></li>
-                                <li><a href="">تارخچه اعتبار بید ها</a></li>
-                                <li><a href="">حدود فعالیت ها</a></li>
-                                <li><a href="">Notifications</a></li>
-                            </ul>
+                    <div class="cont-left">
+                        <h3>فعالیت ها</h3>
+                        <ul>
+                            <li><a href="">Watchlist</a></li>
+                            <li><a href="">تاریخچه مزایده ها</a></li>
+                            <li><a href="">Bid-O-Matic History</a></li>
+                            <li><a href="">فعالیت های برنده شده</a></li>
+                            <li><a href="">تارخچه اعتبار بید ها</a></li>
+                            <li><a href="">حدود فعالیت ها</a></li>
+                            <li><a href="">Notifications</a></li>
+                        </ul>
 
-                        </div><!--left-->
+                    </div><!--left-->
 
-                    </div><!--content-->
-                </div><!--popup myquibids-->
-
-
-                <div class="popup watchlist" style="display:none" id="qbar_popup_watchlist">
-                    <div class="title">
-                        <h2>Watchlist</h2>
-                        <a id="qbar_close_watchlist" class="close">Close</a>
-                    </div><!--title-->
-
-                    <div class="actions" id="qbar_watchlist_actions" style="display:none">
-                        <a id="qbarWLPrevious" class="prev" href="javascript:void(0);" style="float:left">&laquo; Back</a>
-                        <a id="qbarWLNext" class="next" href="javascript:void(0);" style="float:right">More &raquo;</a>
-                    </div><!--link-->
-
-                    <div class="content" id="qbar_watchcontent"></div>
-                </div><!--popup watchlist-->
-
-                <div class="popup qbarmybids" style="display:none" id="qbar_popup_mybids">
-                    <div class="title">
-                        <h2>بید های من</h2>
-                        <a id="qbar_close_mybids" class="close">Close</a>
-                    </div><!--title-->
-                    <div class="content">
-                        <div class="cont-left">
-                            <p class="big">
-                                @if (user.Id != 0)
-                                {
-                                    var sum = user.RealBid + user.VoucherBid;
-                                    <span id="qbar_bidsavailable2">
-                                        @sum
-
-                                    </span>
-
-                                }
-                                else
-                                {
-                                    <span id="qbar_bidsavailable2">
-
-                                        0
-                                    </span>
-                                }
+                </div><!--content-->
+            </div><!--popup myquibids-->
 
 
-                            </p>
-                            <p class="small">Total Bids</p>
-                        </div><!--left-->
+            <div class="popup watchlist" style="display:none" id="qbar_popup_watchlist">
+                <div class="title">
+                    <h2>Watchlist</h2>
+                    <a id="qbar_close_watchlist" class="close">Close</a>
+                </div><!--title-->
 
-                        <div class="cont-right">
-                            <ul>
-                                <li>
-                                    <span class="big2" id="qbar_bidsavailable_real">@(user.Id != 0 != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
-                                        <img src="~/Content/img/Footer-Bar/help.png" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <span class="big2" id="qbar_bidsavailable_free">@(user.Id!=0 != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
-                                        <img src="~/Content/img/Footer-Bar/help.png" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cont-right" style="line-height:20px">
-                            Bid Type Selection:
-                            <div style='float:right'>
-                                <a href="/en/help/faq/10-Bidding#122" title="Click to view FAQ">
+                <div class="actions" id="qbar_watchlist_actions" style="display:none">
+                    <a id="qbarWLPrevious" class="prev" href="javascript:void(0);" style="float:left">&laquo; Back</a>
+                    <a id="qbarWLNext" class="next" href="javascript:void(0);" style="float:right">More &raquo;</a>
+                </div><!--link-->
+
+                <div class="content" id="qbar_watchcontent"></div>
+            </div><!--popup watchlist-->
+
+            <div class="popup qbarmybids" style="display:none" id="qbar_popup_mybids">
+                <div class="title">
+                    <h2>بید های من</h2>
+                    <a id="qbar_close_mybids" class="close">Close</a>
+                </div><!--title-->
+                <div class="content">
+                    <div class="cont-left">
+                        <p class="big">
+                            @if (user.Id != 0)
+                            {
+                                var sum = user.RealBid + user.VoucherBid;
+                                <span id="qbar_bidsavailable2">
+                                    @sum
+
+                                </span>
+
+                            }
+                            else
+                            {
+                                <span id="qbar_bidsavailable2">
+
+                                    0
+                                </span>
+                            }
+
+
+                        </p>
+                        <p class="small">Total Bids</p>
+                    </div><!--left-->
+
+                    <div class="cont-right">
+                        <ul>
+                            <li>
+                                <span class="big2" id="qbar_bidsavailable_real">@(user.Id != 0 != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
                                     <img src="~/Content/img/Footer-Bar/help.png" />
                                 </a>
+                            </li>
+                            <li>
+                                <span class="big2" id="qbar_bidsavailable_free">@(user.Id != 0 != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
+                                    <img src="~/Content/img/Footer-Bar/help.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont-right" style="line-height:20px">
+                        Bid Type Selection:
+                        <div style='float:right'>
+                            <a href="/en/help/faq/10-Bidding#122" title="Click to view FAQ">
+                                <img src="~/Content/img/Footer-Bar/help.png" />
+                            </a>
+                        </div>
+                        <div style='margin-left:0px;'>
+                            <div style="height:27px;">
+                                <input type='radio' id='bidsfirst_voucher' name="bidsfirst" value="Voucher">
+                                <label for='bidsfirst_voucher'> Voucher Bids</label>
                             </div>
-                            <div style='margin-left:0px;'>
-                                <div style="height:27px;">
-                                    <input type='radio' id='bidsfirst_voucher' name="bidsfirst" value="Voucher">
-                                    <label for='bidsfirst_voucher'> Voucher Bids</label>
-                                </div>
-                                <div style="height:27px;">
-                                    <input type='radio' id='bidsfirst_real' name="bidsfirst" value="Real" checked>
-                                    <label for='bidsfirst_real'> Real Bids</label>
-                                </div>
-
+                            <div style="height:27px;">
+                                <input type='radio' id='bidsfirst_real' name="bidsfirst" value="Real" checked>
+                                <label for='bidsfirst_real'> Real Bids</label>
                             </div>
-                            <div style="margin-left:10px" class="bidchoice_text"></div>
 
                         </div>
+                        <div style="margin-left:10px" class="bidchoice_text"></div>
 
-                    </div><!--content-->
-                </div><!--popup mybids-->
+                    </div>
 
-                <div class="popup qbarmygames" style="display:none" id="qbar_popup_mygames">
+                </div><!--content-->
+            </div><!--popup mybids-->
 
-                    <div class="title">
-                        <h2>My Games</h2>
-                        <a id="qbar_close_mygames" class="close">Close</a>
-                    </div><!--title-->
-                    <div class="content">
-                        <div class="cont-left">
-                            <p class="big"><span id="qbar_gamesavailable2">0</span></p>
-                            <p class="small">Total Gameplays</p>
-                        </div><!--left-->
+            <div class="popup qbarmygames" style="display:none" id="qbar_popup_mygames">
 
-                        <div class="cont-right">
-                            <ul class="gplays">
-                                <li><a href="#" class="buttons medium grey">1X</a></li>
+                <div class="title">
+                    <h2>My Games</h2>
+                    <a id="qbar_close_mygames" class="close">Close</a>
+                </div><!--title-->
+                <div class="content">
+                    <div class="cont-left">
+                        <p class="big"><span id="qbar_gamesavailable2">0</span></p>
+                        <p class="small">Total Gameplays</p>
+                    </div><!--left-->
 
-                                <li><a href="#" class="buttons medium grey">2X</a></li>
+                    <div class="cont-right">
+                        <ul class="gplays">
+                            <li><a href="#" class="buttons medium grey">1X</a></li>
 
-                                <!--							<li><a href="#" class="buttons medium grey">3X</a></li>
-                                -->
+                            <li><a href="#" class="buttons medium grey">2X</a></li>
 
-                                <li><a href="#" class="buttons medium grey">5X</a></li>
+                            <!--							<li><a href="#" class="buttons medium grey">3X</a></li>
+                        -->
 
-                                <!--							<li><a href="#" class="buttons medium grey">10X</a></li>
+                            <li><a href="#" class="buttons medium grey">5X</a></li>
 
-                                                            <li><a href="#" class="buttons medium grey">15X</a></li>
-                                -->
-                            </ul>
-                        </div><!-- cont-right -->
-                        <div class="qbuytitlebox qgames-content">
-                            <h2 class="qbuytitle">
-                                Games <img src="~/Content/img/Footer-Bar/carouselgame-icon.png" width="16" />
+                            <!--							<li><a href="#" class="buttons medium grey">10X</a></li>
 
-                            </h2>
-                            <p>Select a Gameplay to use or check out some of the current auctions with Gameplays you can bid on to win.</p>
-                            <p><a href="/en/auctions-gameplays/">Find a Gameplay Auction to bid on!</a></p>
-                        </div>
-                    </div><!--content-->
-                </div><!--popup mygames-->
+                                                    <li><a href="#" class="buttons medium grey">15X</a></li>
+                        -->
+                        </ul>
+                    </div><!-- cont-right -->
+                    <div class="qbuytitlebox qgames-content">
+                        <h2 class="qbuytitle">
+                            Games <img src="~/Content/img/Footer-Bar/carouselgame-icon.png" width="16" />
 
-
-                <div class="popup notifypopup" style="display:none" id="qbar_popup_notify">
-                    <div class="title">
-                        <h2>Notifications</h2>
-                        <a id="qbar_close_notify" class="close">Close</a>
-                    </div><!--title-->
-
-                    <div class="link" id="qbar_popup_notifications_more">
-                        <a href="/en/account/myaccount/notifications.php">More</a>
-                    </div><!--link-->
-
-                    <div class="content" id="qbar_popup_notifications"></div><!--content-->
-                </div><!--popup notify-->
+                        </h2>
+                        <p>Select a Gameplay to use or check out some of the current auctions with Gameplays you can bid on to win.</p>
+                        <p><a href="/en/auctions-gameplays/">Find a Gameplay Auction to bid on!</a></p>
+                    </div>
+                </div><!--content-->
+            </div><!--popup mygames-->
 
 
-                <div class="logo">
-                    <a id="qbar_btn_qbar_hide">QBar</a>
-                </div><!--logo-->
+            <div class="popup notifypopup" style="display:none" id="qbar_popup_notify">
+                <div class="title">
+                    <h2>Notifications</h2>
+                    <a id="qbar_close_notify" class="close">Close</a>
+                </div><!--title-->
 
-                <div class="navbar">
+                <div class="link" id="qbar_popup_notifications_more">
+                    <a href="/en/account/myaccount/notifications.php">More</a>
+                </div><!--link-->
 
-                    <ul class="navleft">
-                        <li id="qbar_li_username">
-                            <a id="qbar_btn_username">
-                                <img src="~/Content/img/avatar/@user.Image" class="user">@(user != null ? user.Fname : "")
-                            </a>
-                        </li>
-                        <li id="qbar_li_myquibids">
-                            <a id="qbar_btn_myquibids">
-                                <img src="~/Content/img/Footer-Bar/myquibids.png" /> اکانت من
-                            </a>
-                        </li>
-                        <li id="qbar_li_mygames">
-                            <a id="qbar_btn_mygames">
-                                <img src="~/Content/img/Footer-Bar/carouselgame-icon.png" width="16" /> بازی های من
-                            </a>
-                        </li>
-                    </ul><!--navleft-->
-                    <ul class="navright">
-                        <li id="qbar_li_mybids">
-                            <a id="qbar_btn_mybids">
-                                <img src="~/Content/img/Footer-Bar/mybids.png" />Bid های من <label>(<span id="qbar_bidsavailable">0</span> Bids)</label>
-                            </a>
-                        </li>
-                        <li id="qbar_li_watchlist">
-                            <a id="qbar_btn_watchlist">
-                                <img src="~/Content/img/Footer-Bar/watchlist.png" /> Watchlist
-                            </a>
-                        </li>
-                    </ul><!--navright-->
+                <div class="content" id="qbar_popup_notifications"></div><!--content-->
+            </div><!--popup notify-->
 
-                </div><!--navbar-->
 
-                <div class="notify">
-                    <ul>
-                        <li id="qbar_li_notify">
-                            <a id="qbar_btn_notify">
-                                <img src="~/Content/img/Footer-Bar/notify.png" />
-                                <label id='qbar_notify_count'></label>
-                            </a>
-                        </li>
-                    </ul><!--navright-->
-                </div><!--notify-->
+            <div class="logo">
+                <a id="qbar_btn_qbar_hide"></a>
+            </div><!--logo-->
 
-                <div class="help" id="qbar_popup_help">
-                    <span class="help-cont" id="qbar_help_cont"></span>
-                    <span class="help-btm"></span><!--bubble-->
-                </div><!--help-->
-            </div><!--container-->
-            <div class="container_small" id="qbar_small">
-                <div class="logo">
-                    <a id="qbar_btn_qbar_show">QBar</a>
-                </div><!--logo-->
-            </div>
+            <div class="navbar">
+
+                <ul class="navleft">
+                    <li id="qbar_li_username">
+                        <a id="qbar_btn_username">
+                            <img src="~/Content/img/avatar/@user.Image" class="user">@(user != null ? user.Fname : "")
+                        </a>
+                    </li>
+                    <li id="qbar_li_myquibids">
+                        <a id="qbar_btn_myquibids">
+                            <img src="~/Content/img/Footer-Bar/myquibids.png" /> اکانت من
+                        </a>
+                    </li>
+                    <li id="qbar_li_mygames">
+                        <a id="qbar_btn_mygames">
+                            <img src="~/Content/img/Footer-Bar/carouselgame-icon.png" width="16" /> بازی های من
+                        </a>
+                    </li>
+                </ul><!--navleft-->
+                <ul class="navright">
+                    <li id="qbar_li_mybids">
+                        <a id="qbar_btn_mybids">
+                            <img src="~/Content/img/Footer-Bar/mybids.png" />Bid های من <label>(<span id="qbar_bidsavailable">0</span> Bids)</label>
+                        </a>
+                    </li>
+                    <li id="qbar_li_watchlist">
+                        <a id="qbar_btn_watchlist">
+                            <img src="~/Content/img/Footer-Bar/watchlist.png" /> Watchlist
+                        </a>
+                    </li>
+                </ul><!--navright-->
+
+            </div><!--navbar-->
+
+            <div class="notify">
+                <ul>
+                    <li id="qbar_li_notify">
+                        <a id="qbar_btn_notify">
+                            <img src="~/Content/img/Footer-Bar/notify.png" />
+                            <label id='qbar_notify_count'></label>
+                        </a>
+                    </li>
+                </ul><!--navright-->
+            </div><!--notify-->
+
+            <div class="help" id="qbar_popup_help">
+                <span class="help-cont" id="qbar_help_cont"></span>
+                <span class="help-btm"></span><!--bubble-->
+            </div><!--help-->
+        </div><!--container-->
+        <div class="container_small" id="qbar_small">
+            <div class="logo">
+                <a id="qbar_btn_qbar_show">QBar</a>
+            </div><!--logo-->
         </div>
+    </div>
     }
     @*----------------------------QBar-------------------------------------*@
     @*----------------------------QBar-------------------------------------*@
@@ -933,7 +933,7 @@
     <script src="~/Scripts/JScript/all.js"></script>
     <script src="~/Scripts/JScript/auctions.js"></script>
     <script src="~/Scripts/JScript/ga.js"></script>
-    <script src="~/Scripts/JScript/homepage.js"></script>
+    @*<script src="~/Scripts/JScript/homepage.js"></script>*@
     <script src="~/Scripts/JScript/qbar.js"></script>
     <script src="~/Scripts/JScript/site.js"></script>
     <script src="~/Scripts/JScript/translation.js"></script>

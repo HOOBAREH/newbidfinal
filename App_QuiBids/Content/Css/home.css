@@ -658,7 +658,7 @@ div#featured_carousel {
 .addwatchlist {
     margin: 0;
     display: inline-block;
-    background: url('../img/Layout/auction-details-sprite-2.png') 0 -161px no-repeat;
+    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -161px no-repeat;
     text-indent: 22px;
     height: 20px;
     color: #000;
@@ -667,7 +667,7 @@ div#featured_carousel {
     .addwatchlist.remove {
         margin: 0;
         display: inline-block;
-        background: url('../img/Layout/auction-details-sprite-2.png') 0 -271px no-repeat;
+        background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -271px no-repeat;
         text-indent: 22px;
         height: 20px;
         #000

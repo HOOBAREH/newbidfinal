@@ -7,7 +7,7 @@
     User user = new User();
     if (User.Identity.IsAuthenticated)
     {
-         user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
     }
 
 }
@@ -16,70 +16,11 @@
 <div id="slider_container">
     <div id="featured_carousel">
 
-        <div class="content lockedAuctions lockedAuctions_en">
-            <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
-        </div>
-        <div class="content promoFreeShippingForever"></div>
-        <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
-        @*<div class="content howItWorks">
-                <div class="title bold" style="float:right"><span class="black" >کویی بیدز چطور کار میکند؟</span></div>
-                <div class="box box-1">
-                    <div class="icon"><img src="" alt="pencil" width="63" height="62" /></div>
-                    <div class="title" style=""> عضو شوید و پیشنهاد خریداری کنید</div>
-                    <div class="body">پیشناهدات فقط <span class="bold"><span class="green">$0.40</span></span> برای هر شخص هستند.  موجودی دریافت کنید و شروع به پیدا کردن محصولات جدید کنید.	</div>
-                </div>
-                <div class="box box-2">
-                    <div class="icon"><img src="" alt="cart" width="63" height="54" /></div>
-                    <div class="title">محصولات را انتخاب کنید .</div>
-                    <div class="body" style="font-size:18px">
-                        هرچیزی که میخواهید انتخاب کنید <span class="bold"><span class="green">HDTV, یک لپ تاپ جدید , و پیشنهادات دیگر.</span></span>
-                    </div>
-                </div>
-                <div class="box box-3">
-                    <div class="icon"><img src="" alt="gift" width="64" height="64" /></div>
-                    <div class="title">	پیشنهاد و برنده شدن		</div>
-
-                    <div class="body">	,به کلیک کردن کردن ادامه دهید - اگر شما اخرین نفری باشید که وقتی تایمر صفر میشود پیشنهاد داده <span class="bold green">شما برنده اید </span>	</div>
-                </div>
-                <div class="box box-4">
-                    <div class="title"> !همین امروز عضو شوید و شروع به برنده شدن کنید</div>
-                    <div class="body"><a href="/en/landing/" class="buttons green large">	همین الان عضو شوید!		</a></div>
-                </div>
+        @*<div class="content lockedAuctions lockedAuctions_en">
+                <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
             </div>*@
-        <div class="content tips">
-            <div class="title">Find Out How to Win Big!</div>
-            <div class="body">
-                See <span>tips</span> and <span>tricks</span> from our staff on best practices for <span>Winning Big</span> on <span>QuiBids!</span>
-            </div>
-            <ul>
-                <li>
-                    <a href="">
-                        سه اشتباه بزرگ که نبتدی ها مرتکب میشوند
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        به دنبال " بزرگترین " بودن
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        و خیلی چیز های دیگر
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="content badges">
-            <div class="title">
-                <span class="bold">
-                    Cash in with <span class="green">QuiBids Badges!</span>
-                </span>
-            </div>
-            <div class="body">
-                Badges are the best way to earn <span class="bold"><span class="green">FREE BIDS, achieve goals,</span></span> and  <span class="bold"><span class="green">gain experience</span></span> for shopping with QuiBids.
-            </div>
-            <a href="/en/badges/" class="buttons green large"> بیشتر بدانید		</a>
-        </div>
+        <div class="content promoFreeShippingForever"></div>
+
 
     </div>
 </div>
@@ -87,7 +28,7 @@
 
 
 <div id="auctions">
-    @if (user.Id!=0)
+    @if (user.Id != 0)
     {
 
         <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
@@ -158,7 +99,7 @@
                 <div id="options">
                     <div style="float:left">
 
-                        <a href="#" id="filtersbutton" class="buttons small white filter">مرتب سازی بر اساس </a>
+                        <a id="filtersbutton" class="buttons small white filter">مرتب سازی بر اساس </a>
                         <div id="filter-panel">
                             <div class="left-column">
                                 <h5 class="bold">قیمت:</h5>
@@ -210,46 +151,7 @@
                     </div>
                 </div>
 
-                <div id="spots" class="content">
-                    @foreach (var item in Model)
-                    {
-                        <div class=" auction-item-wrapper">
-                            <div>
-                                <h5 class="auction-item-title">
-                                    <a class="title" href="">$@item.Product.Price  @item.Product.Name</a>
-                                </h5>
-                            </div>
-                            <div class="auction-item-img">
-                                <a style="width: 168px; height: 110px; padding-bottom: 5px;" href="@Url.Action("Index","Auction",new { id=item.Id})">
-
-                                    <img src="~/Content/img/@item.Product.Image" />
-                                </a>
-                            </div>
-                            <div class="clear"></div>
-                            <h2 id="time" class="time bold black">@item.Auction_Time</h2>
-                            <input type="hidden" id="close" class="closeTime" name="closeTime" value="@item.Close_Time" />
-                            <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@item.Id" />
-                            <input type="hidden" class="reset" name="resetTime" value="0" />
-                            <input type="hidden" class="statusClick" name="status" value="0" />
-                            <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@item.StartStatus" />
-                            <input type="hidden" class="isClose" name="isClose" data-Close="@item.IsClose" />
-                            <h3 id="Reserve_Price" class="price green Reserve-Price " data-reservePrice="@item.Reserve_Price"> $@item.Reserve_Price</h3>
-                            <h5 class="winning grey Current_User" data-currentUser="@user.Fname">@((item.User != null) ? item.User.Fname : "هیچ پیشنهادی نداریم" )</h5>
-                            @if (item.IsClose)
-                            {
-                                <p class="p">
-                                    <img class="buttons bid medium  btntest" src="~/Content/img/Sold.png" />
-                                </p>
-                            }
-                            else
-                            {
-                                <p class="p">
-                                    <img class="buttons bid medium  btntest" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout="" />
-                                </p>
-                            }
-
-                        </div>
-                    }
+                <div id="spots" class="content auctionList">
 
                 </div><!--ending-->
                 <hr />
@@ -291,10 +193,12 @@
 
 @section Scripts{
 
-    <script src="~/Scripts/JScript/IndexAuction.js"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="~/Scripts/JScript/homepage.js"></script>
+    @*<script src="~/Scripts/JScript/IndexAuction.js"></script>*@
 
     <script>
+
         if ($.mobile) {
             $('#slider_container').hide();
         } else {
@@ -309,6 +213,81 @@
         }
         (adsbygoogle = window.adsbygoogle || []).push({});
 
+        $(".btnAuction").click(function () {
+
+            if (startStatus == true) {
+                $.ajax({
+                    type: "POST",
+                    url: "/auction/ParticipateInAuctions/",
+                    data: {
+                        id: $(this).parent().siblings(".auctionId").val(),
+                    },
+    success: function (result) {
+        if (result == "NoBid") {
+            alert("You do not have enough bids left in your account to bid.");
+            return false;
+        }
+        if (result == false) {
+            alert('error');
+            return false;
+        }
+        else {
+            $('.Reserve-Price').html('');
+            $('.Reserve-Price').html(result.price);
+            $('.winning').html(result.name);
+            GetEight();
+        }
+    },
+    error: function (list) {
+        alert('error');
+    }
+});
+}
+});
+
+window.onload = function () {
+//var everyChild = document.getElementById("spots").querySelectorAll("#time");
+
+//for (var i = 0; i < everyChild.length; i++) {
+//    const time = everyChild[i].innerText;
+//    var a = time.split(':'); // split it at the colons
+//    // minutes are worth 60 seconds. Hours are worth 60 minutes.
+//    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+//    //var fiveMinutes = 60 * 5,
+//    var display = everyChild[i];
+//    var isClose = $(display).siblings(".isClose");
+//    if (isClose.attr('data-Close') == "True") {
+//        $(display).parent().find("h2").removeClass('black').addClass('red');
+//        continue;
+//    }
+//}
+startTimer();
+};
+
+
+function startTimer() {
+var intervalId = setInterval(function () {
+saveTimer(intervalId);
+}, 1000);
+}
+function saveTimer(intervalId) {
+$.ajax({
+type: "POST",
+url: "/home/UpdateTimer/",
+data: {
+},
+success: function (result) {
+    var tbody = $(document).find('.auctionList');
+    tbody.html("");
+    tbody.html(result)
+},
+error: function (result) {
+    window.clearInterval(intervalId);
+    return false;
+}
+});
+}
     </script>
 
 }
