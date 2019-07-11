@@ -480,11 +480,11 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                     </ul>
                                     <p>
 
-                                        <a href="#" id="buynowbtn" class="buynowbtn buttons large blue">
+                                        <a href="#" onclick="AddToCart(@Model.Auctions.ProductId);" @*id="buynowbtn"*@ class="buynowbtn buttons large blue">
                                             خریـد
                                             <span class="clear"></span>
                                             <span class="buynow-price breakdown_buynowbtn">
-                                                $49.95
+                                                @Model.Auctions.BuyPrice
                                             </span>
                                         </a>
 
@@ -1023,8 +1023,7 @@ function updateIsclose(id) {
 
         }
 
-        
-
+      
 
 
 

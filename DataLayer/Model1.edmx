@@ -58,6 +58,36 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="UserId" Type="int" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="IsFinaly" Type="bit" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="RefId" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="CreditCardNumber" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PayTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -65,10 +95,11 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Brand" Type="nvarchar" MaxLength="50" />
-          <Property Name="Model_Year" Type="tinyint" />
+          <Property Name="Model_Year" Type="int" />
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Image" Type="nvarchar" MaxLength="100" />
           <Property Name="CatId" Type="int" />
+          <Property Name="Stock" Type="smallint" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -160,6 +191,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -190,6 +269,9 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Auction_Product" Association="Self.FK_Auction_Product">
@@ -215,6 +297,22 @@
           <AssociationSet Name="FK_LogsAuction_User" Association="Self.FK_LogsAuction_User">
             <End Role="User" EntitySet="User" />
             <End Role="AuctionLogs" EntitySet="AuctionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Self.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Product" Association="Self.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order" Association="Self.FK_Payment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
@@ -268,6 +366,25 @@
           <AssociationSet Name="FK_Image_User" Association="QuiBidsModel.FK_Image_User">
             <End Role="User" EntitySet="User" />
             <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <EntitySet Name="OrderItem" EntityType="QuiBidsModel.OrderItem" />
+          <AssociationSet Name="FK_OrderItem_Product" Association="QuiBidsModel.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <EntitySet Name="Order" EntityType="QuiBidsModel.Order" />
+          <AssociationSet Name="FK_Order_User" Association="QuiBidsModel.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="QuiBidsModel.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <EntitySet Name="Payment" EntityType="QuiBidsModel.Payment" />
+          <AssociationSet Name="FK_Payment_Order" Association="QuiBidsModel.FK_Payment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Auction">
@@ -346,6 +463,8 @@
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Product" ToRole="Auction" />
           <NavigationProperty Name="Category" Relationship="QuiBidsModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Image1" Relationship="QuiBidsModel.FK_Image_Product" FromRole="Product" ToRole="Image" />
+          <Property Name="Stock" Type="Int16" />
+          <NavigationProperty Name="OrderItem" Relationship="QuiBidsModel.FK_OrderItem_Product" FromRole="Product" ToRole="OrderItem" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -368,6 +487,7 @@
           <NavigationProperty Name="AuctionLogs" Relationship="QuiBidsModel.FK_LogsAuction_User" FromRole="User" ToRole="AuctionLogs" />
           <NavigationProperty Name="Countries" Relationship="QuiBidsModel.FK_User_Countries" FromRole="User" ToRole="Countries" />
           <NavigationProperty Name="Image1" Relationship="QuiBidsModel.FK_Image_User" FromRole="User" ToRole="Image" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_Order_User" FromRole="User" ToRole="Order" />
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
@@ -465,6 +585,90 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_OrderItem_Product" FromRole="OrderItem" ToRole="Product" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_OrderItem_Product">
+          <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="QuiBidsModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RefId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Order_User" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderItem" Relationship="QuiBidsModel.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
+          <NavigationProperty Name="Payment" Relationship="QuiBidsModel.FK_Payment_Order" FromRole="Order" ToRole="Payment" />
+        </EntityType>
+        <Association Name="FK_Order_User">
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="QuiBidsModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="CreditCardNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PayTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_Payment_Order" FromRole="Payment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Payment_Order">
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="QuiBidsModel.Payment" Role="Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -532,6 +736,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="QuiBidsModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
                 <ScalarProperty Name="CatId" ColumnName="CatId" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -557,6 +762,39 @@
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Lname" ColumnName="Lname" />
                 <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItem">
+            <EntityTypeMapping TypeName="QuiBidsModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="QuiBidsModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="QuiBidsModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

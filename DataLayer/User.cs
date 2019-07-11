@@ -12,68 +12,73 @@
 namespace DataLayer
 {
 
-    using System;
+using System;
     using System.Collections.Generic;
-    using System.Web.Script.Serialization;
+    
+public partial class User
+{
 
-    public partial class User
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public User()
     {
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
+        this.Auction = new HashSet<Auction>();
 
-            this.Auction = new HashSet<Auction>();
+        this.AuctionLogs = new HashSet<AuctionLogs>();
 
-            this.AuctionLogs = new HashSet<AuctionLogs>();
+        this.Image1 = new HashSet<Image>();
 
-            this.Image1 = new HashSet<Image>();
-
-        }
-
-
-        public int Id { get; set; }
-
-        public string Fname { get; set; }
-
-        public string Lname { get; set; }
-
-        public string Mobile { get; set; }
-
-        public string Email { get; set; }
-
-        public string Address { get; set; }
-
-        public string Password { get; set; }
-
-        public Nullable<int> VoucherBid { get; set; }
-
-        public Nullable<int> RealBid { get; set; }
-
-        public Nullable<System.DateTime> LastLogin { get; set; }
-
-        public Nullable<int> CountryId { get; set; }
-
-        public Nullable<bool> HideLocation { get; set; }
-
-        public string Image { get; set; }
-
-
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [ScriptIgnore]
-        public virtual ICollection<Auction> Auction { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [ScriptIgnore]
-        public virtual ICollection<AuctionLogs> AuctionLogs { get; set; }
-        [ScriptIgnore]
-        public virtual Countries Countries { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [ScriptIgnore]
-        public virtual ICollection<Image> Image1 { get; set; }
+        this.Order = new HashSet<Order>();
 
     }
+
+
+    public int Id { get; set; }
+
+    public string Fname { get; set; }
+
+    public string Lname { get; set; }
+
+    public string Mobile { get; set; }
+
+    public string Email { get; set; }
+
+    public string Address { get; set; }
+
+    public string Password { get; set; }
+
+    public Nullable<int> VoucherBid { get; set; }
+
+    public Nullable<int> RealBid { get; set; }
+
+    public Nullable<System.DateTime> LastLogin { get; set; }
+
+    public Nullable<int> CountryId { get; set; }
+
+    public Nullable<bool> HideLocation { get; set; }
+
+    public string Image { get; set; }
+
+
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Auction> Auction { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<AuctionLogs> AuctionLogs { get; set; }
+
+    public virtual Countries Countries { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Image> Image1 { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Order> Order { get; set; }
+
+}
 
 }

@@ -15,26 +15,24 @@ namespace DataLayer
 using System;
     using System.Collections.Generic;
     
-public partial class AuctionLogs
+public partial class OrderItem
 {
 
     public int Id { get; set; }
 
-    public int UserId { get; set; }
+    public int OrderId { get; set; }
 
-    public int AuctionId { get; set; }
+    public int ProductId { get; set; }
 
-    public System.DateTime DateTime { get; set; }
+    public int Quantity { get; set; }
 
-    public byte TypeBid { get; set; }
-
-    public Nullable<int> Price { get; set; }
+    public int Price { get; set; }
 
 
 
-    public virtual Auction Auction { get; set; }
+    public virtual Product Product { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Order Order { get; set; }
 
 }
 

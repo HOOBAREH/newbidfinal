@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using DataLayer.Models;
 
 namespace App_QuiBids.Controllers
 {
@@ -131,7 +132,7 @@ namespace App_QuiBids.Controllers
         }
         [Authorize]
 
-        public ActionResult LowerBids(AuctionModel model)
+        public ActionResult LowerBids(/*AuctionModel model*/)
         {
             //var currentUser = _userRepo.GetUserById(int.Parse(User.Identity.Name));
             //if (currentUser.RealBid != 0)
@@ -196,9 +197,9 @@ namespace App_QuiBids.Controllers
         [Authorize]
 
         public ActionResult UpdateTimer()
-        {
+            {
             var auctions = _auctionRepo.GetAuctions().Where(x=>!x.IsClose);
-            List<AuctionModel> list = new List<AuctionModel>();
+            List<Models.AuctionModel> list = new List<Models.AuctionModel>();
             List<string> listStr = new List<string>();
             foreach (var item in auctions)
             {
@@ -207,6 +208,10 @@ namespace App_QuiBids.Controllers
                 TimeSpan timer = new TimeSpan();
                 TimeSpan time = new TimeSpan();
                 string colorStatus = "Black";
+                //from database
+                //Int64 truncated1 = auction.Auction_Time.Ticks;
+                //Int64 adjusted = truncated1 << 24;
+                //TimeSpan actual = TimeSpan.FromTicks(adjusted);
 
                 var status = auction.Auction_Time.CompareTo(new TimeSpan(0, 0, 0));
                 timer = auction.Auction_Time;
@@ -237,7 +242,7 @@ namespace App_QuiBids.Controllers
 
                 }
                 colorStatus = startStatus == true ? "Red" : "Black";
-                var model = new AuctionModel
+                var model = new Models.AuctionModel
                 {
                     Auction_Time = auction.Auction_Time,
                     Close_Time = auction.Close_Time,
@@ -324,6 +329,32 @@ namespace App_QuiBids.Controllers
         public ActionResult UpdateProfile()
         {
             return View();
+        }
+
+        public int AddToCart(int id)
+        {
+            List<ShopCartItem> cart = new List<ShopCartItem>();
+            if (Session["ShoppingCart"]!=null)
+            {
+                cart= Session["ShoppingCart"] as List<ShopCartItem>;
+            }
+            if (cart.Any(x=>x.ProductID==id))
+            {
+                int index = cart.FindIndex(x => x.ProductID == id);
+                cart[index].Count += 1;
+            }
+            else
+            {
+                cart.Add(new ShopCartItem
+                {
+                    ProductID = id,
+                    Count = 1
+                });
+            }
+            Session["ShoppingCart"] = cart;
+            Session["Count"] = cart.Sum(x => x.Count);
+
+            return cart.Sum(x => x.Count);
         }
     }
 }

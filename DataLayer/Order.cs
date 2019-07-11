@@ -15,29 +15,43 @@ namespace DataLayer
 using System;
     using System.Collections.Generic;
     
-public partial class Category
+public partial class Order
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Category()
+    public Order()
     {
 
-        this.Product = new HashSet<Product>();
+        this.OrderItem = new HashSet<OrderItem>();
+
+        this.Payment = new HashSet<Payment>();
 
     }
 
 
     public int Id { get; set; }
 
-    public string CategoryName { get; set; }
+    public Nullable<int> UserId { get; set; }
 
-    public Nullable<int> ParentCategoryId { get; set; }
+    public int TotalPrice { get; set; }
+
+    public bool IsFinaly { get; set; }
+
+    public System.DateTime DateTime { get; set; }
+
+    public string RefId { get; set; }
 
 
+
+    public virtual User User { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Product> Product { get; set; }
+    public virtual ICollection<OrderItem> OrderItem { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Payment> Payment { get; set; }
 
 }
 

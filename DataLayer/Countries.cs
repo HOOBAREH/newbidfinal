@@ -14,9 +14,8 @@ namespace DataLayer
 
 using System;
     using System.Collections.Generic;
-    using System.Web.Script.Serialization;
-
-    public partial class Countries
+    
+public partial class Countries
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -35,8 +34,8 @@ using System;
     public string Country_name { get; set; }
 
 
-        [ScriptIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<User> User { get; set; }
 

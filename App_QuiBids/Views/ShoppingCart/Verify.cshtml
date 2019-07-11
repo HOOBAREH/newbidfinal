@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Verify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .PaymentAlert {
+        margin: 13%;
+        margin-right: 19%;
+        text-align:center;
+        width:65%
+    }
+</style>
+<div id="container">
+
+    <div class="module auction-info" style="width: 50%;
+    margin: 10% 25% 0 0">
+        <div dir="rtl" class="auction-right">
+            @if (ViewBag.IsSuccess == true)
+            {
+                <div  class="PaymentAlert auction-info">
+                    <h2>تراکنش با موفقیت انجام شد</h2>
+                    <hr style="background-color:green" />
+                    <p>کد پیگیری شما: @ViewBag.RefId</p>
+                </div>
+            }
+            else
+            {
+                <div class="PaymentAlert auction-info ">
+                    <h2>تراکنش با موفقیت انجام نشد</h2>
+                    <hr  />
+                    <p>خطا:  @ViewBag.Status</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
