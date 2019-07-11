@@ -259,13 +259,13 @@ namespace App_QuiBids.Controllers
                 };
                 list.Add(model);
                 //var r = JsonConvert.SerializeObject(model);
-              //listStr.Add( new JavaScriptSerializer().Serialize(r));
+                //listStr.Add(new JavaScriptSerializer().Serialize(r));
             }
 
-            //return Json(new
-            //{
-            //    result = list
-            //},JsonRequestBehavior.AllowGet);
+            return Json(new
+            {
+                result = listStr
+            }, JsonRequestBehavior.AllowGet);
 
             //var res = false;
             //if (res)
@@ -276,7 +276,7 @@ namespace App_QuiBids.Controllers
             //    });
             //}
             //else
-            return PartialView("_ListAuction", list);
+            //return PartialView("_ListAuction", list);
         }
         [Authorize]
 
