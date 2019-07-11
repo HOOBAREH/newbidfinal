@@ -99,10 +99,10 @@ namespace DataLayer.Repository
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
                 var auction = GetAuctionById(auctionId);
-                Int64 tooBigBits = timer.Ticks;
-                Int64 truncated = tooBigBits >> 24;
-                TimeSpan temp = TimeSpan.FromTicks(truncated);
-                auction.Auction_Time = temp;
+                //Int64 tooBigBits = timer.Ticks;
+                //Int64 truncated = tooBigBits >> 24;
+                //TimeSpan temp = TimeSpan.FromTicks(truncated);
+                //auction.Auction_Time = temp;
                 if (isclose != null)
                 {
                     auction.IsClose = isclose.Value;

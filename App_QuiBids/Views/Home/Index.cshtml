@@ -320,7 +320,7 @@
 
         function startTimer() {
             var intervalId = setInterval(function () {
-                saveTimer(intervalId);
+               // saveTimer(intervalId);
             }, 1000);
         }
         function saveTimer(intervalId) {
@@ -331,7 +331,11 @@
                 },
                 success: function (result) {
                     var tbody = $(document).find('.auctionList');
+                    var list = $.parseJSON(result);
+                    $.each(result.result, function (bb) {
+                       @*// $("#time @List")*@
 
+                    });
 
                     tbody.html("");
                     tbody.html(result)
