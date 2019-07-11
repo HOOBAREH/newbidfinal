@@ -14,11 +14,12 @@
           <Property Name="Auction_Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Close_Time" Type="int" Nullable="false" />
           <Property Name="Reserve_Price" Type="int" />
-          <Property Name="EndPrice" Type="int" />
           <Property Name="CurrentBid_Id" Type="int" />
           <Property Name="Current_UserId" Type="int" />
           <Property Name="StartStatus" Type="bit" Nullable="false" />
           <Property Name="IsClose" Type="bit" Nullable="false" />
+          <Property Name="BuyPrice" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="AuctionLogs">
           <Key>
@@ -29,6 +30,15 @@
           <Property Name="AuctionId" Type="int" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="TypeBid" Type="tinyint" Nullable="false" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentCategoryId" Type="int" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -38,6 +48,46 @@
           <Property Name="CountryCode" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="Country_name" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageURL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="IsFinaly" Type="bit" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="RefId" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="CreditCardNumber" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PayTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -45,9 +95,11 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Brand" Type="nvarchar" MaxLength="50" />
-          <Property Name="Model_Year" Type="tinyint" />
+          <Property Name="Model_Year" Type="int" />
           <Property Name="Price" Type="int" Nullable="false" />
-          <Property Name="Img" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+          <Property Name="CatId" Type="int" />
+          <Property Name="Stock" Type="smallint" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -91,6 +143,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Image_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LogsAuction_Auction">
           <End Role="Auction" Type="Self.Auction" Multiplicity="1" />
           <End Role="AuctionLogs" Type="Self.AuctionLogs" Multiplicity="*" />
@@ -115,6 +191,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Countries">
           <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -130,7 +266,12 @@
         <EntityContainer Name="QuiBidsModelStoreContainer">
           <EntitySet Name="Auction" EntityType="Self.Auction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AuctionLogs" EntityType="Self.AuctionLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Auction_Product" Association="Self.FK_Auction_Product">
@@ -141,6 +282,14 @@
             <End Role="User" EntitySet="User" />
             <End Role="Auction" EntitySet="Auction" />
           </AssociationSet>
+          <AssociationSet Name="FK_Image_Product" Association="Self.FK_Image_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_User" Association="Self.FK_Image_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
           <AssociationSet Name="FK_LogsAuction_Auction" Association="Self.FK_LogsAuction_Auction">
             <End Role="Auction" EntitySet="Auction" />
             <End Role="AuctionLogs" EntitySet="AuctionLogs" />
@@ -148,6 +297,26 @@
           <AssociationSet Name="FK_LogsAuction_User" Association="Self.FK_LogsAuction_User">
             <End Role="User" EntitySet="User" />
             <End Role="AuctionLogs" EntitySet="AuctionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Self.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Product" Association="Self.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order" Association="Self.FK_Payment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Countries" Association="Self.FK_User_Countries">
             <End Role="Countries" EntitySet="Countries" />
@@ -160,22 +329,20 @@
       <Schema Namespace="QuiBidsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="QuiBidsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Auction" EntityType="QuiBidsModel.Auction" />
+          <EntitySet Name="AuctionLogs" EntityType="QuiBidsModel.AuctionLogs" />
+          <EntitySet Name="Category" EntityType="QuiBidsModel.Category" />
           <EntitySet Name="Countries" EntityType="QuiBidsModel.Countries" />
-          <EntitySet Name="User" EntityType="QuiBidsModel.User" />
-          <AssociationSet Name="FK_Auction_User" Association="QuiBidsModel.FK_Auction_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Auction" EntitySet="Auction" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Countries" Association="QuiBidsModel.FK_User_Countries">
-            <End Role="Countries" EntitySet="Countries" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
+          <EntitySet Name="Image" EntityType="QuiBidsModel.Image" />
           <EntitySet Name="Product" EntityType="QuiBidsModel.Product" />
+          <EntitySet Name="User" EntityType="QuiBidsModel.User" />
           <AssociationSet Name="FK_Auction_Product" Association="QuiBidsModel.FK_Auction_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Auction" EntitySet="Auction" />
           </AssociationSet>
-          <EntitySet Name="AuctionLogs" EntityType="QuiBidsModel.AuctionLogs" />
+          <AssociationSet Name="FK_Auction_User" Association="QuiBidsModel.FK_Auction_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Auction" EntitySet="Auction" />
+          </AssociationSet>
           <AssociationSet Name="FK_LogsAuction_Auction" Association="QuiBidsModel.FK_LogsAuction_Auction">
             <End Role="Auction" EntitySet="Auction" />
             <End Role="AuctionLogs" EntitySet="AuctionLogs" />
@@ -184,7 +351,42 @@
             <End Role="User" EntitySet="User" />
             <End Role="AuctionLogs" EntitySet="AuctionLogs" />
           </AssociationSet>
-          </EntityContainer>
+          <AssociationSet Name="FK_Product_Category" Association="QuiBidsModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Countries" Association="QuiBidsModel.FK_User_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_Product" Association="QuiBidsModel.FK_Image_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_User" Association="QuiBidsModel.FK_Image_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <EntitySet Name="OrderItem" EntityType="QuiBidsModel.OrderItem" />
+          <AssociationSet Name="FK_OrderItem_Product" Association="QuiBidsModel.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <EntitySet Name="Order" EntityType="QuiBidsModel.Order" />
+          <AssociationSet Name="FK_Order_User" Association="QuiBidsModel.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="QuiBidsModel.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <EntitySet Name="Payment" EntityType="QuiBidsModel.Payment" />
+          <AssociationSet Name="FK_Payment_Order" Association="QuiBidsModel.FK_Payment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Auction">
           <Key>
             <PropertyRef Name="Id" />
@@ -194,14 +396,37 @@
           <Property Name="Auction_Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Close_Time" Type="Int32" Nullable="false" />
           <Property Name="Reserve_Price" Type="Int32" />
-          <Property Name="EndPrice" Type="Int32" />
           <Property Name="CurrentBid_Id" Type="Int32" />
           <Property Name="Current_UserId" Type="Int32" />
           <Property Name="StartStatus" Type="Boolean" Nullable="false" />
           <Property Name="IsClose" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Auction_User" FromRole="Auction" ToRole="User" />
+          <Property Name="BuyPrice" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Auction" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Auction_User" FromRole="Auction" ToRole="User" />
           <NavigationProperty Name="AuctionLogs" Relationship="QuiBidsModel.FK_LogsAuction_Auction" FromRole="Auction" ToRole="AuctionLogs" />
+        </EntityType>
+        <EntityType Name="AuctionLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AuctionId" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TypeBid" Type="Byte" Nullable="false" />
+          <Property Name="Price" Type="Int32" />
+          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_LogsAuction_Auction" FromRole="AuctionLogs" ToRole="Auction" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_LogsAuction_User" FromRole="AuctionLogs" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCategoryId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -211,6 +436,35 @@
           <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="Country_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_User_Countries" FromRole="Countries" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_Image_Product" FromRole="Image" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Image_User" FromRole="Image" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model_Year" Type="Byte" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CatId" Type="Int32" />
+          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Product" ToRole="Auction" />
+          <NavigationProperty Name="Category" Relationship="QuiBidsModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Image1" Relationship="QuiBidsModel.FK_Image_Product" FromRole="Product" ToRole="Image" />
+          <Property Name="Stock" Type="Int16" />
+          <NavigationProperty Name="OrderItem" Relationship="QuiBidsModel.FK_OrderItem_Product" FromRole="Product" ToRole="OrderItem" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -230,44 +484,10 @@
           <Property Name="HideLocation" Type="Boolean" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_User" FromRole="User" ToRole="Auction" />
-          <NavigationProperty Name="Countries" Relationship="QuiBidsModel.FK_User_Countries" FromRole="User" ToRole="Countries" />
           <NavigationProperty Name="AuctionLogs" Relationship="QuiBidsModel.FK_LogsAuction_User" FromRole="User" ToRole="AuctionLogs" />
-        </EntityType>
-        <Association Name="FK_Auction_User">
-          <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Auction">
-              <PropertyRef Name="Current_UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_Countries">
-          <End Type="QuiBidsModel.Countries" Role="Countries" Multiplicity="0..1" />
-          <End Type="QuiBidsModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Countries">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Model_Year" Type="Byte" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="Img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_Auction_Product" FromRole="Product" ToRole="Auction" />
+          <NavigationProperty Name="Countries" Relationship="QuiBidsModel.FK_User_Countries" FromRole="User" ToRole="Countries" />
+          <NavigationProperty Name="Image1" Relationship="QuiBidsModel.FK_Image_User" FromRole="User" ToRole="Image" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_Order_User" FromRole="User" ToRole="Order" />
         </EntityType>
         <Association Name="FK_Auction_Product">
           <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
@@ -281,18 +501,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="AuctionLogs">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="AuctionId" Type="Int32" Nullable="false" />
-          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TypeBid" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Auction" Relationship="QuiBidsModel.FK_LogsAuction_Auction" FromRole="AuctionLogs" ToRole="Auction" />
-          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_LogsAuction_User" FromRole="AuctionLogs" ToRole="User" />
-        </EntityType>
+        <Association Name="FK_Auction_User">
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Auction">
+              <PropertyRef Name="Current_UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LogsAuction_Auction">
           <End Type="QuiBidsModel.Auction" Role="Auction" Multiplicity="1" />
           <End Type="QuiBidsModel.AuctionLogs" Role="AuctionLogs" Multiplicity="*" />
@@ -317,6 +537,138 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Category">
+          <End Type="QuiBidsModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Countries">
+          <End Type="QuiBidsModel.Countries" Role="Countries" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_Product">
+          <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_User">
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="QuiBidsModel.FK_OrderItem_Product" FromRole="OrderItem" ToRole="Product" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_OrderItem_Product">
+          <End Type="QuiBidsModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="QuiBidsModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RefId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QuiBidsModel.FK_Order_User" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderItem" Relationship="QuiBidsModel.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
+          <NavigationProperty Name="Payment" Relationship="QuiBidsModel.FK_Payment_Order" FromRole="Order" ToRole="Payment" />
+        </EntityType>
+        <Association Name="FK_Order_User">
+          <End Type="QuiBidsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="QuiBidsModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="CreditCardNumber" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PayTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="QuiBidsModel.FK_Payment_Order" FromRole="Payment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Payment_Order">
+          <End Type="QuiBidsModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="QuiBidsModel.Payment" Role="Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -326,15 +678,37 @@
           <EntitySetMapping Name="Auction">
             <EntityTypeMapping TypeName="QuiBidsModel.Auction">
               <MappingFragment StoreEntitySet="Auction">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
                 <ScalarProperty Name="IsClose" ColumnName="IsClose" />
                 <ScalarProperty Name="StartStatus" ColumnName="StartStatus" />
                 <ScalarProperty Name="Current_UserId" ColumnName="Current_UserId" />
                 <ScalarProperty Name="CurrentBid_Id" ColumnName="CurrentBid_Id" />
-                <ScalarProperty Name="EndPrice" ColumnName="EndPrice" />
                 <ScalarProperty Name="Reserve_Price" ColumnName="Reserve_Price" />
                 <ScalarProperty Name="Close_Time" ColumnName="Close_Time" />
                 <ScalarProperty Name="Auction_Time" ColumnName="Auction_Time" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuctionLogs">
+            <EntityTypeMapping TypeName="QuiBidsModel.AuctionLogs">
+              <MappingFragment StoreEntitySet="AuctionLogs">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TypeBid" ColumnName="TypeBid" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="QuiBidsModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -344,6 +718,31 @@
               <MappingFragment StoreEntitySet="Countries">
                 <ScalarProperty Name="Country_name" ColumnName="Country_name" />
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="QuiBidsModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="QuiBidsModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Model_Year" ColumnName="Model_Year" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -367,25 +766,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="QuiBidsModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="Img" ColumnName="Img" />
+          <EntitySetMapping Name="OrderItem">
+            <EntityTypeMapping TypeName="QuiBidsModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Model_Year" ColumnName="Model_Year" />
-                <ScalarProperty Name="Brand" ColumnName="Brand" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AuctionLogs">
-            <EntityTypeMapping TypeName="QuiBidsModel.AuctionLogs">
-              <MappingFragment StoreEntitySet="AuctionLogs">
-                <ScalarProperty Name="TypeBid" ColumnName="TypeBid" />
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="QuiBidsModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
+                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="QuiBidsModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

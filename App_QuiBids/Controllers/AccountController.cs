@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace App_QuiBids.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly IUserRepo _userRepo;
@@ -25,18 +26,10 @@ namespace App_QuiBids.Controllers
             _userRepo = userRepo;
             _countryRepo = countryRepo;
         }
-
         public ActionResult Index()
         {
-            if (Session["Admin"] == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-            else
-            {
-                var User = Session["Admin"];
-                return View(User);
-            }
+            var user = _userRepo.GetUserById(int.Parse(User.Identity.Name));
+            return View(user);
         }
         // GET: Account
         public ActionResult MyGames()
@@ -49,18 +42,8 @@ namespace App_QuiBids.Controllers
         }
         public ActionResult MyAccount()
         {
-
-            if (Session["Admin"] == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-            else
-            {
-                var UserModel = (User)Session["Admin"];
-                var user = _userRepo.GetUserById(UserModel.Id);
-                Session["Admin"] = user;
-                return View(user);
-            }
+            var user = _userRepo.GetUserById(int.Parse(User.Identity.Name));
+            return View(user);
         }
         public ActionResult MyBadges()
         {
@@ -91,34 +74,23 @@ namespace App_QuiBids.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string oldpassword, string password)
         {
-            if (Session["Admin"] != null)
+
+            var user = _userRepo.GetUserById(int.Parse(User.Identity.Name));
+            var oldPassHash = new Helpers().Encryption(oldpassword);
+            if (oldPassHash == user.Password)
             {
-                var user = (User)Session["Admin"];
-                var oldPassHash = new Helpers().Encryption(oldpassword);
-                if (oldPassHash == user.Password)
+                var newPassHash = new Helpers().Encryption(password);
+                var result = _userRepo.ChangePass(newPassHash, user.Id);
+                if (result)
                 {
-                    var newPassHash = new Helpers().Encryption(password);
-                    var result = _userRepo.ChangePass(newPassHash, user.Id);
-                    if (result)
-                    {
-                        Session["Admin"] = null;
-                        ViewBag.Message = "رمز عبور شما با موفقیت نغییر کرد";
-                        return RedirectToAction("Login");
-                    }
-                    else
-                    {
-                        ViewBag.Error = "عملیات با خطا مواجه شد. لطفا مجدد تلاش فرمایید.";
-                    }
+                    ViewBag.Message = "رمز عبور شما با موفقیت نغییر کرد";
+                    return RedirectToAction("Login");
                 }
-                return View();
+                else
+                {
+                    ViewBag.Error = "عملیات با خطا مواجه شد. لطفا مجدد تلاش فرمایید.";
+                }
             }
-            else
-                return RedirectToAction("Login", "Home");
-
-
-        }
-        public ActionResult MyInformation()
-        {
             return View();
         }
         public ActionResult MyAvatar()
@@ -135,10 +107,9 @@ namespace App_QuiBids.Controllers
         }
         public ActionResult UpdateImage(string imageName)
         {
-            var UserModel = (User)Session["Admin"];
-            
-            var user = _userRepo.UpdateImage(UserModel.Id, imageName+".png");
-            Session["Admin"] = user;
+            var UserModel = _userRepo.GetUserById(int.Parse(User.Identity.Name));
+
+            var user = _userRepo.UpdateImage(UserModel.Id, imageName + ".png");
             return RedirectToAction("MyAvatar");
         }
     }

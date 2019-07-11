@@ -13,11 +13,13 @@ namespace DataLayer.IRepository
         User GetUserById(int id);
         User Login(string userName, string password);
         bool Register(User user);
-        bool UsernameExists(string userName);
+        bool UsernameExists(string userName, string number);
         User LowerBids(int userId);
         void UpdateProfile(UserModel model);
         bool ChangePass(string pass, int id);
         void LastLogin(int id);
         User UpdateImage(int id, string name);
+        bool AddToBids(int userId);
+        int GetBidsById(int id);
     }
 }

@@ -23,8 +23,8 @@
 
                     <ul>
                         <li>@Model.Fname @Model.Lname</li>
-                        <li>@Model.Email</li>
-                        <li>@Model.Email (<a href="email.php">Update</a>)</li>
+                        <li>@Model.Mobile</li>
+                        <li>@Model.Email (<a href="email.php">به روز رسانی</a>)</li>
                         <li>
                             <fieldset style="float:right">
                                 @if (!Model.HideLocation)
@@ -82,15 +82,17 @@
 
         <div class="content">
             <p>
-                Subscribe to QuiBids promotional email for special offers to receive free bids, rewards, news on site features, and more!					</br>
+                Subscribe to QuiBids promotional email for special offers to receive free bids, rewards, news on site features, and more!
+                </br>
                 <strong>Note</strong>: These preferences do not apply to transactional emails such as order confirmations account changes.
             </p>
             <form>
                 <input type="hidden" name="action" value="update">
                 <fieldset>
-                    <input type="radio" name="EmailNewsletter" class="checkbox" value="Yes" checked="checked">
-                    Yes. I want to get offers for Free Bids and other QuiBids promotions!							</br>
-                    <input type="radio" name="EmailNewsletter" class="checkbox" value="No">
+                    <input type="radio" name="EmailNewsletter" class="checkbox" value="بله" checked="checked">
+                    Yes. I want to get offers for Free Bids and other QuiBids promotions!							
+                    </br>
+                    <input type="radio" name="EmailNewsletter" class="checkbox" value="خیر">
                     No Thanks. I do not want offers for free bids or QuiBids promotions.
                 </fieldset>
                 </br></br></br>
@@ -148,7 +150,7 @@
                 type: "POST",
                 url: "/Account/GetCountries/",
                 success: function (data) {
-                    var s = '<option value="-1">Please Select a Country</option>';
+                    var s = '<option value="-1">لطفا یک کشور را انتخاب کنید</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].countryID + '">' + data[i].countryName + '</option>';
                     }

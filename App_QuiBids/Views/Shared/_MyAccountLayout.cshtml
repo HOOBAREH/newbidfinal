@@ -1,11 +1,11 @@
-﻿@using DataLayer;
+﻿@using DataLayer.Repository;
+@using DataLayer;
 @{
     User user = new User();
-    if (Session["Admin"] != null)
+    if (User.Identity.IsAuthenticated)
     {
-        user = (User)Session["Admin"];
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
     }
-
     ViewBag.Title = "_AccountLayout";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
@@ -26,11 +26,11 @@
     <div class="tab-nav">
         <div id="myaccount">
             <ul class="panel-content">
-                <li class="myinformation"><a href="MyAccount">My Information</a></li>
-                <li class="changepassword"><a href="ChangePassword">Change Password</a></li>
-                <li class="myavatar"><a href="MyAvatar">My Avatar</a></li>
-                <li class="notifications"><a href="Notifications">Notifications</a></li>
-                <li class="redeemcoupon"><a href="RedeemPromo">Redeem Promo</a></li>
+                <li class="myinformation"><a href="MyAccount">اطلاعات من</a></li>
+                <li class="changepassword"><a href="ChangePassword">تغییر پسورد</a></li>
+                <li class="myavatar"><a href="MyAvatar">آواتار من</a></li>
+                <li class="notifications"><a href="Notifications">اطلاعیه ها</a></li>
+                <li class="redeemcoupon"><a href="RedeemPromo">تخفیف تبلیغاتی</a></li>
             </ul>
         </div>
     </div><!--end tabs-->
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="content-right">
-                        <p class="bold">Last Login</p>
+                        <p class="bold">آخرین ورود</p>
                         <p>@user.LastLogin.Value.ToString("MMM dd, yyyy")</p>
 
                         <hr>
@@ -89,28 +89,28 @@
 </style>
 <![endif]-->
 @section Scripts{
-<script>
-    $(function () {
-        $('.tabs li').each(function (index) {
-            var tabClass = $(this).attr('class');
-            if (tabClass == "myaccount") {
-                $(this).addClass('ui-state-active');
+    <script>
+        $(function () {
+            $('.tabs li').each(function (index) {
+                var tabClass = $(this).attr('class');
+                if (tabClass == "myaccount") {
+                    $(this).addClass('ui-state-active');
+                }
+            });
+            $('.panel-content li').each(function (index) {
+                var panelHtml = $(this).attr('class');
+                if (panelHtml == "myinformation") {
+                    $(this).addClass('active');
+                }
+            });
+
+
+            if ($('.panel-content').length == 0) {
+                $('.tab-nav').css('border', '0px');
             }
-        });
-        $('.panel-content li').each(function (index) {
-            var panelHtml = $(this).attr('class');
-            if (panelHtml == "myinformation") {
-                $(this).addClass('active');
-            }
+            //$.scrollTo('.tab-nav',0);
         });
 
-
-        if ($('.panel-content').length == 0) {
-            $('.tab-nav').css('border', '0px');
-        }
-        //$.scrollTo('.tab-nav',0);
-    });
-
-</script>
-@RenderSection("Scripts", required: false)
+    </script>
+    @RenderSection("Scripts", required: false)
 }

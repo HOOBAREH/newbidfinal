@@ -28,6 +28,8 @@ public partial class AuctionLogs
 
     public byte TypeBid { get; set; }
 
+    public Nullable<int> Price { get; set; }
+
 
 
     public virtual Auction Auction { get; set; }

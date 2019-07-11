@@ -440,13 +440,5 @@ D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Abstractions.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Container.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\WebActivatorEx.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.xml
-D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Web.Mvc.xml
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Abstractions.pdb
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Container.pdb
-D:\NewBids\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.dll
-D:\NewBids\App_QuiBids\bin\Unity.Abstractions.dll
-D:\NewBids\App_QuiBids\bin\Unity.Container.dll
-D:\NewBids\App_QuiBids\bin\WebActivatorEx.dll
-D:\NewBids\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.xml
-D:\NewBids\App_QuiBids\bin\Unity.Abstractions.pdb
-D:\NewBids\App_QuiBids\bin\Unity.Container.pdb

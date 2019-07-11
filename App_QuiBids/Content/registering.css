@@ -9,7 +9,7 @@ html {
 
 body {
     /*background: rgba(196, 212, 207, 0.23);*/
-    font-family: 'B Yekan';
+    font-family: 'iransans';
 }
 
 /*a {
@@ -24,7 +24,7 @@ body {
     }*/
 
 .form {
-    font-family: 'B Yekan';
+    font-family: 'iransans';
     /*background-image: url('img/29080.jpg');*/
     padding: 4%;
     max-width: 50%;
@@ -36,7 +36,7 @@ body {
 }
 /*تگ های مربوط به ظاهر منویهای ثبت نام و ورود */
 .tab-group {
-    font-family: 'B Yekan';
+    font-family: 'iransans';
     float: none;
     list-style: none;
     padding: 0;
@@ -50,7 +50,7 @@ body {
     }
 
     .tab-group li a {
-        font-family: 'B Yekan';
+        font-family: 'iransans';
         display: block;
         text-decoration: none;
         padding: 15px;
@@ -97,7 +97,7 @@ h1 {
 
 /*تگ های مربوط به فیلدهای ثبت نام */
 label {
-    font-family: 'B Yekan';
+    font-family: 'iransans';
     position: absolute;
     -webkit-transform: translateY(6px);
     -ms-transform: translateY(6px);
@@ -133,11 +133,10 @@ label {
     }
 
 input, textarea {
-    font-family: 'B Yekan';
-    font-size: 16px;
+    font-family: 'iransans';
+    font-size: 12.4px;
     display: block;
     width: 100%;
-    padding: 5px 10px;
     /*background: #e8f3ef;*/
     background-image: none;
     border: 1px solid #a0b3b0;
@@ -145,7 +144,10 @@ input, textarea {
     border-radius: 10px;
     -webkit-transition: border-color .25s ease, box-shadow .25s ease;
     transition: border-color .25s ease, box-shadow .25s ease;
-    height:35px
+    height: 35px;
+    padding: 0px 4px !important;
+    text-align:right;
+    direction:rtl
 }
 
     input:focus, textarea:focus {
@@ -180,29 +182,15 @@ textarea {
         margin: 0;
     }
 /*تگ مربوط به ظاهر کلید ثبت نام */
-/*.button {
-    border: 0;
-    outline: none;
-    border-radius: 10px;
-    padding: 15px 0;
-    font-size: 26px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    background: rgba(249, 244, 2, 0.01);
-    color: #ffffff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-appearance: none;
-}*/
+
 
 .button {
-    font-family: 'B Yekan';
+    font-family: 'iransans';
     font-size: 26px;
     color: #fff !important;
     text-transform: uppercase;
     background: #60a3bc;
-    padding: 9px 9px;
+    padding: 6px 9px;
     border-radius: 50px;
     display: inline-block;
     border: none;

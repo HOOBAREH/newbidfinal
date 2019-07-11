@@ -1,0 +1,1154 @@
+﻿@model DataLayer.Models.AuctionListModel
+@using DataLayer;
+@using DataLayer.Repository;
+@{
+    ViewBag.Title = "Auction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    User user = new User();
+    if (User.Identity.IsAuthenticated)
+    {
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
+    }
+    var j = 0;
+    var className=" ";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/Css/auction.css">
+    <link rel="stylesheet" href="~/Content/Css/reviews.css">
+    <style>
+        ul.auction-details {
+            margin: 0 0 10px 0;
+            padding: 0;
+            height: 20px;
+            position: relative;
+            float: left
+        }
+
+            ul.auction-details li {
+                float: left;
+                margin: 0 15px 0 0;
+                display: inline;
+                text-indent: 22px
+            }
+
+                ul.auction-details li.added {
+                    color: #4ba500
+                }
+
+                ul.auction-details li.watchlist {
+                    display: inline;
+                    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
+                }
+
+            ul.auction-details li {
+                border-right: 1px solid #d9d9d9;
+                display: inline;
+                margin: 0 15px 0 0;
+                padding-right: 12px;
+                width: auto;
+            }
+
+                ul.auction-details li:last-child {
+                    border-right: 0 none;
+                    width: auto;
+                    margin-right: 0;
+                    padding-right: 0
+                }
+
+        div.content.tabbed #product-live-auctions ul.live-products li, div.content.tabbed #product-live-auctions ul.live-products li.last {
+            width: 277px
+        }
+
+        h1#product_title {
+            font-size: 28px;
+            line-height: 26px
+        }
+
+        h2.margin-five.username-height {
+            font-size: 18px
+        }
+
+        div#show-all-you-choose-it {
+            float: right;
+            background: url(../../Content/img/Auction/dropnav-arrow.gif) no-repeat 100% 8px;
+            padding-right: 10px;
+            margin-top: -30px;
+        }
+        /*--------------------------*/
+    ul#you-choose-selector { clear: both; border: 1px solid #e2e2e2; margin: 30px 0 60px; padding: 0; width: 938px; height: auto !important; height: 1%; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; background: url('../../Content/Auction_Img/youchooseit-placeholder.gif') no-repeat 50% 50% }
+
+            ul#you-choose-selector:after {
+                content: '.';
+                display: block;
+                height: 0;
+                visibility: hidden;
+                line-height: 0;
+                clear: both
+            }
+
+            ul#you-choose-selector li, ul#you-choose-selector li a {
+                display: block;
+                height: 180px
+            }
+
+            ul#you-choose-selector li {
+                float: left;
+                margin: 0;
+                position: relative;
+                text-align: center;
+                width: 156px
+            }
+
+                ul#you-choose-selector li a {
+                    margin: 2px 10px;
+                    background-color: #fff
+                }
+
+                    ul#you-choose-selector li a div.title {
+                        padding-top: 10px;
+                        line-height: 1.4em;
+                        height: 35px;
+                        overflow: hidden;
+                        font-weight: bold;
+                        font-size: 12px
+                    }
+
+                    ul#you-choose-selector li a div.image {
+                        padding-top: 0
+                    }
+
+                        ul#you-choose-selector li a div.image img {
+                            width: 98px !important;
+                            height: 78px !important
+                        }
+
+                    ul#you-choose-selector li a div.price {
+                        color: #5f9c00;
+                        font-size: 15px;
+                        line-height: 1em
+                    }
+
+                    ul#you-choose-selector li a:hover {
+                        border: 1px solid #bfbfbf;
+                        background-color: #fff;
+                        position: absolute;
+                        -webkit-border-radius: 8px;
+                        -moz-border-radius: 8px;
+                        border-radius: 8px;
+                        top: -10px;
+                        z-index: 50;
+                        margin-left: -5px;
+                        margin-right: -5px;
+                        padding: 0 9px;
+                        width: 146px;
+                        height: 190px;
+                        text-decoration: none;
+                        -webkit-box-shadow: 0 4px 6px 0 #d6d6d6;
+                        box-shadow: 0 4px 6px 0 #d6d6d6
+                    }
+
+                        ul#you-choose-selector li a:hover div.title {
+                            font-size: 13px;
+                            padding-top: 14px
+                        }
+
+                        ul#you-choose-selector li a:hover div.image {
+                            padding-top: 0
+                        }
+
+                            ul#you-choose-selector li a:hover div.image img {
+                                width: 110px;
+                                height: 88px
+                            }
+
+                        ul#you-choose-selector li a:hover div.price {
+                            font-size: 16px;
+                            padding-top: 0
+                        }
+
+                    ul#you-choose-selector li a.active {
+                        border: 1px solid #bfbfbf;
+                        background-color: #fff;
+                        position: absolute;
+                        -webkit-border-radius: 8px;
+                        -moz-border-radius: 8px;
+                        border-radius: 8px;
+                        top: 0px;
+                        z-index: 51;
+                        margin-left: -10px;
+                        width: 174px;
+                        height: 220px;
+                        text-decoration: none;
+                        padding: 0;
+                        -webkit-box-shadow: 0 4px 6px 0 #d6d6d6;
+                        box-shadow: 0 4px 6px 0 #d6d6d6
+                    }
+
+                        ul#you-choose-selector li a.active div.title {
+                            font-size: 14px;
+                            padding: 3px 5px 5px 5px;
+                            height: 46px;
+                            background: #0079cd;
+                            color: #fff;
+                            -webkit-border-radius: 8px 8px 0 0;
+                            -moz-border-radius: 8px 8px 0 0;
+                            border-radius: 8px 8px 0 0;
+                            background: #45aaf8 url(/site/images/layout/blue-title-bg.gif) repeat-x 0 0;
+                            border-color: #1183cf;
+                            text-shadow: 0 1px 2px #063554;
+                            line-height: 22px
+                        }
+
+                        ul#you-choose-selector li a.active div.image {
+                            padding-top: 5px
+                        }
+
+                            ul#you-choose-selector li a.active div.image img {
+                                width: 126px;
+                                height: 101px
+                            }
+
+                        ul#you-choose-selector li a.active div.price {
+                            font-size: 19px;
+                            padding-top: 6px
+                        }
+
+                        ul#you-choose-selector li a.active:after {
+                            content: '';
+                            display: block !important;
+                            background: url(/Content/img/options-down-arrow.png) no-repeat 50% 0 !important;
+                            height: 34px !important;
+                            width: 164px !important;
+                            position: absolute !important;
+                            bottom: -29px !important
+                        }
+
+        div#auction-title h1 {
+            font-size: 28px;
+            line-height: 26px
+        }
+    </style>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
+}
+else
+{
+    <input type="hidden" class="userId" name="userId" data-userId="" />
+}
+<div class="gloss">
+    <div class="wrapper">
+        <div id="container" class="auction-item-page">
+            <div id="product_breadcrumbs">
+
+                <ul id="breadcrumbs">
+
+                    <li itemscope="itemscope" id="first">
+                        <a itemprop="url" rel="up up " href="/en/"><span itemprop="title">Live Auctions</span></a>
+                    </li>
+
+                    <li itemscope="itemscope">
+                        <a itemprop="url" rel="up " href="/en/item-1770564-jbl-bluetooth-headphone-black"><span itemprop="title">JBL Bluetooth Headphone</span></a>
+                    </li>
+
+                    <li itemscope="itemscope">
+                        <a itemprop="url" rel="" class="active" href="/en/auction-138034043US-C1770564-jbl-bluetooth-headphone"><span itemprop="title">Auction #A138034043</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+
+                <div id="auction-title">
+                    <h1 class="bold" id="product_title">JBL Bluetooth Headphone-Black </h1>
+                </div>
+
+                <ul class="auction-details">
+                    <li class="watchlist watchlist_138034043" id="138034043" style="cursor:pointer;">
+                        + Watchlist
+                    </li>
+                    <li class='tooltip-bottom bidomatic-on' title="Bid-O-Matic auctions let you bid even when you're away from the computer!">Bid-O-Matic</li>
+                </ul>
+
+                @*<div id="swap_content">
+
+                    <div id="show-all-you-choose-it">
+                        <a href="#" onclick="AuctionDetail.showPickProducts();return false;">Browse 100+ Product Choices</a>
+                    </div>
+                    <ul id="you-choose-selector">
+                        <li>
+
+                            <a active href="" onclick="return AuctionDetail.updateCatalog(1770564,true);" class="ppswaps ppswap_1770564 active">
+                                <div class="title">JBL Bluetooth Headphone</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e.jpg" />
+                                </div>
+
+                                <div class="price">$49.95</div>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(41356,true);" class="ppswaps ppswap_41356 ">
+                                <div class="title">Veridian Healthcare Pulse Oximeter</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e (1).jpg" />
+                                </div>
+
+                                <div class="price">$46.99</div>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(83866,true);" class="ppswaps ppswap_83866 ">
+                                <div class="title">Farberware 2-Quart Teakettle</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e.jpg" />
+                                </div>
+
+                                <div class="price">$48.99</div>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(138116,true);" class="ppswaps ppswap_138116 ">
+                                <div class="title">Evening Drop Earrings</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e.jpg" />
+                                </div>
+
+                                <div class="price">$51.99</div>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
+                                <div class="title">Circulon 2-Qt. Covered Saucepan</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e.jpg" />
+                                </div>
+
+                                <div class="price">$48.99</div>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
+                                <div class="title">Circulon 2-Qt. Covered Saucepan</div>
+                                <div class="image">
+                                    <img src="~/Content/Auction_Img/e.jpg" />
+                                </div>
+
+                                <div class="price">$48.99</div>
+
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>*@
+
+                <div class="module auction-top">
+                    <div class="module auction-left">
+
+                        <span class="sold sold-en">
+                        </span>
+
+                        <div id="product_media">
+                            <div id="slide0" class="slide-img-container">
+                                <div class='auction-details 138034043'>
+                                    <div class='tooltip-bottom locked big' title="Due to high bidding activity, this auction is locked.<br/> No new bidders can participate in this auction.">
+                                    </div>
+                                    <div class='tooltip-bottom unlocked big' title='Due to high bidding activity, this auction is locked.<br/>
+You may continue to bid, but no new bidders can participate in this auction.'></div>
+                                </div>
+                                <img id="image1" src="~/Content/img/@Model.Auctions.ProductImage.FirstOrDefault()" width="375" height="300" />
+                            </div>
+                            <div id="recently_sold_for">
+                                <h6 class='bold'>
+                                    Recently sold for
+                                    <span class='green'><a href='#' onClick='AuctionDetail.showStatistics();return false;'>...</a></span>
+                                </h6>
+                            </div>
+                            <div id="product-slider">
+                                <ul id="jcarousel" class="ui-tabs-nav jcarousel-skin-thumbs">
+                                    @foreach (var item in Model.Auctions.ProductImage)
+                                    {
+                                        <li style="float: left; list-style: none;">
+                                            <a  id="sliderImg" >
+                                                <img onclick="SliderImage(this)" src="~/Content/img/@item" width='64' height='52' alt='' border='0' />
+                                            </a>
+                                        </li>
+
+                                    }
+
+                                </ul>
+                            </div>
+                        </div><!--product-->
+
+
+                        <div class="module buynow smalls">
+                            <div class="left">
+                                <h5 class="bold orange shoppings">Buy Now!</h5>
+                            </div>
+                            <div class="right">
+                                <p>
+                                    <span class='bold'>Don't Lose Your Bids!</span> Use our Buy Now option and apply your bids towards the price.
+                                    <a href='/help/faq/15-What-is-Buy-Now#24'>Learn More</a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div><!--end left-->
+
+
+                    <div class="module auction-info">
+
+
+                        <div class="module auction-right">
+
+                            <div id="auction-left" class="138034043" bid='Bid Now'>
+                                <div class="content spots">
+                                    <p class='large-price'>
+                                        <span class='medium light-grey'>ریال</span>
+                                        <span class='price green Reserve-Price' id="Reserve_Price" data-reservePrice="@Model.Auctions.Reserve_Price">@Model.Auctions.Reserve_Price</span>
+                                    </p>
+                                    <p class="time large-timer2">@Model.Auctions.Auction_Time</p>
+                                    <input type="hidden" id="close" class="closeTime" name="closeTime" value="@Model.Auctions.Close_Time" />
+                                    <input type="hidden" class="statusClick" name="status" value="0" />
+                                    <h2 class="margin-five username-height">
+                                        @if (@Model.Auctions.User != null)
+                                        {
+                                            <span>
+                                                <img src="~/Content/img/avatar/@Model.Auctions.User.Image" width="64" height="64" class="user-icon winning_avatar" />
+                                            </span>
+                                        }
+                                        <br />
+                                        <span class="winning" style="height:30px">
+                                            @(Model.Auctions.User != null ? Model.Auctions.User.Fname : "هیچ پیشنهادی نداریم" )
+                                        </span>
+                                    </h2>
+
+                                    <div id="138034043">
+                                        @*<p>
+                                                <a class="buttons bid large orange btnBid" onclick="btnClick()">Bid Now</a>
+                                            </p>*@
+                                        @if (@Model.Auctions.IsClose)
+                                        {
+                                            <p class="p">
+                                                <img class="buttons bid medium  btnAuction" src="~/Content/img/Sold.png" id="btnBid" onclick="btnClick(this)" />
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="p">
+                                                <img class="buttons bid medium  btnAuction" id="btnBid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout="" onclick="btnClick(this)" />
+                                            </p>
+                                        }
+                                    </div>
+
+
+                                    <ul class="price-breakdown">
+                                        <li>
+                                            ارزش قیمت:
+                                            <span class="float-left" id="product_valueprice">
+                                                $49.95
+                                            </span>
+                                        </li>
+                                        <li>
+                                            اعتبار پیشنهادات:
+                                            <span class="float-left">- <span id='breakdown_bidsvalue'></span></span>
+                                        </li>
+
+                                        <li class="bid_breakdown last">
+                                            <span id='breakdown_realbids'>0</span> Real /
+                                            <span id='breakdown_voucherbids'>0</span> Voucher
+                                        </li>
+
+                                        <li>
+                                            قیمت  خرید هم اکنون 
+                                            <span class="float-left breakdown_buynowtotal">
+                                                $49.95
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <p>
+
+                                        <a href="#" onclick="AddToCart(@Model.Auctions.ProductId);" @*id="buynowbtn"*@ class="buynowbtn buttons large blue">
+                                            خریـد
+                                            <span class="clear"></span>
+                                            <span class="buynow-price breakdown_buynowbtn">
+                                                @Model.Auctions.BuyPrice
+                                            </span>
+                                        </a>
+
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div id="auction-right">
+                                <div class="table-type">
+
+                                    <div id="history" class="content">
+                                        <div class="module ap-bidding-section">
+                                            <h3 class='orange bold'>تاریخچه مشارکت</h3>
+
+                                            <div class="content" id="titreAppend">
+                                                <table id="bid-history">
+                                                    <tbody id="tbodyLog" class="tbodyLog">
+
+
+                                                    </tbody>
+                                                </table>
+                                                <div class="right recent-bidders">
+                                                    <p>
+                                                        <span class="bold" id="bh_Count">0</span>
+                                                        Recent Bidders
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div id='bidomatic_138034043' class="bidomatic">
+                                            <h3 class="bold no-bg">
+                                                Bid-O-Matic
+                                                <i class="bido"></i>
+                                            </h3>
+                                            <div class="content">
+
+
+                                                <div class="bidomatic_active" style='display:none'>
+                                                    <div class="fieldset-left">
+                                                        <fieldset class="bidomatic">
+                                                            <p class="bold">Bid From</p>
+                                                            <span id="bido_from_show">$0.00</span>
+                                                        </fieldset>
+                                                    </div>
+
+                                                    <div class="fieldset-right">
+                                                        <fieldset class="bidomatic">
+                                                            <p class="bold"># Bids</p>
+                                                            <span id="bido_num_show">0 / 0</span>
+
+                                                        </fieldset>
+                                                    </div>
+
+                                                    <p class="no-margin">
+                                                        <a href="javascript:void(0)" class="buttons medium orange bidomatic_toggle bido-btn">Deactivate</a>
+                                                    </p>
+                                                </div>
+
+                                                <div class="bidomatic_not_active" style=''>
+                                                    <div class="fieldset-left">
+                                                        <fieldset class="bidomatic">
+                                                            <p class="bido-small">&nbsp;&nbsp;&nbspBid From</p>
+                                                            ریال
+                                                            <input type="text" name="bidomatic_starting_amount" id="bidomatic_starting_amount" class="bidomatic_txt start" value='0.00' />
+                                                        </fieldset>
+                                                    </div>
+
+                                                    <div class="fieldset-right">
+                                                        <fieldset class="bidomatic">
+                                                            <p class="bido-small"># Bids</p>
+                                                            <input type="text" name="bidomatic_number_of_bids" class="bidomatic_txt" value='0' />
+                                                        </fieldset>
+                                                    </div>
+
+                                                    <p class="no-margin">
+                                                        <a href="javascript:void(0)" class="buttons medium blue bidomatic_toggle bido-btn">Activate</a>
+                                                    </p>
+                                                </div>
+
+                                                <div class="clear"></div>
+                                                <br />
+                                                <p class="small">
+                                                    <a href="">Learn more about Bid-O-Matic...</a>
+                                                </p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>	<!-- End Content -->
+
+            <div class="auction-specs">
+                <ul class="types" id="auctionspecs_tabs">
+                    <li class="left" id="auctionspecs_description">
+                        <a href="#description" aid="description">توضیحات</a>
+                    </li>
+                    <li class="center" style="float:left" id="auctionspecs_reviews">
+                        <a href="#reviews" id="product-reviews-link" aid="reviews" onclick="reviews.setSection('helpful').setPage(1).navigate().doNothing()">مرور</a>
+                    </li>
+                    <li class="center" id="auctionspecs_stats">
+                        <a href="#stats" aid="stats">آمـار</a>
+                    </li>
+                    <li class="right" id="auctionspecs_similar">
+                        <a href="#similar" aid="similar">حراج های مشابه</a>
+                    </li>
+                </ul>
+
+                <div id="description">
+                    <div class="content tabs" style="min-height:500px" id="product_description">
+
+                        <div id="catalog_selector">
+                            <div class="module product-dropdown-panel-wrapper" id="product_selected" style="cursor:pointer;">
+                                <div id="product_selected_title"></div>
+                                <img src="~/Content/Auction_Img/filter-arrow.png" class="filter-arrow-dropdown" />
+
+                            </div>
+                            <div id="product-dropdown-panel" style="display:none">
+                                <ul class="product-dropdown">
+                                    <li class="product-dropdown-options" id="catalog_select_1770564" style="cursor:pointer;" onclick="AuctionDetail.updateCatalog(1770564)">
+                                        <div class="product-dropdown-image">
+                                            <img src="~/Content/Auction_Img/s.jpg" />
+                                        </div>
+                                        <div class="product-dropdown-title">JBL Bluetooth Headphone-Black</div>
+                                    </li>
+
+                                    <li class="product-dropdown-options" id="catalog_select_1770565" style="cursor:pointer;" onclick="AuctionDetail.updateCatalog(1770565)">
+                                        <div class="product-dropdown-image">
+                                            <img src="~/Content/Auction_Img/s (1).jpg" />
+                                        </div>
+                                        <div class="product-dropdown-title">JBL Bluetooth Headphone-White</div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <h2 class="bold">JBL Bluetooth Headphone-Black</h2>
+                        <p>Enjoy your favorite audio and interact with multiple mobile devices with these black Tune 500BT Wireless On-Ear Headphones from JBL. Thanks to Bluetooth multi-point technology, you can conveniently and easily use them with two different devices, such as a smartphone, tablet, or laptop. Pair to both simultaneously and quickly switch between them as needed. When paired with a smartphone, you can utilize the built-in microphone to conduct hands-free calls and interact with either the Siri or Google Now digital assistant software. Add in comfortable padding and a long battery life, and the Tune 500BT headphones can function as an all-day mobile audio solution.</p>
+                        <p>Multi-Point Connection</p>
+                        <p>This technology lets you pair the Tune 500BT headphones with two Bluetooth-compatible devices, so you can quickly and easily switch between the two with a simple press of a button. No more re-pairing or needing a separate set of headphones for the second device. For example, while watching a video on your tablet, you can switch to your phone to answer an incoming call, or while playing a mobile game on your phone, you can easily switch to a video conference call on your laptop.</p>
+                        <p>Battery Life</p>
+                        <p>On a full charge, the JBL Tune 500BT headphones can run for up to 16 hours. Recharging them fully only takes approximately two hours, but you can speed charge them to get one hour of use with just five minutes of charging.</p>
+                        <p>Lightweight & Comfortable</p>
+                        <p>The Tune 500BT on-ear headphones are designed to feel good when wearing them for extended periods. They weigh only 5.7 oz and feature soft ear cushions and a padded headband.</p>
+                        <p>Additional Features</p>
+                        <p>JBL Pure Bass sound</p>
+                        <p>Fold-flat compact design</p>
+                        <br />
+                        <p>
+                            <strong>Shipping Cost</strong>: Free!
+                        </p>
+                        <p>
+                            <strong>Return Policy:</strong> Within 30 in the original packaging
+                        </p>
+                    </div>
+                </div>
+
+                <div id="stats">
+
+                    <div class="content tabs stats">
+
+                        <div class="module recently-auctioned">
+                            <a name="stats"></a>
+                            <h3 class="bold orange">Recent Auction Winners</h3>
+
+                            <div class="content">
+                                <table id="recently-auctioned">
+                                    <thead>
+                                        <tr>
+                                            <td class="user-icons">&nbsp;</td>
+                                            <td class="username">
+                                                <p>نام پیشنهاد دهنده</p>
+                                            </td>
+                                            <td class="auctionid">
+                                                <p>شناسه</p>
+                                            </td>
+                                            <td class="auctionfeatures">
+                                                <p>ویژگی ها</p>
+                                            </td>
+                                            <td class="ending">
+                                                <p>آخرین قیمت</p>
+                                            </td>
+                                            <td class="spent">
+                                                <p>پیشنهادات صرف شده است</p>
+                                            </td>
+                                            <td class="total">
+                                                <p>جمع پرداختی</p>
+                                            </td>
+                                            <td class="savings">
+                                                <p>
+                                                    پس انداز
+                                               </p>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recently-sold-content" style="direction:rtl!important">
+                                        @foreach (var item in Model.statisticsList)
+                                            {
+                                                if (j % 2 == 0) {
+                                                    className = "zebra ";
+                                                    j++;
+                                                }
+                                                else
+                                                {
+                                                    className = "";
+                                                    j++;
+
+                                                }
+                                            <tr class="@className">
+                                                <td class='user-icons'>
+                                                    <img style="width:16px;height:16px" src='~/Content/img/avatar/@item.Img' /> &nbsp;
+                                       
+                                                </td>
+                                                <td class="username" style="text-align: right;">@item.BidderName</td>
+                                                <td class="auctionid" style="text-align: right;">@item.AuctionId</td>
+                                                <td class="auctionfeatures" style="text-align: right;">&nbsp;</td>
+                                                <td class="ending" style="text-align: right;">@item.EndPrice</td>
+                                                <td class="spent" style="text-align: right;">@item.BidsSpent</td>
+                                                <td class="total" style="text-align: right;">@item.TotalPaid</td>
+                                                <td class="savings" style="text-align: right;">&nbsp;</td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- End Module -->
+
+                    </div>
+                </div>
+
+                <div id="reviews" class="review-auction">
+                    <table border='0' cellpadding='0' cellspacing='0' class='reviews-table'>
+                        <tr>
+                            <td class='reviews-navigation'>
+                                <ul class='reviews-links'>
+                                    <li class='reviews-links-section-space' '></li>
+                                    <li class='reviews-links-section-title'>Browse Reviews by Rating</li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_5").setPage(1).navigate().doNothing();' class='reviews-link-rating_5 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_4").setPage(1).navigate().doNothing();' class='reviews-link-rating_4 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_3").setPage(1).navigate().doNothing();' class='reviews-link-rating_3 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_2").setPage(1).navigate().doNothing();' class='reviews-link-rating_2 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='javascript:reviews.setSection("rating_1").setPage(1).navigate().doNothing();' class='reviews-link-rating_1 '>
+                                            <ul class='reviews-rating small '>
+                                                <li class='star full'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='star inactive'></li>
+                                                <li class='ratings-text'>(0)</li>
+                                            </ul>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class='reviews-content-wrapper'>
+                                <div class='reviews-content'></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="similar">
+                    <div class="content tabs stats">
+                        <a name="liveauctions"></a>
+
+                        <div class="module" id="liveauctions">
+
+                            <h3 class="orange bold">Live Auctions</h3>
+
+                            <div class="content tabbed">
+                                <div id="product-live-auctions">
+                                    <ul class="live-products">
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+
+
+                                </div>
+                                <div class="clear"></div>
+                                <div class="pagination" id="product_pagination">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--module-->
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div><!-- End Wrapper -->
+    </div><!--wrapper-->
+</div><!--gloss-->
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/profiles.js"></script>
+    <script type="text/javascript" src="~/Scripts/JScript/reviews.js"></script>
+    <script src="~/Scripts/JScript/jquery.jcarousel.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/JScript/AuctionDetails.js"></script>*@
+
+    <script>
+        var closeTime = '@Model.Auctions.Close_Time';
+        var startStatus = '@Model.Auctions.StartStatus';
+        var isclose = '@Model.Auctions.IsClose';
+        var revPrice = '@Model.Auctions.Reserve_Price';
+
+        window.onload = function () {
+            btn = document.getElementById('btnBid');
+            var seconds = @Model.Auctions.Auction_Time.TotalSeconds;
+            var display = $(".time");
+            if (startStatus == true) {
+                $(".time").removeClass('black').addClass('red');
+            }
+            if ('@Model.Auctions.IsClose' == 'True') {
+                $(".time").removeClass('black').addClass('red');
+                $(".sold").css({ "display": "block" });
+            }
+            else {
+                startTimer(seconds, display);
+            }
+            GetEight();
+        }
+        var i = 0;
+        var removeTd = false;
+
+        $(".btnAuction").click(function () {
+            
+            if (startStatus == true) {
+            $.ajax({
+                type: "POST",
+                url: "/auction/ParticipateInAuctions/",
+                data: {
+                    id: @Model.Auctions.AuctionId
+                           },
+                success: function (result) {
+                    if (result == "NoBid") {
+                        alert("You do not have enough bids left in your account to bid.");
+                        return false;
+                    }
+                    if (result == false) {
+                        alert('error');
+                        return false;
+                    }
+                    if (result.result == 0) {
+                        $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">شما مجاز نیستید دو پیشنهاد را پشت سر هم بدهید.</span></div>');
+                            $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
+                        return false;
+                    }
+                    else {
+                        $('.Reserve-Price').html('');
+                        $('.Reserve-Price').html(result.price);
+                        $('.winning').html(result.name);
+                        GetEight();
+                    }
+                },
+                error: function (list) {
+                    alert('error');
+                }
+            });
+        }
+        });
+
+        function GetEight() {
+            $.ajax({
+                type: "POST",
+                url: "/Auction/GetEight/",
+                data: {
+                    id: @Model.Auctions.AuctionId
+                },
+                success: function (result) {
+                    $.each(result.result, function (bb) {
+                    var tbody = $(document).find('.tbodyLog');
+                    var class1 = "";
+                    if (i == 9) {
+                        removeTd = true;
+                    }
+                    if (removeTd == true) {
+                        tbody.find("tr:first").remove();
+                    }
+                    if (i % 2 == 0) {
+                        class1 = " ";
+                    }
+                    else {
+                        class1 = "zebra ";
+                    }
+                    tbody.append("<tr class='" + class1 + "'>" +
+                        "<td class='user-icons'><p><img style='width:16px; height:16px;' src='/Content/img/avatar/" + result.result[bb].Image + "' /></p></td>" +
+                        "<td class='username'><p>" + result.result[bb].UserName + "</p></td>" +
+                        "<td class='amount'><p>" + result.result[bb].Price + "</p></td>" +
+                        "</tr>");
+                    i++;
+                   
+                    });
+                },
+                error: function (result) {
+                    alert('error');
+                    return false;
+                }
+            })
+        }
+function startTimer() {
+    var intervalId = setInterval(function () {
+        saveTimer( @Model.Auctions.AuctionId, intervalId);
+    }, 1000);
+}
+        function saveTimer(id, intervalId) {
+    $.ajax({
+        type: "POST",
+        url: "/Auction/UpdateTimer/",
+        data: {
+            id: id
+        },
+        success: function (result) {
+            if (result == false || result.isclose == true) {
+                window.clearInterval(intervalId);
+                startStatus = false;
+            }
+            else {
+                if (result.startStatus==true) {
+                    $(".time").removeClass('black red').addClass('red');
+                    startStatus = true;
+                }
+                $(".time").html(result.result);
+            }
+        },
+        error: function () {
+            window.clearInterval(intervalId);
+
+        }
+    });
+}
+function updateIsclose(id) {
+    $.ajax({
+        type: "POST",
+        url: "/home/UpdateIsclose/",
+        data: {
+            id: id
+        },
+        success: function (result) {
+            //alert('success');
+        },
+        error: function (result) {
+            alert('error');
+            return false;
+        }
+    });
+}
+
+        function SliderImage(img) {
+            var src = img.src;
+            $('#image1').attr("src", src);
+
+        }
+
+      
+
+
+
+
+
+
+        $(document).ready(function () {
+            $(".auction-specs").tabs();
+            ////
+            var Banners = {
+                init: function () {
+                    $('#auction-to-checkout').on('click', Banners.shareWin);
+                },
+
+                shareWin: function (e) {
+                    var $this = $(this);
+                    if (!$this.data('popup-enabled')) {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    $('<div id="share-win-dialog">').dialog({
+                        modal: true,
+                        resizable: false,
+                        open: function () {
+                            $(this).load($this.data('popup-href'));
+                        },
+                        title: $this.data('title'),
+                        minHeight: 300,
+                        minWidth: 500
+                    });
+                }
+            };
+            $(document).ready(Banners.init);
+            ////////
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+            //////
+            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-54540972-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function () {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        });
+        if (typeof (QBar) != "undefined") {
+            QBar.setTotalBids(0);
+            QBar.addAuctionDetail(138034043);
+        }
+        pageID = 2; mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+
+
+        /* Begin TVSquared Tracking Code */
+        var _tvq = window._tvq = window._tvq || [];
+
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () {
+            function a(a) {
+                return function () {
+                    var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt
+                }
+            }
+            window._bt = window._bt || [];
+            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) {
+                var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
+            } if (!document.getElementById("analyticstrain-js")) {
+                var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js";
+                var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
+            }
+        }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+        ////
+        if (typeof reviews == "undefined")
+            var reviews;
+
+        $(function () {
+            reviews = new ReviewsObj();
+            reviews.setUPC('050036355674').setCatalogId('1770564');
+            reviews.setReviewsContentDiv($('.reviews-content'));
+            reviews.enableReviews();
+
+        });
+
+
+
+        catalogDetailedID = 1770564;
+        auctionDetailedID = 138034043;
+        Auctions.register(138034043, 'Active', true); AuctionDetail.setup(0.01, 0, '49.95'); profiles.init(['bhu_']);
+
+        $('#bidomatic_starting_amount').val(formatPrice('0.00', true));
+
+        /**
+         * BOOMTRAIN
+         */
+        _bt.track("viewed", {
+            model: "catalog",
+            id: "1770564"
+        })
+        AuctionDetail.catalogImagesInit();
+        AuctionDetail.changeCatalogInit(1770564);
+    </script>
+}

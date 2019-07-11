@@ -53,8 +53,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -92,12 +96,20 @@
     <Compile Include="AuctionLogs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Countries.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="IRepository\IAuctionLogRepo.cs" />
     <Compile Include="IRepository\IAuctionRepo.cs" />
     <Compile Include="IRepository\ICountryRepo.cs" />
+    <Compile Include="IRepository\IOrderRepo.cs" />
+    <Compile Include="IRepository\IProductRepo.cs" />
     <Compile Include="IRepository\IUserRepo.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -114,7 +126,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuctionModel.cs" />
+    <Compile Include="Models\LogModel.cs" />
+    <Compile Include="Models\ShopCartItem.cs" />
+    <Compile Include="Models\StatisticsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -122,6 +147,8 @@
     <Compile Include="Repository\AuctionLogsRepo.cs" />
     <Compile Include="Repository\AuctionRepo.cs" />
     <Compile Include="Repository\CountryRepo.cs" />
+    <Compile Include="Repository\OrderRepo.cs" />
+    <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\UserRepo.cs" />
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>

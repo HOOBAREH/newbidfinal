@@ -1,0 +1,173 @@
+﻿@model List<DataLayer.Models.ShopCartViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int row = 1;
+}
+<style>
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+        text-align: right;
+    }
+
+    .table-bordered > tbody > tr > th {
+        border: 1px solid #ddd;
+    }
+
+    .table > tbody > tr > th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        text-align: right;
+    }
+
+    .table-bordered > tbody > tr > td {
+        border: 1px solid #ddd;
+        padding-right: 6px;
+    }
+
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'glyphicon glyphicon-trash';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-radius: 4px;
+    }
+</style>
+
+<div id="container">
+
+    <div class="content auctionList">
+        <h3 class="text-right">سبد خرید شما</h3>
+        <span> @ViewBag.Error</span>
+        <table class="table table-bordered" dir="rtl">
+            <tr>
+                <th>#</th>
+                <th>تصویر</th>
+                <th>کالا</th>
+                <th>تعداد</th>
+                <th>قیمت</th>
+                <th>جمع</th>
+                <th>دستورات</th>
+            </tr>
+
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@row</td>
+                        <td>
+                            <img src="~/Content/img/@item.ImageUrl" style="max-width:120px" alt="Alternate Text" />
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>@item.Count</td>
+                        <td>@item.Price</td>
+                        <td>@item.Sum</td>
+                        <td>
+                            <a class="btn " href="@Url.Action("RemoveFromCart","ShoppingCart",new { id=item.ProductID})">
+                                <img style="width:30px" src="~/Content/img/Trash.png" />
+                                @*<i class="glyphicon glyphicon-trash"></i>*@
+                            </a>
+                        </td>
+                    </tr>
+                    row++;
+                }
+            }
+            <tr>
+                <td colspan="3" class="text-left">
+                    <span>جمع تعداد: </span>
+                </td>
+                <td>
+                    @Model.Sum(p => p.Count)
+                </td>
+                <td>
+                    <span>جمع کل: </span>
+                </td>
+                <td colspan="2" class="text-success">
+                    @Model.Sum(p => p.Sum).ToString("#,0 تومان")
+                </td>
+
+            </tr>
+        </table>
+        <a name="btn_Final" class="btn  btn-payment" href="@Url.Action("Payment","ShoppingCart")" id="pay-btn">تایید نهایی</a>
+    </div>
+</div>
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+<style>
+    .btn-payment {
+        color: white;
+        font-size: 20px;
+        /* border: 15px black; */
+        border-radius: 8px;
+        background-color: green;
+        border: 1px solid #4ba500;
+        width: 12%;
+        padding: 10px;
+
+    }
+    a:hover {
+         text-decoration: solid; 
+        color: #4ba500;
+        background: white;
+    }
+</style>
+@section Scripts{
+
+    <script>
+    if ("@Model.Count"== "0") {
+        $("#pay-btn").css("display", "none");
+    }
+    else {
+        $("#pay-btn").css("display", "block");
+
+    }
+    </script>
+}

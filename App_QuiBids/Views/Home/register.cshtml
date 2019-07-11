@@ -16,57 +16,24 @@
         }
     </style>
 }
+<div id="slider_container">
+    <div id="featured_carousel">
+
+        @*<div class="content lockedAuctions lockedAuctions_en">
+                <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
+            </div>*@
+        <div class="content promoFreeShippingForever"></div>
+
+
+    </div>
+</div>
 <div class="gloss">
 
 
     <div class="module">
 
 
-        <div id="slider_container">
-            <div id="featured_carousel">
 
-                <div class="content lockedAuctions lockedAuctions_en">
-                    <a target="_blank" href="" class="buttons green large"> بیشتر بدانید! </a>
-                </div>
-                <div class="content promoFreeShippingForever"></div>
-                <div class="content promo promoStore"><a class="widelink" href="/en/quibids101/whats-new-store.php"></a></div>
-                <div class="content tips">
-                    <div class="title">!چطور یک برد بزرگ داشته باشم</div>
-                    <div class="body">
-                        See <span>tips</span> and <span>tricks</span> from our staff on best practices for <span>Winning Big</span> on <span>QuiBids!</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="">
-                                سه اشتباه بزرگ که مبتدی ها مرتکب میشوند
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                به دنبال " بزرگترین " بودن
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                و خیلی چیز های دیگر
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content badges">
-                    <div class="title">
-                        <span class="bold">
-                            Cash in with <span class="green">QuiBids Badges!</span>
-                        </span>
-                    </div>
-                    <div class="body">
-                        Badges are the best way to earn <span class="bold"><span class="green">FREE BIDS, achieve goals,</span></span> and  <span class="bold"><span class="green">gain experience</span></span> for shopping with QuiBids.
-                    </div>
-                    <a href="/en/badges/" class="buttons green large"> بیشتر بدانید		</a>
-                </div>
-
-            </div>
-        </div>
 
 
 
@@ -147,13 +114,13 @@ new { enctype = "multipart/form-data" }))
                                         <!-- فیلد تلفن-->
                                         <div class="field-wrap">
 
-                                            <input type="text" name="Mobile" placeholder="تلفن" required>
+                                            <input type="text" name="Mobile"  pattern="^[0][9][0-9][0-9]{8,8}$"  placeholder="تلفن" required>
 
                                         </div>
                                         <!-- فیلد ادرس-->
                                         <div class="field-wrap">
 
-                                            <textarea type="text" name="Address" placeholder="ادرس"></textarea>
+                                            <textarea type="text" name="Address" placeholder="آدرس"></textarea>
                                         </div>
 
                                         <!--  کلید ثبت نام -->
@@ -166,22 +133,16 @@ new { enctype = "multipart/form-data" }))
                                     <div id="signIn" hidden>
                                         <!--فیلد ورود-->
                                         <div class="top-row">
-                                            <!-- فیلد ایمیل -->
+                                            <!-- فیلد شماره موبایل -->
                                             <div class="field-wrap">
-                                                <input type="text" name="UserName" placeholder="نام کاربری" required>
+                                                <input type="text" pattern="^[0][9][0-9][0-9]{8,8}$"  name="UserName"  placeholder=" شماره موبایل (09121221222)  " required>
                                             </div>
-
                                             <div class="field-wrap">
                                                 <!-- فیلد رمزعبور -->
                                                 <input type="password" name="Password" placeholder="رمز عبور" required>
-
                                             </div>
-
                                         </div>
-
-                                        <button type="submit" class="button button-block">ورود</button>
-
-
+                                        <button type="submit" class=" button button-block">ورود</button>
                                     </div>
                                 }
 
@@ -195,9 +156,11 @@ new { enctype = "multipart/form-data" }))
 </div>
 @section Scripts{
     <script src="~/Scripts/JScript/register.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <script>
 
-
+       
         $('#agree').click(function () {
             if ($('#agree').not(':checked')) {
                 outline_reset(null, "agree");
@@ -216,9 +179,7 @@ new { enctype = "multipart/form-data" }))
             $("#btn-reg").show();
 
         });
-        if (jQuery.browser.mobile) {
-            $('#slider_container').hide();
-        } else {
+        
             $('#featured_carousel').orbit({
                 animationSpeed: 800,             // how fast animtions are
                 timer: true, 			 // true or false to have the timer
@@ -227,6 +188,6 @@ new { enctype = "multipart/form-data" }))
                 startClockOnMouseOut: true, 	 // if clock should start on MouseOut
                 startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
             });
-        }
+        
     </script>
-}
+    }

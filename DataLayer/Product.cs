@@ -24,6 +24,10 @@ public partial class Product
 
         this.Auction = new HashSet<Auction>();
 
+        this.Image1 = new HashSet<Image>();
+
+        this.OrderItem = new HashSet<OrderItem>();
+
     }
 
 
@@ -37,13 +41,27 @@ public partial class Product
 
     public int Price { get; set; }
 
-    public string Img { get; set; }
+    public string Image { get; set; }
+
+    public Nullable<int> CatId { get; set; }
+
+    public Nullable<short> Stock { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Auction> Auction { get; set; }
+
+    public virtual Category Category { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Image> Image1 { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<OrderItem> OrderItem { get; set; }
 
 }
 

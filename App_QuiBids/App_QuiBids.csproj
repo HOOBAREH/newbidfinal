@@ -53,11 +53,15 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -175,10 +179,34 @@
     <Content Include="bin\System.Web.Webpages.Razor.dll" />
     <Content Include="bin\System.Web.Webpages.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.xml" />
-    <Content Include="Content\Abuot_img\auction-icon.png" />
-    <Content Include="Content\Abuot_img\best-icon.png" />
-    <Content Include="Content\Abuot_img\test-icon.png" />
-    <Content Include="Content\Abuot_img\tips-icon.png" />
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceZarinPalTest\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceZarinPalTest\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceZarinPalTest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\About_img\auction-icon.png" />
+    <Content Include="Content\About_img\best-icon.png" />
+    <Content Include="Content\About_img\test-icon.png" />
+    <Content Include="Content\About_img\tips-icon.png" />
     <Content Include="Content\Account_img\available-gameplays.jpg" />
     <Content Include="Content\Account_img\badge_101_sm.png" />
     <Content Include="Content\Account_img\badge_1_sm.png" />
@@ -215,18 +243,61 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\101.css" />
+    <Content Include="Content\Css\aucrionCss.css" />
     <Content Include="Content\Css\auction.css" />
     <Content Include="Content\Css\badges.css" />
     <Content Include="Content\Css\gameplay.css" />
     <Content Include="Content\Css\myquibids.css" />
     <Content Include="Content\Css\reviews.css" />
+    <Content Include="Content\Games\floppybird\assets\bird.png" />
+    <Content Include="Content\Games\floppybird\assets\ceiling.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_0.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_1.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_2.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_3.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_4.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_5.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_6.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_7.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_8.png" />
+    <Content Include="Content\Games\floppybird\assets\font_big_9.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_0.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_1.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_2.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_3.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_4.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_5.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_6.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_7.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_8.png" />
+    <Content Include="Content\Games\floppybird\assets\font_small_9.png" />
+    <Content Include="Content\Games\floppybird\assets\land.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_bronze.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_gold.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_platinum.png" />
+    <Content Include="Content\Games\floppybird\assets\medal_silver.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe-down.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe-up.png" />
+    <Content Include="Content\Games\floppybird\assets\pipe.png" />
+    <Content Include="Content\Games\floppybird\assets\replay.png" />
+    <Content Include="Content\Games\floppybird\assets\scoreboard.png" />
+    <Content Include="Content\Games\floppybird\assets\sky.png" />
+    <Content Include="Content\Games\floppybird\assets\splash.png" />
+    <Content Include="Content\Games\floppybird\assets\thumb.png" />
+    <Content Include="Content\Games\floppybird\css\main.css" />
+    <Content Include="Content\Games\floppybird\css\reset.css" />
+    <Content Include="Content\Games\Pacman\style.css" />
+    <Content Include="Content\Games\TicTacToe\style.css" />
+    <Content Include="Content\Games_img\TicTac.jpg" />
     <Content Include="Content\Games_img\biggamefishing_medium.jpg" />
     <Content Include="Content\Games_img\blank-star.png" />
     <Content Include="Content\Games_img\dealwheel_medium.jpg" />
+    <Content Include="Content\Games_img\flappy-bird.jpg" />
     <Content Include="Content\Games_img\full-star.png" />
     <Content Include="Content\Games_img\gameplay-step1.jpg" />
     <Content Include="Content\Games_img\gameplay-step2.jpg" />
     <Content Include="Content\Games_img\gameplay-step3.jpg" />
+    <Content Include="Content\Games_img\Pac-Man.png" />
     <Content Include="Content\Games_img\treasurecove_medium.jpg" />
     <Content Include="Content\Games_img\wordscramble-bg.jpg" />
     <Content Include="Content\Games_img\wordscramble_medium.jpg" />
@@ -269,6 +340,7 @@
     <Content Include="Content\img\avatar\9.png" />
     <Content Include="Content\img\badges.jpg" />
     <Content Include="Content\img\btn-login.png" />
+    <Content Include="Content\img\cart.png" />
     <Content Include="Content\img\checkmark-green.png" />
     <Content Include="Content\img\coins.png" />
     <Content Include="Content\img\contact-icon.png" />
@@ -307,6 +379,7 @@
     <Content Include="Content\img\form-bg.png" />
     <Content Include="Content\img\Layout\ajax-loader.gif" />
     <Content Include="Content\img\Layout\arrow-down-bigger.png" />
+    <Content Include="Content\img\Layout\arrow-hover.gif" />
     <Content Include="Content\img\Layout\arrow-nav-sprite.png" />
     <Content Include="Content\img\Layout\arrow-right.gif" />
     <Content Include="Content\img\Layout\arrow.gif" />
@@ -360,6 +433,7 @@
     <Content Include="Content\img\Layout\white-btn.jpg" />
     <Content Include="Content\img\login-gov-288x288.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\options-down-arrow.png" />
     <Content Include="Content\img\orange-btn %281%29.jpg" />
     <Content Include="Content\img\orange-btn.jpg" />
     <Content Include="Content\img\Pishnehad.png" />
@@ -368,6 +442,7 @@
     <Content Include="Content\img\quibids-store-banner.jpg" />
     <Content Include="Content\img\Sold.png" />
     <Content Include="Content\img\tips.jpg" />
+    <Content Include="Content\img\Trash.png" />
     <Content Include="Content\img\ui-bg_glass_100_fdf5ce_1x400.png" />
     <Content Include="Content\img\ui-bg_gloss-wave_35_f6a828_500x100.png" />
     <Content Include="Content\img\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
@@ -1670,6 +1745,12 @@
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\Games\floppybird\js\buzz.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\jquery.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\jquery.transit.min.js" />
+    <Content Include="Scripts\Games\floppybird\js\main.js" />
+    <Content Include="Scripts\Games\Pacman\script.js" />
+    <Content Include="Scripts\Games\TicTacToe\main.js" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1709,8 +1790,18 @@
     <Content Include="fonts\BYekan.eot" />
     <Content Include="fonts\BYekan.ttf" />
     <Content Include="fonts\BYekan.woff" />
+    <Content Include="Content\Games\floppybird\assets\font_big.psd" />
+    <Content Include="Content\Games\floppybird\assets\font_small.psd" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_die.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_hit.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_point.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_swooshing.ogg" />
+    <Content Include="Content\Games\floppybird\assets\sounds\sfx_wing.ogg" />
+    <None Include="Connected Services\ServiceZarinPalTest\PaymentGatewayImplementationService.wsdl" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -1751,19 +1842,29 @@
     <Content Include="Scripts\JScript\site.js" />
     <Content Include="Scripts\JScript\translation.js" />
     <Content Include="Scripts\JScript\tv2track.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\ServiceZarinPalTest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\SessionContext.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -1839,7 +1940,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Views\Home\Abuot.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Badges.cshtml" />
     <Content Include="Views\Home\Games.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
@@ -1857,6 +1958,14 @@
     <Content Include="Views\Account\MyInformation.cshtml" />
     <Content Include="Views\Account\Notifications.cshtml" />
     <Content Include="Views\Account\RedeemPromo.cshtml" />
+    <Content Include="Views\Auction\Index.cshtml" />
+    <Content Include="Views\Game\Pacman.cshtml" />
+    <Content Include="Views\Game\FloppyBird.cshtml" />
+    <Content Include="Views\Game\TicTac.cshtml" />
+    <Content Include="Views\Home\_ListAuction.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Payment.cshtml" />
+    <Content Include="Views\ShoppingCart\Verify.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1867,7 +1976,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Auction\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1877,6 +1985,12 @@
       <Project>{C3D57523-E433-4AF4-990B-2D29474E792C}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceZarinPalTest\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1893,7 +2007,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13326</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:13326/</IISUrl>
+          <IISUrl>http://localhost:13327/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

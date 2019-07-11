@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace DataLayer.IRepository
         List<AuctionLogs> GetAll();
         AuctionLogs GetByUserId(int id);
         AuctionLogs GetByAuctionId(int id);
-        List<AuctionLogs> GetLast8ByAuctionId(int id);
+        LogModel GetLast8ByAuctionId(int id);
         void Insert(AuctionLogs model);
+        List<LogModel> GetEight(int id);
     }
 }

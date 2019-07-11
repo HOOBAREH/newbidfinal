@@ -1,8 +1,18 @@
-﻿@using DataLayer; 
-
-@{User user = new User();if (Session["Admin"] != null){user = (User)Session["Admin"];}}
-
-<!DOCTYPE HTML>
+﻿<!DOCTYPE html>
+@using DataLayer.Repository;
+@using DataLayer;
+@{
+    User user = new User();
+    string cart = "0";
+    if (Session["ShoppingCart"] != null)
+    {
+        cart = Session["ShoppingCart"] as string;
+    }
+    if (User.Identity.IsAuthenticated)
+    {
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
+    }
+}
 <html lang="fa">
 <head>
 
@@ -57,7 +67,7 @@
                     padding: 0 15px;
                     margin: 0;
                     color: #FF7400;
-                    font-family: 'B Yekan';
+                    font-family: 'iransans';
                     font-size: 20px;
                     font-weight: bold;
                     letter-spacing: .02em;
@@ -154,13 +164,13 @@
         }
 
         #brand_browse {
-            font-family: 'B Yekan';
+            font-family: 'iransans';
             height: 30px;
             font-size: 14px;
         }
 
         #category_browse {
-            font-family: 'B Yekan';
+            font-family: 'iransans';
             height: 30px;
             font-size: 14px;
         }
@@ -190,9 +200,16 @@
             <div class="wrapper">
 
                 <div class="login">
-                    @if (Session["Admin"] != null)
+                    @if (user.Id != 0)
                     {
                         <ul class="show">
+                            <li>
+                                <a href="@Url.Action("Index","ShoppingCart")">
+                                    <span id="Cart" style="color:red">@Session["Count"]</span>
+                                    <img class="bids-icon" style="width:20px" src="~/Content/img/cart.png" />
+                                </a>
+                            </li>
+                            <span>|</span>
                             <li>@user.Fname @user.Lname</li>
                             <span>|</span>
 
@@ -201,7 +218,7 @@
                                      class="bids-icon">
                                 <a href="" class="bids"
                                    id="template_bidsavailable_click">
-                                    <span id="template_bidsavailable"
+                                    <span id="bidsavailable"
                                           style="width:25px">@user.RealBid</span>
                                         Bids
                                     </a>
@@ -254,7 +271,7 @@
                     <li id='browse-menu-btn'>
                         <a class='active' href="/Home/Index">Browse	<img src="~/Content/img/Layout/down-arrow.png" /></a>
                     </li>
-                    @if (Session["Admin"] != null)
+                    @if (user.Id != 0)
                     {
 
                         <li><a href="/Account/index">داشبورد </a></li>
@@ -266,11 +283,11 @@
 
                     <li><a href="">خرید بید</a></li>
 
-                    <li> <a href="/Home/Abuot">درباره ما </a> </li>
+                    <li> <a href="/Home/About">درباره ما </a> </li>
 
 
                     <li> <a href="/Home/Help">راهنما</a> </li>
-                    @if (Session["Admin"] == null)
+                    @if (user.Id == 0)
                     {
                         <li> <a href="/Home/register">عضویت</a> </li>
                     }
@@ -543,7 +560,7 @@
 
 
             <footer>
-                <div id="footer-left">
+                <div id="footer-right">
 
                     <div class="content">
                         <h5>پشتیبانی</h5>
@@ -566,7 +583,7 @@
                         <h5 onclick="document.location=''">لینک های سریع</h5>
                         <ul>
                             <li><a href="/Home/register">همین الان عضو شوید!</a></li>
-                            <li><a href="/Home/Abuot">چیست؟ NewBids</a></li>
+                            <li><a href="/Home/About">چیست؟ NewBids</a></li>
                             <li><a href="/Home/index">فعالیت های حال حاضر</a></li>
                             <li><a href="">سفارشات</a></li>
                             <li><a href="javascript:return false;" onclick="mapFunction()">نقشه ی سایت</a></li>
@@ -628,12 +645,8 @@
     @*--------------------------------QBar---------------------------------*@
     @*--------------------------------Qbar---------------------------------*@
 
-    @if (Session["Admin"] != null)
+    @if (user.Id != 0)
     {
-
-
-
-
         <div id="qbar">
             <div class="container" id="qbar_full" style="display:none">
                 <div class="popup username" style="display:none" id="qbar_popup_username">
@@ -736,7 +749,7 @@
                     <div class="content">
                         <div class="cont-left">
                             <p class="big">
-                                @if (user != null)
+                                @if (user.Id != 0)
                                 {
                                     var sum = user.RealBid + user.VoucherBid;
                                     <span id="qbar_bidsavailable2">
@@ -761,12 +774,12 @@
                         <div class="cont-right">
                             <ul>
                                 <li>
-                                    <span class="big2" id="qbar_bidsavailable_real">@(user != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
+                                    <span class="big2" id="qbar_bidsavailable_real">@(user.Id != 0 != null ? user.RealBid : 0)</span> Real Bids <a href="/en/help/faq/10-What-are-Real-Bids#307" title="Click to view FAQ">
                                         <img src="~/Content/img/Footer-Bar/help.png" />
                                     </a>
                                 </li>
                                 <li>
-                                    <span class="big2" id="qbar_bidsavailable_free">@(user != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
+                                    <span class="big2" id="qbar_bidsavailable_free">@(user.Id != 0 != null ? user.VoucherBid : 0)</span> Voucher Bids <a href="/en/help/faq/10#86" title="Click to view FAQ">
                                         <img src="~/Content/img/Footer-Bar/help.png" />
                                     </a>
                                 </li>
@@ -853,7 +866,7 @@
 
 
                 <div class="logo">
-                    <a id="qbar_btn_qbar_hide">QBar</a>
+                    <a id="qbar_btn_qbar_hide"></a>
                 </div><!--logo-->
 
                 <div class="navbar">
@@ -915,8 +928,11 @@
     }
     @*----------------------------QBar-------------------------------------*@
     @*----------------------------QBar-------------------------------------*@
-    <script src="~/Scripts/JScript/jquery.min.js"></script>
-    <script src="~/Scripts/JScript/jquery-ui.min1.js"></script>
+    @*<script src="~/Scripts/JScript/jquery.min.js"></script>
+        <script src = "~/Scripts/jquery-1.5.1.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/JScript/jquery-ui.min1.js"></script>*@
+    <script src="~/Scripts/jquery-ui.min.js"></script>
     <script src="~/Scripts/JScript/jquery.orbit-1.2.3.min.js"></script>
     @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
             <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -928,7 +944,7 @@
     <script src="~/Scripts/JScript/all.js"></script>
     <script src="~/Scripts/JScript/auctions.js"></script>
     <script src="~/Scripts/JScript/ga.js"></script>
-    <script src="~/Scripts/JScript/homepage.js"></script>
+    @*<script src="~/Scripts/JScript/homepage.js"></script>*@
     <script src="~/Scripts/JScript/qbar.js"></script>
     <script src="~/Scripts/JScript/site.js"></script>
     <script src="~/Scripts/JScript/translation.js"></script>
@@ -947,46 +963,13 @@
             Homepage.addFilter = 'Add Filters';
             Homepage.remFilter = 'Clear Filters';
         } catch (e) { }
-        var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '20', 1],
-            ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
 
         /**
          * BOOMTRAIN
          */
-        !function () {
-            function a(a) {
-                return function () {
-                    var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt
-                }
-            } window._bt = window._bt || [];
-            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
-            {
-                var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
-            }
-            if (!document.getElementById("analyticstrain-js"))
-            {
-                var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "";
-                var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
-            }
-        }();
+        //!function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + ""; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
 
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+        //_bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
         ////////////////////////////////
         $(function () {
             var BrowseMenu = new Class_BrowseMenu();
@@ -1010,7 +993,7 @@
 
             $('body').append('<div id="fb-root"></div>');
 
-            $.getScript(document.location.protocol + '');
+            //$.getScript(document.location.protocol + '');
         });
         //////////////////////////////
         //$("#search_category_title").live('click', function (e) {
@@ -1051,6 +1034,25 @@
         function mapFunction() {
             $('#siteMap').toggle()
         }
+
+
+        function AddToCart(id) {
+            $.ajax({
+                type: "POST",
+                url: "/home/AddToCart/",
+                data: {
+                    id: id
+                },
+                success: function (result) {
+                    $("#Cart").html(result);
+                },
+                error: function (result) {
+                    alert('error');
+                    return false;
+                }
+            });
+        }
+
     </script>
 
     @RenderSection("Scripts", required: false)

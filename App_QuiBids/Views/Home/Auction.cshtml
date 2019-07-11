@@ -1,27 +1,248 @@
-﻿@model DataLayer.Auction
+﻿@model DataLayer.Models.AuctionModel
 @using DataLayer;
+@using DataLayer.Repository;
 @{
     ViewBag.Title = "Auction";
     Layout = "~/Views/Shared/_Layout.cshtml";
     User user = new User();
-    if (Session["Admin"] != null)
+    Auction auction = new Auction();
+    if (User.Identity.IsAuthenticated)
     {
-        user = (User)Session["Admin"];
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
     }
 }
 
 @section Styles{
-    <link rel="stylesheet" href="~/Content/Css/auction.css" type="text/css" />
-    <link rel="stylesheet" href="~/Content/Css/reviews.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Css/auction.css">
+    <link rel="stylesheet" href="~/Content/Css/reviews.css">
     <style>
-        ol, ul, li {
-            float: left;
-            list-style: none
+        ul.auction-details {
+            margin: 0 0 10px 0;
+            padding: 0;
+            height: 20px;
+            position: relative;
+            float: left
+        }
+
+            ul.auction-details li {
+                float: left;
+                margin: 0 15px 0 0;
+                display: inline;
+                text-indent: 22px
+            }
+
+                ul.auction-details li.added {
+                    color: #4ba500
+                }
+
+                ul.auction-details li.watchlist {
+                    display: inline;
+                    background: url('../../Content/img/Layout/auction-details-sprite-2.png') 0 -163px no-repeat
+                }
+
+            ul.auction-details li {
+                border-right: 1px solid #d9d9d9;
+                display: inline;
+                margin: 0 15px 0 0;
+                padding-right: 12px;
+                width: auto;
+            }
+
+                ul.auction-details li:last-child {
+                    border-right: 0 none;
+                    width: auto;
+                    margin-right: 0;
+                    padding-right: 0
+                }
+
+        div.content.tabbed #product-live-auctions ul.live-products li, div.content.tabbed #product-live-auctions ul.live-products li.last {
+            width: 277px
+        }
+
+        h1#product_title {
+            font-size: 28px;
+            line-height: 26px
+        }
+
+        h2.margin-five.username-height {
+            font-size: 18px
+        }
+
+        div#show-all-you-choose-it {
+            float: right;
+            background: url(../../Content/img/Auction/dropnav-arrow.gif) no-repeat 100% 8px;
+            padding-right: 10px;
+            margin-top: -30px;
+        }
+        /*--------------------------*/
+        ul#you-choose-selector {
+            clear: both;
+            border: 1px solid #e2e2e2;
+            margin: 30px 0 60px;
+            padding: 0;
+            width: 938px;
+            height: auto !important;
+            height: 1%;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            background: url('../../Content/Auction_Img/youchooseit-placeholder.gif') no-repeat 50% 50%
+        }
+
+            ul#you-choose-selector:after {
+                content: '.';
+                display: block;
+                height: 0;
+                visibility: hidden;
+                line-height: 0;
+                clear: both
+            }
+
+            ul#you-choose-selector li, ul#you-choose-selector li a {
+                display: block;
+                height: 180px
+            }
+
+            ul#you-choose-selector li {
+                float: left;
+                margin: 0;
+                position: relative;
+                text-align: center;
+                width: 156px
+            }
+
+                ul#you-choose-selector li a {
+                    margin: 2px 10px;
+                    background-color: #fff
+                }
+
+                    ul#you-choose-selector li a div.title {
+                        padding-top: 10px;
+                        line-height: 1.4em;
+                        height: 35px;
+                        overflow: hidden;
+                        font-weight: bold;
+                        font-size: 12px
+                    }
+
+                    ul#you-choose-selector li a div.image {
+                        padding-top: 0
+                    }
+
+                        ul#you-choose-selector li a div.image img {
+                            width: 98px !important;
+                            height: 78px !important
+                        }
+
+                    ul#you-choose-selector li a div.price {
+                        color: #5f9c00;
+                        font-size: 15px;
+                        line-height: 1em
+                    }
+
+                    ul#you-choose-selector li a:hover {
+                        border: 1px solid #bfbfbf;
+                        background-color: #fff;
+                        position: absolute;
+                        -webkit-border-radius: 8px;
+                        -moz-border-radius: 8px;
+                        border-radius: 8px;
+                        top: -10px;
+                        z-index: 50;
+                        margin-left: -5px;
+                        margin-right: -5px;
+                        padding: 0 9px;
+                        width: 146px;
+                        height: 190px;
+                        text-decoration: none;
+                        -webkit-box-shadow: 0 4px 6px 0 #d6d6d6;
+                        box-shadow: 0 4px 6px 0 #d6d6d6
+                    }
+
+                        ul#you-choose-selector li a:hover div.title {
+                            font-size: 13px;
+                            padding-top: 14px
+                        }
+
+                        ul#you-choose-selector li a:hover div.image {
+                            padding-top: 0
+                        }
+
+                            ul#you-choose-selector li a:hover div.image img {
+                                width: 110px;
+                                height: 88px
+                            }
+
+                        ul#you-choose-selector li a:hover div.price {
+                            font-size: 16px;
+                            padding-top: 0
+                        }
+
+                    ul#you-choose-selector li a.active {
+                        border: 1px solid #bfbfbf;
+                        background-color: #fff;
+                        position: absolute;
+                        -webkit-border-radius: 8px;
+                        -moz-border-radius: 8px;
+                        border-radius: 8px;
+                        top: 0px;
+                        z-index: 51;
+                        margin-left: -10px;
+                        width: 174px;
+                        height: 220px;
+                        text-decoration: none;
+                        padding: 0;
+                        -webkit-box-shadow: 0 4px 6px 0 #d6d6d6;
+                        box-shadow: 0 4px 6px 0 #d6d6d6
+                    }
+
+                        ul#you-choose-selector li a.active div.title {
+                            font-size: 14px;
+                            padding: 3px 5px 5px 5px;
+                            height: 46px;
+                            background: #0079cd;
+                            color: #fff;
+                            -webkit-border-radius: 8px 8px 0 0;
+                            -moz-border-radius: 8px 8px 0 0;
+                            border-radius: 8px 8px 0 0;
+                            background: #45aaf8 url(/site/images/layout/blue-title-bg.gif) repeat-x 0 0;
+                            border-color: #1183cf;
+                            text-shadow: 0 1px 2px #063554;
+                            line-height: 22px
+                        }
+
+                        ul#you-choose-selector li a.active div.image {
+                            padding-top: 5px
+                        }
+
+                            ul#you-choose-selector li a.active div.image img {
+                                width: 126px;
+                                height: 101px
+                            }
+
+                        ul#you-choose-selector li a.active div.price {
+                            font-size: 19px;
+                            padding-top: 6px
+                        }
+
+                        ul#you-choose-selector li a.active:after {
+                            content: '';
+                            display: block !important;
+                            background: url(/Content/img/options-down-arrow.png) no-repeat 50% 0 !important;
+                            height: 34px !important;
+                            width: 164px !important;
+                            position: absolute !important;
+                            bottom: -29px !important
+                        }
+
+        div#auction-title h1 {
+            font-size: 28px;
+            line-height: 26px
         }
     </style>
 }
 
-@if (Session["Admin"] != null)
+@if (user.Id != 0)
 {
 
     <input type="hidden" class="userId" name="userId" data-userId="@user.Id" />
@@ -76,6 +297,7 @@ else
                     </div>
                     <ul id="you-choose-selector">
                         <li>
+
                             <a active href="" onclick="return AuctionDetail.updateCatalog(1770564,true);" class="ppswaps ppswap_1770564 active">
                                 <div class="title">JBL Bluetooth Headphone</div>
                                 <div class="image">
@@ -128,7 +350,15 @@ else
 
                             </a>
                         </li>
+                        <li>
+                            <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
+                                <div class="title">Circulon 2-Qt. Covered Saucepan</div>
+                                <div class="image"><img src="~/Content/Auction_Img/e.jpg" /></div>
 
+                                <div class="price">$48.99</div>
+
+                            </a>
+                        </li>
                     </ul>
 
                 </div>
@@ -142,24 +372,28 @@ else
                         <div id="product_media">
                             <div id="slide0" class="slide-img-container">
                                 <div class='auction-details 138034043'>
-                                    <div class='tooltip-bottom locked big' title='Due to high bidding activity, this auction is locked.<br/>
-No new bidders can participate in this auction.'>
-
+                                    <div class='tooltip-bottom locked big' title="Due to high bidding activity, this auction is locked.<br/> No new bidders can participate in this auction.">
                                     </div>
                                     <div class='tooltip-bottom unlocked big' title='Due to high bidding activity, this auction is locked.<br/>
 You may continue to bid, but no new bidders can participate in this auction.'></div>
                                 </div>
-                                <img src="~/Content/Auction_Img/m.jpg" width="375" height="300" />
+                                <img id="image1" src="~/Content/img/@Model.ProductImage.FirstOrDefault()" width="375" height="300" />
                             </div>
                             <div id="recently_sold_for">
                                 <h6 class='bold'>Recently sold for <span class='green'><a href='#' onClick='AuctionDetail.showStatistics();return false;'>...</a></span></h6>
                             </div>
                             <div id="product-slider">
                                 <ul id="jcarousel" class="ui-tabs-nav jcarousel-skin-thumbs">
-                                    <li><a id="sliderImg5575430" href="#slide0">	<img src="~/Content/Auction_Img/s.jpg" width='64' height='52' alt='' border='0' /></a></li>
-                                    <li><span class='no-image'><img src="~/Content/Auction_Img/no-image.png" width='64' height='52' /></span></li>
-                                    <li><span class='no-image'><img src="~/Content/Auction_Img/no-image.png" width='64' height='52' /></span></li>
-                                    <li><span class='no-image'><img src="~/Content/Auction_Img/no-image.png" width='64' height='52' /></span></li>
+                                    @foreach (var item in Model.ProductImage)
+                                    {
+                                        <li style="float: left; list-style: none;">
+                                            <a id="sliderImg" onclick="SliderImage(this)">
+                                                <img src="~/Content/img/@item" width='64' height='52' alt='' border='0' />
+                                            </a>
+                                        </li>
+
+                                    }
+                                   
                                 </ul>
                             </div>
                         </div><!--product-->
@@ -186,25 +420,19 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                             <div id="auction-left" class="138034043" bid='Bid Now'>
                                 <div class="content spots">
                                     <p class='large-price'>
-                                        <span class='price green Reserve-Price' id="Reserve_Price"  data-reservePrice="@Model.Reserve_Price">$@Model.Reserve_Price</span>
+                                        <span class='price green Reserve-Price' id="Reserve_Price" data-reservePrice="@Model.Reserve_Price">$@Model.Reserve_Price</span>
                                         <span class='medium light-grey'>USD</span>
                                     </p>
-
                                     <p class="time large-timer2">@Model.Auction_Time</p>
-                                    @* ///////////////////////////////Hidden////////////////////////////////// *@
                                     <input type="hidden" id="close" class="closeTime" name="closeTime" value="@Model.Close_Time" />
-                                    <input type="hidden" id="auctionId" class="auctionId" name="auctionId" value="@Model.Id" />
-                                    <input type="hidden" class="reset" name="resetTime" value="0" />
                                     <input type="hidden" class="statusClick" name="status" value="0" />
-                                    <input type="hidden" class="Startstatus" name="Startstatus" data-Start="@Model.StartStatus" />
-                                    <input type="hidden" class="isClose" name="isClose" data-Close="@Model.IsClose" />
-                                    @*<h3 id="Reserve_Price" class="price green Reserve-Price" data-reservePrice="@Model.Reserve_Price"> $@Model.Reserve_Price</h3>*@
-                                    @* ///////////////////////////////Hidden////////////////////////////////// *@
-                                   
                                     <h2 class="margin-five username-height">
-                                        <span>
-                                        <img src="~/Content/img/avatar/@Model.User.Image" width="64" height="64" class="user-icon winning_avatar" />
-                                        </span>
+                                        @if (Model.User != null)
+                                        {
+                                            <span>
+                                                <img src="~/Content/img/avatar/@Model.UserImage" width="64" height="64" class="user-icon winning_avatar" />
+                                            </span>
+                                        }
                                         <br />
                                         <span class="winning" style="height:30px">
                                             @(Model.User != null ? Model.User.Fname : "هیچ پیشنهادی نداریم" )
@@ -281,71 +509,71 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 
                                             <div class="content" id="titreAppend">
                                                 <table id="bid-history">
-                                                    <tbody  id="tab tbody">
+                                                    <tbody id="tbodyLog" class="tbodyLog">
 
 
-                                                        @*<tr class=" bold">
-                                                            <td id="bhi_1" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_1" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_1" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_1" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                        @*<tr class="bold">
+                                                                <td id="bhi_1" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_1" class='username'><p>&nbsp;</p></td>
+                                                                <td id="bhp_1" class='amount'><p>&nbsp;</p></td>
+                                                                <td id="bht_1" class='bid-type'><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class="zebra ">
-                                                            <td id="bhi_2" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_2" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_2" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_2" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class="zebra ">
+                                                                <td id="bhi_2" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_2" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_2" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_2" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class=" ">
-                                                            <td id="bhi_3" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_3" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_3" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_3" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class=" ">
+                                                                <td id="bhi_3" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_3" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_3" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_3" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class="zebra ">
-                                                            <td id="bhi_4" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_4" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_4" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_4" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class="zebra ">
+                                                                <td id="bhi_4" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_4" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_4" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_4" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class=" ">
-                                                            <td id="bhi_5" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_5" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_5" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_5" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class=" ">
+                                                                <td id="bhi_5" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_5" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_5" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_5" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class="zebra ">
-                                                            <td id="bhi_6" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_6" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_6" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_6" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class="zebra ">
+                                                                <td id="bhi_6" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_6" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_6" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_6" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class=" ">
-                                                            <td id="bhi_7" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_7" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_7" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_7" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class=" ">
+                                                                <td id="bhi_7" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_7" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_7" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_7" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class="zebra ">
-                                                            <td id="bhi_8" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_8" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_8" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_8" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>
+                                                            <tr class="zebra ">
+                                                                <td id="bhi_8" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_8" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_8" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_8" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>
 
-                                                        <tr class=" ">
-                                                            <td id="bhi_9" class="user-icons"><p>&nbsp;</p></td>
-                                                            <td id="bhu_9" class="username"><p>&nbsp;</p></td>
-                                                            <td id="bhp_9" class="amount"><p>&nbsp;</p></td>
-                                                            <td id="bht_9" class="bid-type"><p>&nbsp;</p></td>
-                                                        </tr>*@
+                                                            <tr class=" ">
+                                                                <td id="bhi_9" class="user-icons"><p>&nbsp;</p></td>
+                                                                <td id="bhu_9" class="username"><p>&nbsp;</p></td>
+                                                                <td id="bhp_9" class="amount"><p>&nbsp;</p></td>
+                                                                <td id="bht_9" class="bid-type"><p>&nbsp;</p></td>
+                                                            </tr>*@
                                                     </tbody>
                                                 </table>
                                                 <div class="right recent-bidders">
@@ -503,7 +731,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                     </thead>
                                     <tbody id="recently-sold-content">
                                         <tr class="zebra">
-                                            <td class='user-icons'>&nbsp;</td>
+                                            <td class='user-icons'><img style="" src='~/Content/img/avatar/' /> &nbsp;</td>
                                             <td class='username'>&nbsp;</td>
                                             <td class='auctionid'>&nbsp;</td>
                                             <td class='auctionfeatures'>&nbsp;</td>
@@ -729,9 +957,235 @@ You may continue to bid, but no new bidders can participate in this auction.'></
     <script type="text/javascript" src="~/Scripts/JScript/auctiondetail.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/profiles.js"></script>
     <script type="text/javascript" src="~/Scripts/JScript/reviews.js"></script>
-    <script type="text/javascript" src="~/Scripts/JScript/AuctionDetails.js"></script>
+    <script src="~/Scripts/JScript/jquery.jcarousel.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/JScript/AuctionDetails.js"></script>*@
 
-    <script >
+    <script>
+        function BiddingHistory() {
+            $.ajax({
+                type: "POST",
+                url: "/home/LowerBids/",
+                data: {
+                    Current_UserId: userID,
+                    id: @Model.ProductId,
+                    Reserve_Price: res
+                },
+                success: function (result) {
+                    currentUser.text(currentUser.attr('data-currentUser'));
+                    $('#template_bidsavailable').text(result.currentbids);
+
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        }
+        var closeTime = '@Model.Close_Time';
+        var startStatus = '@Model.StartStatus';
+        var isclose = '@Model.IsClose';
+        var revPrice = '@Model.Reserve_Price';
+
+        window.onload = function () {
+
+            btn = document.getElementById('btnBid');
+
+            var everyChild = document.getElementsByClassName("time");
+            //var s = everyChild.getElementsByClassName(".time");
+            //for (var i = 0; i < everyChild.length; i++) {
+            const time = everyChild[0].innerText;
+            var a = time.split(':'); // split it at the colons
+            // minutes are worth 60 seconds. Hours are worth 60 minutes.
+            var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+            //var fiveMinutes = 60 * 5,
+            var display = everyChild;
+            //var Startstatus = $(".Startstatus");
+            //var isClose = $(display).siblings('.isClose');
+            if (startStatus == 'True') {
+                $(display).parent().find(".time").removeClass('black').addClass('red');
+            }
+            if ('@Model.IsClose' == 'True') {
+                $(display).parent().find(".time").removeClass('black').addClass('red');
+            }
+            else {
+                startTimer(seconds, display);
+            }
+    //}
+        }
+        var i = 0;
+        var removeTd = false;
+
+$(".btntest").click(function () {
+    //var currentUser = btn.parent().siblings(".Current_User");
+    //var Startstatus = $(this).parents('.spots');
+    //var currentUser = document.getElementsByClassName("Current_User");
+    //var Startstatus = $(".Startstatus");
+    var userID = @user.Id;
+    if (startStatus == 'True') {
+        var currentBids = $('#template_bidsavailable').text();
+        if (currentBids == 0) {
+            alert("You do not have enough bids left in your account to bid.");
+            return false;
+        }
+        var currency = revPrice;
+        var sumCurrency = parseInt(currency) + 1;
+        $('.Reserve-Price').html('$' + sumCurrency);
+        revPrice = sumCurrency;
+        $(".statusClick").val("1");
+        $.ajax({
+            type: "POST",
+            url: "/home/LowerBids/",
+            data: {
+                Current_UserId: @user.Id,
+                id: @Model.ProductId,
+                Reserve_Price: revPrice
+            },
+            success: function (list) {
+                //currentUser.text(currentUser.attr('data-currentUser'));
+                //$('#template_bidsavailable').text(result.currentbids);
+                ///////////////addtoLog----------------------
+
+                if (list == "fail") {
+                    alert('error');
+                }
+                else {
+                    var tbody = $(document).find('.tbodyLog');
+                    var class1="";
+                    if (i == 9) {
+                        removeTd = true;
+                    }
+                    if (removeTd == true) {
+                        tbody.find("tr:first").remove();
+                    }
+                        if (i % 2 == 0) {
+                            class1 = " ";
+                        }
+                        else {
+                            class1 = "zebra ";
+                        }
+                        tbody.append("<tr class='" + class1+"'>" +
+                            "<td class='user-icons'><p><img style='width:16px; height:16px;' src='/Content/img/avatar/" + list.Image+"' /></p></td>" +
+                            "<td class='username'><p>" + list.UserName + "</p></td>" +
+                            "<td class='amount'><p>" + list.Price + "</p></td>"+
+                            //+
+                            //"<td class='bid-type'>" + list[i].NombreConcurrent + "</td>" +
+                            //"<td>" + list[i].NombreArticle + "</td>" +
+                        "</tr>");
+                    i++;
+                    //})
+
+                }//Fermeture Else
+
+                ///////////////Log----------------------
+            },
+            error: function (list) {
+                alert('error');
+            }
+        });
+    }
+});
+function startTimer(duration, display) {
+
+    var minutes, seconds, hours;
+    var timer = duration;
+    //var closeTime =@Model.Close_Time;
+    var status = $(display).siblings(".statusClick");
+    //var Startstatus = $(display).siblings(".Startstatus");
+    var isClose = $(display).siblings(".isClose");
+    var id = @Model.ProductId;
+    if (startStatus == 'True') {
+        $(display).parent().find(".time").removeClass('black').addClass('red');
+
+
+    }
+
+    var intervalId = setInterval(function () {
+        if ((startStatus == 'True') && (timer == 0 && status.val() == 0))
+        ////time reset shode va kasi mojadad dar mozaede sherkat nakard.
+        {
+
+            var img = $(display).parent().children("#138034043").children(".p").children()[0];
+            ////var img = $(display).parent().children(".p").children(".btnBid");
+            $(img).attr("src", "/Content/img/Sold.png");
+            $(img).css({ "pointer-events": "none" });
+            isclose = 'True';
+            //isClose.attr('data-Close', 'True');
+            updateIsclose(id);
+            window.clearInterval(intervalId);
+        }
+        if (status.val() == "1") {
+            timer = closeTime
+            status.val("0");
+        }
+        hours = parseInt((timer / 3600) % 24, 10);
+        minutes = parseInt((timer / 60) % 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display[0].innerText = hours + ":" + minutes + ":" + seconds;
+
+        if (--timer == -1) {
+            timer = closeTime;
+            startStatus = 'True'
+            //Startstatus.attr('data-Start', 'True');
+            //update startStatus aya inja bashe ya dar saveTimer;
+            $(display).parent().find(".time").removeClass('black').addClass('red');
+
+        }
+        saveTimer(hours + ":" + minutes + ":" + seconds, id, startStatus);
+    }, 1000);
+}
+        function saveTimer(timer, id, startStatus) {
+    $.ajax({
+        type: "POST",
+        url: "/home/UpdateTimer/",
+        data: {
+            timer: timer,
+            id: id,
+            Startstatus: startStatus
+            //startStatus=startstatus,
+            //isClose=isclose
+        },
+        success: function (result) {
+
+            //alert('success');
+        },
+        error: function (result) {
+            alert('error');
+            return false;
+        }
+    });
+}
+function updateIsclose(id) {
+    $.ajax({
+        type: "POST",
+        url: "/home/UpdateIsclose/",
+        data: {
+            id: id
+
+        },
+        success: function (result) {
+
+            //alert('success');
+        },
+        error: function (result) {
+            alert('error');
+            return false;
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
         $(document).ready(function () {
             $(".auction-specs").tabs();
             ////
@@ -814,11 +1268,9 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                 }
             }
             window._bt = window._bt || [];
-            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++)
-            {
+            for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) {
                 var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g)
-            } if (!document.getElementById("analyticstrain-js"))
-            {
+            } if (!document.getElementById("analyticstrain-js")) {
                 var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js";
                 var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i)
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,11 @@ namespace DataLayer.IRepository
     {
         List<Auction> GetAuctions();
         Auction GetAuctionById(int id);
-        void UpdateWithClick(Auction auction, int id,int price);
-        bool UpdateTimer(int auctionId, TimeSpan timer,bool startStatus);
-        bool UpdateIsclose(int auctionId);
+        int ParticipateInAuctions(int auctionId, int UserId);
+        bool UpdateTimer(int auctionId, TimeSpan timer, bool startStatus, bool? isclose);
+        Auction UpdateTimer2(int auctionId, TimeSpan timer, bool startStatus, bool? isclose);
+        Auction UpdateIsclose(int auctionId);
+        AuctionModel GetProductByAuction(int auctionId);
+        List<StatisticsModel> GetStatistics();
     }
 }

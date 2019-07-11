@@ -37,8 +37,6 @@ public partial class Auction
 
     public Nullable<int> Reserve_Price { get; set; }
 
-    public Nullable<int> EndPrice { get; set; }
-
     public Nullable<int> CurrentBid_Id { get; set; }
 
     public Nullable<int> Current_UserId { get; set; }
@@ -47,11 +45,15 @@ public partial class Auction
 
     public bool IsClose { get; set; }
 
+    public int BuyPrice { get; set; }
+
+    public bool IsActive { get; set; }
 
 
-    public virtual User User { get; set; }
 
     public virtual Product Product { get; set; }
+
+    public virtual User User { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
