@@ -17,5 +17,6 @@ namespace DataLayer.IRepository
         Auction UpdateIsclose(int auctionId);
         AuctionModel GetProductByAuction(int auctionId);
         List<StatisticsModel> GetStatistics();
+        bool CheckStatus(int id);
     }
 }

@@ -16,10 +16,10 @@ namespace DataLayer.Repository
         }
 
         public List<Auction> GetAuctions()
-            {
+        {
             using (QuiBidsEntities db = new QuiBidsEntities())
             {
-                var result=db.Auction.Include("Product").Include("User").Where(x => x.IsActive && !x.IsClose).OrderBy(x=>x.Auction_Time).Take(20).ToList();
+                var result = db.Auction.Include("Product").Include("User").Where(x => x.IsActive && !x.IsClose).OrderBy(x => x.Auction_Time).Take(20).ToList();
                 return result;
             }
         }
@@ -44,8 +44,8 @@ namespace DataLayer.Repository
                     auction.Reserve_Price++;//moshakas shavad chand vahed add shavad
                     auction.Auction_Time = TimeSpan.FromSeconds(auction.Close_Time);
                     db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
-                 
-                    var s=db.SaveChanges();
+
+                    var s = db.SaveChanges();
                     #endregion
 
                     #region LowerBidOfUser
@@ -102,15 +102,15 @@ namespace DataLayer.Repository
                 //Int64 tooBigBits = timer.Ticks;
                 //Int64 truncated = tooBigBits >> 24;
                 //TimeSpan temp = TimeSpan.FromTicks(truncated);
-                //auction.Auction_Time = temp;
+                auction.Auction_Time = timer;
                 if (isclose != null)
                 {
                     auction.IsClose = isclose.Value;
                 }
                 auction.StartStatus = startStatus;
 
-               var result= db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
-              var s= db.SaveChanges();
+                var result = db.Entry(auction).State = System.Data.Entity.EntityState.Modified;
+                var s = db.SaveChanges();
                 return auction;
             }
         }
@@ -170,6 +170,13 @@ namespace DataLayer.Repository
                                   Img = au.User.Image
                               }).ToList();
                 return result;
+            }
+        }
+        public bool CheckStatus(int id)
+        {
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.Auction.Find(id).StartStatus;
             }
         }
     }

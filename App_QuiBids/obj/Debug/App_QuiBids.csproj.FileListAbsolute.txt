@@ -442,3 +442,5 @@ D:\Projects\newbidfinal-master\App_QuiBids\bin\WebActivatorEx.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Abstractions.pdb
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Container.pdb
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Newtonsoft.Json.dll
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Newtonsoft.Json.xml

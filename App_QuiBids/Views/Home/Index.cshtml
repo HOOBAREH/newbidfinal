@@ -2,15 +2,13 @@
 @using DataLayer.Repository;
 @model List<DataLayer.Auction>
 @{
-                /**/
-
-                ViewBag.Title = "Home Page";
-                Layout = "~/Views/Shared/_Layout.cshtml";
-                User user = new User();
-                if (User.Identity.IsAuthenticated)
-                {
-                    user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
-                }
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    User user = new User();
+    if (User.Identity.IsAuthenticated)
+    {
+        user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
+    }
 
 }
 
@@ -156,7 +154,8 @@
                 <div id="spots" class="content auctionList">
                     @foreach (var item in Model)
                     {
-                        <div class="auction-item-wrapper">
+                        <div class="auction-item-wrapper" style="display:block">
+                            <input type="hidden"  class="Status-@item.Id" data-status="@item.StartStatus" value="@item.StartStatus" /> 
                             <div>
                                 <h5 class="auction-item-title">
                                     <a class="title" href="">$@item.BuyPrice  @*@item.User.Fname*@</a>
@@ -176,29 +175,13 @@
                             @if (item.IsClose)
                             {
                                 <p class="p">
-                                    <img class="buttons bid medium btnAuction" src="~/Content/img/Sold.png" />
-
-                                    <a href="#" onclick="AddToCart(@item.ProductId);" @*id="buynowbtn"*@ class="buynowbtn buttons large blue">
-                                        خریـد
-                                        <span class="clear"></span>
-                                        <span class="buynow-price breakdown_buynowbtn">
-                                            @item.Product.Price
-                                        </span>
-                                    </a>
+                                    <img class="buttons bid medium btnAuction" onclick="BtnClick(@item.Id)" src="~/Content/img/Sold.png" />
                                 </p>
                             }
                             else
                             {
                                 <p class="p">
-                                    <img class="buttons bid medium btnAuction" id="btn-bid" src="~/Content/img/Pishnehad.png" onmouseover="" onmouseout="" />
-
-                                    <a href="#" onclick="AddToCart(@item.ProductId);" @*id="buynowbtn"*@ class="buynowbtn buttons large blue">
-                                        خریـد
-                                        <span class="clear"></span>
-                                        <span class="buynow-price breakdown_buynowbtn">
-                                            @item.Product.Price
-                                        </span>
-                                    </a>
+                                    <img class="buttons bid medium btnAuction" onclick="BtnClick(@item.Id)" id="btn-bid" src="~/Content/img/Pishnehad.png" />
                                 </p>
                             }
 
@@ -264,47 +247,66 @@
             });
         }
         (adsbygoogle = window.adsbygoogle || []).push({});
+        var startStatus;
+        function check(id, startStatus) {
+            $.ajax({
+                type: "POST",
+                url: "/auction/CheckStatus/",
+                data: {
+                    id: id
+                },
+                success: function (result) {
+                    startStatus[id] = result;
+                }
+              
+            });
+        }
 
-        $(".btnAuction").click(function () {
-
-            if (startStatus == true) {
-                $.ajax({
-                    type: "POST",
-                    url: "/auction/ParticipateInAuctions/",
-                    data: {
-                        id: $(this).parent().siblings(".auctionId").val(),
-                    },
-                    success: function (result) {
-                        if (result == "NoBid") {
-                            alert("You do not have enough bids left in your account to bid.");
-                            return false;
+        function BtnClick(id) {
+            //ajax for test start status
+            var startStatus = $(".Status-" + id).attr('data-status');
+                if (startStatus == 'True') {
+                    $.ajax({
+                        type: "POST",
+                        url: "/auction/ParticipateInAuctions/",
+                        data: {
+                            id: id
+                        },
+                        success: function (result) {
+                            if (result == "NoBid") {
+                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">You do not have enough bids left in your account to bid.</span></div>');
+                                $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                                return false;
+                            }
+                            if (result == "Try") {
+                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">لطفا مجددا تلاش کنید. سیستم با مشکل مواجه شده است.</span></div>');
+                                $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                                return false;
+                            }
+                            if (result== "notAllowed") {
+                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">شما مجاز نیستید دو پیشنهاد را پشت سر هم بدهید.</span></div>');
+                                $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
+                                return false;
+                            }
+                            else {
+                                $('.Reserve-Price').html('');
+                                $('.Reserve-Price').html(result.price);
+                                $('.winning').html(result.name);
+                            }
+                        },
+                        error: function (list) {
+                            $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">Error.</span></div>');
+                            $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
                         }
-                        if (result == false) {
-                            alert('error');
-                            return false;
-                        }
-                        else {
-                            $('.Reserve-Price').html('');
-                            $('.Reserve-Price').html(result.price);
-                            $('.winning').html(result.name);
-                            GetEight();
-                        }
-                    },
-                    error: function (list) {
-                        alert('error');
-                    }
-                });
-            }
-        });
+                    });
+                }
+        };
 
         window.onload = function () {
-            //var everyChild = document.getElementById("spots").querySelectorAll("#time");
+            var everyChild = document.getElementById("spots").querySelectorAll("#time");
 
             //for (var i = 0; i < everyChild.length; i++) {
             //    const time = everyChild[i].innerText;
-            //    var a = time.split(':'); // split it at the colons
-            //    // minutes are worth 60 seconds. Hours are worth 60 minutes.
-            //    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
             //    //var fiveMinutes = 60 * 5,
             //    var display = everyChild[i];
@@ -320,7 +322,7 @@
 
         function startTimer() {
             var intervalId = setInterval(function () {
-                //saveTimer(intervalId);
+                saveTimer(intervalId);
             }, 1000);
         }
         function saveTimer(intervalId) {
@@ -331,14 +333,17 @@
                 },
                 success: function (result) {
                     var tbody = $(document).find('.auctionList');
-                    var list = $.parseJSON(result);
+                    //var list = JSON.parse(result);
                     $.each(result.result, function (bb) {
-                       @*// $("#time @List")*@
-
+                        var auction = result.result[bb];
+                        var time = auction.Auction_Time;
+                        $("#time-" + auction.Id).html(time);
+                        $("#time-" + auction.Id).addClass(auction.Color);
+                        $(".Status-" + auction.Id).attr('data-status', auction.Status);
                     });
 
-                    tbody.html("");
-                    tbody.html(result)
+                    //tbody.html("");
+                    //tbody.html(result)
                 },
                 error: function (result) {
                     window.clearInterval(intervalId);

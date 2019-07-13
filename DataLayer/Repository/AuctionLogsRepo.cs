@@ -40,7 +40,7 @@ namespace DataLayer.Repository
                     Image = x.User.Image,
                     Price = x.Price.Value,
                     UserName = x.User.Fname,
-                }).OrderBy(x=>x.Price).ToList();
+                }).OrderBy(x => x.Price).ToList();
                 return last;
             }
         }
@@ -77,6 +77,13 @@ namespace DataLayer.Repository
                 };
                 db.AuctionLogs.Add(auction);
                 db.SaveChanges();
+            }
+        }
+        public bool CheckParticipation(int id)
+        {
+            using (QuiBidsEntities db = new QuiBidsEntities())
+            {
+                return db.AuctionLogs.Find(id) == null ? false : true;
             }
         }
     }

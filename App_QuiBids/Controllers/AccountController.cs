@@ -112,5 +112,9 @@ namespace App_QuiBids.Controllers
             var user = _userRepo.UpdateImage(UserModel.Id, imageName + ".png");
             return RedirectToAction("MyAvatar");
         }
+        //public ActionResult RecentParticipation(int id)
+        //{
+
+        //}
     }
 }

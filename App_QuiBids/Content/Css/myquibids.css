@@ -3142,7 +3142,8 @@ div.orders-search {
     -moz-border-radius-topleft: 8px;
     -moz-border-radius-topright: 8px;
     -webkit-border-radius: 8px 8px 0 0;
-    border-radius: 8px 8px 0 0
+    border-radius: 8px 8px 0 0;
+    float:right
 }
 
 #view-details {

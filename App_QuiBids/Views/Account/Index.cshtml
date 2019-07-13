@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="module">
-                        <h3 class="orange bold">Announcements</h3>
+                        <h3 class="orange bold">اطلاعیه ها</h3>
                         <div class="content">
                         </div>
                     </div>
@@ -45,7 +45,9 @@
 
                     <div class="module watched">
 
-                        <h3 class="orange bold">Recent Participation</h3>
+                        <h3 class="orange bold">
+                            مشارکت اخیر
+                        </h3>
                         <div class="content">
                             <table>
                                 <thead>
@@ -94,14 +96,17 @@
 
                             <div class="content-left">
                                 <p>
-                                <img style="width:65px;height:65px" src="~/Content/img/avatar/@Model.Image" />
+                                    <img style="width:65px;height:65px" src="~/Content/img/avatar/@Model.Image" />
                                 </p>
 
                                 <p><a href="MyAvatar">(Change)</a></p>
                             </div>
                             <div class="content-right">
                                 <p class="bold">Last Login</p>
+                                @if (Model.LastLogin!=null)
+                                {
                                 <p>@Model.LastLogin.Value.ToString("MMM dd, yyyy")</p>
+                                }
 
                                 <hr>
                                 <p class="bold">Remaining Bids</p>
@@ -137,7 +142,7 @@
         <script>
 
 
-      
+
 
         </script>
 

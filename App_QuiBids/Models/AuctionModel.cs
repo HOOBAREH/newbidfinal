@@ -30,4 +30,13 @@ namespace App_QuiBids.Models
         public string Name { get; set; }
         public string Brand { get; set; }
     }
+    public class IndexAuction
+    {
+        public int Id { get; set; }
+        public string Auction_Time { get; set; }
+        public string Color { get; set; }
+        public bool Status { get; set; }
+
+
+    }
 }
