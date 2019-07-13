@@ -1181,7 +1181,8 @@ ul#mainnav {
     -moz-border-radius-topleft: 8px;
     -moz-border-radius-topright: 8px;
     -webkit-border-radius: 8px 8px 0 0;
-    border-radius: 8px 8px 0 0
+    border-radius: 8px 8px 0 0;
+    text-align:right
 }
 
     #container .module h3.grey {
@@ -1202,7 +1203,9 @@ ul#mainnav {
 
 #container .module .content {
     width: auto;
-    padding: 10px 15px
+    padding: 10px 15px;
+    /*text-align: right;
+    direction: rtl;*/ 
 }
 
 #side-content .module ul, #side-content .module ol {
@@ -3768,7 +3771,7 @@ span.text-right {
 
 .refer-icon {
     position: relative;
-    float: left;
+    float: right;
     top: 3px;
     margin-right: 5px
 }
@@ -3786,7 +3789,7 @@ span.text-right {
 
 .icon-spacing {
     position: relative;
-    float: left;
+    float: right;
     top: 8px;
     margin-right: 5px
 }

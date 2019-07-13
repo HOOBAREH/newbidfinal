@@ -7,63 +7,12 @@
     <title>NewBids Help, NewBids.com</title>
     <link href="~/Content/Css/jqueryui.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="~/Content/Css/main.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="stylesheet" href="~/Content/Css/help.css" " type="text/css" />
+    <link rel="stylesheet" href="~/Content/Css/help.css"  type="text/css" />
     <link rel="stylesheet" href="~/Content/Css/print.css" media="print" type="text/css" />
     <link rel="stylesheet" href="~/Content/Css/qbar.css" type="text/css" />
 
-    <script type='text/javascript'>
-        loggedIn = true; accountUsername = '272620'; mm = 100; var _gaq = _gaq || [];
-        _gaq.push(
-            ['_setAccount', 'UA-10065556-11'],
-            ['_trackPageview'],
-            ['_setCustomVar', 1, 'CSL', '1', 1],
-            ['_setCustomVar', 5, 'LA', '30', 1],
-            ['_setCustomVar', 2, 'LoggedIn', 'Yes', 2], ['b._setAccount', 'UA-10065556-1'],
-            ['b._trackPageview']
-        );
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-
-        /* Begin TVSquared Tracking Code */
-        var _tvq = window._tvq = window._tvq || [];
-        (function () {
-            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
-            _tvq.push(['setSiteId', "TV-54540972-1"]);
-            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
-            _tvq.push([function () {
-                this.deleteCustomVariable(5, 'page')
-            }]);
-            _tvq.push(['trackPageView']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.defer = true;
-            g.async = true;
-            g.src = u + 'tv2track.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-
-        /**
-         * BOOMTRAIN
-         */
-        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
-        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
-
-        _bt.identify('62282142');
-        _bt.person.set({ email: 'amirhoseingoorani@yahoo.com' });
-
-    </script>
 </head>
 
-<body class="market-US">
     <div class="gloss">
         <div class="wrapper">
 
@@ -190,7 +139,7 @@
                         </div><!--module-->
                         <div class="module">
                             <h3><img class="refer-icon" src="~/Content/img/Layout/contact-icon.png" /> تماس با پشتیبانی</h3>
-                            <div class="content">
+                            <div class="content" style="text-align:right; direction: rtl;">
                                 <p>
                                     آیا سؤالی دارید؟ ما پاسخ ها را در اختیار داریم.برای راه حل های ساده، بخش  ،
                                     <a href="/Home/HelpDescription">راهنمای</a>
@@ -205,7 +154,7 @@
 
 
                     <div class="content faqs">
-                        <h2 class="grey bold">سوالات متداول</h2>
+                        <h2 class="grey bold" style="float:right">سوالات متداول</h2>
                         <div id="sections">
                             <div class='left module'>
                                 <h3 class='faq_name8'>
@@ -388,8 +337,61 @@
 
         </div><!--wrapper-->
     </div><!--gloss-->
+    @section Scripts{
 
+    
     <script type="text/javascript">
+        loggedIn = true; accountUsername = '272620'; mm = 100; var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-10065556-11'],
+            ['_trackPageview'],
+            ['_setCustomVar', 1, 'CSL', '1', 1],
+            ['_setCustomVar', 5, 'LA', '30', 1],
+            ['_setCustomVar', 2, 'LoggedIn', 'Yes', 2], ['b._setAccount', 'UA-10065556-1'],
+            ['b._trackPageview']
+        );
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        /* Begin TVSquared Tracking Code */
+        var _tvq = window._tvq = window._tvq || [];
+        (function () {
+            var u = (("https:" == document.location.protocol) ? "https://collector-4492.tvsquared.com/" : "http://collector-4492.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-54540972-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function () {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+
+        /**
+         * BOOMTRAIN
+         */
+        !function () { function a(a) { return function () { var b = Array.prototype.slice.call(arguments); return b.unshift(a), window._bt.push(b), window._bt } } window._bt = window._bt || []; for (var b = ["track", "identify", "initialize", "clear", "setBsin", "person.set"], c = 0; c < b.length; c++) { var d = window._bt, e = b[c].split("."), f = e[0], g = f; 2 === e.length && (d[f] = d[f] || {}, d = d[f], f = e[1], g = b[c]), d[f] = a(g) } if (!document.getElementById("analyticstrain-js")) { var h = document.createElement("script"); h.type = "text/javascript", h.id = "analyticstrain-js", h.async = !0, h.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.boomtrain.com/analyticstrain-2.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(h, i) } }();
+        _bt.initialize("50be7befc1a7ec6d2136a8dc81e82cc6");
+
+        _bt.identify('62282142');
+        _bt.person.set({ email: 'amirhoseingoorani@yahoo.com' });
+
+
+
+
         $(function () {
             var anchor = $('#languageSelector').find('a');
             anchor.click(function () {
@@ -417,8 +419,7 @@
     </script>
 
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
-
-</body>
+        }
 
 <!--[if IE]>
 <style type="text/css">
