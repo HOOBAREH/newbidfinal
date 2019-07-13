@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "HelpDescription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="market-US">
+    <div class="gloss">
+        <div class="wrapper">
+            <div id="container">
+
+                    <ul id="breadcrumbs">
+
+                        <li itemscope="itemscope" id="first">
+                            <a itemprop="url" rel="up " href="/en/help/"><span itemprop="title">Help & Support</span></a>
+                        </li>
+
+                        <li itemscope="itemscope">
+                            <a itemprop="url" rel="" class="active" href="/en/help/faq/8-Ive-won-an-auction-What-do-I-do-now"><span itemprop="title">Auctions</span></a>
+                        </li>
+                    </ul>
+
+
+                <div class="content" style=" padding: 15px 20px">
+                    <div id="main-content" class="twocol-right">
+                        <div id="get-started" class="module">
+                            <div class="content" style=" min-height: 400px;">
+                                <h1>Help</h1>
+                            </div><!--content-->
+                        </div>
+                    </div>
+                    <div id="side-content" class="twocol-right" style=" margin-top: 0px;">
+                        <div class="module" style="text-align: right;">
+                            <h3><img class="icon-spacing" src="~/Content/Help_img/help-support.png" /> راهنمایی سریع</h3>
+                            <div class="content">
+                                <ul class="sidenav">
+                                    <li>
+                                        <a class="active"
+                                           href="/Home/Help">
+                                            راهنمایی و سوالات متداول
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/help/faq/15-How-to-Start-Bidding#71">
+                                            چگونه کار می کند؟
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            پشتیبانی مشتریان
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            قوانین و مقررات
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            شرایط سایت چگونه است؟
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--module-->
+                        <div class="module" style="text-align: right;">
+                            <h3><img class="refer-icon" src="~/Content/img/Layout/contact-icon.png" /> تماس با پشتیبانی</h3>
+                            <div class="content">
+                                <p>
+                                    آیا سؤالی دارید؟ ما پاسخ ها را در اختیار داریم.برای راه حل های ساده، بخش  ،
+                                    <a href="/en/help/index.php">راهنمای</a>
+                                    دسترسی آسان با ما را بررسی کنید. برای شرایط دشوار
+                                    <a href="/en/help/support.php">به چت زنده وصل شوید</a>
+                                    یا درخواست پشتیبانی زیر را ارسال کنید.
+                                </p>
+                                <p class="center"><a href="/en/help/support.php" class="buttons medium blue">تماس با پشتیبانی</a></p>
+                            </div>
+                        </div><!--module-->
+                    </div><!--side-content-->
+                    <div class="search-scroll"><p><a href="#" class="back-top bold">بازگشت به بالا</a></p></div>
+                </div>
+            </div><!--container-->
+        </div><!--wrapper-->
+    </div><!--gloss-->
+
+
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var anchor = $('#languageSelector').find('a');
+            anchor.click(function () {
+                var dialog = $('#languageSelectorPopup').dialog({
+                    modal: true,
+                    title: _t.display('select_your_language', 'Select Your Language'),
+                    width: 400,
+                    height: 200,
+                    resizable: false
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            window.fbAsyncInit = function () {
+                FB.init({ appId: '157008871005117', status: true, cookie: true, xfbml: true });
+            };
+
+            $('body').append('<div id="fb-root"></div>');
+
+            $.getScript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
+        })
+    </script>
+
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+</body>
+

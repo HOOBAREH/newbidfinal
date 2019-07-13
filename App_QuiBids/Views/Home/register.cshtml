@@ -128,7 +128,7 @@ new { enctype = "multipart/form-data" }))
                                         @*</form>*@
                                     </div>
                                 }
-                                @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                @using (Html.BeginForm("Login", "Home", FormMethod.Post,new { enctype = "multipart/form-data" }))
                                 {
                                     <div id="signIn" hidden>
                                         <!--فیلد ورود-->
@@ -145,6 +145,7 @@ new { enctype = "multipart/form-data" }))
                                         <button type="submit" class=" button button-block">ورود</button>
                                     </div>
                                 }
+
                             </div><!-- tab-content -->
                         </div>
                     </div> <!-- /form -->

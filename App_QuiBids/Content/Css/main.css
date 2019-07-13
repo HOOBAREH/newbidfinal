@@ -1226,15 +1226,15 @@ ul#mainnav {
 
             #side-content .module ul.sidenav li a {
                 * width: 100%;
-                padding: 0 0 7px 10px;
+                padding: 0 15px 7px 10px;
                 margin: 0;
                 font-weight: normal;
                 font-size: 14px;
                 display: block;
-                float: left;
+                /*float: left;*/
                 * overflow: hidden;
                 line-height: 18px;
-                background: url('/Content/img/Layout/arrow.gif') left .286em no-repeat;
+                background: url('/Content/img/Layout/arrow_mirror.gif') right .286em no-repeat;
             }
 
                 #side-content .module ul.sidenav li a.active {
@@ -1244,7 +1244,7 @@ ul#mainnav {
                 #side-content .module ul.sidenav li a:hover {
                     color: #66b0e8;
                     text-decoration: none;
-                    background: url(../../Content/img/Layout/arrow-hover.gif) left .286em no-repeat
+                    /*background: url(../../Content/img/Layout/arrow-hover.gif) left .286em no-repeat*/
                 }
 
     #side-content .module ul.connect {
@@ -1673,7 +1673,7 @@ a, a:link {
 
     a:hover {
         text-decoration: underline;
-        color: #fff
+        /*color: #fff*/
     }
 
 table {

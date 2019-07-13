@@ -298,6 +298,12 @@ namespace App_QuiBids.Controllers
         {
             return View();
         }
+
+        public ActionResult HelpDescription()
+        {
+            return View();
+        }
+
         public ActionResult Games()
         {
             return View();
@@ -307,6 +313,10 @@ namespace App_QuiBids.Controllers
             return View();
         }
         public ActionResult About()
+        {
+            return View();
+        }
+        public ActionResult AboutDescription()
         {
             return View();
         }

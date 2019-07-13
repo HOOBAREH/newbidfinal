@@ -1966,6 +1966,8 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Payment.cshtml" />
     <Content Include="Views\ShoppingCart\Verify.cshtml" />
+    <Content Include="Views\Home\AboutDescription.cshtml" />
+    <Content Include="Views\Home\HelpDescription.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
