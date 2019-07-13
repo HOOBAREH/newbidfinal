@@ -313,7 +313,7 @@ li.ui-state-default, li.ui-widget-content .ui-state-default, li.ui-widget-header
     -moz-box-shadow: 0 -0.133em 6px -1px #cdcdcd;
     box-shadow: 0 -0.133em 6px -1px #cdcdcd
 }#auctions .ui-tabs-hide{display:none!important}
- #auctions h1{width:942px;padding:20px 20px 20px 20px;margin:0;float:left;font-size:30px;font-weight:bold;line-height:normal}
+ #auctions h1{width:922px;padding:20px 20px 20px 20px;margin:0;float:left;font-size:30px;font-weight:bold;line-height:normal}
  #auctions h1 span{margin-left:8px;color:#ccc;font-size:20px;font-weight:normal;letter-spacing:normal}
  h2#featured_title{position:absolute;z-index:50;width:520px;color:#3d3d3d}
 #auctions h2#featured_title {
