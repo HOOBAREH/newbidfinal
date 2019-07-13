@@ -18,18 +18,20 @@ namespace App_QuiBids.Controllers
     public class HomeController : Controller
     {
         private readonly IUserRepo _userRepo;
+        private readonly IAuctionLogRepo _logRepo;
         private readonly IAuctionRepo _auctionRepo;
         SessionContext context = new SessionContext();
 
 
-        public HomeController() : this(new UserRepo(), new AuctionRepo())
+        public HomeController() : this(new UserRepo(), new AuctionRepo(), new AuctionLogsRepo())
         {
         }
 
-        public HomeController(IUserRepo userRepo, IAuctionRepo auctionRepo)
+        public HomeController(IUserRepo userRepo, IAuctionRepo auctionRepo, IAuctionLogRepo logRepo)
         {
             _userRepo = userRepo;
             _auctionRepo = auctionRepo;
+            _logRepo = logRepo;
         }
 
 
@@ -67,8 +69,8 @@ namespace App_QuiBids.Controllers
                 if (res != null)
                 {
                     context.SetAuthenticationToken(res.Id.ToString(), false, res);
-                    _userRepo.LastLogin(model.UserId);
-                    return RedirectToAction("Index");
+                    _userRepo.LastLogin(res.Id);
+                    return RedirectToAction("Index", "Account");
                 }
                 else
                 {
@@ -111,7 +113,8 @@ namespace App_QuiBids.Controllers
                         Password = pass,
                         RealBid = 0,
                         VoucherBid = 0,
-                        HideLocation = false
+                        HideLocation = false,
+                        Image = "9.png"
                     };
                     var register = _userRepo.Register(user);
                     if (register)
@@ -197,9 +200,9 @@ namespace App_QuiBids.Controllers
         [Authorize]
 
         public ActionResult UpdateTimer()
-            {
-            var auctions = _auctionRepo.GetAuctions().Where(x=>!x.IsClose);
-            List<Models.AuctionModel> list = new List<Models.AuctionModel>();
+        {
+            var auctions = _auctionRepo.GetAuctions().Where(x => !x.IsClose);
+            List<IndexAuction> list = new List<IndexAuction>();
             List<string> listStr = new List<string>();
             foreach (var item in auctions)
             {
@@ -242,29 +245,22 @@ namespace App_QuiBids.Controllers
 
                 }
                 colorStatus = startStatus == true ? "Red" : "Black";
-                var model = new Models.AuctionModel
+                var model = new IndexAuction
                 {
-                    Auction_Time = auction.Auction_Time,
-                    Close_Time = auction.Close_Time,
-                    CurrentBid_Id = auction.CurrentBid_Id,
-                    Current_UserId = auction.Current_UserId,
-                    Reserve_Price = auction.Reserve_Price,
-                    IsActive = auction.IsActive,
-                    id = auction.Id,
-                    ProductId = auction.ProductId,
-                    User = auction.User,
-                    colorStatus = colorStatus,
-                    IsClose=auction.IsClose,
-                    Product=auction.Product
+                    Auction_Time = auction.Auction_Time.ToString(),
+                    Color = colorStatus,
+                    Id = auction.Id,
+                    Status = auction.StartStatus
+
                 };
                 list.Add(model);
-                //var r = JsonConvert.SerializeObject(model);
-                //listStr.Add(new JavaScriptSerializer().Serialize(r));
             }
+            var r = JsonConvert.SerializeObject(list);
+            listStr.Add(new JavaScriptSerializer().Serialize(r));
 
             return Json(new
             {
-                result = listStr
+                result = list
             }, JsonRequestBehavior.AllowGet);
 
             //var res = false;
@@ -334,11 +330,11 @@ namespace App_QuiBids.Controllers
         public int AddToCart(int id)
         {
             List<ShopCartItem> cart = new List<ShopCartItem>();
-            if (Session["ShoppingCart"]!=null)
+            if (Session["ShoppingCart"] != null)
             {
-                cart= Session["ShoppingCart"] as List<ShopCartItem>;
+                cart = Session["ShoppingCart"] as List<ShopCartItem>;
             }
-            if (cart.Any(x=>x.ProductID==id))
+            if (cart.Any(x => x.ProductID == id))
             {
                 int index = cart.FindIndex(x => x.ProductID == id);
                 cart[index].Count += 1;
@@ -355,6 +351,20 @@ namespace App_QuiBids.Controllers
             Session["Count"] = cart.Sum(x => x.Count);
 
             return cart.Sum(x => x.Count);
+        }
+
+        public ActionResult CheckParticipation()
+        {
+            if (!string.IsNullOrEmpty(User.Identity.Name))
+            {
+                var result = _logRepo.CheckParticipation(int.Parse(User.Identity.Name));
+                return Json(new
+                {
+                   result
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(false);
+
         }
     }
 }

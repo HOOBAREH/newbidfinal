@@ -128,10 +128,9 @@ namespace App_QuiBids.Controllers
                     if (auction.Current_UserId == Uid)
                     {
                         ViewBag.Error = "شما قادر نیستید،دو پیشنهاد را پشت سر هم بدهید";
-                        return Json(new
-                        {
-                            result = "0"
-                        });
+                        return Json(
+                             "notAllowed"
+                        );
                     }
                     var user = new UserRepo().GetUserById(int.Parse(User.Identity.Name));
                     var result = _auctionRepo.ParticipateInAuctions(id, user.Id);
@@ -139,10 +138,8 @@ namespace App_QuiBids.Controllers
                     if (result == 0)
                     {
                         ViewBag.Error = "لطفا مجددا تلاش کنید";
-                        return Json(new
-                        {
-                            result = false
-                        });
+                        return Json("Try"
+                        );
                     }
                     else
                     {
@@ -156,10 +153,8 @@ namespace App_QuiBids.Controllers
                     }
                 }
             }
-            return Json(new
-            {
-                result = "NoBid"
-            });
+            return Json("NoBid"
+            );
         }
 
         public ActionResult GetEight(int id)
@@ -174,6 +169,10 @@ namespace App_QuiBids.Controllers
         {
             var result = _auctionRepo.GetStatistics();
             return View();
+        }
+        public ActionResult CheckStatus(int id)
+        {
+            return Json(_auctionRepo.CheckStatus(id));
         }
     }
 }

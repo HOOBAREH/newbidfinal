@@ -59,17 +59,19 @@
 
                     <div class="content-right">
                         <p class="bold">آخرین ورود</p>
-                        <p>@user.LastLogin.Value.ToString("MMM dd, yyyy")</p>
+                        @if (user.LastLogin != null)
+                        {
+                            <p>@user.LastLogin.Value.ToString("MMM dd, yyyy")</p>
+                        }
+                            <hr>
+                            <p class="bold">Remaining Bids</p>
+                            <p><span>Real Bids <span class="right green">@user.RealBid</span> </span></p>
+                            <p><span>Voucher Bids</span> <span class="right green">@user.VoucherBid</span></p>
+                            <hr>
+                            <p><span>Total Bids</span> <span class="right green">@(user.RealBid + user.VoucherBid)</span> </p>
 
-                        <hr>
-                        <p class="bold">Remaining Bids</p>
-                        <p><span>Real Bids <span class="right green">@user.RealBid</span> </span></p>
-                        <p><span>Voucher Bids</span> <span class="right green">@user.VoucherBid</span></p>
-                        <hr>
-                        <p><span>Total Bids</span> <span class="right green">@(user.RealBid + user.VoucherBid)</span> </p>
-
-                        <hr>
-                    </div>
+                            <hr>
+                        </div>
                 </div>
             </div>
             <div class="module">

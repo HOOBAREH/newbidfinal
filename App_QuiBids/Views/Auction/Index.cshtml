@@ -905,7 +905,9 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                            },
                 success: function (result) {
                     if (result == "NoBid") {
-                        alert("You do not have enough bids left in your account to bid.");
+                        $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">You do not have enough bids left in your account to bid.</span></div>');
+                        $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                      
                         return false;
                     }
                     if (result == false) {
