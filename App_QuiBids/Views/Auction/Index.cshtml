@@ -2,6 +2,8 @@
 @using DataLayer;
 @using DataLayer.Repository;
 @{
+    /**/
+
     ViewBag.Title = "Auction";
     Layout = "~/Views/Shared/_Layout.cshtml";
     User user = new User();
@@ -10,7 +12,7 @@
         user = new UserRepo().GetUserById(Convert.ToInt32(User.Identity.Name));
     }
     var j = 0;
-    var className=" ";
+    var className = " ";
 }
 
 @section Styles{
@@ -76,7 +78,19 @@
             margin-top: -30px;
         }
         /*--------------------------*/
-    ul#you-choose-selector { clear: both; border: 1px solid #e2e2e2; margin: 30px 0 60px; padding: 0; width: 938px; height: auto !important; height: 1%; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; background: url('../../Content/Auction_Img/youchooseit-placeholder.gif') no-repeat 50% 50% }
+        ul#you-choose-selector {
+            clear: both;
+            border: 1px solid #e2e2e2;
+            margin: 30px 0 60px;
+            padding: 0;
+            width: 938px;
+            height: auto !important;
+            height: 1%;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            background: url('../../Content/Auction_Img/youchooseit-placeholder.gif') no-repeat 50% 50%
+        }
 
             ul#you-choose-selector:after {
                 content: '.';
@@ -274,84 +288,84 @@ else
 
                 @*<div id="swap_content">
 
-                    <div id="show-all-you-choose-it">
-                        <a href="#" onclick="AuctionDetail.showPickProducts();return false;">Browse 100+ Product Choices</a>
-                    </div>
-                    <ul id="you-choose-selector">
-                        <li>
+                        <div id="show-all-you-choose-it">
+                            <a href="#" onclick="AuctionDetail.showPickProducts();return false;">Browse 100+ Product Choices</a>
+                        </div>
+                        <ul id="you-choose-selector">
+                            <li>
 
-                            <a active href="" onclick="return AuctionDetail.updateCatalog(1770564,true);" class="ppswaps ppswap_1770564 active">
-                                <div class="title">JBL Bluetooth Headphone</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e.jpg" />
-                                </div>
+                                <a active href="" onclick="return AuctionDetail.updateCatalog(1770564,true);" class="ppswaps ppswap_1770564 active">
+                                    <div class="title">JBL Bluetooth Headphone</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e.jpg" />
+                                    </div>
 
-                                <div class="price">$49.95</div>
+                                    <div class="price">$49.95</div>
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="" onclick="return AuctionDetail.updateCatalog(41356,true);" class="ppswaps ppswap_41356 ">
-                                <div class="title">Veridian Healthcare Pulse Oximeter</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e (1).jpg" />
-                                </div>
+                            <li>
+                                <a href="" onclick="return AuctionDetail.updateCatalog(41356,true);" class="ppswaps ppswap_41356 ">
+                                    <div class="title">Veridian Healthcare Pulse Oximeter</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e (1).jpg" />
+                                    </div>
 
-                                <div class="price">$46.99</div>
+                                    <div class="price">$46.99</div>
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="" onclick="return AuctionDetail.updateCatalog(83866,true);" class="ppswaps ppswap_83866 ">
-                                <div class="title">Farberware 2-Quart Teakettle</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e.jpg" />
-                                </div>
+                            <li>
+                                <a href="" onclick="return AuctionDetail.updateCatalog(83866,true);" class="ppswaps ppswap_83866 ">
+                                    <div class="title">Farberware 2-Quart Teakettle</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e.jpg" />
+                                    </div>
 
-                                <div class="price">$48.99</div>
+                                    <div class="price">$48.99</div>
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="" onclick="return AuctionDetail.updateCatalog(138116,true);" class="ppswaps ppswap_138116 ">
-                                <div class="title">Evening Drop Earrings</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e.jpg" />
-                                </div>
+                            <li>
+                                <a href="" onclick="return AuctionDetail.updateCatalog(138116,true);" class="ppswaps ppswap_138116 ">
+                                    <div class="title">Evening Drop Earrings</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e.jpg" />
+                                    </div>
 
-                                <div class="price">$51.99</div>
+                                    <div class="price">$51.99</div>
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
-                                <div class="title">Circulon 2-Qt. Covered Saucepan</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e.jpg" />
-                                </div>
+                            <li>
+                                <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
+                                    <div class="title">Circulon 2-Qt. Covered Saucepan</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e.jpg" />
+                                    </div>
 
-                                <div class="price">$48.99</div>
+                                    <div class="price">$48.99</div>
 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
-                                <div class="title">Circulon 2-Qt. Covered Saucepan</div>
-                                <div class="image">
-                                    <img src="~/Content/Auction_Img/e.jpg" />
-                                </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" onclick="return AuctionDetail.updateCatalog(144671,true);" class="ppswaps ppswap_144671 ">
+                                    <div class="title">Circulon 2-Qt. Covered Saucepan</div>
+                                    <div class="image">
+                                        <img src="~/Content/Auction_Img/e.jpg" />
+                                    </div>
 
-                                <div class="price">$48.99</div>
+                                    <div class="price">$48.99</div>
 
-                            </a>
-                        </li>
-                    </ul>
+                                </a>
+                            </li>
+                        </ul>
 
-                </div>*@
+                    </div>*@
 
                 <div class="module auction-top">
                     <div class="module auction-left">
@@ -380,7 +394,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                     @foreach (var item in Model.Auctions.ProductImage)
                                     {
                                         <li style="float: left; list-style: none;">
-                                            <a  id="sliderImg" >
+                                            <a id="sliderImg">
                                                 <img onclick="SliderImage(this)" src="~/Content/img/@item" width='64' height='52' alt='' border='0' />
                                             </a>
                                         </li>
@@ -472,7 +486,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                         </li>
 
                                         <li>
-                                            قیمت  خرید هم اکنون 
+                                            قیمت  خرید هم اکنون
                                             <span class="float-left breakdown_buynowtotal">
                                                 $49.95
                                             </span>
@@ -502,10 +516,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
 
                                             <div class="content" id="titreAppend">
                                                 <table id="bid-history">
-                                                    <tbody id="tbodyLog" class="tbodyLog">
-
-
-                                                    </tbody>
+                                                    <tbody id="tbodyLog" class="tbodyLog"></tbody>
                                                 </table>
                                                 <div class="right recent-bidders">
                                                     <p>
@@ -698,27 +709,28 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                                             <td class="savings">
                                                 <p>
                                                     پس انداز
-                                               </p>
+                                                </p>
                                             </td>
                                         </tr>
                                     </thead>
                                     <tbody id="recently-sold-content" style="direction:rtl!important">
                                         @foreach (var item in Model.statisticsList)
+                                        {
+                                            if (j % 2 == 0)
                                             {
-                                                if (j % 2 == 0) {
-                                                    className = "zebra ";
-                                                    j++;
-                                                }
-                                                else
-                                                {
-                                                    className = "";
-                                                    j++;
+                                                className = "zebra ";
+                                                j++;
+                                            }
+                                            else
+                                            {
+                                                className = "";
+                                                j++;
 
-                                                }
+                                            }
                                             <tr class="@className">
                                                 <td class='user-icons'>
                                                     <img style="width:16px;height:16px" src='~/Content/img/avatar/@item.Img' /> &nbsp;
-                                       
+
                                                 </td>
                                                 <td class="username" style="text-align: right;">@item.BidderName</td>
                                                 <td class="auctionid" style="text-align: right;">@item.AuctionId</td>
@@ -895,7 +907,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
         var removeTd = false;
 
         $(".btnAuction").click(function () {
-            
+
             if (startStatus == true) {
             $.ajax({
                 type: "POST",
@@ -907,7 +919,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                     if (result == "NoBid") {
                         $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">You do not have enough bids left in your account to bid.</span></div>');
                         $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
-                      
+
                         return false;
                     }
                     if (result == false) {
@@ -962,7 +974,7 @@ You may continue to bid, but no new bidders can participate in this auction.'></
                         "<td class='amount'><p>" + result.result[bb].Price + "</p></td>" +
                         "</tr>");
                     i++;
-                   
+
                     });
                 },
                 error: function (result) {
@@ -975,8 +987,9 @@ function startTimer() {
     var intervalId = setInterval(function () {
         saveTimer( @Model.Auctions.AuctionId, intervalId);
     }, 1000);
-}
-        function saveTimer(id, intervalId) {
+        }
+
+function saveTimer(id, intervalId) {
     $.ajax({
         type: "POST",
         url: "/Auction/UpdateTimer/",
@@ -1025,7 +1038,7 @@ function updateIsclose(id) {
 
         }
 
-      
+
 
 
 

@@ -197,7 +197,6 @@ namespace App_QuiBids.Controllers
             }
         }
         [HttpPost]
-        [Authorize]
 
         public ActionResult UpdateTimer()
         {

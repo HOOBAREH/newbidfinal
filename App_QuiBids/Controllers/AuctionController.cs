@@ -30,9 +30,6 @@ namespace App_QuiBids.Controllers
                 Auctions = auction,
                 statisticsList = _auctionRepo.GetStatistics()
             };
-
-
-
             return View(model);
         }
 
@@ -115,7 +112,7 @@ namespace App_QuiBids.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Authorize]
+      
         public ActionResult ParticipateInAuctions(int id)
         {
             var bid = new UserRepo().GetBidsById(int.Parse(User.Identity.Name));
