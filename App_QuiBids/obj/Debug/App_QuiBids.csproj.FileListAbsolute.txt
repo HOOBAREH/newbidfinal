@@ -444,3 +444,12 @@ D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Abstractions.pdb
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Unity.Container.pdb
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Newtonsoft.Json.dll
 D:\Projects\newbidfinal-master\App_QuiBids\bin\Newtonsoft.Json.xml
+D:\NewBids\App_QuiBids\bin\Newtonsoft.Json.dll
+D:\NewBids\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\NewBids\App_QuiBids\bin\Unity.Abstractions.dll
+D:\NewBids\App_QuiBids\bin\Unity.Container.dll
+D:\NewBids\App_QuiBids\bin\WebActivatorEx.dll
+D:\NewBids\App_QuiBids\bin\Newtonsoft.Json.xml
+D:\NewBids\App_QuiBids\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\NewBids\App_QuiBids\bin\Unity.Abstractions.pdb
+D:\NewBids\App_QuiBids\bin\Unity.Container.pdb
