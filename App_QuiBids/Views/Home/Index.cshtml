@@ -73,7 +73,7 @@
                 <ul>
                     <li class="sort">
                         <h4 class="light-grey">
-                            <a href="#" id="sort-button" class="">
+                            <a id="sort-button" onclick="ShowSort()" class="">
                                 دسته بندی: <span id='sort-title'>درحال اتمام</span>
                                 <img src="~/Content/img/Layout/filter-arrow.png" class="filter-arrow-dropdown" />
                             </a>
@@ -81,9 +81,9 @@
                     </li>
                 </ul>
 
-                <div id="sort-panel">
+                <div id="sort-panel" style="display:none;">
                     <ul>
-                        <li><h4 class="light-grey">دسته بندی بر اساس</h4></li>
+                        <li><h4 class="light-grey">دسته بندی بر اساس</h4> </li>
                         <li><label><input checked='checked' value='sortby_endingsoon' type='radio' name='sort' title='درحال اتمام'>درحال اتمام</label></li>
                         <li><label><input value='sortby_valuehigh' type='radio' name='sort' title='گران ترین'>گران ترین</label></li>
                         <li><label><input value='sortby_valuelow' type='radio' name='sort' title='ارزان ترین'>ارزان ترین</label></li>
@@ -91,7 +91,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="auction-type">
 
                 <ul class="types"></ul>
@@ -99,12 +98,11 @@
                 <div id="options">
                     <div style="float:left">
 
-                        <a id="filtersbutton" class="buttons small white filter">مرتب سازی بر اساس </a>
-                        <div id="filter-panel">
+                        <a id="filtersbutton" onclick="ShowFilters()" class="buttons small white filter">مرتب سازی بر اساس </a>
+                        <div id="filter-panel" style="display:none;">
                             <div class="left-column">
                                 <h5 class="bold">قیمت:</h5>
                                 <ul>
-
                                     <li><label><input value="value_0-50" data-label='$0-50' name="$0-50" type='checkbox' />$0-50</label></li>
                                     <li><label><input value="value_50-100" data-label='$50-100' name="$50-100" type='checkbox' />$50-100</label></li>
                                     <li><label><input value="value_100-300" data-label='$100-300' name="$100-300" type='checkbox' />$100-300</label></li>
@@ -112,7 +110,6 @@
                                     <li><label><input value="value_500+" data-label='$500+' name="$500+" type='checkbox' />$500+</label></li>
                                 </ul>
                             </div>
-
                             <div class="right-column">
                                 <h5 class="bold">به صورت:</h5>
                                 <ul>
@@ -155,7 +152,7 @@
                     @foreach (var item in Model)
                     {
                         <div class="auction-item-wrapper" style="display:block">
-                            <input type="hidden"  class="Status-@item.Id" data-status="@item.StartStatus" value="@item.StartStatus" /> 
+                            <input type="hidden" class="Status-@item.Id" data-status="@item.StartStatus" value="@item.StartStatus" />
                             <div>
                                 <h5 class="auction-item-title">
                                     <a class="title" href="">$@item.BuyPrice  @*@item.User.Fname*@</a>
@@ -232,6 +229,28 @@
     <script src="~/Scripts/JScript/homepage.js"></script>
     @*<script src="~/Scripts/JScript/IndexAuction.js"></script>*@
 
+
+    <script>
+
+
+        function ShowSort() {
+            $('#sort-panel').css("display", "block");
+        };
+        $('#sort-panel').mouseleave(function () {
+            $('#sort-panel').css("display", "none");
+        });
+
+        function ShowFilters() {
+            $('#filter-panel').css("display", "block");
+        };
+        $('#filter-panel').mouseleave(function () {
+            $('#filter-panel').css("display", "none");
+        });
+
+    </script>
+
+
+
     <script>
 
         if ($.mobile) {
@@ -258,48 +277,48 @@
                 success: function (result) {
                     startStatus[id] = result;
                 }
-              
+
             });
         }
 
         function BtnClick(id) {
             //ajax for test start status
             var startStatus = $(".Status-" + id).attr('data-status');
-                if (startStatus == 'True') {
-                    $.ajax({
-                        type: "POST",
-                        url: "/auction/ParticipateInAuctions/",
-                        data: {
-                            id: id
-                        },
-                        success: function (result) {
-                            if (result == "NoBid") {
-                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">You do not have enough bids left in your account to bid.</span></div>');
-                                $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
-                                return false;
-                            }
-                            if (result == "Try") {
-                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">لطفا مجددا تلاش کنید. سیستم با مشکل مواجه شده است.</span></div>');
-                                $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
-                                return false;
-                            }
-                            if (result== "notAllowed") {
-                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">شما مجاز نیستید دو پیشنهاد را پشت سر هم بدهید.</span></div>');
-                                $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
-                                return false;
-                            }
-                            else {
-                                $('.Reserve-Price').html('');
-                                $('.Reserve-Price').html(result.price);
-                                $('.winning').html(result.name);
-                            }
-                        },
-                        error: function (list) {
-                            $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">Error.</span></div>');
+            if (startStatus == 'True') {
+                $.ajax({
+                    type: "POST",
+                    url: "/auction/ParticipateInAuctions/",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        if (result == "NoBid") {
+                            $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">You do not have enough bids left in your account to bid.</span></div>');
                             $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                            return false;
                         }
-                    });
-                }
+                        if (result == "Try") {
+                            $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">لطفا مجددا تلاش کنید. سیستم با مشکل مواجه شده است.</span></div>');
+                            $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                            return false;
+                        }
+                        if (result == "notAllowed") {
+                            $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">شما مجاز نیستید دو پیشنهاد را پشت سر هم بدهید.</span></div>');
+                            $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
+                            return false;
+                        }
+                        else {
+                            $('.Reserve-Price').html('');
+                            $('.Reserve-Price').html(result.price);
+                            $('.winning').html(result.name);
+                        }
+                    },
+                    error: function (list) {
+                        $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">Error.</span></div>');
+                        $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                    }
+                });
+            }
         };
 
         window.onload = function () {
@@ -332,7 +351,7 @@
                 data: {
                 },
                 success: function (result) {
-                 //   alert("some error");
+                    //   alert("some error");
                     //var tbody = $(document).find('.auctionList');
                     //var list = JSON.parse(result);
                     $.each(result.result, function (bb) {

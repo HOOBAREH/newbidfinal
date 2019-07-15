@@ -518,7 +518,7 @@ div#featured_carousel {
         z-index: 10
     }
 #featured_carousel div.promoFreeShippingForever {
-    background: #fff url('../img/Layout/freeshippingisback.jpg') no-repeat left top
+    background: #fff url('../img/tips.jpg') no-repeat left top
 }
 #featured_carousel div.promo a.widelink{display:block;width:100%;height:100%;left:0}
  #featured_carousel div.promo-au{background-image:url(/site/images/carousel/archive/promo/nov-promo-AU.png)}
