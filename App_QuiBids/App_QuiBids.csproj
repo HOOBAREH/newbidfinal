@@ -117,6 +117,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\App_QuiBids.dll" />
+    <Content Include="bin\App_QuiBids.pdb" />
     <Content Include="Connected Services\ServiceZarinPalTest\App_QuiBids.ServiceZarinPalTest.GetUnverifiedTransactionsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -334,7 +336,7 @@
     <Content Include="Content\img\Layout\body-gloss.png" />
     <Content Include="Content\img\Layout\checkmark-circle.png" />
     <Content Include="Content\img\Layout\contact-icon.png" />
-    <Content Include="Content\img\Layout\dataimagepng%3bbase64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC.png" />
+    <Content Include="Content\img\Layout\imageeee.png" />
     <Content Include="Content\img\Layout\down-arrow.gif" />
     <Content Include="Content\img\Layout\down-arrow.png" />
     <Content Include="Content\img\Layout\Fb-logo.png" />
@@ -1724,6 +1726,8 @@
     <Content Include="Content\Games\floppybird\assets\sounds\sfx_swooshing.ogg" />
     <Content Include="Content\Games\floppybird\assets\sounds\sfx_wing.ogg" />
     <None Include="Connected Services\ServiceZarinPalTest\PaymentGatewayImplementationService.wsdl" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
