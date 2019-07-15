@@ -24,134 +24,132 @@
         <div class="content promoFreeShippingForever"></div>
     </div>
 </div>
-<div class="gloss">
-    <div class="module">
-        <div id="container">
-            <div class="games">
-
-                <div class="module">
-                    <h3 class="bold">
-                        <span class="orange">!به نیو بیدز بپیوندید</span>
-                    </h3>
-                    <div id="main-content" style="width: 580px; padding: 7px 0px 0px 12px;" class="twocol-right">
-                        <div id="get-started" class="module">
-                            <div class="content" style=" min-height: 574px;">
-                                <h1>Help</h1>
-                            </div><!--content-->
-                        </div>
-                    </div>
-                    <div class="form" id="regform" style="
-    background:url(/Content/img/form-bg.png) repeat;">
-                        @if (ViewBag.Error != null)
-                        {
-                            <div class="alert">
-                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                                <strong>!</strong> @ViewBag.Error
+    @*<div class="gloss">*@
+        <div class="module">
+            <div id="container">
+                <div class="games">
+                    <div class="module">
+                        <h3 class="bold">
+                            <span class="orange">!به نیو بیدز بپیوندید</span>
+                        </h3>
+                        <div id="main-content" style="width: 580px; padding: 7px 0px 0px 12px;" class="twocol-right">
+                            <div id="get-started" class="module">
+                                <div class="content" style=" min-height: 574px;">
+                                    <h1 style="color:aqua !important">عضویت در NewBids !</h1>
+                                </div>
                             </div>
-                            <br />
-                            <br />
-                            <br />
-                        }
-                        <div>
-                            <ul class="tab-group">
-                                <!-- عنوان صفحه -->
-                                @*<button type="submit" class="button button-block">ورود</button>*@
-                                <li id="register" class="tab active">
-                                    <button type="button" class="button button-block" id="btn-reg">ثبت نام </button>
-                                </li>
-                                <br />
-                                <li id="register" class="tab active">
-                                    <button type="button" class="button button-block" id="btn-login">  ورود</button>
-                                </li>
-                            </ul>
-                            <div class="tab-group">
-                                @using (Html.BeginForm("Register", "Home", FormMethod.Post,
-new { enctype = "multipart/form-data" }))
-                                {
-
-                                    <div id="signup">
-                                        @*<h1>همین حالا در نیو بیدزعضو شوید</h1>*@
-                                        @*<form action="/" method="post">*@
-                                        <div class="top-row">
-                                            <div class="field-wrap">
-                                                <!-- فیلد نام -->
-                                                <input type="text" name="Fname" placeholder="نام">
-                                            </div>
-                                            <div class="field-wrap">
-                                                <!--  فیلد نام خانوادگی -->
-                                                <input type="text" name="Lname" placeholder="نام خانوادگی" required>
-                                            </div>
-                                        </div>
-                                        <!-- فیلد ایمیل -->
-                                        <div class="field-wrap">
-
-                                            <input type="email" name="Email" id="account_email" placeholder="ایمیل شما" required>
-                                        </div>
-                                        <div class="top-row">
-
-                                            <!--  فیلد رمز عبور -->
-                                            <div class="field-wrap">
-                                                <!-- فیلد رمزعبور -->
-                                                <input type="text" name="PassWord" id="account_password" placeholder="رمز عبور" onkeyup="runPassword(this.value, 'mypassword');" required>
-                                            </div>
-
-                                            <div class="field-wrap">
-                                                <strong><span style="font-size: 10px;color:#ffffff;">Strength:</span></strong>
-                                                <div id="mypassword_text" style="font-size: 10px;color:aliceblue"></div>
-                                                <div id="mypassword_bar" style="font-size: 1px; height: 5px; width: 0px; border: 1px solid #ffffff;"> </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- فیلد تلفن-->
-                                        <div class="field-wrap">
-
-                                            <input type="text" name="Mobile" pattern="^[0][9][0-9][0-9]{8,8}$" placeholder="تلفن" required>
-
-                                        </div>
-                                        <!-- فیلد ادرس-->
-                                        <div class="field-wrap">
-
-                                            <textarea type="text" name="Address" placeholder="آدرس"></textarea>
-                                        </div>
-
-                                        <!--  کلید ثبت نام -->
-                                        <button type="submit" class="button button-block btnreg">ثبت نام</button>
-                                        @*</form>*@
-                                    </div>
-                                }
-                                @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                {
-                                    <div id="signIn" hidden>
-                                        <!--فیلد ورود-->
-                                        <div class="top-row">
-                                            <!-- فیلد شماره موبایل -->
-                                            <div class="field-wrap">
-                                                <input type="text" pattern="^[0][9][0-9][0-9]{8,8}$" name="UserName" placeholder=" شماره موبایل (09121221222)  " required>
-                                            </div>
-                                            <div class="field-wrap">
-                                                <!-- فیلد رمزعبور -->
-                                                <input type="password" name="Password" placeholder="رمز عبور" required>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class=" button button-block">ورود</button>
-                                    </div>
-                                }
-
-                            </div><!-- tab-content -->
                         </div>
-                    </div> <!-- /form -->
+                        <div class="form" id="regform" style="background:url(/Content/img/form-bg.png) repeat;">
+                            @if (ViewBag.Error != null)
+                            {
+                                <div class="alert">
+                                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <strong>!</strong> @ViewBag.Error
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                            }
+                            <div>
+                                <ul class="tab-group">
+                                    <!-- عنوان صفحه -->
+                                    @*<button type="submit" class="button button-block">ورود</button>*@
+                                    <li id="register" class="tab active">
+                                        <button type="button" class="button button-block" id="btn-reg">ثبت نام </button>
+                                    </li>
+                                    <br />
+                                    <li id="register" class="tab active">
+                                        <button type="button" class="button button-block" id="btn-login">  ورود</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-group">
+                                    @using (Html.BeginForm("Register", "Home", FormMethod.Post,
+            new { enctype = "multipart/form-data" }))
+                                    {
+
+                                        <div id="signup">
+                                            @*<h1>همین حالا در نیو بیدزعضو شوید</h1>*@
+                                            @*<form action="/" method="post">*@
+                                            <div class="top-row">
+                                                <div class="field-wrap">
+                                                    <!-- فیلد نام -->
+                                                    <input type="text" name="Fname" placeholder="نام">
+                                                </div>
+                                                <div class="field-wrap">
+                                                    <!--  فیلد نام خانوادگی -->
+                                                    <input type="text" name="Lname" placeholder="نام خانوادگی" required>
+                                                </div>
+                                            </div>
+                                            <!-- فیلد ایمیل -->
+                                            <div class="field-wrap">
+
+                                                <input type="email" name="Email" id="account_email" placeholder="ایمیل شما" required>
+                                            </div>
+                                            <div class="top-row">
+
+                                                <!--  فیلد رمز عبور -->
+                                                <div class="field-wrap">
+                                                    <!-- فیلد رمزعبور -->
+                                                    <input type="text" name="PassWord" id="account_password" placeholder="رمز عبور" onkeyup="runPassword(this.value, 'mypassword');" required>
+                                                </div>
+
+                                                <div class="field-wrap">
+                                                    <strong><span style="font-size: 10px;color:#ffffff;">Strength:</span></strong>
+                                                    <div id="mypassword_text" style="font-size: 10px;color:aliceblue"></div>
+                                                    <div id="mypassword_bar" style="font-size: 1px; height: 5px; width: 0px; border: 1px solid #ffffff;"> </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- فیلد تلفن-->
+                                            <div class="field-wrap">
+
+                                                <input type="text" name="Mobile" pattern="^[0][9][0-9][0-9]{8,8}$" placeholder="تلفن" required>
+
+                                            </div>
+                                            <!-- فیلد ادرس-->
+                                            <div class="field-wrap">
+
+                                                <textarea type="text" name="Address" placeholder="آدرس"></textarea>
+                                            </div>
+
+                                            <!--  کلید ثبت نام -->
+                                            <button type="submit" class="button button-block btnreg">ثبت نام</button>
+                                            @*</form>*@
+                                        </div>
+                                    }
+                                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div id="signIn" hidden>
+                                            <!--فیلد ورود-->
+                                            <div class="top-row">
+                                                <!-- فیلد شماره موبایل -->
+                                                <div class="field-wrap">
+                                                    <input type="text" pattern="^[0][9][0-9][0-9]{8,8}$" name="UserName" placeholder=" شماره موبایل (09121221222)  " required>
+                                                </div>
+                                                <div class="field-wrap">
+                                                    <!-- فیلد رمزعبور -->
+                                                    <input type="password" name="Password" placeholder="رمز عبور" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class=" button button-block">ورود</button>
+                                        </div>
+                                    }
+
+                                </div><!-- tab-content -->
+                            </div>
+                        </div> <!-- /form -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    @*</div>*@
 @section Scripts{
     <script src="~/Scripts/JScript/register.js"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <script>
 
-       
+
         $('#agree').click(function () {
             if ($('#agree').not(':checked')) {
                 outline_reset(null, "agree");
@@ -170,15 +168,15 @@ new { enctype = "multipart/form-data" }))
             $("#btn-reg").show();
 
         });
-        
-            $('#featured_carousel').orbit({
-                animationSpeed: 800,             // how fast animtions are
-                timer: true, 			 // true or false to have the timer
-                advanceSpeed: 4000, 		 // if timer is enabled, time between transitions
-                pauseOnHover: true, 		 // if you hover pauses the slider
-                startClockOnMouseOut: true, 	 // if clock should start on MouseOut
-                startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
-            });
-        
+
+        $('#featured_carousel').orbit({
+            animationSpeed: 800,             // how fast animtions are
+            timer: true, 			 // true or false to have the timer
+            advanceSpeed: 4000, 		 // if timer is enabled, time between transitions
+            pauseOnHover: true, 		 // if you hover pauses the slider
+            startClockOnMouseOut: true, 	 // if clock should start on MouseOut
+            startClockOnMouseOutAfter: 0 	 // how long after MouseOut should the timer start again
+        });
+
     </script>
-    }
+}

@@ -16,13 +16,13 @@
             <div class="tab-nav">
                 <div id="dashboard">
                     <ul class="panel-content">
-                        <li class="biddinghistory"><a href="">Bidding History</a></li>
+                        <li class="biddinghistory"><a href="">تاریخچه مزایده ها</a></li>
                         <li class="watchlist"><a href="">Watchlist</a></li>
                         <li class="bidomatichistory"><a href="">Bid-O-Matic History</a></li>
-                        <li class="wonauctions"><a href="">Won Auctions</a></li>
-                        <li class="bidcredithistory"><a href="">Bid Credit History</a></li>
-                        <li class="auctionlimits"><a href="">Auction Limits</a></li>
-                        <li class="orderhistory"><a href="">Order History</a></li>
+                        <li class="wonauctions"><a href="">مزایده های برنده شده</a></li>
+                        <li class="bidcredithistory"><a href="">تارخچه اعتبار پیشنهادات</a></li>
+                        <li class="auctionlimits"><a href="">محدودیت های مزایده ها</a></li>
+                        <li class="orderhistory"><a href="">تاریخچه سفارش ها</a></li>
 
                     </ul>
                 </div>
@@ -52,10 +52,10 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td class="watched-image">Product</td>
+                                        <td class="watched-image">محصول</td>
                                         <td class="watched-info">&nbsp;</td>
-                                        <td class="watched-price">Price</td>
-                                        <td class="watched-status">Status</td>
+                                        <td class="watched-price">مبلغ</td>
+                                        <td class="watched-status">موجودی</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,11 +63,13 @@
                                     <tr>
                                         <td colspan="4" class="watched-info">
                                             <center>
-                                                <p class="bold">You are not bidding on any items.
-                                                <p>
-                                                    To see auctions you were bidding on that have ended, go to
-                                                    <a href='/en/account/dashboard/bidding-history.php'>Bidding History</a>.
-                                                </p>
+                                                <p class="bold">
+                                                    شما در هیچ مزایده ای شرکت ندارید
+                                                    <p>
+                                                    برای دیدن مزایده هایی که در انها شرکت کرده اید و تمام شده اند , به
+                                                    <a href=''>تاریخچه مزایده ها</a>.
+                                                    </p>
+                                                    مراجعه کنید
                                                 </p>
                                             </center>
                                         </td>
@@ -102,49 +104,39 @@
                                 <p><a href="MyAvatar">(Change)</a></p>
                             </div>
                             <div class="content-right">
-                                <p class="bold">Last Login</p>
-                                @if (Model.LastLogin!=null)
+                                <p class="bold">اخریو ورود</p>
+                                @if (Model.LastLogin != null)
                                 {
-                                <p>@Model.LastLogin.Value.ToString("MMM dd, yyyy")</p>
+                                    <p>@Model.LastLogin.Value.ToString("MMM dd, yyyy")</p>
                                 }
 
                                 <hr>
-                                <p class="bold">Remaining Bids</p>
+                                <p class="bold">پیشنهاد های باقی مانده</p>
                                 <p><span>Real Bids <span class="right green">@Model.RealBid</span> </span></p>
                                 <p><span>Voucher Bids</span> <span class="right green">@Model.VoucherBid</span></p>
                                 <hr>
-                                <p><span>Total Bids</span> <span class="right green">@(Model.RealBid + Model.VoucherBid)</span> </p>
-
+                                <p><span>کل پیشنهاد ها</span> <span class="right green">@(Model.RealBid + Model.VoucherBid)</span> </p>
                                 <hr>
                             </div>
                         </div>
                     </div>
-                    <div class="module">
-                        <h3><img class="refer-icon" src="~/Content/img/contact-icon.png" /> Contact Support</h3>
-                        <div class="content">
 
+                    <div class="module" style="text-align: right;">
+                        <h3><img class="refer-icon" src="~/Content/img/Layout/contact-icon.png" /> تماس با پشتیبانی</h3>
+                        <div class="content">
                             <p>
-                                Got a question? We’ve got answers. For simple solutions, check out our easy-to-access
-                                <a href="/en/help/index.php">Help</a>
-                                section. For stickier situations, connect to
-                                <a href="/en/help/support.php">Live Chat</a> or submit a support request below.
+                                آیا سؤالی دارید؟ ما پاسخ ها را در اختیار داریم.برای راه حل های ساده، بخش  ،
+                                <a href="#">راهنمای</a>
+                                دسترسی آسان با ما را بررسی کنید. برای شرایط دشوار
+                                <a href="#">به چت زنده وصل شوید</a>
+                                یا درخواست پشتیبانی زیر را ارسال کنید.
                             </p>
-                            <p class="center"><a href="/en/help/support.php" class="buttons medium blue">Contact Support</a></p>
+                            <p class="center"><a href="#" class="buttons medium blue">تماس با پشتیبانی</a></p>
                         </div>
                     </div><!--module-->
-                </div><!--side-content-->
-
+               </div><!--side-content-->
             </div><!--content-->
-
-
         </div><!--container-->
-
-        <script>
-
-
-
-
-        </script>
 
 
     </div><!--wrapper-->

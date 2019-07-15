@@ -1125,7 +1125,7 @@ ul#mainnav {
 
 #container .module, #topnav .module, .special-case.module {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     float: right;
     background: url('../img/Layout/module-white.jpg') #fff left bottom repeat-x;
     border: solid 1px #bfbfbf;

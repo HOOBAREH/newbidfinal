@@ -44,8 +44,21 @@ function Class_Homepage() {
         this.removeFilter = function (ag) { U.setPage(1); $(af).find("*[value*='" + $(ag).attr("value") + "']").each(function () { $(this).remove() }); $(ac).find("*[value*='" + $(ag).attr("value") + "']").each(function () { $(this).removeAttr("checked") }); if (m.notUsingAjax()) { ab.delayCallbackLimited(callback) } else { ab.delayCallback(callback) } }; this.delayCallback = function (ag) { if (aa != null) { clearTimeout(aa) } aa = setTimeout(function () { ag() }, Y) }; this.delayCallbackLimited = function (ag) { if (aa != null) { clearTimeout(aa) } delayTimerLimited = Y; if (delayTimerLimited > 1000) { delayTimerLimited = 1000 } aa = setTimeout(function () { ag() }, delayTimerLimited) }; this.getValue = function (ag) { return this.serialize() }; this.setValue = function (ag) { if (typeof (val) != "undefined") { } return this }; this.unserialize = function (ak) { $(af).html(""); $(ac + " input").each(function () { $(this).attr("checked", false) }); if (typeof (ak) == "object") { for (var ah in ak.values) { var aj = "value_" + ak.values[ah]; var ai = this; $(ac + " input").each(function () { if ($(this).val() == aj) { $(this).attr("checked", true); ai.addFilter(this) } }) } for (var ah in ak.features) { var ag = "feature_" + ak.features[ah]; var ai = this; $(ac + " input").each(function () { if ($(this).val() == ag) { $(this).attr("checked", true); ai.addFilter(this) } }) } } }; this.serialize = function () { var ai = {}; var ah = []; var ag = []; $(ac + " input").each(function () { if ($(this).attr("checked") == "checked") { var al = $(this).val(); var ak = al.split("_"); var aj = ak.shift(); if (aj == "feature") { ah[ah.length] = ak.join("_") } else { if (aj == "value") { ag[ag.length] = ak.join("_") } } } }); ai.features = ah; ai.values = ag; return ai }; this.buildQuery = function () { var ah = ""; var ag = this.serialize(); if (ag.features.length) { ah = ah + "&features[]=" + ag.features.join(",") } if (ag.values.length) { ah = ah + "&values[]=" + ag.values.join(",") } return ah }
     };
     var E = function () {
-        var ab = this; var aa = null; var ae = null; var ad = null; var Z = "endingsoon"; var Y = null; this.initialize = function (af) {
-            ae = "#sort-panel"; ad = "#sort-title"; Y = "#sort-button"; $(Y).click(function () { if ($(this).hasClass("active")) { ab.hideMenu() } else { ab.showMenu() } return false }); $(ae).mouseleave(function () { $(this).hide("fade", "normal"); $(Y).removeClass("active") }); $(ae + " input").each(function () { var ag = this; $(ag).click(function () { ab.delayCallback(af); ac(); $(ae).hide() }) }); ac()
+        var ab = this;
+        var aa = null;
+        var ae = null;
+        var ad = null;
+        var Z = "endingsoon";
+        var Y = null;
+        this.initialize = function (af) {
+            ae = "#sort-panel";
+            ad = "#sort-title";
+            Y = "#sort-button";
+            $(Y).click(
+                function () {
+                if ($(this).hasClass("active")) { ab.hideMenu() } else { ab.showMenu() } return false
+                });
+            $(ae).mouseleave(function () { $(this).hide("fade", "normal"); $(Y).removeClass("active") }); $(ae + " input").each(function () { var ag = this; $(ag).click(function () { ab.delayCallback(af); ac(); $(ae).hide() }) }); ac()
         };
         var ac = function () {
             $(ae + " input").each(function () {
