@@ -1,4 +1,5 @@
-﻿using DataLayer.IRepository;
+﻿using App_QuiBids.Jobs;
+using DataLayer.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,7 @@ namespace App_QuiBids
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-
-
-
-
+            AuctionScheduler.Start();
         }
 
     }

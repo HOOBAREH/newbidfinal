@@ -175,13 +175,13 @@
                             @if (item.IsClose)
                             {
                                 <p class="p">
-                                    <img class="buttons bid medium btnAuction" onclick="BtnClick(@item.Id)" src="~/Content/img/Sold.png" />
+                                    <img class="buttons bid btn-@item.Id medium btnAuction" onclick="BtnClick(@item.Id)" src="~/Content/img/Sold.png" />
                                 </p>
                             }
                             else
                             {
                                 <p class="p">
-                                    <img class="buttons bid medium btnAuction" onclick="BtnClick(@item.Id)" id="btn-bid" src="~/Content/img/Pishnehad.png" />
+                                    <img class="buttons  bid btn-@item.Id medium btnAuction" onclick="BtnClick(@item.Id)" id="btn-bid" src="~/Content/img/Pishnehad.png" />
                                 </p>
                             }
 
@@ -265,7 +265,7 @@
         function BtnClick(id) {
             //ajax for test start status
             var startStatus = $(".Status-" + id).attr('data-status');
-                if (startStatus == 'True') {
+                if (startStatus == 'true') {
                     $.ajax({
                         type: "POST",
                         url: "/auction/ParticipateInAuctions/",
@@ -288,6 +288,11 @@
                                 $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
                                 return false;
                             }
+                            if (result == "Finished") {
+                                $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">زمان مزایده به پایان رسیده است.</span></div>');
+                                $("#popupModal").dialog({ modal: true, title: "d", width: 600, height: 210, resizable: false });
+                                return false;
+                            }
                             else {
                                 $('.Reserve-Price').html('');
                                 $('.Reserve-Price').html(result.price);
@@ -296,7 +301,7 @@
                         },
                         error: function (list) {
                             $("#popupModal").html('<div id="catalog_details" Style="text-align: center;font-size:20px;"><span class="loading">Error.</span></div>');
-                            $("#popupModal").dialog({ modal: true, title: "d", zIndex: 9999, width: 600, height: 210, resizable: false });
+                            $("#popupModal").dialog({ modal: true, title: "Error", zIndex: 9999, width: 600, height: 210, resizable: false });
                         }
                     });
                 }
@@ -305,17 +310,7 @@
         window.onload = function () {
             var everyChild = document.getElementById("spots").querySelectorAll("#time");
 
-            //for (var i = 0; i < everyChild.length; i++) {
-            //    const time = everyChild[i].innerText;
-
-            //    //var fiveMinutes = 60 * 5,
-            //    var display = everyChild[i];
-            //    var isClose = $(display).siblings(".isClose");
-            //    if (isClose.attr('data-Close') == "True") {
-            //        $(display).parent().find("h2").removeClass('black').addClass('red');
-            //        continue;
-            //    }
-            //}
+          
             startTimer();
         };
 
@@ -341,6 +336,9 @@
                         $("#time-" + auction.Id).html(time);
                         $("#time-" + auction.Id).addClass(auction.Color);
                         $(".Status-" + auction.Id).attr('data-status', auction.Status);
+                        if (auction.Status == true) {
+                            $(".btn-" + auction.Id).prop("disabled", true);
+                        }
                     });
 
                     //tbody.html("");

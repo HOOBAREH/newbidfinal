@@ -258,3 +258,12 @@ D:\NewBids\App_QuiBids\bin\System.Web.Razor.xml
 D:\NewBids\App_QuiBids\bin\System.Web.WebPages.xml
 D:\NewBids\App_QuiBids\bin\System.Web.WebPages.Deployment.xml
 D:\NewBids\App_QuiBids\bin\System.Web.WebPages.Razor.xml
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Quartz.dll
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Quartz.pdb
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Quartz.xml
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.Core.dll
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.dll
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.pdb
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.xml
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.Core.pdb
+D:\Projects\newbidfinal-master\App_QuiBids\bin\Common.Logging.Core.xml

@@ -149,6 +149,9 @@ namespace App_QuiBids.Controllers
 
                     }
                 }
+                return Json(
+                             "Finished"
+                        );
             }
             return Json("NoBid"
             );

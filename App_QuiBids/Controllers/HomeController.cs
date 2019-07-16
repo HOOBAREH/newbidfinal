@@ -196,84 +196,102 @@ namespace App_QuiBids.Controllers
                 return Json("fail");
             }
         }
-        [HttpPost]
 
         public ActionResult UpdateTimer()
         {
             var auctions = _auctionRepo.GetAuctions().Where(x => !x.IsClose);
-            List<IndexAuction> list = new List<IndexAuction>();
-            List<string> listStr = new List<string>();
-            foreach (var item in auctions)
+            var model = auctions.Select(x => new IndexAuction
             {
-                var auction = item;
-                bool result = false, startStatus = auction.StartStatus, isclose = auction.IsClose;
-                TimeSpan timer = new TimeSpan();
-                TimeSpan time = new TimeSpan();
-                string colorStatus = "Black";
-                //from database
-                //Int64 truncated1 = auction.Auction_Time.Ticks;
-                //Int64 adjusted = truncated1 << 24;
-                //TimeSpan actual = TimeSpan.FromTicks(adjusted);
-
-                var status = auction.Auction_Time.CompareTo(new TimeSpan(0, 0, 0));
-                timer = auction.Auction_Time;
-                if (!auction.IsClose)
-                {
-                    if (timer.CompareTo(new TimeSpan(0, 0, 0)) == 0)
-                    {
-                        time = timer;
-                    }
-                    else
-                    {
-                        time = timer.Subtract(TimeSpan.FromSeconds(1));
-                    }
-                    if (time.CompareTo(new TimeSpan(0, 0, 0)) == 0)//if time==0
-                    {
-                        if (!auction.StartStatus)
-                        {
-                            startStatus = true;
-                            time = TimeSpan.FromSeconds(auction.Close_Time);
-                        }
-                        else
-                        {
-                            isclose = true;
-                        }
-                    }
-
-                    auction = _auctionRepo.UpdateTimer2(auction.Id, time, startStatus, isclose);
-
-                }
-                colorStatus = startStatus == true ? "Red" : "Black";
-                var model = new IndexAuction
-                {
-                    Auction_Time = auction.Auction_Time.ToString(),
-                    Color = colorStatus,
-                    Id = auction.Id,
-                    Status = auction.StartStatus
-
-                };
-                list.Add(model);
-            }
-            var r = JsonConvert.SerializeObject(list);
-            listStr.Add(new JavaScriptSerializer().Serialize(r));
-
+                Auction_Time = x.Auction_Time.ToString(),
+                Color = x.StartStatus ? "red" : "black",
+                Id = x.Id,
+                Status = x.StartStatus
+            }).ToList();
             return Json(new
             {
-                result = list
+                result = model
             }, JsonRequestBehavior.AllowGet);
-
-            //var res = false;
-            //if (res)
-            //{
-            //    return Json(new
-            //    {
-            //        result = true
-            //    });
-            //}
-            //else
-            //return PartialView("_ListAuction", list);
         }
-        [Authorize]
+
+
+        //  [HttpPost]
+
+        //public ActionResult UpdateTimer()
+        //{
+        //    var auctions = _auctionRepo.GetAuctions().Where(x => !x.IsClose);
+        //    List<IndexAuction> list = new List<IndexAuction>();
+        //    List<string> listStr = new List<string>();
+        //    foreach (var item in auctions)
+        //    {
+        //        var auction = item;
+        //        bool result = false, startStatus = auction.StartStatus, isclose = auction.IsClose;
+        //        TimeSpan timer = new TimeSpan();
+        //        TimeSpan time = new TimeSpan();
+        //        string colorStatus = "Black";
+        //        //from database
+        //        //Int64 truncated1 = auction.Auction_Time.Ticks;
+        //        //Int64 adjusted = truncated1 << 24;
+        //        //TimeSpan actual = TimeSpan.FromTicks(adjusted);
+
+        //        var status = auction.Auction_Time.CompareTo(new TimeSpan(0, 0, 0));
+        //        timer = auction.Auction_Time;
+        //        if (!auction.IsClose)
+        //        {
+        //            if (timer.CompareTo(new TimeSpan(0, 0, 0)) == 0)
+        //            {
+        //                time = timer;
+        //            }
+        //            else
+        //            {
+        //                time = timer.Subtract(TimeSpan.FromSeconds(1));
+        //            }
+        //            if (time.CompareTo(new TimeSpan(0, 0, 0)) == 0)//if time==0
+        //            {
+        //                if (!auction.StartStatus)
+        //                {
+        //                    startStatus = true;
+        //                    time = TimeSpan.FromSeconds(auction.Close_Time);
+        //                }
+        //                else
+        //                {
+        //                    isclose = true;
+        //                }
+        //            }
+
+        //            auction = _auctionRepo.UpdateTimer2(auction.Id, time, startStatus, isclose);
+
+        //        }
+        //        colorStatus = startStatus == true ? "Red" : "Black";
+        //        var model = new IndexAuction
+        //        {
+        //            Auction_Time = auction.Auction_Time.ToString(),
+        //            Color = colorStatus,
+        //            Id = auction.Id,
+        //            Status = auction.StartStatus
+
+        //        };
+        //        list.Add(model);
+        //    }
+        //    var r = JsonConvert.SerializeObject(list);
+        //    listStr.Add(new JavaScriptSerializer().Serialize(r));
+
+        //    return Json(new
+        //    {
+        //        result = list
+        //    }, JsonRequestBehavior.AllowGet);
+
+        //    //var res = false;
+        //    //if (res)
+        //    //{
+        //    //    return Json(new
+        //    //    {
+        //    //        result = true
+        //    //    });
+        //    //}
+        //    //else
+        //    //return PartialView("_ListAuction", list);
+        //}
+
 
         public ActionResult UpdateIsclose(int id)
         {
@@ -369,7 +387,7 @@ namespace App_QuiBids.Controllers
                 var result = _logRepo.CheckParticipation(int.Parse(User.Identity.Name));
                 return Json(new
                 {
-                   result
+                    result
                 }, JsonRequestBehavior.AllowGet);
             }
             return Json(false);
