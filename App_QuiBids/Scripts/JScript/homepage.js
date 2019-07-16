@@ -58,7 +58,11 @@ function Class_Homepage() {
                 function () {
                 if ($(this).hasClass("active")) { ab.hideMenu() } else { ab.showMenu() } return false
                 });
-            $(ae).mouseleave(function () { $(this).hide("fade", "normal"); $(Y).removeClass("active") }); $(ae + " input").each(function () { var ag = this; $(ag).click(function () { ab.delayCallback(af); ac(); $(ae).hide() }) }); ac()
+            $(ae).mouseleave(
+                function () {
+                    $(this).hide("fade", "normal");
+                    $(Y).removeClass("active")
+                }); $(ae + " input").each(function () { var ag = this; $(ag).click(function () { ab.delayCallback(af); ac(); $(ae).hide() }) }); ac()
         };
         var ac = function () {
             $(ae + " input").each(function () {

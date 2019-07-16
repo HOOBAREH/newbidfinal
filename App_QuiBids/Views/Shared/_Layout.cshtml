@@ -242,20 +242,10 @@
 
                             </ul>
                         }
-
-
-                    <!--cart-panel-->
-                    <!--cart-panel-->
-
                 </div>
-
                 <!--login-->
-
-
             </div>
             <!--wrapper-->
-
-
         </div><!--topbar-->
         <div class="wrapper">
             <header>
@@ -263,8 +253,6 @@
                     <h1><a href="/Home/Index">NewBids</a></h1>
                 </div>
                 <!--logo-->
-
-
             </header>
             <!--header--><!--منوی تیتر صفحه-->
             <div id='nav'>
@@ -293,10 +281,6 @@
                         <li> <a href="/Home/register">عضویت</a> </li>
                     }
                 </ul>
-
-
-
-
 
                 <div id="browse-menu">
                     <div class="browse-links">
@@ -572,35 +556,30 @@
             <!--منوی تیتر صفحه-->
 
             <div class="search-auctions-large" style="z-index:20">
-                <form id='qbSearchForm' action="/en/">
+                <form id='qbSearchForm' action="">
                     <div id="search-options">
-                        <div class="text" id="search_category_title">تمام فعالیت ها</div>
-                        <ul class="options" id="search_category_options">
-                            <li id="search_cat" url='/en/browse/'>تمام محصولات</li>
-                            <li id="search_cat" url='/browse-2352-electronics/'>الکترونیکی ها</li>
-                            <li id="search_cat" url='/browse-4087-home-and-garden/'>خانه و باغچه</li>
-                            <li id="search_cat" url='/browse-8932-jewelry-and-fashion/'>مد و جواهرات</li>
-                            <li id="search_cat" url='/browse-5492-sports-and-recreation/'>ورزش و سرگرمی</li>
-                            <li id="search_cat" url='/browse-9886-specialty-shops/'>کالا های ویژه</li>
-                            <li id="search_cat" url='/browse-17-gift-cards/'>کارت های هدیه</li>
-                            <li id="search_cat" url='/en/'>تمام فعالیت ها</li>
+                        <div class="text" id="search_category_title" onclick="ShowSerch()">تمام فعالیت ها</div>
+                        <ul class="options" id="search_category_options" style="display:none;">
+                            <li id="search_cat" url=''>تمام محصولات</li>
+                            <li id="search_cat" url=''>الکترونیکی ها</li>
+                            <li id="search_cat" url=''>خانه و باغچه</li>
+                            <li id="search_cat" url=''>مد و جواهرات</li>
+                            <li id="search_cat" url=''>ورزش و سرگرمی</li>
+                            <li id="search_cat" url=''>کالا های ویژه</li>
+                            <li id="search_cat" url=''>کارت های هدیه</li>
+                            <li id="search_cat" url=''>تمام فعالیت ها</li>
                             <li id="search_cat" url=''>راهنما</li>
                         </ul>
                     </div>
                     <input type="text" id='qbSearch' name="q"
                            placeholder="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..."
                            class="txt defaultText  defaultTextActive" value="فعالیت ها . محصولات و موارد دیگرا را اینجا جست و جو کنید ..." style="width:785px;">
-
                     <input id='qbSearchButton' type="button"
                            value="Go"
                            class="buttons medium green" />
                 </form>
-
-
             </div>
             <!--search-auctions-->
-
-
             <div id="auctions">
 
 
@@ -610,11 +589,7 @@
 
 
             </div>
-
-
             @*<iframe style="display:none" width="1" height="1" src="/marketing/pixels/homepage.php"></iframe>*@
-
-
             <footer>
                 <div id="footer-right">
 
@@ -1101,6 +1076,15 @@
                 }
             });
         }
+
+
+        function ShowSerch() {
+            $('#search_category_options').css("display", "block");
+        };
+        $('#search_category_options').mouseleave(function () {
+            $('#search_category_options').css("display", "none");
+        });
+
 
     </script>
 
